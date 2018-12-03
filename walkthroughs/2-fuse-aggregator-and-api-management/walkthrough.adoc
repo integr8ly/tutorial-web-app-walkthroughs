@@ -30,7 +30,7 @@ It is possible to protect and limit access to an API using {api-mgmt-service} as
 
 This walkthrough describes how to create such an integration, using OpenShift, {launcher-service}, {che-service} and {api-mgmt-service}.
 
-image::images/arch.png[integration, role="img-responsive"]
+image::images/arch.png[integration, role="integr8ly-img-responsive"]
 
 [type=walkthroughResource,serviceName=openshift]
 === Red Hat OpenShift
