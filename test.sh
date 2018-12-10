@@ -30,7 +30,6 @@ for WALKTHROUGH_DIR in $WAKLTHROUGHS_DIRS; do
     fi
     echo "Validate $ADOC_FILE"
     iad -f $ADOC_FILE
-    echo $?
 
     # json
     JSON_FILE="${WALKTHROUGH_DIR}walkthrough.json"
@@ -39,4 +38,6 @@ for WALKTHROUGH_DIR in $WAKLTHROUGHS_DIRS; do
         echo "$JSON_FILE not found"
         exit 1
     fi
+    echo "Validate $JSON_FILE"
+    ajv validate -s walkthrough-schema.json -d $JSON_FILE
 done
