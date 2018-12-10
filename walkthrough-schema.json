@@ -83,6 +83,13 @@
                       "default"
                     ],
                     "pattern": "^(.*)$"
+                  },
+                  "parameters": {
+                    "$id": "#/properties/dependencies/properties/serviceInstances/items/properties/spec/properties/parameters",
+                    "type": "object",
+                    "title": "The Parameters Schema",
+                    "required": [
+                    ]
                   }
                 }
               }
