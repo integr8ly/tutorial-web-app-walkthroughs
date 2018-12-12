@@ -1,0 +1,102 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "dependencies"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "dependencies": {
+      "$id": "#/properties/dependencies",
+      "type": "object",
+      "title": "The Dependencies Schema",
+      "required": [
+        "repos",
+        "serviceInstances"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "repos": {
+          "$id": "#/properties/dependencies/properties/repos",
+          "type": "array",
+          "title": "The Repos Schema"
+        },
+        "serviceInstances": {
+          "$id": "#/properties/dependencies/properties/serviceInstances",
+          "type": "array",
+          "title": "The Serviceinstances Schema",
+          "items": {
+            "$id": "#/properties/dependencies/properties/serviceInstances/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "metadata": {
+                "$id": "#/properties/dependencies/properties/serviceInstances/items/properties/metadata",
+                "type": "object",
+                "title": "The Metadata Schema",
+                "required": [
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "name": {
+                    "$id": "#/properties/dependencies/properties/serviceInstances/items/properties/metadata/properties/name",
+                    "type": "string",
+                    "title": "The Name Schema",
+                    "default": "",
+                    "examples": [
+                      "spring-boot-rest-http-crud"
+                    ],
+                    "pattern": "^(.*)$"
+                  }
+                }
+              },
+              "spec": {
+                "$id": "#/properties/dependencies/properties/serviceInstances/items/properties/spec",
+                "type": "object",
+                "title": "The Spec Schema",
+                "required": [
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "clusterServiceClassExternalName": {
+                    "$id": "#/properties/dependencies/properties/serviceInstances/items/properties/spec/properties/clusterServiceClassExternalName",
+                    "type": "string",
+                    "title": "The Clusterserviceclassexternalname Schema",
+                    "default": "",
+                    "examples": [
+                      "spring-boot-rest-http-crud"
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "clusterServicePlanExternalName": {
+                    "$id": "#/properties/dependencies/properties/serviceInstances/items/properties/spec/properties/clusterServicePlanExternalName",
+                    "type": "string",
+                    "title": "The Clusterserviceplanexternalname Schema",
+                    "default": "",
+                    "examples": [
+                      "default"
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "parameters": {
+                    "$id": "#/properties/dependencies/properties/serviceInstances/items/properties/spec/properties/parameters",
+                    "type": "object",
+                    "title": "The Parameters Schema",
+                    "required": [
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
