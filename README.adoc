@@ -1,0 +1,19 @@
+= Integreatly walkthroughs
+
+This repository contains the walkthroughs automatically included with the [Tutorial Web App](https://github.com/integr8ly/tutorial-web-app). They are curated by the Integr8ly team.
+
+= Testing walkthroughs
+
+Before submitting a PR, make sure your walkthrough passes testing.
+
+. Install testing packages
++
+----
+$ npm install
+----
+
+. Run tests
++
+----
+$ npm test
+----
