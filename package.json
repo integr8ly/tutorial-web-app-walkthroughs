@@ -16,6 +16,8 @@
     "url": "https://github.com/integr8ly/tutorial-web-app-walkthroughs/issues"
   },
   "homepage": "https://github.com/integr8ly/tutorial-web-app-walkthroughs#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "integreatly-asciidoc": "0.0.2"
+  },
   "dependencies": {}
 }
