@@ -40,21 +40,23 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 // end::master-1[]
 
 
-[type=walkthroughResource]
-=== Fuse Online
-
+[type=walkthroughResource,serviceName=fuse]
+.Fuse Online
+****
 * link:{fuse-url}[Console]
+****
 
-[type=walkthroughResource]
-=== AMQ
-
+[type=walkthroughResource,serviceName=amq-broker-71-persistence]
+.AMQ
+****
 * link:{amq-url}[Management Console]
+****
 
-[type=walkthroughResource]
-=== Red Hat OpenShift
-
+[type=walkthroughResource,serviceName=openshift]
+.Red Hat OpenShift
+****
 * link:{openshift-host}/console[Console]
-
+****
 
 :sectnums:
 [time=5]
