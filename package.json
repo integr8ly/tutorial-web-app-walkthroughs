@@ -4,7 +4,7 @@
   "description": "Core walkthroughs for the tutorial-web-app",
   "main": "index.js",
   "scripts": {
-    "test": "iad -d ./walkthroughs"
+    "test": "iad -W error -d ./walkthroughs"
   },
   "repository": {
     "type": "git",
