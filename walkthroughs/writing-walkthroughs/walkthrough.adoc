@@ -1,0 +1,412 @@
+= Writing Walkthroughs
+
+An introduction to getting started with Walkthrough development.
+
+The Integreatly webapp allows you publish your own walkthroughs to a cluster using:
+
+* Asciidoc - a simple mark up language, similar to markdown
+* git repo - push your asciidoc file to a git repo
+* deploy web app - use openshift to redeploy your web app and view the new walkthrough
+
+The simplest walkthrough file might look like:
+
+----
+= Demonstrating a custom walkthrough <1>
+
+A short description for the walkthrough. <2>
+
+== Doing a task <3>
+
+=== Doing a step <4>
+
+. Do this first: <5>
+. Do this second: <5>
+----
+
+<1> Walkthrough title, you can only have one level 1 heading per file
+<2> The first line of the introduction is displayed as a tag line for the walkthrough.
+<3> A task contains one or more steps (level 3 headings)
+<4> Steps are displayed together on the {task} page
+<5> Procedures are numbered lists, one per step.
+
+Each of the tasks below demonstrates the features and constraints of the walkthrough file format.
+
+[type=walkthroughResource,serviceName=openshift]
+.Openshift
+****
+* link:{openshift-host}/console[Open Console]
+* link:https://help.openshift.com/[Openshift Online Help Center]
+* link:https://blog.openshift.com/[Openshift Blog]
+****
+
+[type=walkthroughResource]
+.Asciidoc
+****
+* link:http://asciidoc.org/[Asciidoc Homepage]
+* link:http://asciidoc.org/userguide.html#_introduction[User Guide]
+****
+
+[time=10]
+== Getting started
+
+To get started with Walkthrough development you can either start from scratch or clone the template repository.
+
+=== Cloning the template repository
+
+You can use our template repository as a starting point. It contains the directory structure along with a sample walkthrough and manifest file.
+
+. Clone the template repository
+
+[source,bash]
+----
+git clone https://github.com/integr8ly/walkthrough-template.git
+----
+
+[type=verification]
+After cloning the repository you should have a directory named *walkthrough-template* on your system containing a *walkthroughs* directory.
+
+[type=verificationFail]
+Make sure that *git* is installed on your system.
+
+=== Starting from scratch
+
+If you prefer to set things up manually then you need to create the required file structure. Create a directory for your walkthroughs and inside that, create a subdirectory named *walkthroughs*. Every walkthrough goes into it's own directory under *walkthroughs*.
+
+The directory name of a walkthrough is also displayed in the URL when you open it. For every walkthrough add two files:
+
+* *walkthrough.adoc* is where the content of the walkthrough is located
+* *walkthrough.json* is the manifest file of the walkthrough where you can define extra dependencies
+
+We don't have any dependencies yet so put this in your *walkthrough.json*:
+
+[source,json]
+----
+{
+  "dependencies": {
+    "repos": [],
+    "serviceInstances": []
+  }
+}
+----
+
+=== Pushing the repository
+
+Finally, the repository needs to be pushed to Github.
+
+. Create a new remote repository and take note of the remote URL
+
+. Add the remote to your local clone
+
+[source,bash]
+----
+git remote add upstream <remote URL>
+----
+
+. Push your copy
+
+[source,bash]
+----
+git push -u upstream master
+----
+
+[type=verification]
+You should now have a remote copy of the repository under your Github account.
+
+[type=verificationFail]
+If you created the template from scratch instead of cloning you need to init and commit the changes first.
+
+[time=5]
+== Adding a Preamble
+
+The Preamble describes your Walkthrough. When a user opens it they will first see an overview page with the content of your preamble.
+
+The preamble has to be the first section in your Walkthrough.
+
+* The preamble is introduced using a first level heading (`=`)
+* The title of the preamble becomes the name of your Walkthrough
+* The preamble must be followed by a paragraph giving a short introductino to the Walkthrough in one or two sentences. This description will be displayed in the card on the Overview page of the Webapp.
+
+You should also add a second paragraph to the preamble which will be displayed when a users clicks on the card. The second paragraph can have more content than the first one.
+
+=== Adding a Preamble to the template
+
+Now we're going to work on the cloned walkthrough template.
+
+. Open `walkthroughs/walkthrough.adoc`
+
+. Change the title of the Walkthrough to
++
+----
+My first Walkthtough
+----
+
+. Add an introduction paragraph to your preamble
+
+. Add another paragraph with more information about the walkthrough. Since this is a demo walkthrough you can put anything you like into those paragraphs.
+
+. Commit your changes
++
+----
+git commit -am "add preamble"
+----
+
+. Push your change to the repository
++
+----
+git push upstream master
+----
+
+[type=verification]
+Make sure that all your changes are in the remote repository.
+
+[type=verificationFail]
+Check your git credentials and that you pushed to the right remote.
+
+
+[time=5]
+== Adding tasks
+
+Walkthroughs are organized in tasks. A task becomes one single page in the Webapp. Tasks should separate the contextual blocks of your Walkthrough, e.g. if the user needs to switch to working with a different middleware service then it could become a new task.
+
+Tasks are introduced by a second level heading (`==`).
+
+=== Adding a task to the template
+
+. The template already contains a sample task. Change the name of it to *My first Task*
+
+. The heading of a task should be followed by a short introduction of what the user is about to learn. Add a paragraph with some content.
+
+. Tasks must have a time associated with them. This lets the user know how long the task will approximately take and is also displayed in the Walkthrough overview.
+
+. The template task already has a block attribute for the time. The syntax is always:
++
+----
+[time=<value>]
+----
+
+. Save, commit and push your changes.
+
+. We need to trigger a redeploy of the Webapp to see our changes. To do this, open the link:{openshift-host}[Openshift Console] and find the *tutorial-web-app* deployment.
+
+. Click the *Redeploy* button.
+
+[type=verification]
+After the redeploy has finished, refresh the tab with your Walkthrough. You should see the updated content.
+
+[type=verificationFail]
+Check that the Webapp has finished redeployment and no errors occurred.
+
+[time=5]
+== Adding procedures
+
+Tasks are divided into procedures. A procedure is a set of steps that need to be executed one after the other to achieve a goal. Procedures are introduced using a third level heading (`===`). You can add a paragraph describing the procedure the user is about to follow.
+
+The steps in a procedure should be written using Asciidoc numbered lists. Prepend your step with a `. ` to add them to a numbered list.
+
+=== Adding a sample procedure
+
+. The sample Walkthrough already has a procedure. Change it's name to *My first Procedure*.
+
+. Add a paragraph with a sentence describing your Procedure.
+
+. Add a numbered list:
++
+----
+. First step
+. Second step
+. Third step
+----
+
+. Save, commit and push your changes.
+
+. Trigger a redeploy of the Webapp as we did in the previous task.
+
+[type=verification]
+Check that your Task has a number of steps.
+
+[type=verificationFail]
+Check that the Webapp has finished redeployment and no errors occurred.
+
+[time=5]
+== Adding walkthrough resources
+
+When users are following a Walkthrough you can display helpful information and links on the right hand side panel of the Webapp. Resources are added using block attributes:
+
+[source,asciidoc]
+----
+[type=walkthroughResource,serviceName=openshift]
+.OpenShift
+****
+* link:{openshift-host}[Openshift Console]
+****
+----
+
+Setting `serviceName` is optional. If set to the name of a middleware service, an icon indicating the service status will be displayed next to the resource. For a list of default services, see link:https://github.com/integr8ly/tutorial-web-app/blob/master/src/common/serviceInstanceHelpers.js[the value for DEFAULT_SERVICES].
+
+Walkthrough resources must only be defined in the preamble section.
+
+
+=== Adding a Walkthrough resource to the template
+
+. At the end of the preamble section add the following resource:
++
+----
+[type=walkthroughResource]
+.My resource
+****
+* link:https://google.com[Helpful link]
+****
+----
+
+. Save, commit and push your changes. Then trigger a redeployment of the Webapp like in the previous task.
+
+[type=verification]
+Check that the resource appears on the right hand side of the Walkthrough overview as well as on the task page.
+
+[type=verificationFail]
+Make sure that you added the resource to the preamble section and that it uses a third level heading.
+
+[time=5]
+== Adding images
+
+You can add images to any section of your walkthrough. Images should be placed in a subdirectory with the name *images*.
+
+Add an image to your content using: `image::<path>[<alt text>, role="integr8ly-img-responsive"]`
+
+* `<alt text>` is a text alternative that will be displayed when the image can't be rendered
+* `role="integr8ly-img-responsive"` this should be used for all images as it ensures that the correct styles are applied the the image
+
+=== Adding an image to the template
+
+. Create the *images* subdirectory inside your Walkthrough directory
+
+. Copy a .png or .jpg image into that directory
+
+. Add the image to the preamble:
++
+----
+image::images/<name>[diagram, role="integr8ly-img-responsive"]
+----
+
+. Save, commit and push your changes. Then trigger a redeployment of the Webapp like in the previous task.
+
+[type=verification]
+Check that the image is displayed in the Walkthrough overview.
+
+[type=verificationFail]
+Check that the Webapp has finished redeployment and no errors occurred.
+
+[time=5]
+== Adding task resources
+
+Task resources, like walkthrough resources, are used to display helpful information to the user on the right hand side of the Webapp. The difference is that, while Walkthrough resources are displayed on every task, task resources only appear in the task they were defined in.
+
+They are added to task sections but don't have the `serviceName` attribute:
+
+[source,asciidoc]
+----
+[type=taskResource]
+.Useful links
+****
+* link:{openshift-host}[Openshift Console]
+****
+----
+
+=== Adding a task resource to the template
+
+. At the end of your Task section, add the following:
++
+----
+[type=taskResource]
+.Useful links
+****
+* link:https://google.com[Task related link]
+****
+----
+
+. Save, commit and push your changes. Then trigger a redeployment of the Webapp like in the previous task.
+
+[type=verification]
+Check that the task resource appears on your task, but not on the overview page.
+
+[type=verificationFail]
+Check that the Webapp has finished redeployment and no errors occurred.
+
+[time=10]
+== Adding verifications
+
+Every Procedure in a Task should have a verification. Verifications are used to make sure that the steps taken by the user were successful. They should be formulated as questions and the user can answer them with `Yes` or `No`.
+
+As with resources, block attributes are used to define verifications
+
+=== Adding a verification to our task
+
+. At the end of the Procedure section, right after the numbered list add:
++
+[source,asciidoc]
+----
+[type=verification]
+Check that the dashboard of service X reports no errors.
+----
+
+. To provide a better feedback to users when something didn't go as planned you should use *verificationFail* blocks. They allow you to display text that will be displayed when the users answers the verification with `No`:
+
+. After the verification block add:
++
+[source,asciidoc]
+----
+[type=verificationFail]
+Try turning it off and on again.
+----
+
+. Save, commit and push your changes. Then trigger a redeployment of the Webapp like in the previous task.
+
+[type=verification]
+Check that the verification appears on the task. Check that you can click the *Next* button when answered *Yes* and that the fail text appears when answering *No*.
+
+[type=verificationFail]
+Check that the verification has been added after the Procedure section. It will be ignored in any other location.
+
+[time=5]
+== Using attributes
+
+Attributes are used to make external variables accessible to the asciidoc. The syntax for using attributes is `{ <attribute name> }`. Walkthroughs have access to a number of predefined attributes:
+
+* If a middleware service defines a route you can access it via `route-<service name>-host`.
+
+* The Openshift Console is available as `{ openshift-host }`.
+
+Other attributes that are available to Walkthrough authors are:
+
+* Default attributes:
+** OpenShift App Host: `{openshift-app-host}`
+** Che URL: `{che-url}`.
+** Fuse URL: `{fuse-url}`
+** Launcher URL: `{launcher-url}`
+** API Management URL: `{api-management-url}`
+** AMQ URL: `{amq-url}`
+** AMQ Broker URL: `{amq-broker-tcp-url}`
+** AMQ Credential Username: `{amq-credentials-username}`
+** AMQ Credential Password: `{amq-credentials-password}`
+** EnMasse URL: `{enmasse-url}`
+** EnMasse Broker URL: `{enmasse-broker-url}`
+** EnMasse Credential Username: `{enmasse-credentials-username}`
+** EnMasse Credential Password: `{enmasse-credentials-password}`
+* Custom attributes:
+** NodeJS Frontend App Route (provisioned from walkthrough.json): `{route-frontend-host}`
+
+=== Adding a link to the Openshift Console
+
+. Add another step to the numbered list in your Procedure:
++
+----
+. Click on link:\{ openshift-url }[Openshift Dashboard]
+----
+
+. Save, commit and push your changes. Then trigger a redeployment of the Webapp like in the previous task.
+
+[type=verification]
+Check that the step is displayed as a link to the Openshift Console.
+
+[type=verificationFail]
+Check that the correct attribute has been used.
