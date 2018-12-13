@@ -40,21 +40,23 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 // end::master-1[]
 
 
-[type=walkthroughResource]
-=== Fuse Online
-
+[type=walkthroughResource,serviceName=fuse]
+.Fuse Online
+****
 * link:{fuse-url}[Console]
+****
 
-[type=walkthroughResource]
-=== AMQ
-
+[type=walkthroughResource,serviceName=amq-broker-71-persistence]
+.AMQ
+****
 * link:{amq-url}[Management Console]
+****
 
-[type=walkthroughResource]
-=== Red Hat OpenShift
-
+[type=walkthroughResource,serviceName=openshift]
+.Red Hat OpenShift
+****
 * link:{openshift-host}/console[Console]
-
+****
 
 :sectnums:
 [time=5]
@@ -221,12 +223,12 @@ Verify that you followed each step in the procedure above.  If you are still hav
 // end::creating-http-connection[]
 
 [type=taskResource]
-=== Task Resources
-
+.Task Resources
+****
 * link:https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/html/integrating_applications_with_fuse_online/high-level-overview[High level overview of Fuse Online]
 * link:https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/html/integrating_applications_with_fuse_online/connecting-to-applications#about-creating-connections[About creating connections from Fuse Online to applications]
 * link:https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/html-single/connecting_fuse_online_to_applications_and_services/#supported-connectors[Connectors that are supported by Fuse Online]
-
+****
 
 [time=5]
 [id='creating-an-integration']
@@ -304,10 +306,10 @@ Verify that you followed each step in the procedure above.  If you are still hav
 // end::task-creating-fuse-integration[]
 
 [type=taskResource]
-=== Task Resources
-
+.Task Resources
+****
 * https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/html/integrating_applications_with_fuse_online/creating-integrations[Creating integrations]
-
+****
 
 
 [time=5]
@@ -360,8 +362,8 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 
 [type=taskResource]
-=== Task Resources
-
+.Task Resources
+****
 * link:https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/html/integrating_applications_with_fuse_online/managing-integrations[Managing and monitoring integrations]
 * link:https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/[Fuse documentation set]
-
+****
