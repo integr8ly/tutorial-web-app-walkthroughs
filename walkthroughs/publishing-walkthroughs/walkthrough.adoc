@@ -1,7 +1,8 @@
-:linkGettingStarted: TODO
-:linkTroubleshooting: TODO
+:linkGettingStarted: https://docs.google.com/document/d/1lSb481fCiec0aTlJAw8cRLn_AiQjNgbCZsqq6wWfdWE/edit
+:linkTroubleshooting: https://github.com/integr8ly/example-customisations/blob/master/docs/troubleshooting.adoc
 :linkGitHubFork: https://help.github.com/articles/fork-a-repo/
-:linkIndexURL: TODO
+:linkIndexURL: https://github.com/integr8ly/example-customisations/index.adoc
+
 
 = Publishing Walkthroughs to a cluster
 
@@ -87,7 +88,7 @@ Editing the value triggers an automatic redeployment of the Webapp.
 You should now see new walkthroughs available from the dashboard.
 
 [type=verification]
-Make sure that you can see a Walkthrough with the title *My first Walkthrough* in the dasboard.
+Make sure that the walkthroughs you require are displayed on the web app dashboard.
 
 [type=verificationFail]
 Check that the Webapp has finished redeployment and no errors occurred.
