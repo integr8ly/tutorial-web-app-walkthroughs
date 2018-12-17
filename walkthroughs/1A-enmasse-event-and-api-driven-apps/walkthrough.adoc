@@ -45,7 +45,7 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 * link:{fuse-url}[Console]
 ****
 
-[type=walkthroughResource,serviceName=amq-broker-71-persistence]
+[type=walkthroughResource,serviceName=amq-broker-72-persistence]
 .AMQ
 ****
 * link:{amq-url}[Management Console]
