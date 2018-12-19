@@ -6,9 +6,11 @@
 
 = Publishing Walkthroughs to a cluster
 
-Add to the catalog of walkthroughs in your environment.
+Add to the catalog of walkthroughs in your environment by subscribing to remote git repositories.
 
-In addtition to the default walkthroughs, you can import existing walkthroughs from a git repository.
+In addtition to the default walkthroughs, you can import existing walkthroughs from a git repository. 
+If the git repository changes you can redeploy the web app to publish the changes. 
+You can specify a branch on the git repository, if you do not want to publish the default branch.
 
 NOTE: You must have access to the link:{openshift-host}[OpenShift Console].
 
@@ -21,6 +23,17 @@ NOTE: You must have access to the link:{openshift-host}[OpenShift Console].
 ****
 
 :sectnums:
+
+[time=5]
+== Understanding walkthroughs
+
+image::images/custom.png[overview]
+
+<1> The home page of the web app lists all the walkthoughs from all the git repositories you are subscribed to.
+<2> The introduction to a walkthrough provides the context and the necessary information for you to decide whether to perform the steps. On the right hand side of the page, a set of links is displayed, named *Walkthrough Resources*.
+<3> Each walkthrough displays a set of tasks that you must perform, each with associated links, *Task Resources* and verification steps that you must complete to proceed.
+<4> Each git repository must contain a `walkthroughs` directory and each subdirectory acts as an ID for the walkthrough. Note that an error is reported if two walkthroughs have the same ID. 
+
 
 [time=10]
 == Finding walkthroughs
@@ -53,7 +66,7 @@ Continue searching, new walkthroughs are created on GitHub monthly and the link:
 
 You can add repositories containing one or more Walkthroughs to a Webapp deployed to Openshift.
 
-=== Adding the template repository to the Webapp
+=== Publishing a git repository to the Webapp
 
 For each repository URL that you have from Task 1:
 
@@ -87,8 +100,22 @@ Editing the value triggers an automatic redeployment of the Webapp.
 +
 You should now see new walkthroughs available from the dashboard.
 
+[NOTE]
+====
+If the git repository is updated with new content, the web app is not automatically updated. You must:
+
+. Open the link:{openshift-host}[Openshift Console].
+
+. Find and open the *webapp* project.
+
+. Find and open the *tutorial-web-app* deployment.
+. Click the *Deploy* button.
+
+====
+
+
 [type=verification]
 Make sure that the walkthroughs you require are displayed on the web app dashboard.
 
 [type=verificationFail]
-Check that the Webapp has finished redeployment and no errors occurred.
+Check that the Webapp has finished redeployment and no errors occurred. For information on debugging, see the link:{linkTroubleshooting}[Troubleshooting Guide]. 
