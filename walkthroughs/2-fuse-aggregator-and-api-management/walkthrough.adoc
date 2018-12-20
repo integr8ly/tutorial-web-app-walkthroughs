@@ -537,7 +537,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 ----
 . Click the *Try it out!* button repeatedly until the *Response Code* is *0*, this
 should happen after the fifth click (the hourly limit set earlier).
-. Select the *Applications > Listing* from the left menu.
+. Select the *Applications > Listing* from the sidemenu.
 . Select the *{fuse-flights-aggregator-app-name}* application from the *Applications* list.
 . Scroll down to the *Current Utilization* section.
 
@@ -553,7 +553,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 === Monitoring the API Service
 
-. Select the *Analytics > Usage* from the left menu
+. Select the *Analytics > Usage* from the sidemenu
 
 [type=verification]
 Check that analytics charts show the service requests.
