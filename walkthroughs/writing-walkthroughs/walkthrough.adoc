@@ -38,23 +38,23 @@ A short description for the walkthrough. <2>
 [type=walkthroughResource,serviceName=openshift]
 .Openshift
 ****
-* link:{openshift-host}/console[Open Console]
-* link:https://help.openshift.com/[Openshift Online Help Center]
-* link:https://blog.openshift.com/[Openshift Blog]
+* link:{openshift-host}/console[Open Console, window="_blank"]
+* link:https://help.openshift.com/[Openshift Online Help Center, window="_blank"]
+* link:https://blog.openshift.com/[Openshift Blog, window="_blank"]
 ****
 
 [type=walkthroughResource]
 .Asciidoc
 ****
-* link:http://asciidoc.org/[Asciidoc Homepage]
-* link:http://asciidoc.org/userguide.html#_introduction[User Guide]
+* link:http://asciidoc.org/[Asciidoc Homepage, window="_blank"]
+* link:http://asciidoc.org/userguide.html#_introduction[User Guide, window="_blank"]
 ****
 
 [type=walkthroughResource]
 .Links
 ****
-* link:{linkGettingStarted}[Getting Started]
-* link:{linkTroubleshooting}[Troubleshooting]
+* link:{linkGettingStarted}[Getting Started, window="_blank"]
+* link:{linkTroubleshooting}[Troubleshooting, window="_blank"]
 ****
 
 :sectnums:

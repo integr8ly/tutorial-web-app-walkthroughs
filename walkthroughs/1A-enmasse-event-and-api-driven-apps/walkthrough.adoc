@@ -42,19 +42,19 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 [type=walkthroughResource,serviceName=fuse]
 .Fuse Online
 ****
-* link:{fuse-url}[Console]
+* link:{fuse-url}[Console, window="_blank"]
 ****
 
 [type=walkthroughResource,serviceName=amq-broker-72-persistence]
 .AMQ
 ****
-* link:{amq-url}[Management Console]
+* link:{amq-url}[Management Console, window="_blank"]
 ****
 
 [type=walkthroughResource,serviceName=openshift]
 .Red Hat OpenShift
 ****
-* link:{openshift-host}/console[Console]
+* link:{openshift-host}/console[Console, window="_blank"]
 ****
 
 
