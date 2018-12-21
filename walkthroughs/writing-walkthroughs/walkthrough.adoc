@@ -38,23 +38,23 @@ A short description for the walkthrough. <2>
 [type=walkthroughResource,serviceName=openshift]
 .Openshift
 ****
-* link:{openshift-host}/console[Open Console]
-* link:https://help.openshift.com/[Openshift Online Help Center]
-* link:https://blog.openshift.com/[Openshift Blog]
+* link:{openshift-host}/console[Open Console, window="_blank"]
+* link:https://help.openshift.com/[Openshift Online Help Center, window="_blank"]
+* link:https://blog.openshift.com/[Openshift Blog, window="_blank"]
 ****
 
 [type=walkthroughResource]
 .Asciidoc
 ****
-* link:http://asciidoc.org/[Asciidoc Homepage]
-* link:http://asciidoc.org/userguide.html#_introduction[User Guide]
+* link:http://asciidoc.org/[Asciidoc Homepage, window="_blank"]
+* link:http://asciidoc.org/userguide.html#_introduction[User Guide, window="_blank"]
 ****
 
 [type=walkthroughResource]
 .Links
 ****
-* link:{linkGettingStarted}[Getting Started]
-* link:{linkTroubleshooting}[Troubleshooting]
+* link:{linkGettingStarted}[Getting Started, window="_blank"]
+* link:{linkTroubleshooting}[Troubleshooting, window="_blank"]
 ****
 
 :sectnums:
@@ -277,11 +277,13 @@ When users are following a Walkthrough you can display helpful information and l
 [type=walkthroughResource,serviceName=openshift]
 .OpenShift
 ****
-* link:{openshift-host}[Openshift Console]
+* link:{openshift-host}[Openshift Console, window="_blank"]
 ****
 ----
 
 Setting `serviceName` is optional. If set to the name of a middleware service, an icon indicating the service status will be displayed next to the resource. For a list of default services, see link:https://github.com/integr8ly/tutorial-web-app/blob/master/src/common/serviceInstanceHelpers.js[the value for DEFAULT_SERVICES].
+
+Setting the `window="_blank"` parameter for a walkthrough resource link is also optional, but ensures that the target of the link displays in a separate browser tab. If omitted, the content of the target's link will replace the walkthrough content in the current browser tab.
 
 Walkthrough resources must only be defined in the preamble section.
 
@@ -294,7 +296,7 @@ Walkthrough resources must only be defined in the preamble section.
 [type=walkthroughResource]
 .My resource
 ****
-* link:https://google.com[Helpful link]
+* link:https://google.com[Helpful link, window="_blank"]
 ****
 ----
 

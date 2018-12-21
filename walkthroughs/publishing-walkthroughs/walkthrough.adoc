@@ -18,8 +18,8 @@ NOTE: You must have access to the link:{openshift-host}[OpenShift Console].
 [type=walkthroughResource]
 .Links
 ****
-* link:{linkGettingStarted}[Getting Started]
-* link:{linkTroubleshooting}[Troubleshooting]
+* link:{linkGettingStarted}[Getting Started, window="_blank"]
+* link:{linkTroubleshooting}[Troubleshooting, window="_blank"]
 ****
 
 :sectnums:
