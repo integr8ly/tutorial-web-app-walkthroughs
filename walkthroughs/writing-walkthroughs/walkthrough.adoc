@@ -277,11 +277,13 @@ When users are following a Walkthrough you can display helpful information and l
 [type=walkthroughResource,serviceName=openshift]
 .OpenShift
 ****
-* link:{openshift-host}[Openshift Console]
+* link:{openshift-host}[Openshift Console, window="_blank"]
 ****
 ----
 
 Setting `serviceName` is optional. If set to the name of a middleware service, an icon indicating the service status will be displayed next to the resource. For a list of default services, see link:https://github.com/integr8ly/tutorial-web-app/blob/master/src/common/serviceInstanceHelpers.js[the value for DEFAULT_SERVICES].
+
+Setting the `window="_blank"` parameter for a walkthrough resource link is also optional, but ensures that the target of the link displays in a separate browser tab. If omitted, the content of the target's link will replace the walkthrough content in the current browser tab.
 
 Walkthrough resources must only be defined in the preamble section.
 
@@ -294,7 +296,7 @@ Walkthrough resources must only be defined in the preamble section.
 [type=walkthroughResource]
 .My resource
 ****
-* link:https://google.com[Helpful link]
+* link:https://google.com[Helpful link, window="_blank"]
 ****
 ----
 
