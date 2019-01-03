@@ -1,42 +1,25 @@
-// tag::master-1A[]
-:walkthrough: Integrating event-driven and API-driven applications (AMQ Online)
+:walkthrough: Integrating message-oriented middleware with an API using AMQ Online
 :fuse-version: 7.2
 :messaging-service: AMQ Online
 
-// The ID is used as an anchor for linking to the module. Avoid changing it after the module has been published to ensure existing links are not broken.
 [id='integrating-eventdriven-and-apidriven-applications']
-// If the assembly is reused in other assemblies in a guide, include {context} in the ID: [id='a-collection-of-modules-{context}'].
-
-// Book Title
 = {walkthrough}
 
-//If the assembly covers a task, start the title with a verb in the gerund form, such as Creating or Configuring.
-:context: integrating-eventdriven-and-apidriven-applications
-// The `context` attribute enables module reuse. Every module's ID includes {context}, which ensures that the module has a unique ID even if it is reused multiple times in a guide.
-
-//include::master-1-intro.adoc[ ]
-
 // word count range that fits best is 15-22, with 20 really being the sweet spot. Character count for that space would be 100-125
-Build a simple integration that connects a message queue with an API.
+This walkthrough demonstrates a pattern that integrates a message driven architecture with an API driven architecture. 
 
-In a multi-application system, you often find:
+Message-oriented middleware (MOM)::
+MOM allows you implement an asynchronous, routable and transformable message queue.
 
-* communication between the applications can be difficult due to differing technologies
-* custom solutions can be difficult to create and maintain
-* custom solutions require custom monitoring
-* understanding the relationship between the applications requires deep technical insight to the overall architecture
+API-centric architecture::
+Typically, a developer working on a back-end application implements a synchronous API to allow communication from other applications.
 
-A more structured approach involves:
-
-* a simple integration that developers can understand intuitively
-* simple provisioning and configuration
-* built-in monitoring
+You may identify business value, as part of an application modernization effort, in integrating a message queue with an API. 
+This is not trivial because of the conflicting underlying timing models. 
 
 This walkthrough describes how  to create such an integration, using OpenShift, {messaging-service} and API connectors in Fuse.
 
 image::images/arch.png[integration, role="integr8ly-img-responsive"]
-
-// end::master-1[]
 
 
 [type=walkthroughResource,serviceName=fuse]
