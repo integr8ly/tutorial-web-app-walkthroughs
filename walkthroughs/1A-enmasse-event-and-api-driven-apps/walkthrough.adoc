@@ -1,7 +1,7 @@
 // tag::master-1A[]
-:walkthrough: Integrating event-driven and API-driven applications (EnMasse)
+:walkthrough: Integrating event-driven and API-driven applications (AMQ Online)
 :fuse-version: 7.2
-:messaging-service: EnMasse
+:messaging-service: AMQ Online
 
 // The ID is used as an anchor for linking to the module. Avoid changing it after the module has been published to ensure existing links are not broken.
 [id='integrating-eventdriven-and-apidriven-applications']
@@ -80,11 +80,11 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 // tag::creating-api-connector[]
 
 [.integr8ly-docs-header]
-=== Creating an address in EnMasse space
+=== Creating an address in AMQ Online space
 
-To route messages to the Spring Boot app, you create an address in EnMasse.
+To route messages to the Spring Boot app, you create an address in AMQ Online.
 
-. Log into link:{enmasse-url}[EnMasse, window="_blank"] by selecting the *OpenShift* button on the log in screen and accepting the permissions request.
+. Log into link:{enmasse-url}[AMQ Online, window="_blank"].
 . Select *Addresses* from the left hand menu.
 
 . Create a *requests* address:
@@ -102,7 +102,7 @@ work-queue-requests
 After the address is created a green check mark is displayed.
 
 [type=verification]
-Check the *Addresses* screen of the link:{enmasse-url}[EnMasse, window="_blank"] console to make sure the newly created address exists.
+Check the *Addresses* screen of the link:{enmasse-url}[AMQ Online, window="_blank"] console to make sure the newly created address exists.
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
@@ -114,7 +114,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 [type=taskResource]
 .Task Resources
 ****
-* link:http://enmasse.io/documentation/openshift/master/#create-address-console-messaging[Creating addresses using the EnMasse Console]
+* link:http://enmasse.io/documentation/openshift/master/#create-address-console-messaging[Creating addresses using the AMQ Online Console]
 ****
 
 [time=5]
@@ -215,12 +215,12 @@ Verify that you followed each step in the procedure above.  If you are still hav
 [.integr8ly-docs-header]
 === Creating AMQP connection in Red Hat Fuse Online
 
-To receive messages from EnMasse, you create a connection in Red Hat Fuse Online.
+To receive messages from AMQ Online, you create a connection in Red Hat Fuse Online.
 
 
 :fuse-url: https://eval.apps.city.openshiftworkshop.com/
 :openshift-url: https://master.city.openshiftworkshop.com/console/project/eval/overview
-:enmasse: EnMasse
+:enmasse: AMQ Online
 
 . Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
 
