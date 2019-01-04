@@ -226,13 +226,6 @@ Verify that you followed each step in the procedure above.  If you are still hav
 :context: creating-an-integration
 
 
-[.integr8ly-docs-header]
-=== Creating an integration
-
-
-// end::task-creating-fuse-integration[]
-
-
 To use the Fuse connections, you create an integration in Red Hat Fuse Online.
 
 . Select *Integrations* from the left hand menu.
@@ -307,11 +300,6 @@ Verify that you followed each step in the procedure above.  If you are still hav
 [id='using-the-application-integration']
 == Using the application integration
 :context: using-the-application-integration
-
-// tag::task-using-integration[]
-[id='using-integration_{context}']
-[.integr8ly-docs-header]
-=== Using the application integration
 
 After setting up the integration between the Node.js and Spring Boot applications, we can use the integration to create a new fruit for the grocery inventory application.
 

@@ -57,13 +57,10 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 :sectnums:
 
 
-== Creating Addresses
+==  Creating an address in AMQ Online space
 :context: creating-connections
 
 // tag::creating-api-connector[]
-
-[.integr8ly-docs-header]
-=== Creating an address in AMQ Online space
 
 To route messages to the Spring Boot app, you create an address in AMQ Online.
 
@@ -276,9 +273,6 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 // end::task-creating-fuse-integration[]
 
-[id='creating-fuse-integration_{context}']
-[.integr8ly-docs-header]
-=== Creating an integration
 
 To use the Fuse connections, you create an integration in Red Hat Fuse Online.
 
@@ -357,11 +351,6 @@ Verify that you followed each step in the procedure above.  If you are still hav
 [id='using-the-application-integration']
 == Using the application integration
 :context: using-the-application-integration
-
-// tag::task-using-integration[]
-[id='using-integration_{context}']
-[.integr8ly-docs-header]
-=== Using the application integration
 
 After setting up the integration between the Node.js and Spring Boot applications, we can use the integration to create a new fruit for the grocery inventory application.
 

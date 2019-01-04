@@ -70,11 +70,6 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 
 The Fuse Aggregation App provides information about flights, you deploy it using Launcher.
 
-[id='deploying-fuse-aggregation-app_{context}']
-[.integr8ly-docs-header]
-=== Deploying the Fuse Aggregation App
-
-
 // TODO placeholders for product names
 // TODO append /launch/wizard/<project-name> to launcher url
 // TODO flights endpoint url
@@ -125,10 +120,6 @@ Verify that you followed each step in the procedure above.  If you are still hav
 == Modifying the Fuse Aggregation App
 
 Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & Deparatures servers
-
-[id='modifying-fuse-aggregation-app_{context}']
-[.integr8ly-docs-header]
-=== Modifying the Fuse Aggregation App
 
 
 // TODO placeholders for product names
