@@ -4,11 +4,11 @@
 :linkIndexURL: https://github.com/integr8ly/example-customisations/blob/master/index.adoc
 
 
-= Publishing Walkthroughs to a cluster
+= Publishing walkthroughs to a cluster
 
-Add to the catalog of walkthroughs in your environment by subscribing to remote git repositories.
+How to add to the catalog of walkthroughs in your environment by subscribing to remote git repositories.
 
-In addtition to the default walkthroughs, you can import existing walkthroughs from a git repository. 
+In addition to the default walkthroughs, you can import existing walkthroughs from a git repository. 
 If the git repository changes you can redeploy the web app to publish the changes. 
 You can specify a branch on the git repository, if you do not want to publish the default branch.
 

@@ -6,9 +6,9 @@
 
 = Writing Walkthroughs
 
-An introduction to getting started with Walkthrough development.
+How to get started with writing your own Walkthroughs using a simple markup language.
 
-The Integreatly webapp allows you publish your own walkthroughs to a cluster using:
+The webapp allows you write and publish your own walkthroughs to a cluster using:
 
 * Asciidoc - a simple mark up language, similar to markdown
 * git repo - push your asciidoc file to a git repo
