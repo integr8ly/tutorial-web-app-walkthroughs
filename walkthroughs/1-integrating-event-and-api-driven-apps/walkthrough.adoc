@@ -120,12 +120,12 @@ Verify that you followed each step in the procedure above.  If you are still hav
 [.integr8ly-docs-header]
 === Creating AMQ connection in Red Hat Fuse Online
 
-To receive messages from EnMasse, you create a connection in Red Hat Fuse Online.
+To receive messages from AMQ, you create a connection in Red Hat Fuse Online.
 
 
 :fuse-url: https://eval.apps.city.openshiftworkshop.com/
 :openshift-url: https://master.city.openshiftworkshop.com/console/project/eval/overview
-:enmasse: Red Hat AMQ Online
+:enmasse: Red Hat AMQ
 
 . Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
 
