@@ -51,7 +51,7 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 [type=walkthroughResource,serviceName=che]
 .Eclipse Che
 ****
-* link:{che-url}[Console]
+* link:{che-url}[Console, window="_blank"]
 * link:https://developers.redhat.com/products/che/overview/[Eclipse Che Overview, window="_blank"]
 * link:https://www.eclipse.org/che/docs/index.html[Eclipse Che Documentation, window="_blank"]
 ****
