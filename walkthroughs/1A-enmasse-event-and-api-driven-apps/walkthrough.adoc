@@ -45,10 +45,10 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 * link:{fuse-url}[Console, window="_blank"]
 ****
 
-[type=walkthroughResource,serviceName=amq-broker-72-persistence]
-.AMQ
+[type=walkthroughResource,serviceName=amq-online-standard]
+.AMQ Online
 ****
-* link:{amq-url}[Management Console, window="_blank"]
+* link:{enmasse-url}[Console, window="_blank"]
 ****
 
 [type=walkthroughResource,serviceName=openshift]
