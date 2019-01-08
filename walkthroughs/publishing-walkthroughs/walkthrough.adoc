@@ -29,10 +29,10 @@ NOTE: You must have access to the link:{openshift-host}[OpenShift Console].
 
 image::images/custom.png[overview]
 
-<1> The home page of the web app lists all the walkthoughs from all the git repositories you are subscribed to.
-<2> The introduction to a walkthrough provides the context and the necessary information for you to decide whether to perform the steps. On the right hand side of the page, a set of links is displayed, named *Walkthrough Resources*.
-<3> Each walkthrough displays a set of tasks that you must perform, each with associated links, *Task Resources* and verification steps that you must complete to proceed.
-<4> Each git repository must contain a `walkthroughs` directory and each subdirectory acts as an ID for the walkthrough. Note that an error is reported if two walkthroughs have the same ID. 
+. The home page of the web app lists all the walkthoughs from all the git repositories you are subscribed to.
+. The introduction to a walkthrough provides the context and the necessary information for you to decide whether to perform the steps. On the right hand side of the page, a set of links is displayed, named *Walkthrough Resources*.
+. Each walkthrough displays a set of tasks that you must perform, each with associated links, *Task Resources* and verification steps that you must complete to proceed.
+. Each git repository must contain a `walkthroughs` directory and each subdirectory acts as an ID for the walkthrough. Note that an error is reported if two walkthroughs have the same ID. 
 
 
 [time=10]
