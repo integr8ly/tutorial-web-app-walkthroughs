@@ -175,7 +175,7 @@ Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & De
 
 [type=verification]
 // TODO: flights api links to /camel/flights
-After waiting for the build and depoyment to complete, check that link:{route-fuse-flights-aggregator-host}/camel/flights[Flights Endpoint, window="_blank"] responds with more than 8 flights.
+After waiting for the build and deployment to complete, check that link:{route-fuse-flights-aggregator-host}/camel/flights[Flights Endpoint, window="_blank"] responds with more than 8 flights.
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
