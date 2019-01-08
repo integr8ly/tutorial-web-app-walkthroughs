@@ -45,10 +45,10 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 * link:{fuse-url}[Console, window="_blank"]
 ****
 
-[type=walkthroughResource,serviceName=amq-broker-72-persistence]
-.AMQ
+[type=walkthroughResource,serviceName=amq-online-standard]
+.AMQ Online
 ****
-* link:{amq-url}[Management Console, window="_blank"]
+* link:{enmasse-url}[Console, window="_blank"]
 ****
 
 [type=walkthroughResource,serviceName=openshift]
@@ -114,7 +114,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 [type=taskResource]
 .Task Resources
 ****
-* link:http://enmasse.io/documentation/openshift/master/#create-address-console-messaging[Creating addresses using the AMQ Online Console]
+* link:http://enmasse.io/documentation/master/openshift/#create-address-console-messaging[Creating addresses using the AMQ Online Console, window="_blank"]
 ****
 
 [time=5]
@@ -280,10 +280,10 @@ Verify that you followed each step in the procedure above.  If you are still hav
 [type=taskResource]
 .Task Resources
 ****
-* link:https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/html/integrating_applications_with_fuse_online/high-level-overview[High level overview of Fuse Online]
-* link:https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/html/integrating_applications_with_fuse_online/connecting-to-applications#about-creating-connections[About creating connections from Fuse Online to applications]
-* link:https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/html-single/connecting_fuse_online_to_applications_and_services/#supported-connectors[Connectors that are supported by Fuse Online]
-* link:https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol[About AMQP]
+* link:https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/html-single/integrating_applications_with_fuse_online/high-level-overview_ug#high-level-overview_ug[High level overview of Fuse Online, window="_blank"]
+* link:https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/html-single/integrating_applications_with_fuse_online/connecting-to-applications_ug#about-creating-connections_connections[About creating connections from Fuse Online to applications, window="_blank"]
+* link:https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/html-single/connecting_fuse_online_to_applications_and_services/#supported-connectors_connectors[Connectors that are supported by Fuse Online, window="_blank"]
+* link:https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol[About AMQP, window="_blank"]
 ****
 
 [time=5]
@@ -363,7 +363,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 [type=taskResource]
 .Task Resources
 ****
-* https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/html/integrating_applications_with_fuse_online/creating-integrations[Creating integrations]
+* https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/html-single/integrating_applications_with_fuse_online/creating-integrations_ug#creating-integrations_ug[Creating integrations, window="_blank"]
 ****
 
 
@@ -420,6 +420,6 @@ Verify that you followed each step in the procedure above.  If you are still hav
 [type=taskResource]
 .Task Resources
 ****
-* link:https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/html/integrating_applications_with_fuse_online/managing-integrations[Managing and monitoring integrations]
-* link:https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/[Fuse documentation set]
+* link:https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/html-single/integrating_applications_with_fuse_online/managing-integrations_ug#managing-integrations_ug[Managing and monitoring integrations, window="_blank"]
+* link:https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/[Fuse documentation set, window="_blank"]
 ****
