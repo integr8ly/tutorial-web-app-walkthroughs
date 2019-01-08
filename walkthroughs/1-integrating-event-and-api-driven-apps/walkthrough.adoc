@@ -4,7 +4,7 @@
 :fuse-version: 7.2
 :AMQ-ProductLongName: Red Hat AMQ
 :AMQ-BrokerVersion: 7.2
-:Fuse-prodnamefull: Red Hat Fuse
+:Fuse-prodnamefull: Red Hat Fuse Online
 :node-url: http://frontend-node-app.apps.city.openshiftworkshop.com/
 :spring-url: http://spring-boot-rest-http-crud-spring-app.apps.city.openshiftworkshop.com/
 :fuse-url: https://eval.apps.city.openshiftworkshop.com/
@@ -16,7 +16,7 @@
 = {walkthrough}
 
 // word count range that fits best is 15-22, with 20 really being the sweet spot. Character count for that space would be 100-125
-This walkthrough demonstrates a pattern that integrates a message driven architecture with an API driven architecture. 
+This walkthrough demonstrates a pattern that integrates a message driven architecture with a REST API driven architecture using Fuse Online.
 
 Message-oriented middleware (MOM)::
 MOM allows you implement an asynchronous, routable and transformable message queue.
@@ -24,12 +24,12 @@ MOM allows you implement an asynchronous, routable and transformable message que
 API-centric architecture::
 Typically, a developer working on a back-end application implements a synchronous API to allow communication from other applications.
 
-You may identify business value, as part of an application modernization effort, in integrating a message queue with an API. 
-This is not trivial because of the conflicting underlying timing models. 
+You may identify business value, as part of an application modernization effort, in integrating a message queue with an API.
+This is not trivial because of the conflicting underlying timing models, and the data may require transformation to be acceptable.
 
 In this walkthrough, you create a simple and intuitive integration with built-in monitoring that enables communication between two applications:
 
-* A link:{route-frontend-host}[Node.js app, window="_blank"] provides a method to create messages, in this example, a new inventory item.
+* A link:{route-frontend-host}[Node.js webapp, window="_blank"] provides a method to create messages, in this example, a new inventory item.
 * A link:{route-crud-host}[Spring Boot CRUD app, window="_blank"] provides an API, in this example, an inventory API.
 
 To create this integration, you use link:{amq-url}[AMQ Online, window="_blank"] and API connectors in link:{fuse-url}[Red Hat Fuse Online, window="_blank"].
@@ -72,8 +72,9 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 [.integr8ly-docs-header]
 === Creating an API Connector
 
-Fuse Online provides connectors for many services, for example, Gmail and IRC.
-However, each API must be registered as a separate customization.
+Fuse Online is an enterprise integration platform that provides connectors for many services, for example, Gmail and IRC. 
+It can be extended with custom connectors, using either OpenAPI definitions (Swagger) or using JAR files.
+To create a connector for your REST API, you register the OpenAPI definition as a Customization.
 
 . Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
 
@@ -120,7 +121,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 [.integr8ly-docs-header]
 === Creating HTTP connection to CRUD App
 
-To send messages to the Spring Boot CRUD app, you create a connection in Red Hat Fuse Online using the API connector you just created.
+To enable Fuse Online to send messages from the queue to the Spring Boot CRUD app, you create a connection in Red Hat Fuse Online using the API connector you just created.
 
 
 . Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
@@ -163,7 +164,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 [.integr8ly-docs-header]
 === Creating AMQ connection in Red Hat Fuse Online
 
-To receive messages, you create a connection in Red Hat Fuse Online using the AMQ connector.
+To allow Fuse Online to consume messages placed on the queue by the Node.js webapp, you create a connection in Red Hat Fuse Online using the AMQ connector.
 
 
 :fuse-url: https://eval.apps.city.openshiftworkshop.com/
@@ -319,7 +320,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 After setting up the integration between the Node.js and Spring Boot applications, we can use the integration to create a new fruit for the grocery inventory application.
 
-. Navigate to the link:{route-frontend-host}[Node.js app, window="_blank"].
+. Navigate to the link:{route-frontend-host}[Node.js webapp, window="_blank"].
 
 . Enter a value for *Fruit*, for example:
 +
@@ -331,7 +332,7 @@ Pineapple
 
 . Navigate to the link:{route-crud-host}[Spring Boot app, window="_blank"].
 
-. Check that the entry from the Node.js app is displayed.
+. Check that the entry from the Node.js webapp is displayed.
 
 
 [type=verification]
