@@ -20,8 +20,8 @@ This is not trivial because of the conflicting underlying timing models, and the
 
 In this walkthrough, you create a simple and intuitive integration, with built-in monitoring, to enable communication between two applications:
 
-* A link:{route-frontend-host}[Node.js webapp, window="_blank"] provides a method to create messages, in this example, a new inventory item.
-* A link:{route-crud-host}[Spring Boot CRUD app, window="_blank"] provides a RESTful API, in this example, an inventory API.
+* A Node.js webapp provides a method to create messages, in this example, a new inventory item.
+* A Spring Boot CRUD app provides a RESTful API, in this example, an inventory API.
 
 To create this integration, you use link:{enmasse-url}[AMQ Online, window="_blank"] and API connectors in link:{fuse-url}[Red Hat Fuse Online, window="_blank"].
 
