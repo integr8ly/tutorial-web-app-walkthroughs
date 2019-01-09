@@ -395,6 +395,8 @@ View the activity log:
 . Select your integration.
 . Select the *Activity* tab.
 . Expand the log entry to display the steps performed.
+
+Is your activity is displayed?
 ****
 
 [type=verificationFail]

@@ -27,7 +27,8 @@ Organizations modernizing their applications typically create many APIs.
 It then becomes paramount to understand the usage of these APIs and to ensure they are protected, for example, from a Denial-of-service attack.
 It is possible to protect and limit access to APIs as part of an integration.
 
-This walkthrough describes how to create such an integration, using OpenShift, {launcher-service}, {che-service} and {api-mgmt-service}.
+In this walkthrough, you use the *Fuse Aggregation App*, which is a demonstration app that provides data using an API.
+The walkthrough shows how to deploy, edit, protect and rate-limit that API, using OpenShift, {launcher-service}, {che-service} and {api-mgmt-service}.
 
 image::images/arch.png[integration, role="integr8ly-img-responsive"]
 
@@ -305,6 +306,16 @@ Verify that you followed each step in the procedure above.  If you are still hav
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
 
 [id='fuse-aggregation-app-endpoint-activedocs_{context}']
+
+
+[type=taskResource]
+.Task Resources
+****
+* link:https://access.redhat.com/documentation/en-us/red_hat_3scale/2-saas/html-single/access_control/index[Access Control and Application Plans, window="_blank"]
+****
+
+
+
 [.integr8ly-docs-header]
 === Create a new ActiveDocs Service
 
