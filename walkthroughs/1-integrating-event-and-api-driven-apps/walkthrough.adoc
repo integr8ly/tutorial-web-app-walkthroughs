@@ -9,7 +9,10 @@
 :spring-url: http://spring-boot-rest-http-crud-spring-app.apps.city.openshiftworkshop.com/
 :fuse-url: https://eval.apps.city.openshiftworkshop.com/
 
+// because the url attribute does not immediately appear correctly, we set it to a message 
+// and use conditional inline before displaying to check if the dependent attribute is available
 
+:route-crud-url: This value is not available yet.
 
 [id='integrating-eventdriven-and-apidriven-applications']
 
@@ -72,6 +75,10 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 [.integr8ly-docs-header]
 === Creating an API Connector
 
+ifdef::route-crud-host[]
+:route-crud-url: {route-crud-host}/v2/api-docs
+endif::route-crud-host[]
+
 Fuse Online is an enterprise integration platform that provides connectors for many services, for example, Gmail and IRC. 
 It can be extended with custom connectors, using either OpenAPI definitions (Swagger) or using JAR files.
 To create a connector for the RESTful API, you register the OpenAPI definition as a Customization.
@@ -87,7 +94,7 @@ To create a connector for the RESTful API, you register the OpenAPI definition a
 +
 [subs="attributes+"]
 ---- 
-{route-crud-host}/v2/api-docs
+{route-crud-url}
 ----
 
 .. Click *Next*.
