@@ -1,7 +1,7 @@
 :linkGettingStarted: https://docs.google.com/document/d/1lSb481fCiec0aTlJAw8cRLn_AiQjNgbCZsqq6wWfdWE/edit
 :linkTroubleshooting: https://github.com/integr8ly/example-customisations/blob/master/docs/troubleshooting.adoc
 :linkGitHubFork: https://help.github.com/articles/fork-a-repo/
-:linkIndexURL: https://github.com/integr8ly/example-customisations/index.adoc
+:linkIndexURL: https://github.com/integr8ly/example-customisations/blob/master/index.adoc
 
 
 = Publishing Walkthroughs to a cluster
