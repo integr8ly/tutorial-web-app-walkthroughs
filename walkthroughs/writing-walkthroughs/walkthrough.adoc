@@ -385,9 +385,10 @@ As with resources, block attributes are used to define verifications
 
 . At the end of the Procedure section, right after the numbered list add:
 +
-[source,asciidoc]
+:verificationText: verification
+[source,asciidoc,subs="attributes"]
 ----
-[type=verification]
+[type={verificationText}]
 Check that the dashboard of service X reports no errors.
 ----
 
