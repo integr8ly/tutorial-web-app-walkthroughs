@@ -16,13 +16,13 @@
 = {walkthrough}
 
 // word count range that fits best is 15-22, with 20 really being the sweet spot. Character count for that space would be 100-125
-This walkthrough demonstrates a pattern that integrates a message driven architecture with a REST API driven architecture using Fuse Online.
+This walkthrough demonstrates a fault tolerant integration pattern that integrates a message driven architecture with a RESTful API architecture.
 
 Message-oriented middleware (MOM)::
 MOM allows you implement an asynchronous, routable and transformable message queue.
 
 API-centric architecture::
-Typically, a developer working on a back-end application implements a synchronous API to allow communication from other applications.
+Typically, a developer working on a back-end application implements a synchronous RESTful API to allow communication from other applications.
 
 You may identify business value, as part of an application modernization effort, in integrating a message queue with an API.
 This is not trivial because of the conflicting underlying timing models, and the data may require transformation to be usable.
@@ -30,7 +30,7 @@ This is not trivial because of the conflicting underlying timing models, and the
 In this walkthrough, you create a simple and intuitive integration, with built-in monitoring, to enable communication between two applications:
 
 * A link:{route-frontend-host}[Node.js webapp, window="_blank"] provides a method to create messages, in this example, a new inventory item.
-* A link:{route-crud-host}[Spring Boot CRUD app, window="_blank"] provides an API, in this example, an inventory API.
+* A link:{route-crud-host}[Spring Boot CRUD app, window="_blank"] provides a RESTful API, in this example, an inventory API.
 
 To create this integration, you use link:{amq-url}[AMQ, window="_blank"] and API connectors in link:{fuse-url}[Red Hat Fuse Online, window="_blank"].
 
@@ -74,7 +74,7 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 
 Fuse Online is an enterprise integration platform that provides connectors for many services, for example, Gmail and IRC. 
 It can be extended with custom connectors, using either OpenAPI definitions (Swagger) or using JAR files.
-To create a connector for your REST API, you register the OpenAPI definition as a Customization.
+To create a connector for the RESTful API, you register the OpenAPI definition as a Customization.
 
 . Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
 
