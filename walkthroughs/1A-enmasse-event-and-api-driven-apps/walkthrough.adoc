@@ -1,4 +1,4 @@
-:walkthrough: Integrating message-oriented middleware with an API using AMQ Online
+:walkthrough: Integrating message-oriented middleware with a RESTful API using AMQ Online
 :fuse-version: 7.2
 :messaging-service: AMQ Online
 :Fuse-prodnamefull: Red Hat Fuse Online
@@ -16,9 +16,17 @@ API-centric architecture::
 Typically, a developer working on a back-end application implements a synchronous API to allow communication from other applications.
 
 You may identify business value, as part of an application modernization effort, in integrating a message queue with an API. 
-This is not trivial because of the conflicting underlying timing models, and the data may require transformation to be acceptable.
+This is not trivial because of the conflicting underlying timing models, and the data may require transformation to be usable.
 
-This walkthrough describes how  to create such an integration, using OpenShift, {messaging-service} and API connectors in Fuse.
+In this walkthrough, you create a simple and intuitive integration, with built-in monitoring, to enable communication between two applications:
+
+* A link:{route-frontend-host}[Node.js webapp, window="_blank"] provides a method to create messages, in this example, a new inventory item.
+* A link:{route-crud-host}[Spring Boot CRUD app, window="_blank"] provides an API, in this example, an inventory API.
+
+To create this integration, you use link:{enmasse-url}[AMQ Online, window="_blank"] and API connectors in link:{fuse-url}[Red Hat Fuse Online, window="_blank"].
+
+All of the applications and services used in the walkthrough are running on Red Hat OpenShift.
+
 
 image::images/arch.png[integration, role="integr8ly-img-responsive"]
 

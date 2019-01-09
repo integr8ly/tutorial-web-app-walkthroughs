@@ -1,5 +1,5 @@
 // tag::master-1[]
-:walkthrough: Integrating message-oriented middleware with an API using AMQ
+:walkthrough: Integrating message-oriented middleware with a RESTful API using AMQ
 :messaging-service: Red Hat AMQ
 :fuse-version: 7.2
 :AMQ-ProductLongName: Red Hat AMQ
@@ -25,14 +25,14 @@ API-centric architecture::
 Typically, a developer working on a back-end application implements a synchronous API to allow communication from other applications.
 
 You may identify business value, as part of an application modernization effort, in integrating a message queue with an API.
-This is not trivial because of the conflicting underlying timing models, and the data may require transformation to be acceptable.
+This is not trivial because of the conflicting underlying timing models, and the data may require transformation to be usable.
 
-In this walkthrough, you create a simple and intuitive integration with built-in monitoring that enables communication between two applications:
+In this walkthrough, you create a simple and intuitive integration, with built-in monitoring, to enable communication between two applications:
 
 * A link:{route-frontend-host}[Node.js webapp, window="_blank"] provides a method to create messages, in this example, a new inventory item.
 * A link:{route-crud-host}[Spring Boot CRUD app, window="_blank"] provides an API, in this example, an inventory API.
 
-To create this integration, you use link:{amq-url}[AMQ Online, window="_blank"] and API connectors in link:{fuse-url}[Red Hat Fuse Online, window="_blank"].
+To create this integration, you use link:{amq-url}[AMQ, window="_blank"] and API connectors in link:{fuse-url}[Red Hat Fuse Online, window="_blank"].
 
 All of the applications and services used in the walkthrough are running on Red Hat OpenShift.
 
@@ -169,7 +169,7 @@ To allow Fuse Online to consume messages placed on the queue by the Node.js weba
 
 :fuse-url: https://eval.apps.city.openshiftworkshop.com/
 :openshift-url: https://master.city.openshiftworkshop.com/console/project/eval/overview
-:enmasse: Red Hat AMQ
+:amq: Red Hat AMQ
 
 . Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
 
@@ -189,14 +189,14 @@ NOTE: Avoid choosing the similarly named *AMQP Message Broker*.
 tcp://{amq-broker-tcp-url}:61616
 ----
 
-.. Enter the username relating to {enmasse}:
+.. Enter the username relating to {amq}:
 +
 [subs="attributes+"]
 ----  
 {amq-credentials-username}
 ----
 
-.. Enter the password relating to {enmasse}:
+.. Enter the password relating to {amq}:
 +
 [subs="attributes+"]
 ----

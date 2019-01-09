@@ -17,15 +17,15 @@
 :fuse-flights-aggregator-app-name: fuse-flights-aggregator-{user-sanitized-username}
 :walkthrough: Integrating API-driven applications
 
-= Using API management to control API usage
+= Managing and protecting APIs using API management
 
 :context: integrating-api-driven-applications
 
 This walkthrough demonstrates how an API can be protected and rate limited.
 
-As you modernize your application development, you create more APIs and it becomes important to control those APIs.
-You may ask who is using the API and how can it be protected from a Denial-of-service attack?
-It is possible to protect and limit access to an API using 3Scale as part of your integration.
+Organizations modernizing their applications typically create many APIs. 
+It then becomes paramount to understand the usage of these APIs and to ensure they are protected, for example, from a Denial-of-service attack.
+It is possible to protect and limit access to APIs as part of an integration.
 
 This walkthrough describes how to create such an integration, using OpenShift, {launcher-service}, {che-service} and {api-mgmt-service}.
 
