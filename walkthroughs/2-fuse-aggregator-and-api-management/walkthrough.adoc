@@ -9,26 +9,26 @@
 :api-mgmt-service: 3Scale
 :AMQ-ProductLongName: Red Hat AMQ
 :AMQ-BrokerVersion: 7.2
-:Fuse-prodnamefull: Red Hat Fuse
+:Fuse-prodnamefull: Red Hat Fuse Online
 :Fuse-version: 7.1
 :3Scale-ProductName: Red Hat 3scale
 :3Scale-ProductVersion: 2.3
 :EnMasse-master-ProductLongName: EnMasse
-:walkthrough: Integrating API-driven applications
 :fuse-flights-aggregator-app-name: fuse-flights-aggregator-{user-sanitized-username}
+:walkthrough: Integrating API-driven applications
 
-= Integrating API-driven applications
+= Managing and protecting APIs using API management
 
 :context: integrating-api-driven-applications
 
-Integrate an API that provides flight information, ensuring that the API is protected and rate limited.
+This walkthrough demonstrates how an API can be protected and rate limited.
 
-APIs are the ideal channel for organizations who want to reach audiences whenever, wherever, and however they choose.
-This enables innovation, mobile and partner development.
-However, it also exposes the hosting infrastructure and organization.
-It is possible to protect and limit access to an API using {api-mgmt-service} as part of your integration.
+Organizations modernizing their applications typically create many APIs. 
+It then becomes paramount to understand the usage of these APIs and to ensure they are protected, for example, from a Denial-of-service attack.
+It is possible to protect and limit access to APIs as part of an integration.
 
-This walkthrough describes how to create such an integration, using OpenShift, {launcher-service}, {che-service} and {api-mgmt-service}.
+In this walkthrough, you use the *Fuse Aggregation App*, which is a demonstration app that provides data using an API.
+The walkthrough shows how to deploy, edit, protect and rate-limit that API, using OpenShift, {launcher-service}, {che-service} and {api-mgmt-service}.
 
 image::images/arch.png[integration, role="integr8ly-img-responsive"]
 
@@ -70,11 +70,6 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 == Deploying the Fuse Aggregation App
 
 The Fuse Aggregation App provides information about flights, you deploy it using Launcher.
-
-[id='deploying-fuse-aggregation-app_{context}']
-[.integr8ly-docs-header]
-=== Deploying the Fuse Aggregation App
-
 
 // TODO placeholders for product names
 // TODO append /launch/wizard/<project-name> to launcher url
@@ -126,10 +121,6 @@ Verify that you followed each step in the procedure above.  If you are still hav
 == Modifying the Fuse Aggregation App
 
 Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & Deparatures servers
-
-[id='modifying-fuse-aggregation-app_{context}']
-[.integr8ly-docs-header]
-=== Modifying the Fuse Aggregation App
 
 
 // TODO placeholders for product names
@@ -315,6 +306,16 @@ Verify that you followed each step in the procedure above.  If you are still hav
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
 
 [id='fuse-aggregation-app-endpoint-activedocs_{context}']
+
+
+[type=taskResource]
+.Task Resources
+****
+* link:https://access.redhat.com/documentation/en-us/red_hat_3scale/2-saas/html-single/access_control/index[Access Control and Application Plans, window="_blank"]
+****
+
+
+
 [.integr8ly-docs-header]
 === Create a new ActiveDocs Service
 

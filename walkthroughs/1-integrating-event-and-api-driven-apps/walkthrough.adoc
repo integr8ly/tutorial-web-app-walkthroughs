@@ -1,39 +1,40 @@
 // tag::master-1[]
-:walkthrough: Integrating event-driven and API-driven applications (AMQ)
+:walkthrough: Integrating message-oriented middleware with a RESTful API using AMQ
+:messaging-service: Red Hat AMQ
 :fuse-version: 7.2
+:AMQ-ProductLongName: Red Hat AMQ
+:AMQ-BrokerVersion: 7.2
+:Fuse-prodnamefull: Red Hat Fuse Online
+:node-url: http://frontend-node-app.apps.city.openshiftworkshop.com/
+:spring-url: http://spring-boot-rest-http-crud-spring-app.apps.city.openshiftworkshop.com/
+:fuse-url: https://eval.apps.city.openshiftworkshop.com/
 
 
-// The ID is used as an anchor for linking to the module. Avoid changing it after the module has been published to ensure existing links are not broken.
+
 [id='integrating-eventdriven-and-apidriven-applications']
-// If the assembly is reused in other assemblies in a guide, include {context} in the ID: [id='a-collection-of-modules-{context}'].
 
-// Book Title
 = {walkthrough}
 
-
-//If the assembly covers a task, start the title with a verb in the gerund form, such as Creating or Configuring.
-:context: integrating-eventdriven-and-apidriven-applications
-// The `context` attribute enables module reuse. Every module's ID includes {context}, which ensures that the module has a unique ID even if it is reused multiple times in a guide.
-
-//include::master-1-intro.adoc[ ]
-
 // word count range that fits best is 15-22, with 20 really being the sweet spot. Character count for that space would be 100-125
-Build a simple integration that connects a message queue with an API.
+This walkthrough demonstrates a fault tolerant integration pattern that integrates a message driven architecture with a RESTful API architecture.
 
-In a multi-application system, you often find:
+Message-oriented middleware (MOM)::
+MOM allows you implement an asynchronous, routable and transformable message queue.
 
-* communication between the applications can be difficult due to differing technologies
-* custom solutions can be difficult to create and maintain
-* custom solutions require custom monitoring
-* understanding the relationship between the applications requires deep technical insight to the overall architecture
+API-centric architecture::
+Typically, a developer working on a back-end application implements a synchronous RESTful API to allow communication from other applications.
 
-A more structured approach involves:
+You may identify business value, as part of an application modernization effort, in integrating a message queue with an API.
+This is not trivial because of the conflicting underlying timing models, and the data may require transformation to be usable.
 
-* a simple integration that developers can understand intuitively
-* simple provisioning and configuration
-* built-in monitoring
+In this walkthrough, you create a simple and intuitive integration, with built-in monitoring, to enable communication between two applications:
 
-This walkthrough describes how  to create such an integration, using OpenShift, {messaging-service} and API connectors in Fuse.
+* A Node.js webapp provides a method to create messages, in this example, a new inventory item.
+* A Spring Boot CRUD app provides a RESTful API, in this example, an inventory API.
+
+To create this integration, you use link:{amq-url}[AMQ, window="_blank"] and API connectors in link:{fuse-url}[Red Hat Fuse Online, window="_blank"].
+
+All of the applications and services used in the walkthrough are running on Red Hat OpenShift.
 
 image::images/arch.png[integration, role="integr8ly-img-responsive"]
 
@@ -67,10 +68,13 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 
 // tag::creating-api-connector[]
 
-
 [id='creating-api-connector_{context}']
 [.integr8ly-docs-header]
-=== Creating an API Connector 
+=== Creating an API Connector
+
+Fuse Online is an enterprise integration platform that provides connectors for many services, for example, Gmail and IRC. 
+It can be extended with custom connectors, using either OpenAPI definitions (Swagger) or using JAR files.
+To create a connector for the RESTful API, you register the OpenAPI definition as a Customization.
 
 . Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
 
@@ -110,6 +114,46 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 // end::creating-api-connector[]
 
+
+// tag::creating-http-connection[]
+
+[id='creating-http-connection-in-fuse_{context}']
+[.integr8ly-docs-header]
+=== Creating HTTP connection to CRUD App
+
+To enable Fuse Online to send messages from the queue to the Spring Boot CRUD app, you create a connection in Red Hat Fuse Online using the API connector you just created.
+
+
+. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
+
+. Select *Connections* from the left hand menu.
+
+. Select the *Create Connection* button to start the *Create Connection* wizard.
+
+. When prompted with *Select Connector*, select *Walkthrough {walkthrough-id} CRUD Connector*.
+
+. When prompted with *Walkthrough {walkthrough-id} CRUD Configuration*, click *Next*.
+
+. When prompted with *Add Connection Details*:
+.. Enter the following in the *Connection Name* field:
++
+[subs="attributes+"]
+----
+Walkthrough {walkthrough-id} CRUD App
+----
+.. Click *Create*.
+
+
+[type=verification]
+Check the *Connections* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console to make sure the new connection exists.
+
+[type=verificationFail]
+Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+
+
+// end::creating-http-connection[]
+
+
 // tag::creating-amq-connection-in-fuse[]
 
 // Module included in the following assemblies:
@@ -120,12 +164,12 @@ Verify that you followed each step in the procedure above.  If you are still hav
 [.integr8ly-docs-header]
 === Creating AMQ connection in Red Hat Fuse Online
 
-To receive messages from AMQ, you create a connection in Red Hat Fuse Online.
+To allow Fuse Online to consume messages placed on the queue by the Node.js webapp, you create a connection in Red Hat Fuse Online using the AMQ connector.
 
 
 :fuse-url: https://eval.apps.city.openshiftworkshop.com/
 :openshift-url: https://master.city.openshiftworkshop.com/console/project/eval/overview
-:enmasse: Red Hat AMQ
+:amq: Red Hat AMQ
 
 . Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
 
@@ -145,14 +189,14 @@ NOTE: Avoid choosing the similarly named *AMQP Message Broker*.
 tcp://{amq-broker-tcp-url}:61616
 ----
 
-.. Enter the username relating to {enmasse}:
+.. Enter the username relating to {amq}:
 +
 [subs="attributes+"]
 ----  
 {amq-credentials-username}
 ----
 
-.. Enter the password relating to {enmasse}:
+.. Enter the password relating to {amq}:
 +
 [subs="attributes+"]
 ----
@@ -184,44 +228,6 @@ Verify that you followed each step in the procedure above.  If you are still hav
 // end::creating-amqp-connection-in-fuse[]
 
 
-// tag::creating-http-connection[]
-
-[id='creating-http-connection-in-fuse_{context}']
-[.integr8ly-docs-header]
-=== Creating HTTP connection to CRUD App
-
-To send messages to the Spring Boot app, you create a connection in Red Hat Fuse Online.
-
-
-. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
-
-. Select *Connections* from the left hand menu.
-
-. Select the *Create Connection* button to start the *Create Connection* wizard.
-
-. When prompted with *Select Connector*, select *Walkthrough {walkthrough-id} CRUD Connector*.
-
-. When prompted with *Walkthrough {walkthrough-id} CRUD Configuration*, click *Next*.
-
-. When prompted with *Add Connection Details*:
-.. Enter the following in the *Connection Name* field:
-+
-[subs="attributes+"]
-----  
-Walkthrough {walkthrough-id} CRUD App
-----
-.. Click *Create*.
-
-
-[type=verification]
-Check the *Connections* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console to make sure the new connection exists.
-
-[type=verificationFail]
-Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
-
-
-// end::creating-http-connection[]
-
 [type=taskResource]
 .Task Resources
 ****
@@ -230,17 +236,11 @@ Verify that you followed each step in the procedure above.  If you are still hav
 * link:https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/html-single/connecting_fuse_online_to_applications_and_services/#supported-connectors_connectors[Connectors that are supported by Fuse Online, window="_blank"]
 ****
 
+
 [time=5]
 [id='creating-an-integration']
 == Creating an integration
 :context: creating-an-integration
-
-
-[.integr8ly-docs-header]
-=== Creating an integration
-
-
-// end::task-creating-fuse-integration[]
 
 
 To use the Fuse connections, you create an integration in Red Hat Fuse Online.
@@ -318,18 +318,9 @@ Verify that you followed each step in the procedure above.  If you are still hav
 == Using the application integration
 :context: using-the-application-integration
 
-// tag::task-using-integration[]
-[id='using-integration_{context}']
-[.integr8ly-docs-header]
-=== Using the application integration
-
 After setting up the integration between the Node.js and Spring Boot applications, we can use the integration to create a new fruit for the grocery inventory application.
 
-:node-url: http://frontend-node-app.apps.city.openshiftworkshop.com/
-:spring-url: http://spring-boot-rest-http-crud-spring-app.apps.city.openshiftworkshop.com/
-:fuse-url: https://eval.apps.city.openshiftworkshop.com/
-
-. Navigate to the link:{route-frontend-host}[Node.js app, window="_blank"].
+. Navigate to the link:{route-frontend-host}[Node.js webapp, window="_blank"].
 
 . Enter a value for *Fruit*, for example:
 +
@@ -341,7 +332,7 @@ Pineapple
 
 . Navigate to the link:{route-crud-host}[Spring Boot app, window="_blank"].
 
-. Check that the entry from the Node.js app is displayed.
+. Check that the entry from the Node.js webapp is displayed.
 
 
 [type=verification]
