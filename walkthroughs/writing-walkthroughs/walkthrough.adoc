@@ -413,30 +413,30 @@ Check that the verification has been added after the Procedure section. It will 
 [time=5]
 == Using attributes
 
-Attributes are used to make external variables accessible to the asciidoc. The syntax for using attributes is `{ <attribute name> }`. Walkthroughs have access to a number of predefined attributes:
+Attributes are used to make external variables accessible to the asciidoc. The syntax for using attributes is `{<attribute name>}`. Walkthroughs have access to a number of predefined attributes:
 
-* If a middleware service defines a route you can access it via `route-<service name>-host`.
+* If a middleware service defines a route you can access it via `{route-<route name>-host}`.
 
-* The Openshift Console is available as `{ openshift-host }`.
+* The Openshift Console is available as `\{openshift-host}`.
 
 Other attributes that are available to Walkthrough authors are:
 
 * Default attributes:
-** OpenShift App Host: `{openshift-app-host}`
-** Che URL: `{che-url}`.
-** Fuse URL: `{fuse-url}`
-** Launcher URL: `{launcher-url}`
-** API Management URL: `{api-management-url}`
-** AMQ URL: `{amq-url}`
-** AMQ Broker URL: `{amq-broker-tcp-url}`
-** AMQ Credential Username: `{amq-credentials-username}`
-** AMQ Credential Password: `{amq-credentials-password}`
-** EnMasse URL: `{enmasse-url}`
-** EnMasse Broker URL: `{enmasse-broker-url}`
-** EnMasse Credential Username: `{enmasse-credentials-username}`
-** EnMasse Credential Password: `{enmasse-credentials-password}`
+** OpenShift App Host: `\{openshift-app-host}`
+** Che URL: `\{che-url}`.
+** Fuse URL: `\{fuse-url}`
+** Launcher URL: `\{launcher-url}`
+** API Management URL: `\{api-management-url}`
+** AMQ URL: `\{amq-url}`
+** AMQ Broker URL: `\{amq-broker-tcp-url}`
+** AMQ Credential Username: `\{amq-credentials-username}`
+** AMQ Credential Password: `\{amq-credentials-password}`
+** EnMasse URL: `\{enmasse-url}`
+** EnMasse Broker URL: `\{enmasse-broker-url}`
+** EnMasse Credential Username: `\{enmasse-credentials-username}`
+** EnMasse Credential Password: `\{enmasse-credentials-password}`
 * Custom attributes:
-** NodeJS Frontend App Route (provisioned from walkthrough.json): `{route-frontend-host}`
+** NodeJS Frontend App Route (provisioned from walkthrough.json): `\{route-frontend-host}`
 
 === Adding a link to the Openshift Console
 
