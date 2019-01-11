@@ -15,7 +15,7 @@ MOM allows you implement an asynchronous, routable and transformable message que
 API-centric architecture::
 Typically, a developer working on a back-end application implements a synchronous RESTful API to allow communication from other applications.
 
-You may identify business value, as part of an application modernization effort, in integrating a message queue with an API. 
+You may identify business value, as part of an application modernization effort, in integrating a message queue with an API.
 This is not trivial because of the conflicting underlying timing models, and the data may require transformation to be usable.
 
 In this walkthrough, you create a simple and intuitive integration, with built-in monitoring, to enable communication between two applications:
@@ -81,7 +81,7 @@ To route messages to the Spring Boot app, you create an address in AMQ Online.
 .. Enter the following as the address name:
 +
 [subs="attributes+"]
----- 
+----
 work-queue-requests
 ----
 .. Select *queue* as the type and click *Next*.
@@ -116,9 +116,9 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 [id='creating-api-connector_{context}']
 [.integr8ly-docs-header]
-=== Creating an API Connector 
+=== Creating an API Connector
 
-Fuse Online is an enterprise integration platform that provides connectors for many services, for example, Gmail and IRC. 
+Fuse Online is an enterprise integration platform that provides connectors for many services, for example, Gmail and IRC.
 It can be extended with custom connectors, using either OpenAPI definitions (Swagger) or using JAR files.
 To create a connector for the RESTful API, you register the OpenAPI definition as a Customization.
 
@@ -132,7 +132,7 @@ To create a connector for the RESTful API, you register the OpenAPI definition a
 .. Enter the following in the URL field:
 +
 [subs="attributes+"]
----- 
+----
 {route-crud-host}/v2/api-docs
 ----
 
@@ -146,7 +146,7 @@ To create a connector for the RESTful API, you register the OpenAPI definition a
 .. Enter the following in the *Connector Name* field:
 +
 [subs="attributes+"]
-----  
+----
 Walkthrough {walkthrough-id} CRUD Connector
 ----
 
@@ -189,7 +189,7 @@ To enable Fuse Online to send messages from the queue to the Spring Boot CRUD ap
 .. Enter the following in the *Connection Name* field:
 +
 [subs="attributes+"]
-----  
+----
 Walkthrough {walkthrough-id} CRUD App
 ----
 .. Click *Create*.
@@ -228,14 +228,14 @@ NOTE: Avoid choosing the similarly named *AMQ Message Broker*.
 . Enter the connection URI relating to {enmasse}:
 +
 [subs="attributes+"]
-----  
+----
 amqp://{enmasse-broker-url}:5672?amqp.saslMechanisms=PLAIN
 ----
 
 . Enter the username relating to {enmasse}:
 +
 [subs="attributes+"]
-----  
+----
 {enmasse-credentials-username}
 ----
 
@@ -253,7 +253,7 @@ amqp://{enmasse-broker-url}:5672?amqp.saslMechanisms=PLAIN
 . Click *Next* and enter a name for the connection, for example:
 +
 [subs="attributes+"]
-----  
+----
 Walkthrough {walkthrough-id} Messaging App
 ----
 
@@ -300,7 +300,7 @@ To use the Fuse connections, you create an integration in Red Hat Fuse Online.
 . When prompted for a *Destination Name*, enter:
 +
 [subs="attributes+"]
----- 
+----
 work-queue-requests
 ----
 
@@ -338,13 +338,13 @@ work-queue-requests
 . When prompted, enter a name, for example:
 +
 [subs="attributes+"]
-----  
+----
 Walkthrough {walkthrough-id}
 ----
 . Click *Publish* again.
 
 [type=verification]
-Check the *Integrations* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console to make sure the new connection exists.
+Check the *Integrations* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console to make sure the new connection exists and is running.
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
@@ -375,7 +375,7 @@ After setting up the integration between the Node.js and Spring Boot application
 
 . Enter a value for *Fruit*, for example:
 +
-----  
+----
 Pineapple
 ----
 

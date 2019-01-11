@@ -9,7 +9,7 @@
 :spring-url: http://spring-boot-rest-http-crud-spring-app.apps.city.openshiftworkshop.com/
 :fuse-url: https://eval.apps.city.openshiftworkshop.com/
 
-// because the url attribute does not immediately appear correctly, we set it to a message 
+// because the url attribute does not immediately appear correctly, we set it to a message
 // and use conditional inline before displaying to check if the dependent attribute is available
 
 :route-crud-url: This value is not available yet.
@@ -79,7 +79,7 @@ ifdef::route-crud-host[]
 :route-crud-url: {route-crud-host}/v2/api-docs
 endif::route-crud-host[]
 
-Fuse Online is an enterprise integration platform that provides connectors for many services, for example, Gmail and IRC. 
+Fuse Online is an enterprise integration platform that provides connectors for many services, for example, Gmail and IRC.
 It can be extended with custom connectors, using either OpenAPI definitions (Swagger) or using JAR files.
 To create a connector for the RESTful API, you register the OpenAPI definition as a Customization.
 
@@ -93,7 +93,7 @@ To create a connector for the RESTful API, you register the OpenAPI definition a
 .. Enter the following in the URL field:
 +
 [subs="attributes+"]
----- 
+----
 {route-crud-url}
 ----
 
@@ -107,7 +107,7 @@ To create a connector for the RESTful API, you register the OpenAPI definition a
 .. Enter the following in the *Connector Name* field:
 +
 [subs="attributes+"]
-----  
+----
 Walkthrough {walkthrough-id} CRUD Connector
 ----
 
@@ -192,14 +192,14 @@ NOTE: Avoid choosing the similarly named *AMQP Message Broker*.
 .. Enter the following into the *Broker URL* field:
 +
 [subs="attributes+"]
-----  
+----
 tcp://{amq-broker-tcp-url}:61616
 ----
 
 .. Enter the username relating to {amq}:
 +
 [subs="attributes+"]
-----  
+----
 {amq-credentials-username}
 ----
 
@@ -218,7 +218,7 @@ tcp://{amq-broker-tcp-url}:61616
 .. Enter the following in the *Connection Name* field:
 +
 [subs="attributes+"]
-----  
+----
 Walkthrough {walkthrough-id} Messaging App
 ----
 .. Click *Create*.
@@ -263,7 +263,7 @@ To use the Fuse connections, you create an integration in Red Hat Fuse Online.
 . When prompted for a *Destination Name*, enter:
 +
 [subs="attributes+"]
----- 
+----
 work-queue-requests
 ----
 
@@ -301,13 +301,13 @@ work-queue-requests
 . When prompted, enter a name, for example:
 +
 [subs="attributes+"]
-----  
+----
 Walkthrough {walkthrough-id}
 ----
 . Click *Publish* again.
 
 [type=verification]
-Check the *Integrations* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console to make sure the new connection exists.
+Check the *Integrations* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console to make sure the new connection exists and is running.
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
@@ -331,7 +331,7 @@ After setting up the integration between the Node.js and Spring Boot application
 
 . Enter a value for *Fruit*, for example:
 +
-----  
+----
 Pineapple
 ----
 
