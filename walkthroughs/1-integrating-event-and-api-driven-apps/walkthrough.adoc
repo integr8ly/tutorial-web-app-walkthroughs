@@ -294,7 +294,7 @@ work-queue-requests
 . When prompted to *Add to Integration*, select *Add a Step*.
 
 . Select *Data Mapper* to map source and target fields in the corresponding JSON schemas:
-.. Click and drag *type* from the *Source* column to *body/name* in the *Target* column.
+.. Click and drag *type* from the *Source* column to *body/name* in the *Target* column. (you may need to expand the *body* section to see the *name* field)
 .. Click *Done* to navigate back to the Integration screen.
 
 . Click *Publish*.
@@ -308,6 +308,8 @@ Walkthrough {walkthrough-id}
 
 [type=verification]
 Check the *Integrations* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console to make sure the new connection exists and is running.
+
+Note: It may take some time for the integration to appear, if it is not present refresh the web page and/or wait a minute
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
