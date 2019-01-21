@@ -112,7 +112,7 @@ Try downloading the link:https://github.com/integr8ly/walkthrough-template/archi
 <5> *walkthrough.json* is the manifest file of the walkthrough where you can define extra dependencies.
 
 
-If you don not have extra dependencies, use the following for your *walkthrough.json*:
+If you do not have extra dependencies, use the following for your *walkthrough.json*:
 
 [source,json]
 ----
@@ -443,7 +443,7 @@ Other attributes that are available to Walkthrough authors are:
 . Add another step to the numbered list in your Procedure:
 +
 ----
-. Click on link:\{ openshift-url }[Openshift Dashboard]
+. Click on link:{openshift-url}[Openshift Dashboard]
 ----
 
 . Save, commit and push your changes. Then trigger a redeployment of the Webapp like in the previous task.
