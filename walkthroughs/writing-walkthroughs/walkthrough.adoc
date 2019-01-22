@@ -159,9 +159,9 @@ The preamble has to be the first section in your Walkthrough.
 
 * The preamble is introduced using a first level heading (`=`)
 * The title of the preamble becomes the name of your Walkthrough
-* The preamble must be followed by a paragraph giving a short introductino to the Walkthrough in one or two sentences. This description will be displayed in the card on the Overview page of the Webapp.
+* The preamble must be followed by a paragraph giving a short introduction to the Walkthrough in one or two sentences. This description will be displayed in the card on the Overview page of the Webapp.
 
-You should also add a second paragraph to the preamble which will be displayed when a users clicks on the card. The second paragraph can have more content than the first one.
+You should also add a second paragraph to the preamble which will be displayed when a user clicks on the card. The second paragraph can have more content than the first one.
 
 === Adding a Preamble to the template
 
@@ -245,7 +245,7 @@ The steps in a procedure should be written using Asciidoc numbered lists. Prepen
 
 === Adding a sample procedure
 
-. The sample Walkthrough already has a procedure. Change it's name to *My first Procedure*.
+. The sample Walkthrough already has a procedure. Change its name to *My first Procedure*.
 
 . Add a paragraph with a sentence describing your Procedure.
 
@@ -316,7 +316,7 @@ You can add images to any section of your walkthrough. Images should be placed i
 Add an image to your content using: `image::<path>[<alt text>, role="integr8ly-img-responsive"]`
 
 * `<alt text>` is a text alternative that will be displayed when the image can't be rendered
-* `role="integr8ly-img-responsive"` this should be used for all images as it ensures that the correct styles are applied the the image
+* `role="integr8ly-img-responsive"` this should be used for all images as it ensures that the correct styles are applied to the image
 
 === Adding an image to the template
 
