@@ -124,7 +124,7 @@ If you do not have extra dependencies, use the following for your *walkthrough.j
 }
 ----
 
-=== Commiting your walkthroughs to a remote repository
+=== Committing your walkthroughs to a remote repository
 
 Typically, you push your changes to GitHub.
 
@@ -443,7 +443,7 @@ Other attributes that are available to Walkthrough authors are:
 . Add another step to the numbered list in your Procedure:
 +
 ----
-. Click on link:{openshift-url}[Openshift Dashboard]
+. Click on link:{openshift-url}[Openshift Console]
 ----
 
 . Save, commit and push your changes. Then trigger a redeployment of the Webapp like in the previous task.
@@ -453,3 +453,71 @@ Check that the step is displayed as a link to the Openshift Console.
 
 [type=verificationFail]
 Check that the correct attribute has been used.
+
+[time=10]
+== Adding custom services to a walkthrough
+
+As an advanced task, you can create services from the OpenShift catalog in the cluster. You can also link to the URLs associated with those services in your `walkthrough.adoc` file.
+
+=== Finding the name of the service you want to provision
+
+.Prerequisites
+
+* Some experience with the `oc` command. See task resources for more information.
+
+
+. Log into the link:{openshift-url}[Openshift Console].
+
+. Click your username in the top right corner and choose *Copy Login Command* from the menu.
+
+. Log into the OpenShift CLI using the `oc` on your clipboard.
+
+. Run the following command to list all the service names available from your cluster catalog:
++
+----
+oc get clusterserviceclasses -o custom-columns="displayName:.spec.externalMetadata.displayName, externalName:.spec.externalName"
+----
++
+Typically, service names describe many variations of components. 
+For example, you might decide to use the `cakephp-mysql-example` service in your custom walkthrough.
+
+. Create a `walkthrough.json` with the following contents to provision the `cakephp-mysql-example` service:
++
+----
+{
+  "dependencies": {
+    "repos": [],
+    "serviceInstances": [{
+      "metadata": { "name": "cakephp-mysql-example" },
+      "spec": {
+        "clusterServiceClassExternalName": "cakephp-mysql-example",
+        "clusterServicePlanExternalName": "default"
+      }
+      }]
+  }
+}
+----
+
+. To determine the route to a service, and use it in the walkthrough tasks:
+.. Publish your walkthrough using the `walkthrough.json` file above.
+.. Navigate the walkthrough to trigger the provisioning of the custom service, for example, the `cakephp-mysql-example` service.
+.. Log into the link:{openshift-url}[OpenShift Console].
+.. Navigate to the custom project in OpenShift.
+The project is named using the pattern `<username>-<walkthrough-id>`.
+.. Open *Routes* from the *Applications* menu.
+.. Note the *Name* of the route you want to reference in your walkthrough tasks. For example, `cakephp-mysql-example`.
+.. Edit the `walkthrough.adoc` file and use the `{route-<route-name>-host}` pattern, whenever you want the route URL to appear.
+For example, to insert a step that asks the user of the walkthrough to log into the CakePHP app:
++
+----
+. Log into the link:{route-cakephp-mysql-example-host}[CakePHP app].
+----
++
+NOTE: If you want Asciidoc attributes to render values in code blocks, you must start the code block with `[subs="attributes"]`.
+
+
+[type=taskResource]
+.Task Resources
+****
+* link:https://docs.openshift.com/container-platform/3.11/cli_reference/get_started_cli.html[Getting Started with the OpenShift CLI, window="_blank"]
+****
