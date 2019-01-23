@@ -463,7 +463,7 @@ As an advanced task, you can create services from the OpenShift catalog in the c
 
 .Prerequisites
 
-* Some experience with the `oc` command. See task resources for more information.
+Some experience with the `oc` command. See task resources for more information.
 
 
 . Log into the link:{openshift-url}[Openshift Console].
@@ -480,6 +480,8 @@ oc get clusterserviceclasses -o custom-columns="displayName:.spec.externalMetada
 +
 Typically, service names describe many variations of components. 
 For example, you might decide to use the `cakephp-mysql-example` service in your custom walkthrough.
+
+=== Creating the service and determining the attribute name to use in the walkthrough
 
 . Create a `walkthrough.json` with the following contents to provision the `cakephp-mysql-example` service:
 +
@@ -498,15 +500,19 @@ For example, you might decide to use the `cakephp-mysql-example` service in your
 }
 ----
 
-. To determine the route to a service, and use it in the walkthrough tasks:
-.. Publish your walkthrough using the `walkthrough.json` file above.
-.. Navigate the walkthrough to trigger the provisioning of the custom service, for example, the `cakephp-mysql-example` service.
-.. Log into the link:{openshift-url}[OpenShift Console].
-.. Navigate to the custom project in OpenShift.
+. Publish your walkthrough using the `walkthrough.json` file above.
+. Navigate the walkthrough to trigger the provisioning of the custom service, for example, the `cakephp-mysql-example` service.
+. Log into the link:{openshift-url}[OpenShift Console].
+. Navigate to the custom project in OpenShift.
 The project is named using the pattern `<username>-<walkthrough-id>`.
-.. Open *Routes* from the *Applications* menu.
-.. Note the *Name* of the route you want to reference in your walkthrough tasks. For example, `cakephp-mysql-example`.
-.. Edit the `walkthrough.adoc` file and use the `{route-<route-name>-host}` pattern, whenever you want the route URL to appear.
+. Open *Routes* from the *Applications* menu.
+. Note the *Name* of the route you want to reference in your walkthrough tasks. For example, `cakephp-mysql-example`.
+
+=== Editing the walkthrough
+
+To use the attribute in a walkthrough:
+
+. Edit the `walkthrough.adoc` file and use the `{route-<route-name>-host}` pattern, whenever you want the route URL to appear.
 For example, to insert a step that asks the user of the walkthrough to log into the CakePHP app:
 +
 ----
@@ -514,6 +520,16 @@ For example, to insert a step that asks the user of the walkthrough to log into 
 ----
 +
 NOTE: If you want Asciidoc attributes to render values in code blocks, you must start the code block with `[subs="attributes"]`.
+
+. Publish the walkthrough or redeploy the *tutorial-web-app* to pick up changes to your walkthrough
+. Log in to the Webapp using a different username to test the walkthrough.
+
+
+[type=verification]
+Check that the walkthrough offers the link to the service, and that it resolves.
+
+[type=verificationFail]
+Make sure you have completed all the steps.
 
 
 [type=taskResource]
