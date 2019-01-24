@@ -475,11 +475,17 @@ Some experience with the `oc` command. See task resources for more information.
 . Run the following command to list all the service names available from your cluster catalog:
 +
 ----
-oc get clusterserviceclasses -o custom-columns="displayName:.spec.externalMetadata.displayName, externalName:.spec.externalName"
+oc get clusterserviceclasses -o custom-columns="Display Name (From Service Catalog):.spec.externalMetadata.displayName, Identifier (clusterServiceClassExternalName):.spec.externalName"
 ----
 +
-Typically, service names describe many variations of components. 
-For example, you might decide to use the `cakephp-mysql-example` service in your custom walkthrough.
+The output lists all the services available in two columns:
++
+* Display Name (From Service Catalog)
+* Identifier (clusterServiceClassExternalName)
+
+. Choose the service you want to use, and note the value in the `Identifier (clusterServiceClassExternalName)` column.
++
+For example, to use the `CakePHP + MySQL (Ephemeral)` service in your custom walkthrough, note the value `cakephp-mysql-example`.
 
 === Creating the service and determining the attribute name to use in the walkthrough
 
@@ -487,16 +493,20 @@ For example, you might decide to use the `cakephp-mysql-example` service in your
 +
 ----
 {
-  "dependencies": {
-    "repos": [],
-    "serviceInstances": [{
-      "metadata": { "name": "cakephp-mysql-example" },
-      "spec": {
-        "clusterServiceClassExternalName": "cakephp-mysql-example",
-        "clusterServicePlanExternalName": "default"
-      }
-      }]
-  }
+    "dependencies": {
+        "repos": [],
+        "serviceInstances": [
+            {
+                "metadata": {
+                    "name": "cakephp-mysql-example"
+                },
+                "spec": {
+                    "clusterServiceClassExternalName": "cakephp-mysql-example",
+                    "clusterServicePlanExternalName": "default"
+                }
+            }
+        ]
+    }
 }
 ----
 
@@ -521,7 +531,7 @@ For example, to insert a step that asks the user of the walkthrough to log into 
 +
 NOTE: If you want Asciidoc attributes to render values in code blocks, you must start the code block with `[subs="attributes"]`.
 
-. Publish the walkthrough or redeploy the *tutorial-web-app* to pick up changes to your walkthrough
+. Publish the walkthrough or redeploy the *tutorial-web-app* to pick up changes to your walkthrough.
 . Log in to the Webapp using a different username to test the walkthrough.
 
 
@@ -536,4 +546,6 @@ Make sure you have completed all the steps.
 .Task Resources
 ****
 * link:https://docs.openshift.com/container-platform/3.11/cli_reference/get_started_cli.html[Getting Started with the OpenShift CLI, window="_blank"]
+* link:/tutorial/publishing-walkthroughs/[Walkthrough: Publishing Walkthroughs, window="_blank"]
+
 ****
