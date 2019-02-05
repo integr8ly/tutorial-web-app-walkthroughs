@@ -1,0 +1,204 @@
+= SOAP to REST
+
+Contract-first API development wrapping an existing SOAP service, implemented using Eclipse Che
+
+* Audience: Developers and Architects
+
+Another important use case in developing API's is to take an existing
+legacy SOAP service and wrap it with a new RESTful endpoint. This SOAP
+to REST transformation is implemented in the API service layer (Fuse).
+This lab will walk you through taking an existing SOAP contract (WSDL),
+converting it to Java POJO's and exposing it using Camel RESTdsl.
+
+Eclipse Che, our online IDE, provides important functionality for
+implementing API services. In this lab you can see how our Eclipse Che
+and Fuse can help with SOAP to REST transformation on OpenShift.
+
+
+== Generating REST resources for the soap2rest App
+
+=== Enabling the Codegen plugin in the soap2rest App
+
+
+TODO: info about the SOAP & soap2rest templates & repos that were created
+
+. Log in to the link:{che-url}[Che, window="_blank"] Dashboard.
+
+. The *New Workspace* page is displayed. Create a new Workspace:
+.. Use the *Java* stack.
+.. Select the *Add or Import Project* button.
+.. Select the *Git* tab.
+.. Enter `TODO: repo link for location-soap2rest repo in gitea for this user including userid:Password1 in url` as the *Git URL*.
+.. Select the *Add* button to add the repository to the workspace.
+.. Select the *Create* button at the bottom.
+.. Select *Open in IDE*.
+
+. Open the `pom.xml` file and scroll to the bottom. Uncomment out the `cxf-codegen-plugin` entry at the bottom.
+
+=== Generating POJOs from the WSDL contract
+
+. We now need to generate the POJO objects from the WSDL contract. To
+do this, open the Terminal tab and run the below commands:
+[source,java]
+----
+cd /projects/location-soap2rest/
+mvn generate-sources
+----
+
+[type=verification]
+Once the script has completed, navigate back to the `src/main/java/com/redhat` folder. Notice that there are a number of new POJO classes that were created by the Maven script.
+
+== Adding a REST route to the soap2rest App
+
+=== Adding the REST route
+
+. We need to create our Camel route implementation and create the RESTful
+endpoint. To do this, open the `CamelRoutes.java` file & uncomment the block below `// LOCATION REST ROUTE` comment
+. We also need to add the cxf service code that the RESTful enpoint will route to. Uncomment the block below the `// CXF SERVICE` comment.
+
+=== Testing the REST route
+
+. Now that we have our API service implementation, we can try to test
+this 'locally' in Che. Navigate back to the *Terminal* tab and run
+`MAVEN_OPTS="-Xmx1000m" mvn spring-boot:run -f /projects/dayinthelife-integration/projects/location-soap2rest`. 
+. Once the application starts, navigate to the *Servers* window and
+click on the URL corresponding to port 8080. A new tab should appear.
+. In the new tab, append the URL with the following URI: `/location/contact/2`.
+
+[type=verification]
+A contact should be returned from the endpoint.
+
+== Deploying the soap2rest App to OpenShift
+
+=== Commit & push repository changes
+
+Now that we've successfully tested our new SOAP to REST service
+locally, we can redeploy it to OpenShift. First we need push our file changes back to the git repository.
+
+. Before the changes can be commited and pushed to the repository, you must specify a name and email to associate with commits:
+.. Select the *Profile* menu, then *Preferences*.
+.. Choose the *Commiter* option under the *Git* heading.
+.. Set a *Name* and *Email*.
+.. Select *Save* then *Close*.
+
+. Commit and push the changes back to the repository:
+.. Select the *Git* menu, then *Commit*.
+.. Ensure the all new & modified files are checked.
+.. Enter a commit message of *Switch to remote services* in the input area.
+.. Check the box for *Push commited changes to* and ensure the branch is set to *master*.
+.. Select the *Commit* button.
+.. A green notification *Pushed to Origin* is displayed.
+
+. TODO kick off a build (if webhook isn't possible)
+
+[type=verification]
+Navigate to the the deployed soap2rest route `TODO route url /location/contact/2` endpoint. You should get a repsonse similar to below:
+
+[source,json]
+---
+{
+  "id" : 2,
+  "operatingHour" : "9:00 AM - 6:00 PM",
+  "owner" : "XXX XXX",
+  "phone" : "+1 978 392 1000"
+}
+---
+
+== Managing the REST route
+
+=== API Management Login
+
+. Open the link:{api-management-url}[{3Scale-ProductName} Login screen, window="_blank"].
+
+. Select the *Red Hat Single Sign On* option. This triggers an OAuth Flow and redirects you back to the {3Scale-ProductName} Dashboard.
+
+. Dismiss the *How does 3Scale work?* option which is displayed the first time you log in to {3Scale-ProductName}. The main Dashboard is displayed.
+
+=== Adding the soap2rest Endpoint to {3Scale-ProductName}
+
+. Select the *API* menu item from the top of the screen.
+
+. Select *Create Service* from the top right of the *API* screen.
++
+
+. Enter the following as the *Name* and *System name*:
++
+
+---- 
+{soap2rest-app-name}
+TODO: This should be unique per user as the Tenant is shared
+----
+
+. Leave the *Description* field empty.
+
+. Leave the *Gateway* option as APIcast.
+
+. Leave the *Authentication* option as *API Key (user_key)*.
+
+. Select *Create Service* at the bottom of the screen.
+
+. After the service is created, expand the new *{soap2rest-app-name}* API Service and select the *Configure APIcast* button.
+
+. In the *Private Base URL* field, enter:
++
+
+----
+https://{soap2rest-url}
+----
+
+. In the *Staging Public Base URL*, enter:
++
+[subs="attributes+"]
+----
+https://wt3-{user-sanitized-username}-3scale.{openshift-app-host}
+----
++
+Note that this route should point to the shared staging APIcast in the *3scale* project in OpenShift.  Your administrator should have created this route for you. If it does not exist, contact your administrator to create the route.
+
+. Select *Update & test in Staging Environment*
+
+[type=verification]
+Check that the API service is available.
+You might encounter a *403: Authentication failed* message. You can ignore this message, the issue is resolved in a later step.
+
+=== Creating an Application Plan 
+
+. Create a new *Application Plan*:
+.. Select *Application Plans* from the left menu.
+.. Select *Create Application Plan*.
+.. Enter the following for *Name* and *System name*:
++
+[subs="attributes+"]
+----  
+{soap2rest-app-name}
+----
+.. Select *Create Application Plan*.
+.. Select the *Publish* button to publish the Plan.
+
+. Select the *{soap2rest-app-name}* plan to return to the edit screen.
+
+. Create a new *Application* for the *Developer* Group, assigned to the Plan:
+.. Select the *Developers* menu at the top.
+.. Select the *Developer* Account to open the *Account Summary* page.
+.. Select the *(num) Application* item from the breadcrumb to view Applications.
+.. Select the *Create Application* button in the top right.
+.. Select the *{soap2rest-app-name}* Plan in the *Application plan* dropdown.
+.. Enter the following for *Name* and *Description*:
++
+[subs="attributes+"]
+----  
+{soap2rest-app-name}
+----
+.. Select *Create Application*.
+
+[type=verification]
+
+. Select the *APIs* menu item at the top.
+
+. Expand the *{soap2rest-app-name}* service.
+
+. Select the *Configure APIcast* button.
+
+. Select the *Update & test in Staging Environment* button at the bottom again.
+
+. Check that a success message is displayed, and a green line along the left side of the page.

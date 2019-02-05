@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "repos": [],
+    "serviceInstances": [{
+      "metadata": { "name": "location-soap" },
+      "spec": {
+        "clusterServiceClassExternalName": "location-soap",
+        "clusterServicePlanExternalName": "default"
+      }
+    }]
+  }
+}
