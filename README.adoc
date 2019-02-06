@@ -1,6 +1,15 @@
 = Integreatly walkthroughs
 
-This repository contains the walkthroughs automatically included with the [Tutorial Web App](https://github.com/integr8ly/tutorial-web-app). They are curated by the Integr8ly team.
+This repository contains the walkthroughs automatically included with the [Tutorial Web App](https://github.com/integr8ly/tutorial-web-app). They are curated by the Integreatly team.
+Typically, a core walkthrough has the following attributes:
+
+* A clear user story that addresses an integration goal
+* Contains a diagram that represents the user flow and the components used in the walkthrough
+* Each task is timed appropriately
+* Each step has a validation section
+* Each asciidoc attribute resolves to a value
+
+For more information, see https://mojo.redhat.com/docs/DOC-1190932.
 
 = Testing walkthroughs
 
