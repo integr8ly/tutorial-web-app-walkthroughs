@@ -423,7 +423,7 @@ Other attributes that are available to Walkthrough authors are:
 
 * Default attributes:
 ** OpenShift App Host: `\{openshift-app-host}`
-** Che URL: `\{che-url}`.
+** CodeReady URL: `\{che-url}`.
 ** Fuse URL: `\{fuse-url}`
 ** Launcher URL: `\{launcher-url}`
 ** API Management URL: `\{api-management-url}`

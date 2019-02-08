@@ -4,7 +4,7 @@
 :messaging-service-version: 7.2
 :integration-service: Fuse
 :integration-service-version: 7.1
-:che-service: Che
+:che-service: CodeReady
 :launcher-service: Launcher
 :api-mgmt-service: 3Scale
 :AMQ-ProductLongName: Red Hat AMQ
@@ -30,6 +30,10 @@ It is possible to protect and limit access to APIs as part of an integration.
 In this walkthrough, you use the *Fuse Aggregation App*, which is a demonstration app that provides data using an API.
 The walkthrough shows how to deploy, edit, protect and rate-limit that API, using OpenShift, {launcher-service}, {che-service} and {api-mgmt-service}.
 
+****
+* Image source: https://docs.google.com/presentation/d/1j_dbQoVqeG53Xvjh7QEvkpIQ_I_9nmXHwqEy6xnaY6U/edit#slide=id.g41d7bff7dd_0_20
+****
+[.center]
 image::images/arch.png[integration, role="integr8ly-img-responsive"]
 
 [type=walkthroughResource,serviceName=openshift]
@@ -49,11 +53,11 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 ****
 
 [type=walkthroughResource,serviceName=che]
-.Eclipse Che
+.CodeReady
 ****
 * link:{che-url}[Console, window="_blank"]
-* link:https://developers.redhat.com/products/che/overview/[Eclipse Che Overview, window="_blank"]
-* link:https://www.eclipse.org/che/docs/index.html[Eclipse Che Documentation, window="_blank"]
+* link:https://developers.redhat.com/products/codeready-workspaces/overview/[CodeReady Overview, window="_blank"]
+* link:https://access.redhat.com/documentation/en-us/red_hat_codeready_workspaces_for_openshift/1.0.0/[CodeReady Documentation, window="_blank"]
 ****
 
 [type=walkthroughResource,serviceName=3scale]
@@ -125,7 +129,7 @@ Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & De
 
 // TODO placeholders for product names
 // TODO project name
-. Log in to the link:{che-url}[Che, window="_blank"] Dashboard
+. Log in to the link:{che-url}[CodeReady, window="_blank"] Dashboard
 
 . The *New Workspace* page is displayed. Create a new Workspace:
 .. Use the *Java* stack.
