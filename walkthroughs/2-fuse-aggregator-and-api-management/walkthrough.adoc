@@ -4,7 +4,7 @@
 :messaging-service-version: 7.2
 :integration-service: Fuse
 :integration-service-version: 7.1
-:che-service: Che
+:code-ready-service: Code Ready
 :launcher-service: Launcher
 :api-mgmt-service: 3Scale
 :AMQ-ProductLongName: Red Hat AMQ
@@ -28,7 +28,7 @@ It then becomes paramount to understand the usage of these APIs and to ensure th
 It is possible to protect and limit access to APIs as part of an integration.
 
 In this walkthrough, you use the *Fuse Aggregation App*, which is a demonstration app that provides data using an API.
-The walkthrough shows how to deploy, edit, protect and rate-limit that API, using OpenShift, {launcher-service}, {che-service} and {api-mgmt-service}.
+The walkthrough shows how to deploy, edit, protect and rate-limit that API, using OpenShift, {launcher-service}, {code-ready-service} and {api-mgmt-service}.
 
 image::images/arch.png[integration, role="integr8ly-img-responsive"]
 
@@ -48,12 +48,12 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 * link:https://launcher.fabric8.io/docs/[Launcher Documentation, window="_blank"]
 ****
 
-[type=walkthroughResource,serviceName=che]
-.Eclipse Che
+[type=walkthroughResource,serviceName=codeready]
+.Code Ready
 ****
 * link:{che-url}[Console, window="_blank"]
-* link:https://developers.redhat.com/products/che/overview/[Eclipse Che Overview, window="_blank"]
-* link:https://www.eclipse.org/che/docs/index.html[Eclipse Che Documentation, window="_blank"]
+* link:https://developers.redhat.com/products/codeready-workspaces/overview/[Code Ready Overview, window="_blank"]
+* link:https://access.redhat.com/documentation/en-us/red_hat_codeready_workspaces_for_openshift/1.0.0/[Code Ready Documentation, window="_blank"]
 ****
 
 [type=walkthroughResource,serviceName=3scale]
@@ -125,7 +125,7 @@ Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & De
 
 // TODO placeholders for product names
 // TODO project name
-. Log in to the link:{che-url}[Che, window="_blank"] Dashboard
+. Log in to the link:{che-url}[Code Ready, window="_blank"] Dashboard
 
 . The *New Workspace* page is displayed. Create a new Workspace:
 .. Use the *Java* stack.
