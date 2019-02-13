@@ -74,25 +74,22 @@ For each repository URL that you have from Task 1:
 
 . Find and open the *webapp* project.
 
-. Find and open the *tutorial-web-app* deployment.
+. Find and open the *Resources* menu on the left.
 
-. Select the *Environment* tab.
+. Select the *Other Resources* menu item.
 
-. Note the value of the environment variable with the name *WALKTHROUGH_LOCATIONS*, by default it is:
-+
-----
-https://github.com/integr8ly/tutorial-web-app-walkthroughs.git
-----
-+
-The walkthroughs in this repo must always be available in the environment. 
+. Select *Web App* in the resources drop down.
 
-. Append your repository URL to the value of that variable, separated by a comma, and click *Save*. For example:
+. Click *Actions* and select *Edit YAML* in the resulting drop-down menu.
+
+. Find the *Spec* > *Template* > *Parameters* entry in this YAML
+. Add (or edit, if it already exists) a parameter:
 +
 ----
-https://github.com/integr8ly/tutorial-web-app-walkthroughs.git,https://github.com/integr8ly/example-customisations.git#master
+WALKTHROUGH_LOCATIONS: https://github.com/integr8ly/tutorial-web-app-walkthroughs.git,https://github.com/integr8ly/example-customisations.git#master
 ----
 +
-NOTE: Make sure there are no space characters in the value of the *WALKTHROUGH_LOCATIONS* environment variable. 
+NOTE: Make sure there are no space characters in the value of the *WALKTHROUGH_LOCATIONS*.
 +
 Editing the value triggers an automatic redeployment of the Webapp.
 
