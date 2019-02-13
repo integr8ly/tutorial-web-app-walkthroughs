@@ -23,7 +23,7 @@
 
 This walkthrough demonstrates how an API can be protected and rate limited.
 
-Organizations modernizing their applications typically create many APIs. 
+Organizations modernizing their applications typically create many APIs.
 It then becomes paramount to understand the usage of these APIs and to ensure they are protected, for example, from a Denial-of-service attack.
 It is possible to protect and limit access to APIs as part of an integration.
 
@@ -128,7 +128,7 @@ Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & De
 . Log in to the link:{che-url}[Code Ready, window="_blank"] Dashboard
 
 . The *New Workspace* page is displayed. Create a new Workspace:
-.. Use the *Java* stack.
+.. Use the *Java 1.8* stack.
 .. Select the *Add or Import Project* button.
 .. Select the *Github* tab.
 .. Select the *Connect your Github Account* button.
@@ -244,7 +244,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 === Setting Fuse Aggregation App Endpoint Limits
 
 . Create a new *Application Plan*:
-.. Select *Applications > Application Plans* from the side navigation. 
+.. Select *Applications > Application Plans* from the side navigation.
 .. Select *Create Application Plan*.
 .. Enter the following for *Name* and *System name*:
 +
