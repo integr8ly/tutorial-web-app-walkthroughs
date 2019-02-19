@@ -83,20 +83,24 @@ The tutorial-web-app-operator entry is displayed.
 An editor is displayed.
 
 . Find the *Spec* > *Template* > *Parameters* entries in the YAML.
-. Edit the `WALKTHROUGH_LOCATIONS` parameter, for example:
+. Create or edit the `WALKTHROUGH_LOCATIONS` parameter to include the repositories that you want to use, for example:
 +
 ----
 WALKTHROUGH_LOCATIONS: https://github.com/integr8ly/tutorial-web-app-walkthroughs.git,https://github.com/integr8ly/example-customisations.git#master
 ----
 +
-NOTE: Make sure there are no space characters in the value of the *WALKTHROUGH_LOCATIONS*.
+[NOTE]
+====
+* Make sure there are no space characters in the value of the *WALKTHROUGH_LOCATIONS*.
+* Include the `https://github.com/integr8ly/tutorial-web-app-walkthroughs.git` to ensure the core walkthroughs are displayed.
+====
 +
 Editing the value triggers an automatic redeployment of the Webapp.
 
 . When the deployment is complete, refresh the Webapp in your Browser.
 +
 You should now see new walkthroughs available from the dashboard.
-
++
 [NOTE]
 ====
 If the git repository is updated with new content, the web app is not automatically updated. You must:
