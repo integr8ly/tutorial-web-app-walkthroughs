@@ -3,14 +3,16 @@
 :linkGitHubFork: https://help.github.com/articles/fork-a-repo/
 :linkIndexURL: https://github.com/integr8ly/example-customisations/blob/master/index.adoc
 
+// Placeholder for link to docs about writing walkthroughs
+:linkWriting: na yet
 
-= Publishing walkthroughs to a cluster
+= Adding walkthroughs to a cluster
 
 How to add to the catalog of walkthroughs in your environment by subscribing to remote git repositories.
 
 In addition to the default walkthroughs, you can import existing walkthroughs from a git repository. 
 If the git repository changes you can redeploy the web app to publish the changes. 
-You can specify a branch on the git repository, if you do not want to publish the default branch.
+You can specify a branch on the git repository, if you do not want to add the default branch.
 
 NOTE: You must have access to the link:{openshift-host}[OpenShift Console].
 
@@ -44,12 +46,14 @@ A git repository typically contains many walkthroughs.
 
 See the link:{linkIndexURL}[index of walkthrough repositories] for more information.
 
-=== Forking walkthrough repos
+=== Forking walkthrough repositories
 
 To have precise control over what is published in your environment, create a fork of the git repository you want to use. This allows you to:
 
 * delete walkthroughs before publication
 * add additional walkthroughs that you have written
+
+To create a fork of the walkthrough repository you want to add to your cluster:
 
 . Log into the git hosting service.
 . Navigate to the repository you want to fork.
@@ -62,28 +66,24 @@ You have the URL one or more repositories with the exact content you want to pub
 Continue searching, new walkthroughs are created on GitHub monthly and the link:{linkIndexURL}[index of walkthrough repositories] is updated. 
 
 [time=10]
-== Publishing the Walkthrough in the Webapp
-
-You can add repositories containing one or more Walkthroughs to a Webapp deployed to Openshift.
-
-=== Publishing a git repository to the Webapp
+== Adding a git repository to the Webapp
 
 For each repository URL that you have from Task 1:
 
 . Open the link:{openshift-host}[Openshift Console].
 
-. Find and open the *webapp* project.
+. Navigate to the *webapp* project.
 
-. Find and open the *Resources* menu on the left.
+. Choose *Other Resources* from the *Resources* menu.
 
-. Select the *Other Resources* menu item.
+. Choose *Web App* from the *Other Resources* menu. 
+The tutorial-web-app-operator entry is displayed.
 
-. Select *Web App* in the resources drop down.
+. Choose *Edit YAML* from the *Actions* menu.
+An editor is displayed.
 
-. Click *Actions* and select *Edit YAML* in the resulting drop-down menu.
-
-. Find the *Spec* > *Template* > *Parameters* entry in this YAML
-. Add (or edit, if it already exists) a parameter:
+. Find the *Spec* > *Template* > *Parameters* entries in the YAML.
+. Edit the `WALKTHROUGH_LOCATIONS` parameter, for example:
 +
 ----
 WALKTHROUGH_LOCATIONS: https://github.com/integr8ly/tutorial-web-app-walkthroughs.git,https://github.com/integr8ly/example-customisations.git#master
