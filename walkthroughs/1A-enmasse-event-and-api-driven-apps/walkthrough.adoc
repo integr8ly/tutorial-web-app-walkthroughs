@@ -91,7 +91,7 @@ work-queue-requests
 After the address is created a green check mark is displayed.
 
 [type=verification]
-Check the *Addresses* screen of the link:{enmasse-url}[AMQ Online, window="_blank"] console to make sure the newly created address exists.
+Are the newly created addresses displayed on the *Addresses* screen of the link:{enmasse-url}[AMQ Online, window="_blank"] console?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
@@ -153,7 +153,7 @@ Walkthrough {walkthrough-id} CRUD Connector
 .. Click *Create API Connector*.
 
 [type=verification]
-Check the *Customizations* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console to make sure the new connector exists.
+Is the new connector displayed on the *Customizations* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
@@ -196,7 +196,7 @@ Walkthrough {walkthrough-id} CRUD App
 
 
 [type=verification]
-Check the *Connections* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console to make sure the new connection exists.
+Is the new connection displayed on the *Connections* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
@@ -261,7 +261,7 @@ Walkthrough {walkthrough-id} Messaging App
 
 
 [type=verification]
-Check the *Connections* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console to make sure the new connection exists.
+Is the new connection displayed on the *Connections* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console?
 
 
 [type=verificationFail]
@@ -345,7 +345,7 @@ Walkthrough {walkthrough-id}
 . Click *Publish* again.
 
 [type=verification]
-Check the *Integrations* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console to make sure the new connection exists and is running.
+Is the integration displayed as *Running* on the *Integrations* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console?
 
 [type=verificationFail]
 
@@ -402,7 +402,7 @@ View the activity log:
 . Select the *Activity* tab.
 . Expand the log entry to display the steps performed.
 
-Is your activity is displayed?
+Is your activity displayed?
 ****
 
 [type=verificationFail]
