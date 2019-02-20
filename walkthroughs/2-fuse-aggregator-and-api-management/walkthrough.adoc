@@ -299,7 +299,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 . Select the *Update & test in Staging Environment* button at the bottom again.
 
-. Is a success message is displayed and a green line along the left side of the page?
+. Is a success message displayed and a green line along the left side of the page?
 ****
 
 [type=verificationFail]
