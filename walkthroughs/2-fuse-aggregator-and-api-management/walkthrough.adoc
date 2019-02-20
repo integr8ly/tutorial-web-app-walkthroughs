@@ -98,7 +98,7 @@ The Fuse Aggregation App provides information about flights, you deploy it using
 
 
 [type=verification]
-. Make sure following pods are running in the link:{openshift-host}/console/project/{walkthrough-namespace}[OpenShift Project, window="_blank"]:
+. Are the following pods running in the link:{openshift-host}/console/project/{walkthrough-namespace}[OpenShift Project, window="_blank"]:
 +
 * fuse-flights-aggregator
 +
@@ -166,7 +166,7 @@ Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & De
 
 [type=verification]
 // TODO: flights api links to /camel/flights
-After waiting for the build and deployment to complete, check that link:{route-fuse-flights-aggregator-host}/camel/flights[Flights Endpoint, window="_blank"] responds with more than 8 flights.
+After waiting for the build and deployment to complete, check link:{route-fuse-flights-aggregator-host}/camel/flights[Flights Endpoint, window="_blank"]. Are more than 8 flights displayed?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
@@ -191,7 +191,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 . Dismiss the *How does 3Scale work?* option which is displayed the first time you log in to {3Scale-ProductName}. The main Dashboard is displayed.
 
 [type=verification]
-Make sure you can see the {3Scale-ProductName} Dashboard and can navigate the main menu.
+Can you see the {3Scale-ProductName} Dashboard and navigate the main menu?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
@@ -235,7 +235,7 @@ Note that this route should point to the shared staging APIcast in the *3scale* 
 . Select *Update & test in Staging Environment*
 
 [type=verification]
-Check that the API service is available.
+Is the API service available?
 You might encounter a *403: Authentication failed* message. You can ignore this message, the issue is resolved in a later step.
 
 [type=verificationFail]
@@ -299,7 +299,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 . Select the *Update & test in Staging Environment* button at the bottom again.
 
-. Check that a success message is displayed, and a green line along the left side of the page.
+. Is a success message displayed and a green line along the left side of the page?
 ****
 
 [type=verificationFail]
@@ -458,21 +458,8 @@ Verify that you followed each step in the procedure above.  If you are still hav
 +
 . Select the *Create Service* button.
 
-ifdef::location[]
-
-.To verify this procedure:
-// tag::verification[]
-The *Airport Flights REST API* ActiveDoc is created and has a *List all flights* API endpoint.
-// end::verification[]
-
-.If your verification fails:
-// tag::verificationNo[]
-Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
-// end::verificationNo[]
-endif::location[]
-
 [type=verification]
-The *Airport Flights REST API* ActiveDoc is created and has a *List all flights* API endpoint.
+Does the *Airport Flights REST API* ActiveDoc exist with a *List all flights* API endpoint?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
@@ -494,7 +481,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 [type=verification]
 ****
-Check that {3Scale-ProductName} is rejecting the request, as there is no `user_key` specified.
+Is {3Scale-ProductName} rejecting the request, because no `user_key` was specified?
 
 * The *Response Body* is `no content`
 
@@ -519,8 +506,9 @@ Verify that you followed each step in the procedure above.  If you are still hav
 Check that:
 
 * the *Response Code* is 200
-
 * the *Response Body* shows a *JSON Array* of flights
+
+Are these responses displayed?
 ****
 
 [type=verificationFail]
@@ -542,9 +530,9 @@ should happen after the fifth click (the hourly limit set earlier).
 
 [type=verification]
 ****
-Check that the following is displayed:
+Is the following displayed:
 
-. *Hits %* in the *Current Utilization* section is `100%`.
+* *Hits %* in the *Current Utilization* section is `100%`.
 ****
 
 [type=verificationFail]
@@ -555,7 +543,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 . Select the *Analytics > Usage* from the sidemenu
 
 [type=verification]
-Check that analytics charts show the service requests.
+Do the analytics charts show the service requests?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.

@@ -60,7 +60,7 @@ To create a fork of the walkthrough repository you want to add to your cluster:
 . Fork the repository using the instructions from the git hosting service, for example, link:{linkGitHubFork}[GitHub instructions].
 
 [type=verification]
-You have the URL one or more repositories with the exact content you want to publish. 
+Have you identified a URL for one or more repositories with the exact content you want to publish?
 
 [type=verificationFail]
 Continue searching, new walkthroughs are created on GitHub monthly and the link:{linkIndexURL}[index of walkthrough repositories] is updated. 
@@ -116,7 +116,7 @@ If the git repository is updated with new content, the web app is not automatica
 
 
 [type=verification]
-Make sure that the walkthroughs you require are displayed on the web app dashboard.
+Are the walkthroughs you require displayed on the web app dashboard?
 
 [type=verificationFail]
 Check that the Webapp has finished redeployment and no errors occurred. For information on debugging, see the link:{linkTroubleshooting}[Troubleshooting Guide]. 
