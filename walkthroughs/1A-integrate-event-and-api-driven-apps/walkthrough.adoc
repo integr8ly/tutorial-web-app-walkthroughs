@@ -184,14 +184,13 @@ To enable Fuse Online to send messages from the queue to the Spring Boot CRUD ap
 
 . When prompted with *Select Connector*, select *Walkthrough 1A CRUD Connector*.
 
-. When prompted with *Walkthrough 1A CRUD Configuration*, click *Next*.
+. When prompted with *Walkthrough 1A CRUD Connector Configuration*, click *Next*.
 
 . When prompted with *Add Connection Details*:
 .. Enter the following in the *Connection Name* field:
 +
-[subs="attributes+"]
 ----
-Walkthrough 1A CRUD App
+Walkthrough 1A CRUD Connection
 ----
 .. Click *Create*.
 
@@ -325,7 +324,7 @@ work-queue-requests
 ----
 .. Click *Done*.
 
-. Choose *Walkthrough 1A CRUD App* as the *Finish Connection*.
+. Choose *Walkthrough 1A CRUD Connection* as the *Finish Connection*.
 
 . When prompted to *Choose an Action*, select *Create a fruit*.
 
