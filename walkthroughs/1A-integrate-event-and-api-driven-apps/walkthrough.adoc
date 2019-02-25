@@ -148,7 +148,7 @@ To create a connector for the RESTful API, you register the OpenAPI definition a
 +
 [subs="attributes+"]
 ----
-Walkthrough {walkthrough-id} CRUD Connector
+Walkthrough 1A CRUD Connector
 ----
 
 .. Click *Create API Connector*.
@@ -182,16 +182,15 @@ To enable Fuse Online to send messages from the queue to the Spring Boot CRUD ap
 
 . Select the *Create Connection* button to start the *Create Connection* wizard.
 
-. When prompted with *Select Connector*, select *Walkthrough {walkthrough-id} CRUD Connector*.
+. When prompted with *Select Connector*, select *Walkthrough 1A CRUD Connector*.
 
-. When prompted with *Walkthrough {walkthrough-id} CRUD Configuration*, click *Next*.
+. When prompted with *Walkthrough 1A CRUD Connector Configuration*, click *Next*.
 
 . When prompted with *Add Connection Details*:
 .. Enter the following in the *Connection Name* field:
 +
-[subs="attributes+"]
 ----
-Walkthrough {walkthrough-id} CRUD App
+Walkthrough 1A CRUD Connection
 ----
 .. Click *Create*.
 
@@ -255,7 +254,7 @@ amqp://{enmasse-broker-url}:5672?amqp.saslMechanisms=PLAIN
 +
 [subs="attributes+"]
 ----
-Walkthrough {walkthrough-id} Messaging App
+Walkthrough 1A Messaging App
 ----
 
 . Click *Create*.
@@ -294,7 +293,7 @@ To use the Fuse connections, you create an integration in Red Hat Fuse Online.
 
 . Select the *Create Integration* button to start the *Create Integration* wizard.
 
-. Choose *Walkthrough {walkthrough-id} Messaging App* as the *Start Connection*.
+. Choose *Walkthrough 1A Messaging App* as the *Start Connection*.
 
 . When prompted to *Choose an Action*, select *Subscribe for messages*.
 
@@ -325,7 +324,7 @@ work-queue-requests
 ----
 .. Click *Done*.
 
-. Choose *Walkthrough {walkthrough-id} CRUD App* as the *Finish Connection*.
+. Choose *Walkthrough 1A CRUD Connection* as the *Finish Connection*.
 
 . When prompted to *Choose an Action*, select *Create a fruit*.
 
@@ -341,7 +340,7 @@ work-queue-requests
 +
 [subs="attributes+"]
 ----
-Walkthrough {walkthrough-id}
+Walkthrough 1A
 ----
 . Click *Publish* again.
 
