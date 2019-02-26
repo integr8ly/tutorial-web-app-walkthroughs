@@ -18,7 +18,7 @@ Typically, a developer working on a back-end application implements a synchronou
 You may identify business value, as part of an application modernization effort, by integrating a message queue with an API.
 This is not trivial, because of the conflicting underlying timing models. The data may require transformation to be usable.
 
-In this walkthrough, you create a simple and intuitive integration with built-in monitoring, to enable communication between two applications:
+In this walkthrough, create a simple and intuitive integration with built-in monitoring, to enable communication between two applications:
 
 * A Node.js webapp provides a method to create messages, in this example, a new inventory item.
 * A Spring Boot CRUD app provides a RESTful API, in this example, an inventory API.
