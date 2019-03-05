@@ -104,9 +104,9 @@ Try downloading the link:https://github.com/integr8ly/walkthrough-template/archi
 
 <1> This is a required directory. All walkthroughs are defined under `walkthroughs`.
 
-<2> The directory name of a walkthrough. This is also displayed in the URL of the web app. 
+<2> The directory name of a walkthrough. This is also displayed in the URL of the web app.
 
-<3> All images for the walkthrough. 
+<3> All images for the walkthrough.
 
 <4> *walkthrough.adoc* is where the content of the walkthrough is written in asciidoc format.
 <5> *walkthrough.json* is the manifest file of the walkthrough where you can define extra dependencies.
@@ -177,7 +177,7 @@ Using the repository you created in the first task:
 
 . Add an introduction paragraph to your preamble.
 
-. Add another paragraph with more information about the walkthrough. 
+. Add another paragraph with more information about the walkthrough.
 
 . Commit your changes
 +
@@ -201,7 +201,7 @@ Check your git credentials and that you pushed to the correct remote repository.
 [time=5]
 == Adding tasks
 
-Walkthroughs are organized in tasks. A task becomes one single page in the Webapp. 
+Walkthroughs are organized in tasks. A task becomes one single page in the Webapp.
 
 Tasks are introduced by a second level heading (`==`).
 
@@ -423,18 +423,14 @@ Other attributes that are available to Walkthrough authors are:
 
 * Default attributes:
 ** OpenShift App Host: `\{openshift-app-host}`
-** Che URL: `\{che-url}`.
+** CodeReady Workspaces URL: `\{che-url}`.
 ** Fuse URL: `\{fuse-url}`
 ** Launcher URL: `\{launcher-url}`
 ** API Management URL: `\{api-management-url}`
-** AMQ URL: `\{amq-url}`
-** AMQ Broker URL: `\{amq-broker-tcp-url}`
-** AMQ Credential Username: `\{amq-credentials-username}`
-** AMQ Credential Password: `\{amq-credentials-password}`
-** EnMasse URL: `\{enmasse-url}`
-** EnMasse Broker URL: `\{enmasse-broker-url}`
-** EnMasse Credential Username: `\{enmasse-credentials-username}`
-** EnMasse Credential Password: `\{enmasse-credentials-password}`
+** AMQ Online URL: `\{enmasse-url}`
+** AMQ Online Broker URL: `\{enmasse-broker-url}`
+** AMQ Online Credential Username: `\{enmasse-credentials-username}`
+** AMQ Online Credential Password: `\{enmasse-credentials-password}`
 * Custom attributes:
 ** NodeJS Frontend App Route (provisioned from walkthrough.json): `\{route-frontend-host}`
 

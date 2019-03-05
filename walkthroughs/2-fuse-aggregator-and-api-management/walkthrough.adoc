@@ -4,7 +4,7 @@
 :messaging-service-version: 7.2
 :integration-service: Fuse
 :integration-service-version: 7.1
-:code-ready-service: Code Ready
+:code-ready-service: CodeReady Workspaces
 :launcher-service: Launcher
 :api-mgmt-service: 3Scale
 :AMQ-ProductLongName: Red Hat AMQ
@@ -49,11 +49,11 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 ****
 
 [type=walkthroughResource,serviceName=codeready]
-.Code Ready
+.CodeReady Workspaces
 ****
 * link:{che-url}[Console, window="_blank"]
-* link:https://developers.redhat.com/products/codeready-workspaces/overview/[Code Ready Overview, window="_blank"]
-* link:https://access.redhat.com/documentation/en-us/red_hat_codeready_workspaces_for_openshift/1.0.0/[Code Ready Documentation, window="_blank"]
+* link:https://developers.redhat.com/products/codeready-workspaces/overview/[{code-ready-service} Overview, window="_blank"]
+* link:https://access.redhat.com/documentation/en-us/red_hat_codeready_workspaces_for_openshift/1.0.0/[{code-ready-service} Documentation, window="_blank"]
 ****
 
 [type=walkthroughResource,serviceName=3scale]
@@ -125,7 +125,7 @@ Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & De
 
 // TODO placeholders for product names
 // TODO project name
-. Log in to the link:{che-url}[Code Ready, window="_blank"] Dashboard
+. Log in to the link:{che-url}[{code-ready-service}, window="_blank"] Dashboard
 
 . The *New Workspace* page is displayed. Create a new Workspace:
 .. Use the *Java 1.8* stack.
