@@ -128,9 +128,9 @@ If you do not have extra dependencies, use the following for your *walkthrough.j
 
 Typically, you push your changes to GitHub.
 
-. Create a new remote repository and take note of the remote URL
+. Create a new remote repository and take note of the remote URL.
 
-. Add the remote to your local clone
+. Add the remote URL to your local clone.
 +
 [source,bash]
 ----
@@ -148,44 +148,42 @@ git push -u upstream master
 Make sure you have a remote repository with the content you want to publish.
 
 [type=verificationFail]
-If you created files from a zip file instead of cloning you need to initialize and commit the changes first.
+If you created files from a zip file instead of cloning, you need to initialize and commit the changes first.
 
 [time=5]
 == Adding a Preamble
 
-The Preamble describes your Walkthrough. When a user opens it they will first see an overview page with the content of your preamble.
+The preamble describes your walkthrough. When a user opens a walkthrough they will first see an overview page with the contents of your preamble. The preamble should be the first section in your walkthrough.
 
-The preamble has to be the first section in your Walkthrough.
+* Introduce the preamble with a first level heading (`=`)
+* The title of the preamble becomes the name of your walkthrough
+* The preamble is followed by a short introductory paragraph that outlines the walkthrough in one or two sentences. This description is displayed in the card on the Overview page of the Webapp.
 
-* The preamble is introduced using a first level heading (`=`)
-* The title of the preamble becomes the name of your Walkthrough
-* The preamble must be followed by a paragraph giving a short introduction to the Walkthrough in one or two sentences. This description will be displayed in the card on the Overview page of the Webapp.
+You can also add a second paragraph to the preamble. The second paragraph should have more content than the first paragraph, and it is displayed when a user clicks on the card.
 
-You should also add a second paragraph to the preamble which will be displayed when a user clicks on the card. The second paragraph can have more content than the first one.
-
-=== Adding a Preamble to the template
+=== Adding a preamble to the template
 
 Using the repository you created in the first task:
 
 . Edit the `walkthroughs/walkthrough.adoc` file.
 
-. Change the title of the Walkthrough, for example:
+. Change the title of the walkthrough, for example:
 +
 ----
 = My first Walkthrough
 ----
 
-. Add an introduction paragraph to your preamble.
+. Add an introductory paragraph to your preamble.
 
 . Add another paragraph with more information about the walkthrough.
 
-. Commit your changes
+. Commit your changes.
 +
 ----
 git commit -am "add preamble"
 ----
 
-. Push your change to the remote repository
+. Push your changes to the remote repository.
 +
 ----
 git push upstream master
@@ -195,27 +193,27 @@ git push upstream master
 Make sure that all your changes are in the remote repository.
 
 [type=verificationFail]
-Check your git credentials and that you pushed to the correct remote repository.
+Check your git credentials and ensure you pushed to the correct remote repository.
 
 
 [time=5]
 == Adding tasks
 
-Walkthroughs are organized in tasks. A task becomes one single page in the Webapp.
+Walkthroughs are organized by tasks. A task is a single page in the Webapp.
 
 Tasks are introduced by a second level heading (`==`).
 
 === Adding a task to the template
 
-The template already contains a sample task, however you can change it as follows:
+The template already contains a sample task; however, you can change it as follows:
 
 . Edit the `walkthroughs/walkthrough.adoc` file.
 
 . Change the task title, for example, `== My first task`
 
-. The heading of a task can be followed by a short introduction of what the user is about to learn. Add a paragraph with some content.
+. The heading of a task can be followed by a short introductory paragraph of what the user is about to learn. 
 
-. Tasks must have a time associated with them. This lets the user know how long the task will approximately take and is also displayed in the Walkthrough overview.
+. Tasks must have a time associated with them. This lets the user know how long the task will approximately take and is also displayed in the walkthrough overview.
 
 . The template task already has a block attribute for the time. The syntax is always:
 +
@@ -224,14 +222,14 @@ The template already contains a sample task, however you can change it as follow
 == My first task
 ----
 
-. Save, commit and push your changes.
+. Save, commit, and push your changes.
 
-. We need to trigger a redeploy of the Webapp to see our changes. To do this, open the link:{openshift-host}[Openshift Console] and find the *tutorial-web-app* deployment.
+. You need to trigger a redeploy of the Webapp to see the changes. To do this, open the link:{openshift-host}[Openshift Console] and find the *tutorial-web-app* deployment.
 
 . Click the *Redeploy* button.
 
 [type=verification]
-After the redeploy has finished, refresh the tab with your Walkthrough. You should see the updated content.
+After the redeploy, refresh the tab with your walkthrough. You should see the updated content.
 
 [type=verificationFail]
 Check that the Webapp has finished redeployment and no errors occurred.
@@ -241,13 +239,13 @@ Check that the Webapp has finished redeployment and no errors occurred.
 
 Tasks are divided into procedures. A procedure is a set of steps that need to be executed one after the other to achieve a goal. Procedures are introduced using a third level heading (`===`). You can add a paragraph describing the procedure the user is about to follow.
 
-The steps in a procedure should be written using Asciidoc numbered lists. Prepend your step with a `. ` to add them to a numbered list.
+The steps in a procedure should be written using Asciidoc numbered lists. Prepend your steps with a `. ` to add them to a numbered list.
 
 === Adding a sample procedure
 
-. The sample Walkthrough already has a procedure. Change its name to *My first Procedure*.
+. The sample walkthrough already has a procedure. Change its name to *My first procedure*.
 
-. Add a paragraph with a sentence describing your Procedure.
+. Add a paragraph with a sentence describing your procedure.
 
 . Add a numbered list:
 +
@@ -259,7 +257,7 @@ The steps in a procedure should be written using Asciidoc numbered lists. Prepen
 
 . Save, commit and push your changes.
 
-. Trigger a redeploy of the Webapp as we did in the previous task.
+. Trigger a redeploy of the Webapp as you did in the previous task.
 
 [type=verification]
 Check that your Task has a number of steps.
@@ -270,7 +268,7 @@ Check that the Webapp has finished redeployment and no errors occurred.
 [time=5]
 == Adding walkthrough resources
 
-When users are following a Walkthrough you can display helpful information and links on the right hand side panel of the Webapp. Resources are added using block attributes:
+You can help users who follow your walkthrough. You can display helpful information and links on the right hand side panel of the Webapp. Resources are added using block attributes:
 
 [source,asciidoc]
 ----
@@ -303,7 +301,7 @@ Walkthrough resources must only be defined in the preamble section.
 . Save, commit and push your changes. Then trigger a redeployment of the Webapp like in the previous task.
 
 [type=verification]
-Check that the resource appears on the right hand side of the Walkthrough overview as well as on the task page.
+Check that the resource appears on the right hand side of the walkthrough overview as well as on the task page.
 
 [type=verificationFail]
 Make sure that you added the resource to the preamble section and that it uses a third level heading.
@@ -320,7 +318,7 @@ Add an image to your content using: `image::<path>[<alt text>, role="integr8ly-i
 
 === Adding an image to the template
 
-. Create the *images* subdirectory inside your Walkthrough directory
+. Create the *images* subdirectory inside your walkthrough directory
 
 . Copy a .png or .jpg image into that directory
 
@@ -333,7 +331,7 @@ image::images/<name>[diagram, role="integr8ly-img-responsive"]
 . Save, commit and push your changes. Then trigger a redeployment of the Webapp like in the previous task.
 
 [type=verification]
-Check that the image is displayed in the Walkthrough overview.
+Check that the image is displayed in the walkthrough overview.
 
 [type=verificationFail]
 Check that the Webapp has finished redeployment and no errors occurred.
@@ -377,7 +375,7 @@ Check that the Webapp has finished redeployment and no errors occurred.
 [time=10]
 == Adding verifications
 
-Every Procedure in a Task should have a verification. Verifications are used to make sure that the steps taken by the user were successful. They should be formulated as questions and the user can answer them with `Yes` or `No`.
+Every procedure in a task should have a verification. Verifications are used to make sure that the steps taken by the user were successful. They should be formulated as questions and the user can answer them with `Yes` or `No`.
 
 As with resources, block attributes are used to define verifications
 
@@ -408,7 +406,7 @@ Try turning it off and on again.
 Check that the verification appears on the task. Check that you can click the *Next* button when answered *Yes* and that the fail text appears when answering *No*.
 
 [type=verificationFail]
-Check that the verification has been added after the Procedure section. It will be ignored in any other location.
+Check that the verification has been added after the procedure section. It will be ignored in any other location.
 
 [time=5]
 == Using attributes
@@ -419,7 +417,7 @@ Attributes are used to make external variables accessible to the asciidoc. The s
 
 * The Openshift Console is available as `\{openshift-host}`.
 
-Other attributes that are available to Walkthrough authors are:
+Other attributes that are available to walkthrough authors are:
 
 * Default attributes:
 ** OpenShift App Host: `\{openshift-app-host}`
