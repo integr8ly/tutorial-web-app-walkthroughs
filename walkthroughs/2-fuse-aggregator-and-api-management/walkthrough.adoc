@@ -97,19 +97,32 @@ The Fuse Aggregation App provides information about flights, you deploy it using
 . Select the *Set Up Application* button to create a Git repository and provision the mission resources to OpenShift. A build for the *Fuse Aggregation App* is triggered and deployed.
 
 
+ifdef::route-fuse-flights-aggregator-host[]
 [type=verification]
-. Are the following pods running in the link:{openshift-host}/console/project/{walkthrough-namespace}[OpenShift Project, window="_blank"]:
-+
-* fuse-flights-aggregator
-+
-* arrivals
-+
-* departures
 // TODO: flights api links to /camel/flights
-. Navigate to the link:{route-fuse-flights-aggregator-host}/camel/flights[Flights Endpoint, window="_blank"] and check that the response includes details about 8 flights.
+Navigate to the link:{route-fuse-flights-aggregator-host}/camel/flights[Flights Endpoint, window="_blank"] and check that the response includes details about 8 flights.
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+endif::route-fuse-flights-aggregator-host[]
+
+
+ifndef::route-fuse-flights-aggregator-host[]
+
+[WARNING]
+====
+The pods necessary to continue are not running.
+
+Check that the following pods running in the link:{openshift-host}/console/project/{walkthrough-namespace}[OpenShift Project, window="_blank"]:
+
+* fuse-flights-aggregator
+* arrivals
+* departures
+
+When these pods are running, you can continue. 
+====
+endif::route-fuse-flights-aggregator-host[]
+
 
 :sectnums!:
 
