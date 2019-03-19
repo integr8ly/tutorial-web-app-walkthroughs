@@ -76,13 +76,13 @@ The Fuse Aggregation App provides information about flights, you deploy it using
 // TODO flights endpoint url
 . Log in to the link:{launcher-url}/launch/wizard/{walkthrough-namespace}[{launcher-service}, window="_blank"] wizard.
 
-. Select the option to *Code Locally, Build and Deploy* in the *Select Target Environment* step.
+. Select the option to *Build and Deploy Online* in the *Target Environment* step.
 
 . Select the *Authorize* button to allow Launcher create resources in the OpenShift cluster. This triggers an OAuth flow, and eventually redirects back to the {launcher-service} wizard.
 
 . Select the blue down-arrow icon to continue the wizard.
 
-. Select the *Aggregation* mission and *Fuse* runtime in the *Select Mission & Runtime* step
+. Select the *Aggregation* mission and *Fuse* runtime in the *Mission & Runtime* step
 
 . Select the blue down-arrow icon to continue the wizard.
 
