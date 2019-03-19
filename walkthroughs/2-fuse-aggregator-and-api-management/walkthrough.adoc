@@ -117,7 +117,12 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 === Checking the Fuse Aggregation App
 
-The {route-fuse-flights-aggregator-host} URL must be available before attempting this procedure.
+.Prerequisite 
+The following URL must be available before attempting this procedure:
+----
+{route-fuse-flights-aggregator-host}
+----
+If a valid URL is not displayed, redo the previous procedure.
 
 . Navigate to the link:{route-fuse-flights-aggregator-host}/camel/flights[Flights Endpoint, window="_blank"].
 . Count the number of flights listed in the JSON output.
