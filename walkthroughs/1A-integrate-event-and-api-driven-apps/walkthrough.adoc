@@ -88,8 +88,8 @@ work-queue-requests
 .. Select *Small Queue* as the address plan and click *Next*.
 .. Select *Create* to complete the wizard.
 
+. Monitor the AMQ Online console until a green check mark is displayed beside the new address. 
 Creating an address may take some time. 
-After the address is created a green check mark is displayed.
 
 [type=verification]
 Is the newly created address displayed on the *Addresses* screen of the link:{enmasse-url}[AMQ Online, window="_blank"] console?
@@ -343,6 +343,9 @@ work-queue-requests
 Walkthrough 1A
 ----
 . Click *Publish* again.
+
+. Monitor the *Integration Summary* dashboard until the integration build process is complete.
+The integration may take some time to complete building.
 
 [type=verification]
 Is the integration displayed as *Running* on the *Integration* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console?
