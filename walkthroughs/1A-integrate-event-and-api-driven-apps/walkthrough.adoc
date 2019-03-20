@@ -344,7 +344,7 @@ Walkthrough 1A
 ----
 . Click *Publish* again.
 
-. Monitor the *Integration Summary* dashboard until the integration build process is complete.
+. Monitor the *Integration Summary* dashboard until a green check mark is displayed beside the new integration.
 The integration may take some time to complete building.
 
 [type=verification]
