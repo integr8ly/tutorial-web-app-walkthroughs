@@ -68,11 +68,17 @@ Continue searching, new walkthroughs are created on GitHub monthly and the link:
 [time=10]
 == Adding a git repository to the Webapp
 
-For each repository URL that you have from Task 1:
 
 . Open the link:{openshift-host}[Openshift Console].
 
 . Navigate to the *webapp* project.
+
+. Click the *tutorial-web-app* deployment config.
+
+. Choose the *Environment* tab.
+
+. Note the value for the *WALKTHROUGH_LOCATIONS* environment variable. 
+In later steps, this is referred to as the existing value for the *WALKTHROUGH_LOCATIONS* environment variable.
 
 . Choose *Other Resources* from the *Resources* menu.
 
@@ -83,16 +89,21 @@ The tutorial-web-app-operator entry is displayed.
 An editor is displayed.
 
 . Find the *Spec* > *Template* > *Parameters* entries in the YAML.
-. Create or edit the `WALKTHROUGH_LOCATIONS` parameter to include the repositories that you want to use, for example:
+. Create or edit the *WALKTHROUGH_LOCATIONS* parameter to include:
++
+* the existing value for the *WALKTHROUGH_LOCATIONS* environment variable
+* a comma separated list of the repositories that you want to add
++
+For example, if the existing value includes `https://github.com/integr8ly/tutorial-web-app-walkthroughs.git#release-no` and you want to add `https://github.com/integr8ly/example-customisations.git#master`:
 +
 ----
-WALKTHROUGH_LOCATIONS: https://github.com/integr8ly/tutorial-web-app-walkthroughs.git,https://github.com/integr8ly/example-customisations.git#master
+WALKTHROUGH_LOCATIONS: https://github.com/integr8ly/tutorial-web-app-walkthroughs.git#release-no,https://github.com/integr8ly/example-customisations.git#master
 ----
 +
 [NOTE]
 ====
-* Make sure there are no space characters in the value of the *WALKTHROUGH_LOCATIONS*.
-* Include the `https://github.com/integr8ly/tutorial-web-app-walkthroughs.git` to ensure the core walkthroughs are displayed.
+* Make sure there are no space characters in the value of the *WALKTHROUGH_LOCATIONS* environment variable.
+* To include a specific branch, use the syntax `#<branch-name>`.
 ====
 +
 Editing the value triggers an automatic redeployment of the Webapp.
