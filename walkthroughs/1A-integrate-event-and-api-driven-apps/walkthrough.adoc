@@ -1,7 +1,5 @@
 :walkthrough: Integrating message-oriented middleware with a RESTful API using AMQ Online
 :fuse-version: 7.2
-:messaging-service: AMQ Online
-:Fuse-prodnamefull: Red Hat Fuse Online
 
 [id='integrating-eventdriven-and-apidriven-applications']
 = {walkthrough}
@@ -31,6 +29,14 @@ All of the applications and services used in this walkthrough are running on Red
 image::images/arch.png[integration, role="integr8ly-img-responsive"]
 
 
+[type=walkthroughResource,serviceName=openshift]
+.Red Hat OpenShift
+****
+* link:{openshift-host}/console[Console, window="_blank"]
+* link:https://help.openshift.com/[Openshift Online Help Center, window="_blank"]
+* link:https://blog.openshift.com/[Openshift Blog, window="_blank"]
+****
+
 [type=walkthroughResource,serviceName=fuse]
 .Fuse Online
 ****
@@ -42,13 +48,6 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 ****
 * link:{enmasse-url}[Console, window="_blank"]
 ****
-
-[type=walkthroughResource,serviceName=openshift]
-.Red Hat OpenShift
-****
-* link:{openshift-host}/console[Console, window="_blank"]
-****
-
 
 
 // tag:task-creating-addresses.adoc[]
@@ -104,7 +103,7 @@ Verify that you followed each step in the procedure above. If you are still havi
 [type=taskResource]
 .Task Resources
 ****
-* link:http://enmasse.io/documentation/master/openshift/#create-address-console-messaging[Creating addresses using the AMQ Online Console, window="_blank"]
+* link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.2/html/using_amq_online_on_openshift_container_platform/assembly-using-console-messaging#create-address-console-messaging[Creating addresses using the AMQ Online Console, window="_blank"]
 ****
 
 [time=5]
@@ -273,7 +272,6 @@ Verify that you followed each step in the procedure above.  If you are still hav
 [type=taskResource]
 .Task Resources
 ****
-* link:https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/html-single/integrating_applications_with_fuse_online/high-level-overview_ug#high-level-overview_ug[High level overview of Fuse Online, window="_blank"]
 * link:https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/html-single/integrating_applications_with_fuse_online/connecting-to-applications_ug#about-creating-connections_connections[About creating connections from Fuse Online to applications, window="_blank"]
 * link:https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/html-single/connecting_fuse_online_to_applications_and_services/#supported-connectors_connectors[Connectors that are supported by Fuse Online, window="_blank"]
 * link:https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol[About AMQP, window="_blank"]
