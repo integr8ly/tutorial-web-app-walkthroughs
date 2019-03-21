@@ -67,7 +67,10 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 :sectnums:
 
 [time=5]
-== Deploying the Fuse Aggregation App
+
+== Running the Fuse Aggregation App
+
+=== Deploying the Fuse Aggregation App
 
 The Fuse Aggregation App provides information about flights, you deploy it using Launcher.
 
@@ -98,15 +101,34 @@ The Fuse Aggregation App provides information about flights, you deploy it using
 
 
 [type=verification]
-. Are the following pods running in the link:{openshift-host}/console/project/{walkthrough-namespace}[OpenShift Project, window="_blank"]:
-+
+====
+Check that the following pods are running in the link:{openshift-host}/console/project/{walkthrough-namespace}[OpenShift Project, window="_blank"]:
+
 * fuse-flights-aggregator
-+
 * arrivals
-+
 * departures
-// TODO: flights api links to /camel/flights
-. Navigate to the link:{route-fuse-flights-aggregator-host}/camel/flights[Flights Endpoint, window="_blank"] and check that the response includes details about 8 flights.
+
+Are the pods running?
+====
+
+[type=verificationFail]
+Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+
+
+=== Checking the Fuse Aggregation App
+
+.Prerequisite 
+The following URL must be available before attempting this procedure:
+----
+{route-fuse-flights-aggregator-host}
+----
+If a valid URL is not displayed, redo the previous procedure.
+
+. Navigate to the link:{route-fuse-flights-aggregator-host}/camel/flights[Flights Endpoint, window="_blank"].
+. Count the number of flights listed in the JSON output.
+
+[type=verification]
+Does the response include details about 8 flights.
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
