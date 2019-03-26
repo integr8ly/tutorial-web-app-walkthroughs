@@ -1,21 +1,10 @@
 // Attributes
 :integreatly: Integreatly
-:messaging-service: Red Hat AMQ Online
-:messaging-service-version: 7.2
-:integration-service: Fuse
-:integration-service-version: 7.1
 :code-ready-service: CodeReady Workspaces
 :launcher-service: Launcher
 :api-mgmt-service: 3Scale
-:AMQ-ProductLongName: Red Hat AMQ
-:AMQ-BrokerVersion: 7.2
-:Fuse-prodnamefull: Red Hat Fuse Online
-:Fuse-version: 7.1
 :3Scale-ProductName: Red Hat 3scale
-:3Scale-ProductVersion: 2.3
-:EnMasse-master-ProductLongName: EnMasse
 :fuse-flights-aggregator-app-name: fuse-flights-aggregator-{user-sanitized-username}
-:walkthrough: Integrating API-driven applications
 
 = Managing and protecting APIs using API management
 
@@ -63,6 +52,7 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 * link:https://developers.redhat.com/products/3scale/overview/[3Scale Overview, window="_blank"]
 * link:https://www.3scale.net[3Scale Website, window="_blank"]
 ****
+
 
 :sectnums:
 
@@ -333,7 +323,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 [type=taskResource]
 .Task Resources
 ****
-* link:https://access.redhat.com/documentation/en-us/red_hat_3scale/2-saas/html-single/access_control/index[Access Control and Application Plans, window="_blank"]
+* link:https://access.redhat.com/documentation/en-us/red_hat_3scale/2.3/html-single/access_control/[Access Control and Application Plans, window="_blank"]
 ****
 
 
