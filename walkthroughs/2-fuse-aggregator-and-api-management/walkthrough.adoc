@@ -109,6 +109,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 .Prerequisite 
 The following URL must be available before attempting this procedure:
+[subs="attributes+"]
 ----
 {route-fuse-flights-aggregator-host}
 ----
