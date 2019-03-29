@@ -1,0 +1,242 @@
+// tag::master-1[]
+
+:walkthrough: No Code API Development and SaaS Integration
+:fuse-version: 7.2
+:3scale-version: 7.2
+:fuse-url: https://eval.apps.city.openshiftworkshop.com/
+:3scale-url: https://eval.apps.city.openshiftworkshop.com/
+
+[id='no-code-container-native-api-development']
+
+= {walkthrough}
+
+This walkthrough demonstrates a no-code approach to building and deploying a container-native RESTful API based on an OpenAPI Specification.
+
+Container-native applications::
+Applicaitons that are designed from the ground up to run in a containerised environment.
+
+// This is taken right from https://github.com/OAI/OpenAPI-Specification
+OpenAPI Specification::
+A standard, programming language-agnostic interface description for REST APIs, which allows both humans and computers to discover and understand the capabilities of a service without requiring access to source code, additional documentation, or inspection of network traffic. When properly defined via OpenAPI, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.
+
+In this walkthrough you will follow a design-first approach, based on the OpenAPI specification, to define a RESTful API that accepts a name parameter and echoes it back in the response body. You will then use the resulting Open API definition to generate the code for your API and deploy it in a containerised environment.
+
+Following a design first approach to API development is beneficial since it is self-documenting, and provides a clear API definition for partners and end-users of your API, and allows you to identify important design decisions prior coding and deployment.
+
+To create this integration, you will use Integration capabilities in link:{fuse-url}[Red Hat Fuse Online, window="_blank"].
+
+All of the applications and services used in the walkthrough are running on Red Hat OpenShift.
+
+[type=walkthroughResource,serviceName=fuse]
+.Fuse Online
+****
+* link:{fuse-url}[Console, window="_blank"]
+****
+
+[type=walkthroughResource,serviceName=openshift]
+.Red Hat OpenShift
+****
+* link:{openshift-host}/console[Console, window="_blank"]
+****
+
+// end::master-1[]
+
+[time=10]
+== Create a Slack Connection in Fuse Online
+
+Before we can create our *Integration*, we need to configure a Slack *Connection* that it can use. In Fuse Online a *Connection* holds the information required to connect to a service. For example, a Slack *Connection* in Fuse Online requires an *API Token* and *Slack URL* to function. Once configured a *Connection* can then be used in an *Integration* to perform specific actions on the underlying resource it represents.
+
+=== Creating a Slack Workspace
+
+If you already have access to a Slack workspace and have admin rights to it you can skip to the section below. We assume you have already created a Slack acconut.
+
+. Navigate to link:https://slack.com/create[slack.com/create, window="_blank"].
+
+. Enter the email you want to use and login and click *Next*.
+
+. Enter a name for your workspace. The name you choose will ultimiately become part of the URL. For example, naming the workspace fuseonline would produce a URL of fuseonlinedemo.slack.com. Click *Next*.
+
+. When asked *What is your team working on?* enter *Slack Demo*. This will create a *#slack-demo* channel we can use.
+
+. Click *Skip for now* when prompted to add team members.
+
+. You now have access to a Slack workspace.
+
+// verify that you can access https://your-worksapce-name.slack.com.
+[type=verification]
+Can you access your workspace at *your-workspace-name.slack.com*, and see the *#slack-demo* channel listed on the left of the workspace?
+
+
+=== Create the Slack Connection in Fuse Online
+
+. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
+
+. Choose *Connections* from the left navigation menu.
+
+. Click the *Create Connection* button in the top right corner.
+
+. Choose *Slack* from the list of displayed *Connectors*. You will be promted for configuration details.
+
+. In the *Slack Webhook URL* field enter the URL for your workspace, e.g *fuseonlinedemo.slack.com*
+
+. To obtain a value for the *Token for Accessing Slack API* field you need to:
+* Navigate to the Slack API Token portal at link:https://api.slack.com/custom-integrations/legacy-tokens[api.slack.com/custom-integrations/legacy-tokens, window="_blank"].
+* Login using the email address associated with your workspace.
+* Scroll down to the *Legacy token generator* section.
+* Click *Create token* button next to a workspace you own, or have admin rights for.
+* Copy and Paste the generated token into the *Token for Accessing Slack API* field in Fuse Online.
+
+. Enter "Fuse Online" in the *Sending User Name for Messages* field.
+
+. Click *Validate* in Fuse Online and verify that a *Slack has been successfully validated.* message appears. Click *Next*.
+
+. Enter "Greeting Slack Target" in the *Connection Name* field on the *Add Connection Details* screen.
+
+. Click *Create*.
+
+[type=verification]
+Is a *Greeting Slack Target* entry is listed in the Fuse Online *Connections* screen?
+
+
+[time=10]
+== Create an API Integration in Fuse Online
+
+=== Basic API Details
+
+. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
+
+. Select *Integrations* from the left hand menu.
+
+. Click the *Create Integration* button to start the *New Integration* wizard.
+
+. Choose *API Provider* on the subsequent *Choose a Start Connection* screen.
+
+. When prompted choose *Create from scratch* and click *Next* to navigate to the *API Designer*.
+
+. Rename your API from "Untitled API" to "Greeting API".
+
+. Modify the *Description* field to contain "My greeting API".
+
+=== Create a Data Type
+
+A *Data Type* is used to represent a data structure that can be passed to your API. These can then be used as parameters in your API definition and within the Fuse Online *Integration Flow Editor* to transform and map data as part of an *Integration*.
+
+. Click *Add a data type* under the *Data Types* heading on the left of the *API Designer* screen.
+
+. In the *Enter Basic Information* section enter "Name" in the *Name* field.
+
+. Enter the following JSON in the *Enter JSON Example* field:
++
+[subs="attributes+"]
+----
+{
+    "name": "shadowman" 
+}
+----
+
+. Scroll down and click *Save*.
+
+[type=verification]
+Is *</> Name* is listed under the *Data Types* on the *API Designer* screen?
+
+=== Create a POST Resource Path
+
+A *Path* is used to represent an API endpoint/operation and the associated parameters required to invoke it.
+
+. Click *Add a path* under the *Paths* heading on the left of the *API Designer* screen.
+
+. In the modal that appears, enter "/greeting" in the *Path* field.
+
+. Click *Add* to confirm your entry.
+
+. Click your new */greeting* endpoint under the *Paths* heading.
+
+. Click *Create Operation* under the *POST* icon in the *Operations* section on the right. The *POST* icon will become orange.
+
+. Click the orange *POST* icon.
+
+. Enter "Greet with name" in the *Summary* field.
+
+. Enter "greetname" in the *Operation ID* field.
+
+. In the *Request Body* click *Add a request body* and choose the *Name* type that you created earlier.
+
+. In the *Responses* section click *Add response*.
+* In the modal that appears choose *200 OK* as the dropdown option.
+* Click *Add*.
+* Click *No description* beside the *200 OK* response and enter "Greeting response" in the *Description* field.
+
+. Click *Save* in the top right corner of the UI to save your work and be directed back to the *New Integration* wizard.
+
+[type=verification]
+Is a *Greeting Slack Target* entry is listed in the Fuse Online *Connections* screen?
+
+=== Finalise the API Definition
+
+. Click *Next* on the *New Integration* wizard screen.
+
+. When prompted to *Give this integration a name* enter:
+* "greeting api" in the *Integration Name* field
+* "my greeting api" in the *Description* field
+
+. Click *Save and Continue* to save your API design and move onto implementation.
+
+[time=10]
+== Implement & Publish the API
+
+. On the *Choose operation* screen click *Greet with name* to open the *Integration Flow Editor*.
+
+. The left hand side of the *Integration Flow Editor* lists the steps in your *Integration*. Click the *Blue Plus Icon* in the center of the flow and choose *Add Connection*.
+
+. Select your *Greeting Slack Target*.
+
+. When prompted to *Choose an action* select *Channel*. You can use this to send a mesasge to a specific channel in your Slack workspace.
+
+. Use the *Channel* dropdown to select the *slack-demo* channel, or appropriate channel of you choosing. Click *Done*.
+
+. The left hand side of the *Integration Flow Editor* should now list your Slack connection with a *Data Type Mismatch* warning. Click the *Warning Icon* and choose *Add a data mapping step*.
+
+. From the *Configure Mapper* screen click the *body* element in the *Source* panel to expand it. Now click the *name* field under the *body*, then click the *message* element in the *Target* panel. This maps the value of the incoming HTTP request *body* to the outgoing Slack *message* property.
+
+. In the right hand *Mapping Details* panel click the *Arrow Icon* under the *Targets* section to add a transformation.
+
+. Using the dropdown change the transformation type from *Append* to *Prepend*.
+
+. Enter "Hello from " in the *string* field under the dropdown.
+
+. Click *Done* then, click *Publish* to trigger an link:https://docs.openshift.com/container-platform/3.11/creating_images/s2i.html[Source to Image (S2I), window="_blank"] build.
+
+. Wait until Fuse Online reports your deploy was successful.
+
+[type=verification]
+Does the Fuse Online *Home* screen list your *greeting api* with a blue box that contains the text *Running*?
+
+[time=5]
+== Expose a Route & Invoke the API
+
+=== Create a Public HTTP Route
+
+By default OpenShift does not create a public endpoint, known as a *Route*, that's required to access your API from services on external hosts or your development machine.
+
+. Log in to the link:{openshift-url}[Red Hat OpenShift Console, window="_blank"].
+
+. Click *View All* in the *My Projects* section on the right of the *Service Catalog*.
+
+. Enter "Fuse" in the *Filter by keyword* field.
+
+. Click the *Fuse* project.
+
+. On the *Overview* page scroll down and expand the *i-greeting-api* item.
+
+. Click the *Create Route* link.
+
+. Accept the default values for *Route* creation, scroll down, and click *Create*.
+
+[type=verification]
+Is a *Route* now listed under the *i-greeting-api* in the *Overview* screen?
+
+=== Invoke the API
+
+. Using your favourite HTTP client invoke the created route.
+
+. Verify that the message "Hello from $YOUR_NAME" appears in your Slack channel.
