@@ -13,7 +13,7 @@
 This walkthrough demonstrates how an API can be protected and rate limited.
 
 Organizations modernizing their applications typically create many APIs.
-It then becomes paramount to understand the usage of these APIs and to ensure they are protected, for example, from a Denial-of-service attack.
+It then becomes paramount to understand the usage of these APIs and to ensure they are protected, for example, from a denial-of-service (DoS) attack.
 It is possible to protect and limit access to APIs as part of an integration.
 
 In this walkthrough, you use the *Fuse Aggregation App*, which is a demonstration app that provides data using an API.
@@ -62,7 +62,7 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 
 === Deploying the Fuse Aggregation App
 
-The Fuse Aggregation App provides information about flights, you deploy it using Launcher.
+The Fuse Aggregation App provides information about flights. You deploy it using Launcher.
 
 // TODO placeholders for product names
 // TODO append /launch/wizard/<project-name> to launcher url
@@ -306,13 +306,13 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 [type=verification]
 ****
-. Select the *Overview* menu item in the side navigation
+. Select the *Overview* menu item in the side navigation.
 
 . Scroll down and select the *Configure APIcast* button in the bottom right.
 
 . Select the *Update & test in Staging Environment* button at the bottom again.
 
-. Is a success message displayed and a green line along the left side of the page?
+. Is a success message displayed and a green line along the left side of the page visible?
 ****
 
 [type=verificationFail]
