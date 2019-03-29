@@ -124,6 +124,9 @@ Is a *Greeting Slack Target* entry listed in the Fuse Online *Connections* scree
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
 
+[type=verificationFail]
+Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+
 [time=10]
 == Creating an API Integration in Fuse Online
 
