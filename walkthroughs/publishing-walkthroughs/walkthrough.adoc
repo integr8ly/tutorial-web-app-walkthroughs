@@ -125,6 +125,17 @@ If the git repository is updated with new content, the web app is not automatica
 
 ====
 
+[TIP]
+====
+You can also configure the set of {walkthrough} repositories published to a cluster using the command line:
+
+. Log into the cluser using the `oc` command.
+. Enter the following command, where <locations> specifies the repositories and branches as above:
+----
+oc patch webapp tutorial-web-app-operator -n webapp --type=merge -p '{ "spec": { "template": { "parameters": { "WALKTHROUGH_LOCATIONS": "<locations>" }}}}'
+----
+====
+
 
 [type=verification]
 Are the walkthroughs you require displayed on the web app dashboard?
