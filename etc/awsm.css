@@ -131,10 +131,10 @@ aside{
 @media (min-width: 65rem){
   aside{
     position:absolute;
-    right:-1.5rem;
-    width:5.375rem;
-    max-width:9.375rem;
-    margin:0;
+    right:-0.5rem;
+    width:10rem;
+    max-width:10rem;
+    margin:2;
     padding-left:0.5em;
     font-size:0.8em;
     border-left:1px solid #f2f2f2;

@@ -3,39 +3,24 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>awsm.css</title>
+    <title>Walkthroughs (aka Solution Patterns)</title>
     <link rel="stylesheet" href="etc/awsm.css">
     <script src="etc/asciidoctor.js"></script>  
 
   </head>
   <body>
     <header>
-      <h1>Solution Patterns</h1>
-      <p>It makes your <abbr title="An OpenShift cluster running AMQ Online, Fuse Online and 3Scale.">Cluster</abbr> easy to use.
-      </p>
+      <h1>Integreatly Solution Patterns</h1>
       <nav>
         <ul>
-          <li><a href="elements.html">WT1</a></li>
-          <li><a href="download.html">WT3</a></li>
-          <li><a href="plugins.html">WT3</a></li>
+          <li><a href="https://integr8ly.github.io/tutorial-web-app-walkthroughs">Walkthroughs</a></li>
+          <li><a href="https://integr8ly.github.io/user-documentation/">User Documentation</a></li>
+          <li><a href="https://github.com/integr8ly">GitHub Org</a></li>
         </ul>
       </nav>
     </header>
 <aside>
-           <div id="target1" class="col-md-12">
-            <script>
-         
-             var asciidoctor = Asciidoctor();
-             var content = "include::etc/index.adoc[leveloffset=+1, tags=aside]";
-             const html1 = asciidoctor.convert(content,{safe: 'server', attributes: {PRODUCT: 'BMX'}});      
-             document.getElementById('target').innerHTML = html1;
-             var fname = (location.search.match(/e=(.*)/)[1]);
-             var content = "include::"+ fname + "[leveloffset=+1, tags=aside]";
-             
-             const html1 = asciidoctor.convert(content,{safe: 'server', attributes: {PRODUCT: 'BMX'}});      
-             document.getElementById('target1').innerHTML = html1;
-            </script>      
-           </div>
+In a cluster, Resources appear here.
 </aside>  
 
     <main>
@@ -49,7 +34,7 @@
              const html0 = asciidoctor.convert(content,{safe: 'server', attributes: {PRODUCT: 'BMX'}});      
              document.getElementById('target').innerHTML = html0;
              var fname = (location.search.match(/e=(.*)/)[1]);
-             var content = "include::"+ fname + "[leveloffset=+1, tags=!aside]";
+             var content = "include::"+ fname + "[leveloffset=+1]";
              
              const html = asciidoctor.convert(content,{safe: 'server', attributes: {PRODUCT: 'BMX'}});      
              document.getElementById('target').innerHTML = html;
@@ -60,7 +45,8 @@
       </article>
     </main>
     <footer>
-      <p>Integreatly</p>
+      <p>Tutorials that run in your <abbr title="An OpenShift cluster running AMQ Online, Fuse Online and 3Scale.">Cluster</abbr>.
+      </p>
     </footer>
   </body>
 </html>
