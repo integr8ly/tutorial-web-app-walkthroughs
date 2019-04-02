@@ -24,6 +24,7 @@ NOTE: You must have access to the link:{openshift-host}[OpenShift Console].
 ****
 * link:{linkGettingStarted}[Getting Started, window="_blank"]
 * link:{linkTroubleshooting}[Troubleshooting, window="_blank"]
+* link:{linkWriting}[Writing {walkthrough-name}s, window="_blank"]
 ****
 
 :sectnums:
