@@ -4,13 +4,15 @@
 :linkIndexURL: https://github.com/integr8ly/example-customisations/blob/master/index.adoc
 
 // Placeholder for link to docs about writing walkthroughs
-:linkWriting: na yet
+:linkWriting: https://integr8ly.github.io/user-documentation/index.html?e=docs/getting-started.adoc#_creating_red_hat_managed_integration_solution_patterns
 
-= Adding walkthroughs to a cluster
+:walkthrough-name: Solution Pattern
 
-How to add to the catalog of walkthroughs in your environment by subscribing to remote git repositories.
+= Adding {walkthrough-name}s to a cluster
 
-In addition to the default walkthroughs, you can import existing walkthroughs from a git repository. 
+How to add to the catalog of {walkthrough-name}s in your environment by subscribing to remote git repositories.
+
+In addition to the default {walkthrough-name}s, you can import existing {walkthrough-name}s from a git repository. 
 If the git repository changes you can redeploy the web app to publish the changes. 
 You can specify a branch on the git repository, if you do not want to add the default branch.
 
@@ -27,33 +29,33 @@ NOTE: You must have access to the link:{openshift-host}[OpenShift Console].
 :sectnums:
 
 [time=5]
-== Understanding walkthroughs
+== Understanding {walkthrough-name}s
 
 image::images/custom.png[overview]
 
 . The home page of the web app lists all the walkthoughs from all the git repositories you are subscribed to.
-. The introduction to a walkthrough provides the context and the necessary information for you to decide whether to perform the steps. On the right hand side of the page, a set of links is displayed, named *Walkthrough Resources*.
-. Each walkthrough displays a set of tasks that you must perform, each with associated links, *Task Resources* and verification steps that you must complete to proceed.
-. Each git repository must contain a `walkthroughs` directory and each subdirectory acts as an ID for the walkthrough. Note that an error is reported if two walkthroughs have the same ID. 
+. The introduction to a {walkthrough-name} provides the context and the necessary information for you to decide whether to perform the steps. On the right hand side of the page, a set of links is displayed, named *Walkthrough Resources*.
+. Each {walkthrough-name} displays a set of tasks that you must perform, each with associated links, *Task Resources* and verification steps that you must complete to proceed.
+. Each git repository must contain a `walkthroughs` directory and each subdirectory acts as an ID for the {walkthrough-name}. Note that an error is reported if two {walkthrough-name}s have the same ID. 
 
 
 [time=10]
-== Finding walkthroughs
+== Finding {walkthrough-name}s
 
-Walkthroughs are available from git repositories, typically hosted on GitHub or GitLab. 
+{walkthrough-name}s are available from git repositories, typically hosted on GitHub or GitLab. 
 
-A git repository typically contains many walkthroughs.
+A git repository typically contains many {walkthrough-name}s.
 
-See the link:{linkIndexURL}[index of walkthrough repositories] for more information.
+See the link:{linkIndexURL}[index of {walkthrough-name} repositories] for more information.
 
-=== Forking walkthrough repositories
+=== Forking {walkthrough-name} repositories
 
 To have precise control over what is published in your environment, create a fork of the git repository you want to use. This allows you to:
 
-* delete walkthroughs before publication
-* add additional walkthroughs that you have written
+* delete {walkthrough-name}s before publication
+* add additional {walkthrough-name}s that you have written
 
-To create a fork of the walkthrough repository you want to add to your cluster:
+To create a fork of the {walkthrough-name} repository you want to add to your cluster:
 
 . Log into the git hosting service.
 . Navigate to the repository you want to fork.
@@ -63,7 +65,7 @@ To create a fork of the walkthrough repository you want to add to your cluster:
 Have you identified a URL for one or more repositories with the exact content you want to publish?
 
 [type=verificationFail]
-Continue searching, new walkthroughs are created on GitHub monthly and the link:{linkIndexURL}[index of walkthrough repositories] is updated. 
+Continue searching, new {walkthrough-name}s are created on GitHub monthly and the link:{linkIndexURL}[index of {walkthrough-name} repositories] is updated. 
 
 [time=10]
 == Adding a git repository to the Webapp
@@ -110,7 +112,7 @@ Editing the value triggers an automatic redeployment of the Webapp.
 
 . When the deployment is complete, refresh the Webapp in your Browser.
 +
-You should now see new walkthroughs available from the dashboard.
+You should now see new {walkthrough-name}s available from the dashboard.
 +
 [NOTE]
 ====
@@ -127,7 +129,7 @@ If the git repository is updated with new content, the web app is not automatica
 
 
 [type=verification]
-Are the walkthroughs you require displayed on the web app dashboard?
+Are the {walkthrough-name}s you require displayed on the web app dashboard?
 
 [type=verificationFail]
 Check that the Webapp has finished redeployment and no errors occurred. For information on debugging, see the link:{linkTroubleshooting}[Troubleshooting Guide]. 
