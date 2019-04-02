@@ -1,0 +1,7 @@
+= Solution Walkthroughs
+
+* link:index.html?e=walkthroughs/1A-integrate-event-and-api-driven-apps/walkthrough.adoc[Integrating message-oriented middleware with a RESTful API using AMQ Online]
+
+* link:index.html?e=walkthroughs/2-fuse-aggregator-and-api-management/walkthrough.adoc[Managing and protecting APIs using API management]
+
+* link:index.html?e=walkthroughs/publishing-walkthroughs/walkthrough.adoc[Adding walkthroughs to a cluster]
