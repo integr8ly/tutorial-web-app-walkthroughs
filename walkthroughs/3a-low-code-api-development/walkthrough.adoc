@@ -85,7 +85,19 @@ Verify that you followed each step in the procedure above.  If you are still hav
 . Choose *Slack* from the list of displayed *Connectors*. 
 You are prompted for configuration details.
 
-. In the *Slack Webhook URL* field enter the URL for your workspace, for example *fuseonlinedemo.slack.com*
+. Obtain a URL for the *Slack Webhook URL* field:
+.. Navigate to the Slack Apps portal at link:https://api.slack.com/apps[api.slack.com/apps].
+.. Login using the email address associated with your workspace.
+.. Click "Create new App".
+.. Enter "Fuse Online Demo" in the *App Name* field.
+.. Choose your workspace using the *Development Slack Workspace* dropdown.
+.. On the following screen under the *Add features and functionality* click *Incoming Webhooks*.
+.. Change the *Activate Incoming Webhooks* switch to the *On* position.
+.. Scroll down and click *Add New Webhook to Workspace*.
+.. In the *Post to* field select the "slack-demo" or a channel of your own choosing then click *Authorise*.
+.. When redirected back to the *Incoming Webhooks* copy the new *Webhook URL* displayed at the bottom of the page using the *Copy* button. 
+
+. Paste the copied *Webhook URL* value into the *Slack Webhook URL* field in Fuse Online.
 
 . Obtain a value for the *Token for Accessing Slack API* field:
 .. Navigate to the Slack API Token portal at link:https://api.slack.com/custom-integrations/legacy-tokens[api.slack.com/custom-integrations/legacy-tokens, window="_blank"].
