@@ -58,10 +58,13 @@ If you already have admin access to a Slack workspace, skip this procedure.
 
 . Enter a name for your workspace and click *Next*.
 The name you choose becomes part of the URL for the workspace. 
-For example, naming the workspace `fuseonline` creates the URL `fuseonlinedemo.slack.com`.
+For example, naming the workspace `fuseonline` creates the URL `fuseonlinedemo.slack.com` or similar.
 
-. When prompted *What is your team working on?* enter `Slack Demo`. 
-This creates a *slack-demo* channel.
+. When prompted *What is your team working on?* enter 
++
+====
+Slack Demo
+====
 
 . Click *Skip for now* when prompted to add team members.
 
@@ -80,7 +83,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 . Choose *Connections* from the left navigation menu.
 
-. Click the *Create Connection* button in the top right corner.
+. Click *Create Connection*.
 
 . Choose *Slack* from the list of displayed *Connectors*. 
 You are prompted for configuration details.
