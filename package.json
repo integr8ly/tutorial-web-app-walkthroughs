@@ -1,6 +1,6 @@
 {
   "name": "tutorial-web-app-walkthroughs",
-  "version": "1.6.0",
+  "version": "1.6.2",
   "description": "Core walkthroughs for the tutorial-web-app",
   "main": "index.js",
   "scripts": {
