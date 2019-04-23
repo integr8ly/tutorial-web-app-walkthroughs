@@ -90,10 +90,10 @@ work-queue-requests
 . Monitor the AMQ Online console until a green check mark is displayed beside the new address. 
 Creating an address may take some time. 
 
-[type=verification, id="wt1a_1_verification"]
+[type=verification, id="wt1a_1_1_verification"]
 Is the newly created address displayed on the *Addresses* screen of the link:{enmasse-url}[AMQ Online, window="_blank", id="wt1a_1_CYW_enmasse-url"] console?
 
-[type=verificationFail, id="wt1a_1_verificationFail"]
+[type=verificationFail, id="wt1a_1_1_verificationFail"]
 Verify that you followed each step in the procedure above. If you are still having issues, contact your administrator.
 
 // end::task-creating-addresses[]
@@ -152,10 +152,10 @@ Walkthrough 1A CRUD Connector
 
 .. Click *Create API Connector*.
 
-[type=verification]
+[type=verification, id="wt1a_2_1_verification"]
 Is the new connector displayed on the *Customizations* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="wt1a_2_1_CYW_fuse-url"] console?
 
-[type=verificationFail]
+[type=verificationFail, id="wt1a_2_1_verificationFail"]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
 
 // end::creating-api-connector[]
@@ -194,10 +194,10 @@ Walkthrough 1A CRUD Connection
 .. Click *Create*.
 
 
-[type=verification]
+[type=verification, id="wt1a_2_2_verification"]
 Is the new connection displayed on the *Connections* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="wt1a_2_2_CYW_fuse-url"] console?
 
-[type=verificationFail]
+[type=verificationFail, id="wt1a_2_2_verificationFail"]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
 
 
@@ -259,11 +259,11 @@ Walkthrough 1A Messaging App
 . Click *Create*.
 
 
-[type=verification]
+[type=verification, id="wt1a_2_3_verification"]
 Is the new connection displayed on the *Connections* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="wt1a_2_3_fuse-url"] console?
 
 
-[type=verificationFail]
+[type=verificationFail, id="wt1a_2_3_verificationFail"]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
 
 
@@ -345,10 +345,10 @@ Walkthrough 1A
 . Monitor the *Integration Summary* dashboard until a green check mark is displayed beside the new integration.
 The integration may take some time to complete building.
 
-[type=verification]
+[type=verification, id="wt1a_3_1_verification"]
 Is the integration displayed as *Running* on the *Integration* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="wt1a_3_1_fuse-url"] console?
 
-[type=verificationFail]
+[type=verificationFail, id="wt1a_3_1_verificationFail"]
 
 ****
 . Wait for the integration to appear. This can take several minutes.
@@ -393,7 +393,7 @@ Pineapple
 . Check that the entry from the Node.js webapp is displayed.
 
 
-[type=verification]
+[type=verification, id="wt1a_4_1_verification"]
 ****
 View the activity log:
 
@@ -406,7 +406,7 @@ View the activity log:
 Is your activity displayed?
 ****
 
-[type=verificationFail]
+[type=verificationFail, id="wt1a_4_1_verificationFail"]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
 
 
