@@ -72,9 +72,9 @@ Low-code Demo
 
 . Click *Skip for now* when prompted to add team members.
 
-// verify that you can access https://your-worksapce-name.slack.com.
+// verify that you can access https://your-workspace-name-guid.slack.com.
 [type=verification]
-Can you access your workspace, and navigate to the *Low-code Demo* channel listed on the left of the workspace?
+Can you access your workspace, and navigate to the *low-code-project* channel listed on the left of the workspace?
 
 
 [type=verificationFail]
@@ -84,6 +84,8 @@ Verify that you followed each step in the procedure above.  If you are still hav
 === Creating the Slack Connection in Fuse Online
 
 . Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
++
+NOTE: This is your personal Fuse Online instance and not the shared instance available from link:/[home page].
 
 . Choose *Connections* from the left navigation menu.
 
@@ -101,7 +103,7 @@ You are prompted for configuration details.
 .. On the following screen under the *Add features and functionality* click *Incoming Webhooks*.
 .. Change the *Activate Incoming Webhooks* switch to the *On* position.
 .. Scroll down and click *Add New Webhook to Workspace*.
-.. In the *Post to* field select the "slack-demo" or a channel of your own choosing then click *Authorise*.
+.. In the *Post to* field select the *low-code-project* or a channel of your own choosing then click *Authorise*.
 .. When redirected back to the *Incoming Webhooks* copy the new *Webhook URL* displayed at the bottom of the page using the *Copy* button. 
 
 . Paste the copied *Webhook URL* value into the *Slack Webhook URL* field in Fuse Online.
@@ -115,11 +117,19 @@ You are prompted for configuration details.
 
 . Paste the generated token into the *Token for Accessing Slack API* field in Fuse Online.
 
-. Enter "Fuse Online" in the *Sending User Name for Messages* field.
+. Enter the following in the *Sending User Name for Messages* field:
++
+----
+Fuse Online
+----
 
 . Click *Validate* in Fuse Online and verify that a *Slack has been successfully validated.* message appears. Click *Next*.
 
-. Enter "Greeting Slack Target" in the *Connection Name* field on the *Add Connection Details* screen.
+. Enter the following in the *Connection Name* field on the *Add Connection Details* screen:
++
+----
+Greeting Slack Target
+----
 
 . Click *Create*.
 
@@ -138,7 +148,6 @@ Verify that you followed each step in the procedure above.  If you are still hav
 In this procedure, you create an integration with an API and include a data type.
 A *Data Type* represents a data structure that can be passed to your API and can then be used as parameters in your API definition and within the Fuse Online *Integration Flow Editor* to transform and map data as part of an *Integration*.
 
-
 . Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
 
 . Select *Integrations* from the left hand menu.
@@ -149,13 +158,25 @@ A *Data Type* represents a data structure that can be passed to your API and can
 
 . When prompted choose *Create from scratch* and click *Next* to navigate to the *API Designer*.
 
-. Rename your API from "Untitled API" to "Greeting API".
+. Rename your API from "Untitled API" to:
++
+----
+Greeting API
+----
 
-. Modify the *Description* field to contain "My greeting API".
+. Edit the *Description*:
++
+----
+My greeting API
+----
 
 . Click *Add a data type* under the *Data Types* heading on the left of the *API Designer* screen.
 
-. In the *Enter Basic Information* section enter "Name" in the *Name* field.
+. In the *Enter Basic Information* section enter the following in the *Name* field:
++
+----
+Name
+----
 
 . Enter the following JSON in the *Enter JSON Example* field:
 +
@@ -182,7 +203,11 @@ A *Path* represents an API endpoint/operation and the associated parameters requ
 
 . Click *Add a path* under the *Paths* heading on the left of the *API Designer* screen.
 
-. In the modal that appears, enter "/greeting" in the *Path* field.
+. In the modal that appears, enter the following in the *Path* field:
++
+----
+/greeting
+----
 
 . Click *Add* to confirm your entry.
 
@@ -192,26 +217,46 @@ A *Path* represents an API endpoint/operation and the associated parameters requ
 
 . Click the orange *POST* icon.
 
-. Enter "Greet with name" in the *Summary* field.
+. Enter the following in the *Summary* field:
++
+----
+Greet with name
+----
 
-. Enter "greetname" in the *Operation ID* field.
+. Enter the following in the *Operation ID* field:
++
+----
+greetname
+----
 
 . In the *Request Body* click *Add a request body* and choose the *Name* type that you created earlier.
 
 . In the *Responses* section click *Add response*.
-* In the modal that appears choose *200 OK* as the dropdown option.
-* Click *Add*.
-* Click *No description* beside the *200 OK* response and enter "Greeting response" in the *Description* field.
+.. In the modal that appears choose *200 OK* as the dropdown option.
+.. Click *Add*.
+.. Click *No description* beside the *200 OK* response and enter the following in the *Description* field:
++
+----
+Greeting response
+----
 
 . Click *Save* in the top right corner of the UI to save your work and be directed back to the *New Integration* wizard.
 
 . Click *Next* on the *New Integration* wizard screen.
 
-. When prompted to *Give this integration a name* enter:
-* "greeting api" in the *Integration Name* field
-* "my greeting api" in the *Description* field
+. When prompted to *Give this integration a name*:
+.. Enter the following in the *Integration Name* field:
++
+----
+greeting api
+----
+.. Enter the following in the *Description* field:
++
+----
+my greeting api
+----
 
-. Click *Save and Continue* to save your API design and move onto implementation.
+. Click *Save and Continue* to save your API design.
 
 
 [type=verification]
@@ -232,7 +277,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 . When prompted to *Choose an action* select *Channel*. You can use this to send a mesasge to a specific channel in your Slack workspace.
 
-. Use the *Channel* dropdown to select the *slack-demo* channel, or appropriate channel of you choosing. Click *Done*.
+. Use the *Channel* dropdown to select the *low-code-project* channel, or appropriate channel of you choosing. Click *Done*.
 
 . The left hand side of the *Integration Flow Editor* should now list your Slack connection with a *Data Type Mismatch* warning. Click the *Warning Icon* and choose *Add a data mapping step*.
 
