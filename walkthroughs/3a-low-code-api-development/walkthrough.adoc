@@ -31,6 +31,14 @@ It also allows you to identify important design decisions prior to coding and de
 * link:{fuse-url}[Console, window="_blank"]
 ****
 
+[type=walkthroughResource,serviceName=3scale]
+.3Scale
+****
+* link:{api-management-url}[Console, window="_blank"]
+* link:https://developers.redhat.com/products/3scale/overview/[3Scale Overview, window="_blank"]
+* link:https://www.3scale.net[3Scale Website, window="_blank"]
+****
+
 [type=walkthroughResource,serviceName=openshift]
 .Red Hat OpenShift
 ****
@@ -277,21 +285,30 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 . When prompted to *Choose an action* select *Channel*. You can use this to send a mesasge to a specific channel in your Slack workspace.
 
-. Use the *Channel* dropdown to select the *low-code-project* channel, or appropriate channel of you choosing. Click *Done*.
+. Use the *Channel* dropdown to select the *low-code-project* channel and click *Done*.
+The left hand side of the *Integration Flow Editor* should now list your Slack connection with a *Data Type Mismatch* warning. 
 
-. The left hand side of the *Integration Flow Editor* should now list your Slack connection with a *Data Type Mismatch* warning. Click the *Warning Icon* and choose *Add a data mapping step*.
+.Click the *Warning Icon* and choose *Add a data mapping step*.
 
-. From the *Configure Mapper* screen click the *body* element in the *Source* panel to expand it. Now click the *name* field under the *body*, then click the *message* element in the *Target* panel. This maps the value of the incoming HTTP request *body* to the outgoing Slack *message* property.
+. From the *Configure Mapper* screen click the *body* element in the *Source* panel to expand it.
+
+. Click the *name* field under the *body*, then click the *message* element in the *Target* panel. This maps the value of the incoming HTTP request *body* to the outgoing Slack *message* property.
 
 . In the right hand *Mapping Details* panel click the *Arrow Icon* under the *Targets* section to add a transformation.
 
 . Using the dropdown change the transformation type from *Append* to *Prepend*.
 
-. Enter "Hello from " in the *string* field under the dropdown.
+. Enter the following in the *string* field under the dropdown:
++
+----
+Hello from 
+----
 
-. Click *Done* then, click *Publish* to trigger an link:https://docs.openshift.com/container-platform/3.11/creating_images/s2i.html[Source to Image (S2I), window="_blank"] build.
+. Click *Done*.
 
-. Wait until Fuse Online reports your deploy was successful.
+. Click *Publish* to trigger an link:https://docs.openshift.com/container-platform/3.11/creating_images/s2i.html[Source to Image (S2I), window="_blank"] build.
+
+. Wait until Fuse Online reports your deployment was successful.
 
 [type=verification]
 Does the Fuse Online *Home* screen list your *greeting api* with a blue box that contains the text *Running*?
@@ -303,31 +320,42 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 
 [time=5]
-== Exposing a route and invoking the API
+== Exposing and invoking the API
 
-=== Creating a public Route
+=== API Management Login
 
-By default OpenShift does not create a public endpoint, known as a *Route*, that's required to access your API from services on external hosts or your development machine.
+// TODO service & url placeholders
+. Open the link:{api-management-url}[{3Scale-ProductName} Login screen, window="_blank"].
 
-. Log in to the link:{openshift-url}[Red Hat OpenShift Console, window="_blank"].
+. Select the *Red Hat Single Sign On* option. This triggers an OAuth Flow and redirects you back to the {3Scale-ProductName} Dashboard.
 
-. Click *View All* in the *My Projects* section on the right of the *Service Catalog*.
-
-. Enter "Fuse" in the *Filter by keyword* field.
-
-. Click the *Fuse* project.
-
-. On the *Overview* page scroll down and expand the *i-greeting-api* item.
-
-. Click the *Create Route* link.
-
-. Accept the default values for *Route* creation, scroll down, and click *Create*.
+. Dismiss the *How does 3Scale work?* option which is displayed the first time you log in to {3Scale-ProductName}. The main Dashboard is displayed.
 
 [type=verification]
-Is a *Route* now listed under the *i-greeting-api* in the *Overview* screen?
+Can you see the {3Scale-ProductName} Dashboard and navigate the main menu?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+
+
+=== Adding the Fuse Aggregation App Endpoint to Red Hat 3scale
+
+. From the *Dashboard*, select the *New API* item.
+. Select the *Import from Dashboard* option.
+If this option is not enabled, click *authenticate with OpenShift* to enable the option.
+
+. Choose the 'fuse' option from the *Namespace* list.
+. Choose 'i-greeting-api' from the *Name* list.
+. Click *Create Service*.
+The 3scale dashboard is displayed, with notification: `The service will be imported shortly. You will receive a notification when it is done.`
+[type=verification]
+Is the API service available?
+You might encounter a *403: Authentication failed* message. You can ignore this message, the issue is resolved in a later step.
+
+[type=verificationFail]
+Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+
+
 
 === Invoking the API
 
