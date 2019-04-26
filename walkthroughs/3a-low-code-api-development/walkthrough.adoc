@@ -56,18 +56,25 @@ If you already have admin access to a Slack workspace, skip this procedure.
 
 . Enter your email address and click *Next*.
 
-. Enter a name for your workspace and click *Next*.
+. Enter the following name for your workspace and click *Next*:
++
+----
+low-code-workspace
+----
++
 The name you choose becomes part of the URL for the workspace. 
-For example, naming the workspace `fuseonline` creates the URL `fuseonlinedemo.slack.com`.
 
-. When prompted *What is your team working on?* enter `Slack Demo`. 
-This creates a *slack-demo* channel.
+. When prompted *What is your team working on?* enter:
++
+----
+Low-code Demo
+----
 
 . Click *Skip for now* when prompted to add team members.
 
 // verify that you can access https://your-worksapce-name.slack.com.
 [type=verification]
-Can you access your workspace at `https://<your-workspace-name>.slack.com`, and navigate to the *slack-demo* channel listed on the left of the workspace?
+Can you access your workspace, and navigate to the *Low-code Demo* channel listed on the left of the workspace?
 
 
 [type=verificationFail]
