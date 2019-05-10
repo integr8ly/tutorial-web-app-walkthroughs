@@ -1,5 +1,5 @@
 :walkthrough: Integrating message-oriented middleware with a RESTful API using AMQ Online
-:fuse-version: 7.2
+:fuse-version: 7.3
 
 [id='integrating-eventdriven-and-apidriven-applications']
 = {walkthrough}
