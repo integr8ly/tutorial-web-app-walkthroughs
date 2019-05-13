@@ -10,8 +10,8 @@
 
 How to add to the catalog of walkthroughs in your environment by subscribing to remote git repositories.
 
-In addition to the default walkthroughs, you can import existing walkthroughs from a git repository. 
-If the git repository changes you can redeploy the web app to publish the changes. 
+In addition to the default walkthroughs, you can import existing walkthroughs from a git repository.
+If the git repository changes you can redeploy the web app to publish the changes.
 You can specify a branch on the git repository, if you do not want to add the default branch.
 
 NOTE: You must have access to the link:{openshift-host}[OpenShift Console].
@@ -34,13 +34,13 @@ image::images/custom.png[overview]
 . The home page of the web app lists all the walkthoughs from all the git repositories you are subscribed to.
 . The introduction to a walkthrough provides the context and the necessary information for you to decide whether to perform the steps. On the right hand side of the page, a set of links is displayed, named *Walkthrough Resources*.
 . Each walkthrough displays a set of tasks that you must perform, each with associated links, *Task Resources* and verification steps that you must complete to proceed.
-. Each git repository must contain a `walkthroughs` directory and each subdirectory acts as an ID for the walkthrough. Note that an error is reported if two walkthroughs have the same ID. 
+. Each git repository must contain a `walkthroughs` directory and each subdirectory acts as an ID for the walkthrough. Note that an error is reported if two walkthroughs have the same ID.
 
 
 [time=10]
 == Finding walkthroughs
 
-Walkthroughs are available from git repositories, typically hosted on GitHub or GitLab. 
+Walkthroughs are available from git repositories, typically hosted on GitHub or GitLab.
 
 A git repository typically contains many walkthroughs.
 
@@ -63,7 +63,7 @@ To create a fork of the walkthrough repository you want to add to your cluster:
 Have you identified a URL for one or more repositories with the exact content you want to publish?
 
 [type=verificationFail]
-Continue searching, new walkthroughs are created on GitHub monthly and the link:{linkIndexURL}[index of walkthrough repositories] is updated. 
+Continue searching, new walkthroughs are created on GitHub monthly and the link:{linkIndexURL}[index of walkthrough repositories] is updated.
 
 [time=10]
 == Adding a git repository to the Webapp
@@ -71,18 +71,18 @@ Continue searching, new walkthroughs are created on GitHub monthly and the link:
 
 . Open the link:{openshift-host}[Openshift Console].
 
-. Navigate to the *webapp* project.
+. Navigate to the *Solution Explorer* project.
 
 . Click the *tutorial-web-app* deployment config.
 
 . Choose the *Environment* tab.
 
-. Note the value for the *WALKTHROUGH_LOCATIONS* environment variable. 
+. Note the value for the *WALKTHROUGH_LOCATIONS* environment variable.
 In later steps, this is referred to as the existing value for the *WALKTHROUGH_LOCATIONS* environment variable.
 
 . Choose *Other Resources* from the *Resources* menu.
 
-. Choose *Web App* from the *Other Resources* menu. 
+. Choose *Web App* from the *Other Resources* menu.
 The tutorial-web-app-operator entry is displayed.
 
 . Choose *Edit YAML* from the *Actions* menu.
@@ -130,4 +130,4 @@ If the git repository is updated with new content, the web app is not automatica
 Are the walkthroughs you require displayed on the web app dashboard?
 
 [type=verificationFail]
-Check that the Webapp has finished redeployment and no errors occurred. For information on debugging, see the link:{linkTroubleshooting}[Troubleshooting Guide]. 
+Check that the Webapp has finished redeployment and no errors occurred. For information on debugging, see the link:{linkTroubleshooting}[Troubleshooting Guide].
