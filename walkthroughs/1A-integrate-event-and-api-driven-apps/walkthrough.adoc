@@ -72,7 +72,7 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 
 To route messages to the Spring Boot app, create an address in AMQ Online.
 
-. Log into link:{enmasse-url}[AMQ Online, window="_blank", id="wt1a_1_1_enmasse-url"].
+. Log into link:{enmasse-url}[AMQ Online, window="_blank", id="{context}-1"].
 . Select *Addresses* from the left hand menu.
 
 . Create a *requests* address:
@@ -91,7 +91,7 @@ work-queue-requests
 Creating an address may take some time. 
 
 [type=verification]
-Is the newly created address displayed on the *Addresses* screen of the link:{enmasse-url}[AMQ Online, window="_blank", id="wt1a_1_CYW_enmasse-url"] console?
+Is the newly created address displayed on the *Addresses* screen of the link:{enmasse-url}[AMQ Online, window="_blank", id="{context}-2"] console?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above. If you are still having issues, contact your administrator.
@@ -122,13 +122,13 @@ Fuse Online is an enterprise integration platform that provides connectors for m
 It can be extended with custom connectors, using either OpenAPI definitions (Swagger) or JAR files.
 To create a connector for the RESTful API, register the OpenAPI definition as a *Customization*.
 
-. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="wt1a_2_1_1_fuse-url"] console.
+. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="{context}-1"] console.
 
 . Select *Customizations* from the left hand menu.
 
 . Select the *Create API Connector* button to start the *API Client Connector* wizard.
 
-. When prompted to *Upload OpenAPI Specification*, select *Use a URL*:
+. When prompted to *Upload OpenAPI Document*, select *Use a URL*:
 .. Enter the following in the URL field:
 +
 [subs="attributes+", id="route-crud-host-url"]
@@ -153,7 +153,7 @@ Walkthrough 1A CRUD Connector
 .. Click *Create API Connector*.
 
 [type=verification]
-Is the new connector displayed on the *Customizations* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="wt1a_2_1_CYW_fuse-url"] console?
+Is the new connector displayed on the *Customizations* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="{context}-2"] console?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
@@ -175,7 +175,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 To enable Fuse Online to send messages from the queue to the Spring Boot CRUD app, create a connection in Red Hat Fuse Online using the API connector you just created.
 
 
-. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="wt1a_2_2_1_fuse-url"] console.
+. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="{context}-3"] console.
 
 . Select *Connections* from the left hand menu.
 
@@ -195,7 +195,7 @@ Walkthrough 1A CRUD Connection
 
 
 [type=verification]
-Is the new connection displayed on the *Connections* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="wt1a_2_2_CYW_fuse-url"] console?
+Is the new connection displayed on the *Connections* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="{context}-4"] console?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
@@ -214,13 +214,13 @@ To allow Fuse Online to consume messages placed on the queue by the Node.js weba
 :openshift-url: https://master.city.openshiftworkshop.com/console/project/eval/overview
 :enmasse: AMQ Online
 
-. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="wt1a_2_3_1_fuse-url"] console.
+. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="{context}-5"] console.
 
 . Select *Connections* from the left hand menu.
 
 . Select the *Create Connection* button to start the *Create Connection* wizard.
 
-. Select *AMQP* to configure an *AMQP Message Broker* connection.
+. Select *AMQP Message Broker* to configure an *AMQP* connection.
 
 . Enter the connection URI relating to {enmasse}:
 +
@@ -258,7 +258,7 @@ Walkthrough 1A Messaging App
 
 
 [type=verification]
-Is the new connection displayed on the *Connections* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="wt1a_2_3_CYW_fuse-url"] console?
+Is the new connection displayed on the *Connections* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="{context}-6"] console?
 
 
 [type=verificationFail]
@@ -344,7 +344,7 @@ Walkthrough 1A
 The integration may take some time to complete building.
 
 [type=verification]
-Is the integration displayed as *Running* on the *Integration* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="wt1a_3_1_fuse-url"] console?
+Is the integration displayed as *Running* on the *Integration* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="{context}-1"] console?
 
 [type=verificationFail]
 
@@ -376,7 +376,7 @@ After setting up the integration between the Node.js and Spring Boot application
 :spring-url: http://spring-boot-rest-http-crud-spring-app.apps.city.openshiftworkshop.com/
 :fuse-url: https://eval.apps.city.openshiftworkshop.com/
 
-. Navigate to the link:{route-frontend-host}[Node.js webapp, window="_blank", id="wt1a_4_2_nodejs-app-url"].
+. Navigate to the link:{route-frontend-host}[Node.js webapp, window="_blank", id="{context}-1"].
 
 . Enter a value for *Fruit*, for example:
 +
@@ -386,7 +386,7 @@ Pineapple
 
 . Click *Send Request*.
 
-. Navigate to the link:{route-crud-host}[Spring Boot app, window="_blank", id="wt1a_4_4_springboot-app-url" ].
+. Navigate to the link:{route-crud-host}[Spring Boot app, window="_blank", id="{context}-2"].
 
 . Check that the entry from the Node.js webapp is displayed.
 
@@ -395,7 +395,7 @@ Pineapple
 ****
 View the activity log:
 
-. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="wt1a_4_CYW_1_fuse-url"] console.
+. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="{context}-3"] console.
 . Select *Integrations* from the left hand menu.
 . Select your integration.
 . Select the *Activity* tab.
