@@ -1,6 +1,6 @@
 {
   "name": "tutorial-web-app-walkthroughs",
-  "version": "1.5.0",
+  "version": "1.6.3",
   "description": "Core walkthroughs for the tutorial-web-app",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/integr8ly/tutorial-web-app-walkthroughs#readme",
   "devDependencies": {
-    "integreatly-asciidoc": "0.0.2"
+    "integreatly-asciidoc": "0.0.4"
   },
   "dependencies": {}
 }

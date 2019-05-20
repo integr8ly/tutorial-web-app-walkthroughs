@@ -1,5 +1,5 @@
 :walkthrough: Integrating message-oriented middleware with a RESTful API using AMQ Online
-:fuse-version: 7.2
+:fuse-version: 7.3
 
 [id='integrating-eventdriven-and-apidriven-applications']
 = {walkthrough}
@@ -221,8 +221,6 @@ To allow Fuse Online to consume messages placed on the queue by the Node.js weba
 . Select the *Create Connection* button to start the *Create Connection* wizard.
 
 . Select *AMQP Message Broker* to configure an *AMQP* connection.
-+
-NOTE: Avoid choosing the similarly named *AMQ Message Broker*.
 
 . Enter the connection URI relating to {enmasse}:
 +
@@ -326,7 +324,7 @@ work-queue-requests
 
 . When prompted to *Choose an Action*, select *Create a fruit*.
 
-. When prompted to *Add to Integration*, select *Add a Step*.
+. When prompted to *Add to Integration*, click on the blue *+* icon in the left panel.
 
 . Select *Data Mapper* to map source and target fields in the corresponding JSON schemas:
 .. Expand the *body* item in the *Target* tree to reveal the *name* item.
