@@ -285,6 +285,8 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 To use the Fuse connections, create an integration in Red Hat Fuse Online.
 
+. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="wt1a_2_3_1_fuse-url"] console.
+
 . Select *Integrations* from the left hand menu.
 
 . Select the *Create Integration* button to start the *Create Integration* wizard.

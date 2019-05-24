@@ -6,6 +6,7 @@ Typically, a core walkthrough has the following attributes:
 * A clear user story that addresses an integration goal
 * Contains a diagram that represents the user flow and the components used in the walkthrough
 * Each task is timed appropriately
+* Each task starts with the appropriate console (to support users returning to a walkthrough)
 * Each step has a validation section
 * Each asciidoc attribute resolves to a value
 
