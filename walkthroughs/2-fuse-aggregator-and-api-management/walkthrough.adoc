@@ -488,6 +488,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 === Checking the API Service is protected
 
+. Log into link:{api-management-url}[{3Scale-ProductName}, window="_blank"].
 . From the *ActiveDocs* page for the *{fuse-flights-aggregator-app-name}* Application, expand the *GET /flights* endpoint.
 . Leave the *user_key* field empty.
 . Select the *Try it out!* button.
