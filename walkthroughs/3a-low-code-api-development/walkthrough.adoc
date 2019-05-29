@@ -91,6 +91,7 @@ You are prompted for configuration details.
 .. Click "Create new App".
 .. Enter "Fuse Online Demo" in the *App Name* field.
 .. Choose your workspace using the *Development Slack Workspace* dropdown.
+.. Click "Create App".
 .. On the following screen under the *Add features and functionality* click *Incoming Webhooks*.
 .. Change the *Activate Incoming Webhooks* switch to the *On* position.
 .. Scroll down and click *Add New Webhook to Workspace*.
@@ -189,7 +190,7 @@ A *Path* represents an API endpoint/operation and the associated parameters requ
 
 . Enter "greetname" in the *Operation ID* field.
 
-. In the *Request Body* click *Add a request body* and choose the *Name* type that you created earlier.
+. In the *Request Body* section, choose the *Name* type that you created earlier.
 
 . In the *Responses* section click *Add response*.
 * In the modal that appears choose *200 OK* as the dropdown option.
@@ -208,7 +209,7 @@ A *Path* represents an API endpoint/operation and the associated parameters requ
 
 
 [type=verification]
-Is a *Greeting Slack Target* entry is listed in the Fuse Online *Connections* screen?
+Is a *Greeting Slack Target* entry listed in the Fuse Online *Connections* screen?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
@@ -219,7 +220,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 . On the *Choose operation* screen click *Greet with name* to open the *Integration Flow Editor*.
 
-. The left hand side of the *Integration Flow Editor* lists the steps in your *Integration*. Click the *Blue Plus Icon* in the center of the flow and choose *Add Connection*.
+. The left hand side of the *Integration Flow Editor* lists the steps in your *Integration*. Hover mouse over the *Blue Plus Icon* in the center of the flow and choose *Add Connection*.
 
 . Select your *Greeting Slack Target*.
 
@@ -231,7 +232,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 . From the *Configure Mapper* screen click the *body* element in the *Source* panel to expand it. Now click the *name* field under the *body*, then click the *message* element in the *Target* panel. This maps the value of the incoming HTTP request *body* to the outgoing Slack *message* property.
 
-. In the right hand *Mapping Details* panel click the *Arrow Icon* under the *Targets* section to add a transformation.
+. In the right hand *Mapping Details* panel, click the *Arrow Icon* under the *Targets* section to add a transformation.
 
 . Using the dropdown change the transformation type from *Append* to *Prepend*.
 
