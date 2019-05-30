@@ -67,7 +67,7 @@ The Fuse Aggregation App provides information about flights. You deploy it using
 // TODO placeholders for product names
 // TODO append /launch/wizard/<project-name> to launcher url
 // TODO flights endpoint url
-. Log in to the link:{launcher-url}/launch/wizard/{walkthrough-namespace}[{launcher-service}, window="_blank"] wizard.
+. Log in to the link:{launcher-url}/launch/wizard/{walkthrough-namespace}[{launcher-service}, window="_blank", id="{context}-1"] wizard.
 
 . Select the option to *Build and Deploy Online* in the *Target Environment* step.
 
@@ -92,7 +92,7 @@ The Fuse Aggregation App provides information about flights. You deploy it using
 
 [type=verification]
 ====
-Check that the following pods are running in the link:{openshift-host}/console/project/{walkthrough-namespace}[OpenShift Project, window="_blank"]:
+Check that the following pods are running in the link:{openshift-host}/console/project/{walkthrough-namespace}[OpenShift Project, window="_blank", id="{context}-2"]:
 
 * fuse-flights-aggregator
 * arrivals
@@ -115,7 +115,7 @@ The following URL must be available before attempting this procedure:
 ----
 If a valid URL is not displayed, redo the previous procedure.
 
-. Navigate to the link:{route-fuse-flights-aggregator-host}/camel/flights[Flights Endpoint, window="_blank"].
+. Navigate to the link:{route-fuse-flights-aggregator-host}/camel/flights[Flights Endpoint, window="_blank", id="{context}-3"].
 . Count the number of flights listed in the JSON output.
 
 [type=verification]
@@ -138,7 +138,7 @@ Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & De
 
 // TODO placeholders for product names
 // TODO project name
-. Log in to the link:{che-url}[{code-ready-service}, window="_blank"] Dashboard
+. Log in to the link:{che-url}[{code-ready-service}, window="_blank", id="{context}-4"] Dashboard
 
 . The *New Workspace* page is displayed. Create a new Workspace:
 .. Use the *Java 1.8* stack.
@@ -179,7 +179,7 @@ Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & De
 
 [type=verification]
 // TODO: flights api links to /camel/flights
-After waiting for the build and deployment to complete, check link:{route-fuse-flights-aggregator-host}/camel/flights[Flights Endpoint, window="_blank"]. Are more than 8 flights displayed?
+After waiting for the build and deployment to complete, check link:{route-fuse-flights-aggregator-host}/camel/flights[Flights Endpoint, window="_blank", id="{context}-5"]. Are more than 8 flights displayed?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
@@ -197,7 +197,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 === API Management Login
 
 // TODO service & url placeholders
-. Open the link:{api-management-url}[{3Scale-ProductName} Login screen, window="_blank"].
+. Open the link:{api-management-url}[{3Scale-ProductName} Login screen, window="_blank", id="{context}-6"].
 
 . Select the *Red Hat Single Sign On* option. This triggers an OAuth Flow and redirects you back to the {3Scale-ProductName} Dashboard.
 
