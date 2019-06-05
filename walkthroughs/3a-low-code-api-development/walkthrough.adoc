@@ -262,31 +262,66 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 
 [time=5]
-== Exposing a route and invoking the API
+== Exposing and invoking the API
 
-=== Creating a public Route
+=== API Management Login
 
-By default OpenShift does not create a public endpoint, known as a *Route*, that's required to access your API from services on external hosts or your development machine.
+// TODO service & url placeholders
+. Open the link:{api-management-url}[{3Scale-ProductName} Login screen, window="_blank"].
 
-. Log in to the link:{openshift-url}[Red Hat OpenShift Console, window="_blank"].
+. Select the *Red Hat Single Sign On* option. This triggers an OAuth Flow and redirects you back to the {3Scale-ProductName} Dashboard.
 
-. Click *View All* in the *My Projects* section on the right of the *Service Catalog*.
-
-. Enter "Fuse" in the *Filter by keyword* field.
-
-. Click the *Fuse* project.
-
-. On the *Overview* page scroll down and expand the *i-greeting-api* item.
-
-. Click the *Create Route* link.
-
-. Accept the default values for *Route* creation, scroll down, and click *Create*.
+. Dismiss the *How does 3Scale work?* option which is displayed the first time you log in to {3Scale-ProductName}. The main Dashboard is displayed.
 
 [type=verification]
-Is a *Route* now listed under the *i-greeting-api* in the *Overview* screen?
+Can you see the {3Scale-ProductName} Dashboard and navigate the main menu?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+
+
+=== Adding the App Endpoint to Red Hat 3scale
+
+. From the *Dashboard*, select the *New API* item.
+. Select the *Import from Dashboard* option.
+If this option is not enabled, click *authenticate with OpenShift* to enable the option.
+
+. Choose the 'fuse' option from the *Namespace* list.
+. Choose 'i-greeting-api' from the *Name* list.
+. Click *Create Service*.
++
+The 3scale dashboard is displayed, with notification: `The service will be imported shortly. You will receive a notification when it is done.`
+
+. Edit the API:
+
+.. From the *Overview* screen, select the *Configure APIcast* button.
+
+.. In the *Staging Public Base URL*, enter:
++
+[subs="attributes+"]
+----
+https://wt-{user-sanitized-username}-3scale.{openshift-app-host}
+----
++
+If the wildcard proxy is enabled in your cluster, this route points to the wildcard APIcast URL. Otherwise, the route points to the shared staging APIcast URL for the *3scale* project in OpenShift
+
+.. Select *Update & test in Staging Environment*
+
+[NOTE]
+====
+If you have previously used the ```https://wt-{user-sanitized-username}-3scale.{openshift-app-host}``` route, that service is no longer available.
+For example, if you have completed the *Managing and protecting APIs using API management* walkthrough, that API is no longer available because you have reused the route.
+====
+
+
+[type=verification]
+Is the API service available?
+You might encounter a *403: Authentication failed* message. You can ignore this message, the issue is resolved in a later step.
+
+[type=verificationFail]
+Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+
+
 
 === Invoking the API
 
@@ -297,6 +332,4 @@ Did the message "Hello from $YOUR_NAME" appear in your Slack channel?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
-
-
 
