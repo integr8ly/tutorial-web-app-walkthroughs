@@ -37,7 +37,14 @@ It also allows you to identify important design decisions prior to coding and de
 * link:{openshift-host}/console[Console, window="_blank"]
 ****
 
-// end::master-1[]
+[type=walkthroughResource,serviceName=3scale]
+.3Scale
+****
+* link:{api-management-url}[Console, window="_blank"]
+* link:https://developers.redhat.com/products/3scale/overview/[3Scale Overview, window="_blank"]
+* link:https://www.3scale.net[3Scale Website, window="_blank"]
+****
+
 
 [time=10]
 == Creating a Slack Connection in Fuse Online
