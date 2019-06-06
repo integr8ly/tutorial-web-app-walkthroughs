@@ -398,7 +398,7 @@ View the activity log:
 . Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="wt1a_4_CYW_1_fuse-url"] console.
 . Select *Integrations* from the left hand menu.
 . Select your integration.
-. Select the *Activity* tab.
+. Click the *Activity* tab.
 . Expand the log entry to display the steps performed.
 
 Is your activity displayed?

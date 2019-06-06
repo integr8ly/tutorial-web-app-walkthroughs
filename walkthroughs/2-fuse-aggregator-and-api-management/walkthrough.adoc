@@ -71,23 +71,23 @@ The Fuse Aggregation App provides information about flights. You deploy it using
 
 . Select the option to *Build and Deploy Online* in the *Target Environment* step.
 
-. Select the *Authorize* button to allow Launcher create resources in the OpenShift cluster. This triggers an OAuth flow, and eventually redirects back to the {launcher-service} wizard.
+. Click the *Authorize* button to allow Launcher create resources in the OpenShift cluster. This triggers an OAuth flow, and eventually redirects back to the {launcher-service} wizard.
 
-. Select the blue down-arrow icon to continue the wizard.
+. Click the blue down-arrow icon to continue the wizard.
 
 . Select the *Aggregation* mission and *Fuse* runtime in the *Mission & Runtime* step
 
-. Select the blue down-arrow icon to continue the wizard.
+. Click the blue down-arrow icon to continue the wizard.
 
 . Authorize your Github Account
-.. Select the *Log In & Authorize Account* button in the *Authorize Git Provider* step.
+.. Click the *Log In & Authorize Account* button in the *Authorize Git Provider* step.
 .. This opens a Github OAuth page.
-.. Select the *Authorize <organisation/user>* button at the bottom.
+.. Click the *Authorize <organisation/user>* button at the bottom.
 .. You will be redirected back to the {launcher-service} wizard.
 
-. Select all blue down-arrow icons to continue the wizard, accepting the git repository name.
+. Click all the blue down-arrow icons to continue the wizard, accepting the git repository name.
 
-. Select the *Set Up Application* button to create a Git repository and provision the mission resources to OpenShift. A build for the *Fuse Aggregation App* is triggered and deployed.
+. Click the *Set Up Application* button to create a Git repository and provision the mission resources to OpenShift. A build for the *Fuse Aggregation App* will be triggered and deployed.
 
 
 [type=verification]
@@ -142,13 +142,13 @@ Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & De
 
 . The *New Workspace* page is displayed. Create a new Workspace:
 .. Use the *Java 1.8* stack.
-.. Select the *Add or Import Project* button.
-.. Select the *Github* tab.
-.. Select the *Connect your Github Account* button.
+.. Click the *Add or Import Project* button.
+.. Click the *Github* tab.
+.. Click the *Connect your Github Account* button.
 .. Select the checkbox beside the git repository named *{walkthrough-namespace}*. You may need to filter by account if you are a member of any Organizations.
-.. Select the *Add* button to add the repository to the workspace.
-.. Select the *Create* button at the bottom.
-.. Select *Open in IDE*.
+.. Click the *Add* button to add the repository to the workspace.
+.. Click the *Create & Open* button at the bottom.
+.. Click *Open in IDE*.
 +
 . Open the file at *src/main/java/com/redhat/fuse/boosters/rest/http/CamelRouter.java*.
 +
@@ -166,16 +166,16 @@ Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & De
 .. Select the *Profile* menu, then *Preferences*.
 .. Choose the *Commiter* option under the *Git* heading.
 .. Set a *Name* and *Email*.
-.. Select *Save* then *Close*.
+.. Click *Save* then *Close*.
 
 . Commit and push the changes back to the repository:
 .. Select the *Git* menu, then *Commit*.
 .. Ensure the *CamelRouter.java* file is checked.
 .. Enter a commit message of *Switch to remote services* in the input area.
 .. Check the box for *Push commited changes to* and ensure the branch is set to *master*.
-.. Select the *Commit* button.
+.. Click the *Commit* button.
 .. A green notification *Pushed to Origin* is displayed.
-.. A new build will be triggered in OpenShift and rollout the new changes to the *Fuse Aggregation App*.
+.. A new build is triggered in OpenShift and the new changes are rolled out to the *Fuse Aggregation App*.
 
 [type=verification]
 // TODO: flights api links to /camel/flights
@@ -199,7 +199,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 // TODO service & url placeholders
 . Open the link:{api-management-url}[{3Scale-ProductName} Login screen, window="_blank"].
 
-. Select the *Red Hat Single Sign On* option. This triggers an OAuth Flow and redirects you back to the {3Scale-ProductName} Dashboard.
+. Click the *Red Hat Single Sign On* option. This triggers an OAuth Flow and redirects you back to the {3Scale-ProductName} Dashboard.
 
 . Dismiss the *How does 3Scale work?* option which is displayed the first time you log in to {3Scale-ProductName}. The main Dashboard is displayed.
 
@@ -225,7 +225,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 . Leave the *Description* field empty.
 
-. Select *Add API* at the bottom of the screen.
+. Click *Add API* at the bottom of the screen.
 
 . From the *Overview* screen, select the *Configure APIcast* button.
 // The 'fuse-aggregation-app-url' should be the url of the Fuse Aggregation App e.g. https://fuse-flights-aggregator-ak49.cluster-lfa3xlh.opentry.me/
@@ -245,7 +245,7 @@ https://wt2-{user-sanitized-username}-3scale.{openshift-app-host}
 +
 If the wildcard proxy is enabled in your cluster, this route points to the wildcard APIcast URL. Otherwise, the route points to the shared staging APIcast URL for the *3scale* project in OpenShift
 
-. Select *Update & test in Staging Environment*
+. Click *Update & test in Staging Environment*
 
 [type=verification]
 Is the API service available?
@@ -257,8 +257,8 @@ Verify that you followed each step in the procedure above.  If you are still hav
 === Setting Fuse Aggregation App Endpoint Limits
 
 . Create a new *Application Plan*:
-.. Select *Applications > Application Plans* from the side navigation.
-.. Select *Create Application Plan*.
+.. Click *Applications > Application Plans* from the side navigation.
+.. Click *Create Application Plan*.
 .. Enter the following for *Name* and *System name*:
 +
 [subs="attributes+"]
@@ -266,24 +266,24 @@ Verify that you followed each step in the procedure above.  If you are still hav
 {fuse-flights-aggregator-app-name}
 ----
 .. Leave the other fields with their default values.
-.. Select *Create Application Plan*. You will be redirected to the *Application Plans* screen.
-.. Select the *Publish* button, beside your plan list item, to publish the Plan.
+.. Click *Create Application Plan*. You will be redirected to the *Application Plans* screen.
+.. Click the *Publish* button, beside your plan list item, to publish the Plan.
 
 . Select the *{fuse-flights-aggregator-app-name}* plan in the list to return to the edit screen.
 
 . Set a limit of 5 calls per hour:
-.. From the *Metrics, Methods, Limits & Pricing Rules* section, select the *Limits (0)* button.
-.. Select the *New usage limit* button.
+.. From the *Metrics, Methods, Limits & Pricing Rules* section, click the *Limits (0)* button.
+.. Click the *New usage limit* button.
 .. Set the *Period* to *hour*.
 .. Set the *Max. value* to *5*.
-.. Select *Create usage limit*.
-.. Select *Update Application plan*
+.. Click *Create usage limit*.
+.. Click *Update Application plan*
 
 . Create a new *Application* for the *Developer* Group, assigned to the Plan:
 .. Select *Audience* from the top navigation bar dropdown.
 .. Select the *Developer* Account to open the *Account Summary* page.
 .. Select the *(num) Application* item from the breadcrumb to view Applications.
-.. Select the *Create Application* button in the top right.
+.. Click the *Create Application* button in the top right.
 .. Select the *{fuse-flights-aggregator-app-name}* Plan in the *Application plan* dropdown.
 .. Enter the following for *Name* and *Description*:
 +
@@ -291,7 +291,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 ----
 {fuse-flights-aggregator-app-name}
 ----
-.. Select *Create Application*.
+.. Click *Create Application*.
 
 . Set a custom *User Key* for the application:
 .. On the *{fuse-flights-aggregator-app-name}* application screen you were redirected to, scroll to the *API Credentials* section.
@@ -302,15 +302,15 @@ Verify that you followed each step in the procedure above.  If you are still hav
 ----
 {fuse-flights-aggregator-app-name}
 ----
-.. Select *Set Custom Key*.
+.. Click *Set Custom Key*.
 
 [type=verification]
 ****
 . Select the *Overview* menu item in the side navigation.
 
-. Scroll down and select the *Configure APIcast* button in the bottom right.
+. Scroll down and click the *Configure APIcast* button in the bottom right.
 
-. Select the *Update & test in Staging Environment* button at the bottom again.
+. Click the *Update & test in Staging Environment* button at the bottom again.
 
 . Is a success message displayed and a green line along the left side of the page visible?
 ****
@@ -332,9 +332,9 @@ Verify that you followed each step in the procedure above.  If you are still hav
 [.integr8ly-docs-header]
 === Create a new ActiveDocs Service
 
-. Select *Active Docs* from the side navigation.
+. Click *Active Docs* from the side navigation.
 
-. Select *Create your first spec*
+. Click *Create your first spec*
 
 . Enter the following for *Name* and *System name*:
 +
@@ -469,7 +469,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 }
 ////
 +
-. Select the *Create Service* button.
+. Click the *Create Service* button.
 
 [type=verification]
 Does the *Airport Flights REST API* ActiveDoc exist with a *List all flights* API endpoint?
@@ -490,7 +490,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 . From the *ActiveDocs* page for the *{fuse-flights-aggregator-app-name}* Application, expand the *GET /flights* endpoint.
 . Leave the *user_key* field empty.
-. Select the *Try it out!* button.
+. Click the *Try it out!* button.
 
 [type=verification]
 ****
@@ -512,7 +512,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 ----
 {fuse-flights-aggregator-app-name}
 ----
-. Select the *Try it out!* button.
+. Click the *Try it out!* button.
 
 [type=verification]
 ****
