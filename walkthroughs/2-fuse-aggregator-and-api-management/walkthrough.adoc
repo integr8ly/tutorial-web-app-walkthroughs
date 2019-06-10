@@ -73,11 +73,11 @@ The Fuse Aggregation App provides information about flights. You deploy it using
 
 . Click the *Authorize* button to allow Launcher create resources in the OpenShift cluster. This triggers an OAuth flow and eventually redirects back to the {launcher-service} wizard.
 
-. Click the _blue_ down-arrow icon to continue.
+. Click the blue down-arrow icon to continue.
 
 . Select the *Aggregation* mission and *Fuse* runtime in the *Mission & Runtime* step
 
-. Click the _blue_ down-arrow icon to continue.
+. Click the blue down-arrow icon to continue.
 
 . Authorize your Github Account
 .. Click the *Log In & Authorize Account* button in the *Authorize Git Provider* step.
@@ -85,7 +85,7 @@ The Fuse Aggregation App provides information about flights. You deploy it using
 .. Click the *Authorize <organisation/user>* button at the bottom.
 .. You will be redirected back to the {launcher-service} wizard.
 
-. Click all the _blue_ down-arrow icons to continue.
+. Click all the blue down-arrow icons to continue.
 
 . Click the *Set Up Application* button to create a Git repository and provision the mission resources to OpenShift. A build for the Fuse Aggregation App is triggered and deployed.
 
@@ -266,8 +266,8 @@ Verify that you followed each step in the procedure above.  If you are still hav
 {fuse-flights-aggregator-app-name}
 ----
 .. Leave the other fields with their default values.
-.. Click *Create Application Plan*. You are redirected to the *Application Plans* screen.
-.. Click the *Publish* button.  Beside your plan list item, click the Publish button to publish the Plan.
+.. Select *Create Application Plan*. You will be redirected to the *Application Plans* screen.
+.. Select the *Publish* button, beside your plan list item, to publish the Plan.
 
 . Select the *{fuse-flights-aggregator-app-name}* plan in the list to return to the edit screen.
 
