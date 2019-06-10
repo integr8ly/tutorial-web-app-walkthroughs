@@ -16,7 +16,7 @@ Organizations modernizing their applications typically create many APIs.
 It then becomes paramount to understand the usage of these APIs and to ensure they are protected, for example, from a denial-of-service (DoS) attack.
 It is possible to protect and limit access to APIs as part of an integration.
 
-In this walkthrough, you use the *Fuse Aggregation App*, which is a demonstration app that provides data using an API.
+In this walkthrough, you use the Fuse Aggregation App, which is a demonstration app that provides data using an API.
 The walkthrough shows how to deploy, edit, protect and rate-limit that API, using OpenShift, {launcher-service}, {code-ready-service} and {api-mgmt-service}.
 
 image::images/arch.png[integration, role="integr8ly-img-responsive"]
@@ -71,13 +71,13 @@ The Fuse Aggregation App provides information about flights. You deploy it using
 
 . Select the option to *Build and Deploy Online* in the *Target Environment* step.
 
-. Click the *Authorize* button to allow Launcher create resources in the OpenShift cluster. This triggers an OAuth flow, and eventually redirects back to the {launcher-service} wizard.
+. Click the *Authorize* button to allow Launcher create resources in the OpenShift cluster. This triggers an OAuth flow and eventually redirects back to the {launcher-service} wizard.
 
-. Click the blue down-arrow icon to continue the wizard.
+. Click the _blue_ down-arrow icon to continue.
 
 . Select the *Aggregation* mission and *Fuse* runtime in the *Mission & Runtime* step
 
-. Click the blue down-arrow icon to continue the wizard.
+. Click the _blue_ down-arrow icon to continue.
 
 . Authorize your Github Account
 .. Click the *Log In & Authorize Account* button in the *Authorize Git Provider* step.
@@ -85,9 +85,9 @@ The Fuse Aggregation App provides information about flights. You deploy it using
 .. Click the *Authorize <organisation/user>* button at the bottom.
 .. You will be redirected back to the {launcher-service} wizard.
 
-. Click all the blue down-arrow icons to continue the wizard, accepting the git repository name.
+. Click all the _blue_ down-arrow icons to continue.
 
-. Click the *Set Up Application* button to create a Git repository and provision the mission resources to OpenShift. A build for the *Fuse Aggregation App* will be triggered and deployed.
+. Click the *Set Up Application* button to create a Git repository and provision the mission resources to OpenShift. A build for the Fuse Aggregation App is triggered and deployed.
 
 
 [type=verification]
@@ -166,7 +166,7 @@ Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & De
 .. Select the *Profile* menu, then *Preferences*.
 .. Choose the *Commiter* option under the *Git* heading.
 .. Set a *Name* and *Email*.
-.. Click *Save* then *Close*.
+.. Click *Save > Close*.
 
 . Commit and push the changes back to the repository:
 .. Select the *Git* menu, then *Commit*.
@@ -175,7 +175,7 @@ Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & De
 .. Check the box for *Push commited changes to* and ensure the branch is set to *master*.
 .. Click the *Commit* button.
 .. A green notification *Pushed to Origin* is displayed.
-.. A new build is triggered in OpenShift and the new changes are rolled out to the *Fuse Aggregation App*.
+.. A new build is triggered in OpenShift and the new changes are rolled out to the Fuse Aggregation App.
 
 [type=verification]
 // TODO: flights api links to /camel/flights
@@ -266,8 +266,8 @@ Verify that you followed each step in the procedure above.  If you are still hav
 {fuse-flights-aggregator-app-name}
 ----
 .. Leave the other fields with their default values.
-.. Click *Create Application Plan*. You will be redirected to the *Application Plans* screen.
-.. Click the *Publish* button, beside your plan list item, to publish the Plan.
+.. Click *Create Application Plan*. You are redirected to the *Application Plans* screen.
+.. Click the *Publish* button.  Beside your plan list item, click the Publish button to publish the Plan.
 
 . Select the *{fuse-flights-aggregator-app-name}* plan in the list to return to the edit screen.
 
