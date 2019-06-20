@@ -104,15 +104,21 @@ You are prompted for configuration details.
 . Obtain a URL for the *Slack Webhook URL* field:
 .. Navigate to the Slack Apps portal at link:https://api.slack.com/apps[api.slack.com/apps].
 .. Login using the email address associated with your workspace.
-.. Click "Create new App".
-.. Enter "Fuse Online Demo" in the *App Name* field.
-.. Choose your workspace using the *Development Slack Workspace* dropdown.
+.. Click *Create new App*.
+.. Enter the following in the *App Name* field:
++
+----
+Fuse Online Demo
+----
+.. Choose *low-code-workspace* from the *Development Slack Workspace* menu.
 .. Click "Create App".
 .. On the following screen under the *Add features and functionality* click *Incoming Webhooks*.
 .. Change the *Activate Incoming Webhooks* switch to the *On* position.
 .. Scroll down and click *Add New Webhook to Workspace*.
-.. In the *Post to* field select the *low-code-project* or a channel of your own choosing then click *Authorise*.
-.. When redirected back to the *Incoming Webhooks* copy the new *Webhook URL* displayed at the bottom of the page using the *Copy* button. 
+.. In the *Post to* field select *low-code-demo* and click *Install*.
++
+You are redirected back to the *Incoming Webhooks* page. 
+.. Copy the *Webhook URL* displayed at the bottom of the page using the *Copy* button. 
 
 . Paste the copied *Webhook URL* value into the *Slack Webhook URL* field in Fuse Online.
 
