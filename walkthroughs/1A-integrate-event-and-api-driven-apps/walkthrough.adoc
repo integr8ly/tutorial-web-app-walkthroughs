@@ -1,5 +1,7 @@
 :walkthrough: Integrating message-oriented middleware with a RESTful API using AMQ Online
 :fuse-version: 7.3
+:fuse-documentation-url: https://access.redhat.com/documentation/en-us/red_hat_fuse/7.3/
+:amq-documentation-url: https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/
 
 [id='integrating-eventdriven-and-apidriven-applications']
 = {walkthrough}
@@ -41,12 +43,14 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 .Fuse Online
 ****
 * link:{fuse-url}[Console, window="_blank", id="resources-fuse-url"]
+* link:{fuse-documentation-url}[Fuse Documentation, window="_blank"]
 ****
 
 [type=walkthroughResource,serviceName=amq-online-standard]
 .AMQ Online
 ****
 * link:{enmasse-url}[Console, window="_blank", , id="resources-enmasse-url"]
+* link:{amq-documentation-url}[AMQ Documentation, window="_blank"]
 ****
 
 
@@ -87,8 +91,8 @@ work-queue-requests
 .. Select *Small Queue* as the address plan and click *Next*.
 .. Select *Create* to complete the wizard.
 
-. Monitor the AMQ Online console until a green check mark is displayed beside the new address. 
-Creating an address may take some time. 
+. Monitor the AMQ Online console until a green check mark is displayed beside the new address.
+Creating an address may take some time.
 
 [type=verification]
 Is the newly created address displayed on the *Addresses* screen of the link:{enmasse-url}[AMQ Online, window="_blank", id="{context}-2"] console?
