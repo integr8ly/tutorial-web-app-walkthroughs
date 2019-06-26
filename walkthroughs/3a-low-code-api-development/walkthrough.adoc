@@ -74,14 +74,14 @@ The name you choose becomes part of the URL for the workspace.
 . When prompted *What is your team working on?* enter:
 +
 ----
-Low-code Demo
+low-code-demo
 ----
 
 . Click *Skip for now* when prompted to add team members.
 
 // verify that you can access https://your-workspace-name-guid.slack.com.
 [type=verification]
-Can you access your workspace, and navigate to the *low-code-project* channel listed on the left of the workspace?
+Can you access your workspace, and navigate to the *low-code-demo* channel listed on the left of the workspace?
 
 
 [type=verificationFail]
@@ -205,7 +205,9 @@ Name
 }
 ----
 
-. Scroll down and click *Save*.
+. Under the *Create a REST Resource* section choose *No Resource*.
+
+. Click *Save*.
 
 [type=verification]
 Is `</> Name` listed under the *Data Types* on the *API Designer* screen?
@@ -231,9 +233,9 @@ A *Path* represents an API endpoint/operation and the associated parameters requ
 
 . Click your new */greeting* endpoint under the *Paths* heading.
 
-. Click *Create Operation* under the *POST* icon in the *Operations* section on the right. The *POST* icon changes to an orange color.
+. Select the *POST* tab under the *Operations* section on the right.
 
-. Click the orange *POST* icon.
+. Click the *Add Operation* button within the *POST* section. A set of fields will appear. 
 
 . Enter the following in the *Summary* field:
 +
@@ -247,10 +249,10 @@ Greet with name
 greetname
 ----
 
-. In the *Request Body* click *Add a request body* and choose the *Name* type that you created earlier.
+. In the *Request Body* section click *Add a request body* and choose the *Name* type that you created earlier.
 
 . In the *Responses* section click *Add response*.
-.. In the modal that appears choose *200 OK* as the dropdown option.
+.. In the modal that appears choose *200 OK* as the status code dropdown option.
 .. Click *Add*.
 .. Click *No description* beside the *200 OK* response and enter the following in the *Description* field:
 +
@@ -258,9 +260,11 @@ greetname
 Greeting response
 ----
 
-. Click *Save* in the top right corner of the UI to save your work and be directed back to the *New Integration* wizard.
+. Select *Name* in the *Response Type* dropdown.
 
-. Click *Next* on the *New Integration* wizard screen.
+. Click *Save* in the top right corner of the UI to save your work and be directed back to the *Review Actions* wizard.
+
+. Click *Next* on the *Review Actions* screen.
 
 . When prompted to *Give this integration a name*:
 .. Enter the following in the *Integration Name* field:
@@ -278,16 +282,16 @@ my greeting api
 
 
 [type=verification]
-Is a *Greeting Slack Target* entry listed in the Fuse Online *Connections* screen?
+Is the *API Provider Integration* screen displaying your *POST /greeting* operation?
 
 [type=verificationFail]
-Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+Choose *View/Edit API Definition* and repeat the steps above to create the *POST* endpoint.
 
 
 [time=10]
 == Implementing and publishing the API
 
-. On the *Choose operation* screen click *Greet with name* to open the *Integration Flow Editor*.
+. On the *API Provider Integration* screen click *Greet with name* to open the *Integration Flow Editor*.
 
 . The left hand side of the *Integration Flow Editor* lists the steps in your *Integration*. Hover mouse over the *Blue Plus Icon* in the center of the flow and choose *Add Connection*.
 
@@ -298,11 +302,11 @@ Verify that you followed each step in the procedure above.  If you are still hav
 . Use the *Channel* dropdown to select the *low-code-project* channel and click *Done*.
 The left hand side of the *Integration Flow Editor* should now list your Slack connection with a *Data Type Mismatch* warning. 
 
-.Click the *Warning Icon* and choose *Add a data mapping step*.
+. Click the *Data Type Mismatch* warning icon and choose *Add a data mapping step* in the dialog box that is displayed.
 
-. From the *Configure Mapper* screen click the *body* element in the *Source* panel to expand it.
+. From the *Configure Mapper* panel click the *body* element under *Request* in the *Source* panel to expand it.
 
-. Click the *name* field under the *body*, then click the *message* element in the *Target* panel. This maps the value of the incoming HTTP request *body* to the outgoing Slack *message* property.
+. Click the *name* field inside the *body*, then click the *message* element in the *Target* panel. This maps the value of the incoming HTTP request *body* to the outgoing Slack *message* property.
 
 . In the right hand *Mapping Details* panel click the *Arrow Icon* under the *Targets* section to add a transformation.
 
@@ -313,6 +317,12 @@ The left hand side of the *Integration Flow Editor* should now list your Slack c
 ----
 Hello from 
 ----
+
+. Click *Done*.
+
+. On the left side of the *Integration Flow Editor* a new *Data Type Mismatch* is highlighted on the *Provided API Return Path*. Click it and choose *Add a data mapping step*.
+
+. From the *Configure Mapper* panel choose *message* under the *Data Mapper (Message)* section and link it to the *name* field under *body* on the right.
 
 . Click *Done*.
 
@@ -329,12 +339,11 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 
 
-[time=5]
+[time=10]
 == Exposing and invoking the API
 
 === API Management Login
 
-// TODO service & url placeholders
 . Open the link:{api-management-url}[{3Scale-ProductName} Login screen, window="_blank"].
 
 . Select the *Red Hat Single Sign On* option. This triggers an OAuth Flow and redirects you back to the {3Scale-ProductName} Dashboard.
