@@ -1,6 +1,10 @@
 {
   "dependencies": {
     "repos": [],
-    "serviceInstances": []
+    "managedServices": [
+      {
+        "name": "fuse"
+      }
+    ]
   }
 }
