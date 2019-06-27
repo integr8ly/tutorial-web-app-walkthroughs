@@ -369,7 +369,9 @@ If this option is not enabled, click *authenticate with OpenShift* to enable the
 +
 The 3scale dashboard is displayed, with notification: `The service will be imported shortly. You will receive a notification when it is done.`
 
-. Edit the API:
+. Edit the API Service:
+
+.. From the top navigation bar click the dropdown and choose your 'i-greeting-api'
 
 .. From the *Overview* screen, select the *Configure APIcast* button.
 
@@ -382,31 +384,83 @@ https://wt-{user-sanitized-username}-3scale.{openshift-app-host}
 +
 If the wildcard proxy is enabled in your cluster, this route points to the wildcard APIcast URL. Otherwise, the route points to the shared staging APIcast URL for the *3scale* project in OpenShift
 
-.. Select *Update & test in Staging Environment*
-
 [NOTE]
 ====
 If you have previously used the ```https://wt-{user-sanitized-username}-3scale.{openshift-app-host}``` route, that service is no longer available.
 For example, if you have completed the *Managing and protecting APIs using API management* walkthrough, that API is no longer available because you have reused the route.
 ====
 
+.. Expand the *Mapping Rules* section and click the pencil icon to edit the default entry.
 
-[type=verification]
-Is the API service available?
-You might encounter a *403: Authentication failed* message. You can ignore this message, the issue is resolved in a later step.
+.. Change *Verb* to *POST* and *Pattern* to */greeting*.
 
-[type=verificationFail]
-Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+.. Scroll down to the *Client* section. This section enables 3scale to test connectivity to our API via the gateway. Since our API does not expose a *GET* endpoint we won't be using it, but note that the *user_key* is this section is currently not set to an actual value. To fix this we need to create an *Application Plan* for our *API Service* and an *Application*.
+
+.. Click *Update & test in Staging Environment* to save your changes.
 
 
+. Create An Application Plan
+
+.. Click *Overview* to return to the overview screen for your API.
+
+.. Click *Create Application Plan* in the *Published Application Plans* section.
+
+.. Enter the following name:
++
+----
+Greeting API Application Plan
+----
+
+Enter the following system name:
++
+----
+greeting-app-plan
+----
+
+.. Ensure the *Applications require approval?* box is not ticked, then click *Create Application Plan*.
+
+
+. Create an Application
+
+.. Navigate to *Audience* using the dropdown in the top navigation bar.
+
+.. Choose *Developer* from the account listing.
+
+.. In the breadcrumb bar click *$NUMBER Application* link next to your account name to view applications.
+
+.. Click *Create Application* at the top of the displayed list.
+
+.. On the *New Application* screen choose your *Greeting API Application Plan* in the *Application Plan* dropdown.
+
+.. Enter the following name:
++
+----
+Greeting Application
+----
+
+Enter the following description:
++
+----
+Greeting Application that sends greetings to Slack
+----
 
 === Invoking the API
 
-. Use an HTTP client to invoke the route.
+.. From your new *Greeting Application* screen click the *i-greeting-api* next to Service.
+
+.. From the *Overview* screen click *Configuration* and choose *edit APIcast configuration* on the displayed *Configuration* page.
+
+.. Scroll down and note that the *user_key* parameter is now set.
+
+.. Using the URL we can execute a cURL request from a terminal with the command below. You can use a tool such as Postman if you prefer. Make sure you replace *$YOUR_KEY* with the key displayed in 3scale:
++
+----
+
+curl -X POST -H 'content-type: application/json' --data '{"name":"{user-sanitized-username}"}' "https://wt-{user-sanitized-username}-3scale.{openshift-app-host}/greeting?user_key=$YOUR_KEY"
+----
 
 [type=verification]
-Did the message "Hello from $YOUR_NAME" appear in your Slack channel?
+Did the message "Hello from {{user-sanitized-username}" appear in your Slack channel?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
-
