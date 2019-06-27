@@ -1,10 +1,6 @@
 {
   "dependencies": {
     "repos": [],
-    "managedServices": [
-      {
-        "name": "fuse"
-      }
-    ]
+    "managedServices": []
   }
 }
