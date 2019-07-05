@@ -161,12 +161,6 @@ Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & De
 . Uncomment the routing code that talks to remote services.
 .. Navigate to the section of the file with a comment of `// UNCOMMENT THIS`.
 .. Uncomment the line of code below this by removing the double slashes.
-+
-. Before the changes can be commited and pushed to the repository, you must specify a name and email to associate with commits:
-.. Select the *Profile* menu, then *Preferences*.
-.. Choose the *Commiter* option under the *Git* heading.
-.. Set a *Name* and *Email*.
-.. Click *Save > Close*.
 
 . Commit and push the changes back to the repository:
 .. Select the *Git* menu, then *Commit*.
