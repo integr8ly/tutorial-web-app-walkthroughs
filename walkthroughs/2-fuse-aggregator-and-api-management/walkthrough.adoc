@@ -241,7 +241,7 @@ If the wildcard proxy is enabled in your cluster, this route points to the wildc
 
 . Click *Update & test in Staging Environment* to save your work.
 +
-You will see a *Test request failed with HTTP code 403* message. This can be ignored, as it will be resolved in the next step.
+A *Test request failed with HTTP code 403* message is displayed. Ignore this message at this time, you resolve it later in the walkthrough.
 
 === Setting Fuse Aggregation App Endpoint Limits
 
