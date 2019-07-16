@@ -107,7 +107,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 === Checking the Fuse Aggregation App
 
-.Prerequisite 
+.Prerequisite
 The following URL must be available before attempting this procedure:
 [subs="attributes+"]
 ----
@@ -239,14 +239,9 @@ https://wt2-{user-sanitized-username}-3scale.{openshift-app-host}
 +
 If the wildcard proxy is enabled in your cluster, this route points to the wildcard APIcast URL. Otherwise, the route points to the shared staging APIcast URL for the *3scale* project in OpenShift
 
-. Click *Update & test in Staging Environment*
-
-[type=verification]
-Is the API service available?
-You might encounter a *403: Authentication failed* message. You can ignore this message, the issue is resolved in a later step.
-
-[type=verificationFail]
-Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+. Click *Update & test in Staging Environment* to save your work.
++
+A *Test request failed with HTTP code 403* message is displayed. Ignore this message at this time, you resolve it later in the walkthrough.
 
 === Setting Fuse Aggregation App Endpoint Limits
 
@@ -328,7 +323,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 . Click *Active Docs* from the side navigation.
 
-. Click *Create your first spec*
+. Click *Create a new spec*
 
 . Enter the following for *Name* and *System name*:
 +
