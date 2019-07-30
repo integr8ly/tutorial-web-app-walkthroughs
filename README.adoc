@@ -1,6 +1,6 @@
 = Integreatly walkthroughs
 
-This repository contains the walkthroughs automatically included with the link:https://github.com/integr8ly/tutorial-web-app[Tutorial Web App]. They are curated by the Integreatly team.
+This repository contains the walkthroughs automatically included with the link:https://github.com/integr8ly/tutorial-web-app[Solution Explorer]. They are curated by the Integreatly team.
 Typically, a core walkthrough has the following attributes:
 
 * A clear user story that addresses an integration goal
