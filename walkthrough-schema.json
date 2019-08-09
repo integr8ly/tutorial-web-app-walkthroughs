@@ -95,6 +95,25 @@
               }
             }
           }
+        },
+        "templates": {
+          "$id": "#/properties/dependencies/properties/templates",
+          "type": "array",
+          "title": "The Templates Schema",
+          "objects": {
+            "$id": "#/properties/dependencies/properties/templates/objects",
+            "type": "array",
+            "title": "The Objects Schema",
+            "required": [
+            ]
+          },
+          "parameters": {
+            "$id": "#/properties/dependencies/properties/templates/parameters",
+            "type": "array",
+            "title": "The Parameters Schema",
+            "required": [
+            ]
+          }
         }
       }
     }
