@@ -2,6 +2,7 @@
 
 :walkthrough: No code API development and SaaS integration
 :fuse-version: 7.2
+:3scale-name: Red Hat 3scale API Management Platform
 :3scale-version: 7.2
 :fuse-url: https://eval.apps.city.openshiftworkshop.com/
 :3scale-url: https://eval.apps.city.openshiftworkshop.com/
@@ -337,14 +338,14 @@ Verify that you followed each step in the procedure above.  If you are still hav
 === API Management Login
 
 // TODO service & url placeholders
-. Open the link:{api-management-url}[{3Scale-ProductName} Login screen, window="_blank"].
+. Open the link:{api-management-url}[{3scale-name} Login screen, window="_blank"].
 
-. Select the *Red Hat Single Sign On* option. This triggers an OAuth Flow and redirects you back to the {3Scale-ProductName} Dashboard.
+. Select the *Red Hat Single Sign On* option. This triggers an OAuth Flow and redirects you back to the {3scale-name} Dashboard.
 
-. Dismiss the *How does 3Scale work?* option which is displayed the first time you log in to {3Scale-ProductName}. The main Dashboard is displayed.
+. Dismiss the *How does 3Scale work?* option which is displayed the first time you log in to {3scale-name}. The main Dashboard is displayed.
 
 [type=verification]
-Can you see the {3Scale-ProductName} Dashboard and navigate the main menu?
+Can you see the {3scale-name} Dashboard and navigate the main menu?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
