@@ -360,7 +360,9 @@ If this option is not enabled, click *authenticate with OpenShift* to enable the
 . Choose 'i-greeting-api' from the *Name* list.
 . Click *Create Service*.
 +
-The 3scale dashboard is displayed, with notification: `The service will be imported shortly. You will receive a notification when it is done.`
+This process can take a few minutes.
+
+// The 3scale dashboard is displayed, with notification: `The service will be imported shortly. You will receive a notification when it is done.`
 
 . Edit the API:
 
