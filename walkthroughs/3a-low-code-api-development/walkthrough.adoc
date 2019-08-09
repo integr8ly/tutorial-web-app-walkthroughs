@@ -74,14 +74,14 @@ The name you choose becomes part of the URL for the workspace.
 . When prompted *What is your team working on?* enter:
 +
 ----
-Low-code Demo
+low-code-demo
 ----
 
 . Click *Skip for now* when prompted to add team members.
 
 // verify that you can access https://your-workspace-name-guid.slack.com.
 [type=verification]
-Can you access your workspace, and navigate to the *low-code-project* channel listed on the left of the workspace?
+Can you access your workspace, and navigate to the *low-code-demo* channel listed on the left of the workspace?
 
 
 [type=verificationFail]
@@ -231,9 +231,11 @@ A *Path* represents an API endpoint/operation and the associated parameters requ
 
 . Click your new */greeting* endpoint under the *Paths* heading.
 
-. Click *Create Operation* under the *POST* icon in the *Operations* section on the right. The *POST* icon changes to an orange color.
+. Click *Create Operation* under the *POST* icon in the *Operations* section on the right.
 
-. Click the orange *POST* icon.
+. Select *POST* from the Operations heading.
+
+. Click the *Add Operation* button.
 
 . Enter the following in the *Summary* field:
 +
@@ -293,9 +295,9 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 . Select your *Greeting Slack Target*.
 
-. When prompted to *Choose an action* select *Channel*. You can use this to send a mesasge to a specific channel in your Slack workspace.
+. When prompted to *Choose an action* select *Channel*. You can use this to send a message to a specific channel in your Slack workspace.
 
-. Use the *Channel* dropdown to select the *low-code-project* channel and click *Done*.
+. Use the *Channel* dropdown to select the *low-code-demo* channel and click *Done*.
 The left hand side of the *Integration Flow Editor* should now list your Slack connection with a *Data Type Mismatch* warning. 
 
 .Click the *Warning Icon* and choose *Add a data mapping step*.
@@ -351,7 +353,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 === Adding the App Endpoint to Red Hat 3scale
 
 . From the *Dashboard*, select the *New API* item.
-. Select the *Import from Dashboard* option.
+. Select the *Import from OpenShift* option.
 If this option is not enabled, click *authenticate with OpenShift* to enable the option.
 
 . Choose the 'fuse' option from the *Namespace* list.
