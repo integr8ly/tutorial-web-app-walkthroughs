@@ -648,12 +648,12 @@
                 "targetPort": 8080
               },
               "to": {
-                "kind": "Service"
+                "kind": "Service",
+                "name": "nodejs-messaging-work-queue-frontend"
               }
             }
           }
-        ],
-        "name": "nodejs-messaging-work-queue-frontend"
+        ]
       }
     ]
   }
