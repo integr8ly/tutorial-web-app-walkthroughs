@@ -260,7 +260,7 @@ greetname
 Greeting response
 ----
 
-. Select *Name* in the *Response Type* dropdown.
+. Select *String* as *String* in the *Response Type* dropdown.
 
 . Click *Save* in the top right corner of the UI to save your work and be directed back to the *Review Actions* wizard.
 
