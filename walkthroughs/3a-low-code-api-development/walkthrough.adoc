@@ -58,21 +58,18 @@ For example, a Slack *Connection* in Fuse Online requires an *API Token* and *Sl
 .Prerequisite
 You already have an account with link:https://slack.com/[Slack].
 
-If you already have admin access to a Slack workspace, skip this procedure.
-
+.Procedure
 . Navigate to the link:https://slack.com/create[Create a new workspace, window="_blank"] page.
 
 . Enter your email address and click *Next*.
 
-. Enter the following name for your workspace and click *Next*:
+. When prompted *What's the name of your company or team'* enter::
 +
 ----
 low-code-workspace
 ----
-+
-The name you choose becomes part of the URL for the workspace. 
 
-. When prompted *What is your team working on?* enter:
+. When prompted *What’s a project your team is working on?* enter:
 +
 ----
 low-code-demo
@@ -80,13 +77,12 @@ low-code-demo
 
 . Click *Skip for now* when prompted to add team members.
 
-// verify that you can access https://your-workspace-name-guid.slack.com.
 [type=verification]
 Can you access your workspace, and navigate to the *low-code-demo* channel listed on the left of the workspace?
 
 
 [type=verificationFail]
-Verify that you followed each step in the procedure above.  If you are still having issues, contact Slack support.
+Verify that you followed each step in the procedure above.  If you are still having issues, check your email, there may be information sent to you about accessing your workspace.
 
 
 === Creating the Slack Connection in Fuse Online
@@ -116,7 +112,7 @@ Fuse Online Demo
 .. On the following screen under the *Add features and functionality* click *Incoming Webhooks*.
 .. Change the *Activate Incoming Webhooks* switch to the *On* position.
 .. Scroll down and click *Add New Webhook to Workspace*.
-.. In the *Post to* field select *low-code-demo* and click *Install*.
+.. In the *Post to* field select *low-code-demo* and click *Allow*.
 +
 You are redirected back to the *Incoming Webhooks* page. 
 .. Copy the *Webhook URL* displayed at the bottom of the page using the *Copy* button. 
@@ -165,11 +161,6 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 In this procedure, you create an integration with an API and include a data type.
 A *Data Type* represents a data structure that can be passed to your API and can then be used as parameters in your API definition and within the Fuse Online *Integration Flow Editor* to transform and map data as part of an *Integration*.
-
-
-. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
-
-. Select *Integrations* from the left hand menu.
 
 . Click the *Create Integration* button to start the *New Integration* wizard.
 
@@ -222,7 +213,7 @@ A *Path* represents an API endpoint/operation and the associated parameters requ
 
 . Click *Add a path* under the *Paths* heading on the left of the *API Designer* screen.
 
-. In the modal that appears, enter the following in the *Path* field:
+. In the window that appears, enter the following in the *Path* field:
 +
 ----
 /greeting
@@ -232,11 +223,9 @@ A *Path* represents an API endpoint/operation and the associated parameters requ
 
 . Click your new */greeting* endpoint under the *Paths* heading.
 
-. Click *Create Operation* under the *POST* icon in the *Operations* section on the right.
+. Click *Add Operation* under the *POST* icon in the *Operations* section on the right.
 
 . Select *POST* from the Operations heading.
-
-. Click the *Add Operation* button.
 
 . Enter the following in the *Summary* field:
 +
@@ -253,7 +242,7 @@ greetname
 . In the *Request Body* click *Add a request body* and choose the *Name* type that you created earlier.
 
 . In the *Responses* section click *Add response*.
-.. In the modal that appears choose *200 OK* as the dropdown option.
+.. In the window that appears choose *200 OK* as the dropdown option.
 .. Click *Add*.
 .. Click *No description* beside the *200 OK* response and enter the following in the *Description* field:
 +
@@ -269,7 +258,7 @@ Greeting response
 .. Enter the following in the *Integration Name* field:
 +
 ----
-greeting api
+Greeting Integration
 ----
 .. Enter the following in the *Description* field:
 +
@@ -281,7 +270,7 @@ my greeting api
 
 
 [type=verification]
-Is a *Greeting Slack Target* entry listed in the Fuse Online *Connections* screen?
+Is a *Greeting Integration* entry listed in the Fuse Online Home screen?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
@@ -290,9 +279,16 @@ Verify that you followed each step in the procedure above.  If you are still hav
 [time=10]
 == Implementing and publishing the API
 
-. On the *Choose operation* screen click *Greet with name* to open the *Integration Flow Editor*.
+. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
 
-. The left hand side of the *Integration Flow Editor* lists the steps in your *Integration*. Hover mouse over the *Blue Plus Icon* in the center of the flow and choose *Add Connection*.
+. Select *Integrations* from the left hand menu. 
+
+. Choose *Edit* from the menu for the *Greeting Integration* entry. The *Operations* page appears.
+
+. Click the *Edit flow* button. The *Add to Integration* page appears displaying the *Provided API* and the *Provided API Return Path*.
+
+. Click the blue plus icon to add a step.
+The left hand side of the *Choose a connection* page lists the steps in your *Integration*.
 
 . Select your *Greeting Slack Target*.
 
@@ -301,7 +297,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 . Use the *Channel* dropdown to select the *low-code-demo* channel and click *Done*.
 The left hand side of the *Integration Flow Editor* should now list your Slack connection with a *Data Type Mismatch* warning. 
 
-.Click the *Warning Icon* and choose *Add a data mapping step*.
+. Click the *Warning Icon* and choose *Add a data mapping step*.
 
 . From the *Configure Mapper* screen click the *body* element in the *Source* panel to expand it.
 
@@ -337,7 +333,6 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 === API Management Login
 
-// TODO service & url placeholders
 . Open the link:{api-management-url}[{3scale-name} Login screen, window="_blank"].
 
 . Select the *Red Hat Single Sign On* option. This triggers an OAuth Flow and redirects you back to the {3scale-name} Dashboard.
@@ -378,6 +373,8 @@ https://wt-{user-sanitized-username}-3scale.{openshift-app-host}
 +
 If the wildcard proxy is enabled in your cluster, this route points to the wildcard APIcast URL. Otherwise, the route points to the shared staging APIcast URL for the *3scale* project in OpenShift
 
+. In the *MAPPING RULES* section, add a *POST* mapping with the pattern `/greeting`.
+
 .. Select *Update & test in Staging Environment*
 
 [NOTE]
@@ -394,14 +391,74 @@ You might encounter a *403: Authentication failed* message. You can ignore this 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
 
+=== Configuring your API
 
+. Create a new *Application Plan*:
+.. Select *Applications > Application Plans* from the side navigation.
+.. Select *Create Application Plan*.
+.. Enter the following for *Name* and *System name*:
++
+[subs="attributes+"]
+----
+low-code
+
+----
+.. Leave the other fields with their default values.
+.. Select *Create Application Plan*. You will be redirected to the *Application Plans* screen.
+.. Select the *Publish* button, beside your plan list item, to publish the Plan.
+
+. Create a new *Application* for the *Developer* Group, assigned to the Plan:
+.. Select *Audience* from the top navigation bar dropdown.
+.. Select the *Developer* Account to open the *Account Summary* page.
+.. Select the *(num) Application* item from the breadcrumb to view Applications.
+.. Select the *Create Application* button in the top right.
+.. Select the *low-code* Plan in the *Application plan* dropdown.
+.. Enter the following for *Name* and *Description*:
++
+[subs="attributes+"]
+----
+low-code-app
+----
+.. Select *Create Application*.
+
+. Set a custom *User Key* for the application:
+.. On the *low-code* application screen you were redirected to, scroll to the *API Credentials* section.
+.. Click the green pencil icon beside the *API User Key*
+.. In the *Set Custom User Key* modal dialog, enter:
++
+[subs="attributes+"]
+----
+test
+----
+.. Select *Set Custom Key*.
+
+
+[type=verification]
+****
+Use an HTTP client to invoke the route, for example:
+
+----
+curl -d '{"name":"John"}' -H "Content-Type: application/json" -X POST "{route}/greeting?user_key=test"
+
+----
+
+Did the message "Hello from John" appear in your Slack channel?
+****
+
+[type=verificationFail]
+Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
 
 === Invoking the API
 
-. Use an HTTP client to invoke the route.
+. Use an HTTP client to invoke the route, for example:
+
+----
+curl -d '{"name":"John"}' -H "Content-Type: application/json" -X POST "{route}/greeting?user_key=test"
+
+----
 
 [type=verification]
-Did the message "Hello from $YOUR_NAME" appear in your Slack channel?
+Did the message "Hello from John appear in your Slack channel?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
