@@ -59,6 +59,7 @@ For example, a Slack *Connection* in Fuse Online requires an *API Token* and *Sl
 You already have an account with link:https://slack.com/[Slack].
 
 .Procedure
+
 . Navigate to the link:https://slack.com/create[Create a new workspace, window="_blank"] page.
 
 . Enter your email address and click *Next*.
@@ -68,7 +69,6 @@ You already have an account with link:https://slack.com/[Slack].
 ----
 low-code-workspace
 ----
-
 . When prompted *What’s a project your team is working on?* enter:
 +
 ----
@@ -162,6 +162,11 @@ Verify that you followed each step in the procedure above.  If you are still hav
 In this procedure, you create an integration with an API and include a data type.
 A *Data Type* represents a data structure that can be passed to your API and can then be used as parameters in your API definition and within the Fuse Online *Integration Flow Editor* to transform and map data as part of an *Integration*.
 
+
+. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
+
+. Select *Integrations* from the left hand menu.
+
 . Click the *Create Integration* button to start the *New Integration* wizard.
 
 . Choose *API Provider* on the subsequent *Choose a Start Connection* screen.
@@ -197,7 +202,9 @@ Name
 }
 ----
 
-. Scroll down and click *Save*.
+. Under the *Create a REST Resource* section choose *No Resource*.
+
+. Click *Save*.
 
 [type=verification]
 Is `</> Name` listed under the *Data Types* on the *API Designer* screen?
@@ -223,9 +230,10 @@ A *Path* represents an API endpoint/operation and the associated parameters requ
 
 . Click your new */greeting* endpoint under the *Paths* heading.
 
-. Click *Add Operation* under the *POST* icon in the *Operations* section on the right.
+. Select the *POST* tab in the *Design* section on the right.
 
-. Select *POST* from the Operations heading.
+. Click the *Add Operation* button within the *POST* section. 
+A set of fields is displayed. 
 
 . Enter the following in the *Summary* field:
 +
@@ -239,7 +247,7 @@ Greet with name
 greetname
 ----
 
-. In the *Request Body* section, choose the *Name* type that you created earlier.
+. In the *Request Body* section click *Add a request body* and choose the *Name* type that you created earlier.
 
 . In the *Responses* section click *Add response*.
 .. In the window that appears choose *200 OK* as the dropdown option.
@@ -250,9 +258,10 @@ greetname
 Greeting response
 ----
 
-. Click *Save* in the top right corner of the UI to save your work and be directed back to the *New Integration* wizard.
+. Select *String* as *String* in the *Response Type* dropdown.
 
-. Click *Next* on the *New Integration* wizard screen.
+. Click *Save* in the top right corner of the form to save your work. 
+The *Review Actions* screen is displayed.
 
 . When prompted to *Give this integration a name*:
 .. Enter the following in the *Integration Name* field:
@@ -285,17 +294,17 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 . Choose *Edit* from the menu for the *Greeting Integration* entry. The *Operations* page appears.
 
-. Click the *Edit flow* button. The *Add to Integration* page appears displaying the *Provided API* and the *Provided API Return Path*.
+. Click the *Create flow* button. The *Add to Integration* page appears displaying the *Provided API* and the *Provided API Return Path*.
 
 . Click the blue plus icon to add a step.
 The left hand side of the *Choose a connection* page lists the steps in your *Integration*.
 
-. Select your *Greeting Slack Target*.
+. When prompted to choose a connection, select your *Greeting Slack Target*.
 
 . When prompted to *Choose an action* select *Channel*. You can use this to send a message to a specific channel in your Slack workspace.
 
-. Use the *Channel* dropdown to select the *low-code-demo* channel and click *Done*.
-The left hand side of the *Integration Flow Editor* should now list your Slack connection with a *Data Type Mismatch* warning. 
+. Use the *Channel* dropdown to select the *low-code-demo* channel and click *Next*.
+The Integration flow should now list your Slack connection with a *Data Type* warning. 
 
 . Click the *Warning Icon* and choose *Add a data mapping step*.
 
@@ -328,7 +337,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 
 
-[time=5]
+[time=10]
 == Exposing and invoking the API
 
 === API Management Login
@@ -358,9 +367,9 @@ If this option is not enabled, click *authenticate with OpenShift* to enable the
 +
 This process can take a few minutes.
 
-// The 3scale dashboard is displayed, with notification: `The service will be imported shortly. You will receive a notification when it is done.`
+. Edit the API Service:
 
-. Edit the API:
+.. From the top navigation bar click the dropdown and choose your 'i-greeting-api'
 
 .. From the *Overview* screen, select the *Configure APIcast* button.
 
@@ -373,16 +382,91 @@ https://wt-{user-sanitized-username}-3scale.{openshift-app-host}
 +
 If the wildcard proxy is enabled in your cluster, this route points to the wildcard APIcast URL. Otherwise, the route points to the shared staging APIcast URL for the *3scale* project in OpenShift
 
-. In the *MAPPING RULES* section, add a *POST* mapping with the pattern `/greeting`.
+.. In the *MAPPING RULES* section, add a *POST* mapping with the pattern `/greeting`.
 
 .. Select *Update & test in Staging Environment*
-
++
 [NOTE]
 ====
 If you have previously used the ```https://wt-{user-sanitized-username}-3scale.{openshift-app-host}``` route, that service is no longer available.
 For example, if you have completed the *Managing and protecting APIs using API management* walkthrough, that API is no longer available because you have reused the route.
 ====
 
+. Expand the *Mapping Rules* section and click the pencil icon to edit the default entry.
+
+.. Change *Verb* to *POST* and *Pattern* to */greeting*.
+
+.. Scroll down to the *Client* section. This section enables 3scale to test connectivity to our API via the gateway. Since our API does not expose a *GET* endpoint we won't be using it, but note that the *user_key* is this section is currently not set to an actual value. To fix this we need to create an *Application Plan* for our *API Service* and an *Application*.
+
+.. Click *Update & test in Staging Environment* to save your changes.
+
+
+. Create An Application Plan
+
+.. Click *Overview* to return to the overview screen for your API.
+
+.. Click *Create Application Plan* in the *Published Application Plans* section.
+
+.. Enter the following name:
++
+----
+Greeting API Application Plan
+----
+
+Enter the following system name:
++
+----
+greeting-app-plan
+----
+
+.. Ensure the *Applications require approval?* box is not ticked, then click *Create Application Plan*.
+
+
+. Create an Application
+
+.. Navigate to *Audience* using the dropdown in the top navigation bar.
+
+.. Choose *Developer* from the account listing.
+
+.. In the breadcrumb bar click *$NUMBER Application* link next to your account name to view applications.
+
+.. Click *Create Application* at the top of the displayed list.
+
+.. On the *New Application* screen choose your *Greeting API Application Plan* in the *Application Plan* dropdown.
+
+.. Enter the following name:
++
+----
+Greeting Application
+----
+
+Enter the following description:
++
+----
+Greeting Application that sends greetings to Slack
+----
+
+=== Invoking the API
+
+.. From your new *Greeting Application* screen click the *i-greeting-api* next to Service.
+
+.. From the *Overview* screen click *Configuration* and choose *edit APIcast configuration* on the displayed *Configuration* page.
+
+.. Scroll down and note that the *user_key* parameter is now set.
+
+.. Using the URL we can execute a cURL request from a terminal with the command below. You can use a tool such as Postman if you prefer. Make sure you replace *$YOUR_KEY* with the key displayed in 3scale:
++
+----
+
+curl -X POST -H 'content-type: application/json' --data '{"name":"{user-sanitized-username}"}' "https://wt-{user-sanitized-username}-3scale.{openshift-app-host}/greeting?user_key=$YOUR_KEY"
+----
+
+[type=verification]
+Did the message "Hello from {{user-sanitized-username}" appear in your Slack channel?
+
+[type=verificationFail]
+Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+=======
 
 [type=verification]
 Is the API service available?
@@ -462,4 +546,3 @@ Did the message "Hello from John appear in your Slack channel?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
-
