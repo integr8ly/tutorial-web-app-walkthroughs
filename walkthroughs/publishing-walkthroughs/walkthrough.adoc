@@ -69,42 +69,24 @@ Continue searching, new walkthroughs are created on GitHub monthly and the link:
 == Adding a git repository to the Webapp
 
 
-. Open the link:{openshift-host}[Openshift Console].
+. Navigate to the *Solution Explorer* URL in a new browser tab.
 
-. Navigate to the *Solution Explorer* project.
+. Click the gear icon in the top right to display the *Application settings* screen.
 
-. Click the *tutorial-web-app* deployment config.
-
-. Choose the *Environment* tab.
-
-. Note the value for the *WALKTHROUGH_LOCATIONS* environment variable.
-In later steps, this is referred to as the existing value for the *WALKTHROUGH_LOCATIONS* environment variable.
-
-. Choose *Other Resources* from the *Resources* menu.
-
-. Choose *Web App* from the *Other Resources* menu.
-The tutorial-web-app-operator entry is displayed.
-
-. Choose *Edit YAML* from the *Actions* menu.
-An editor is displayed.
-
-. Find the *Spec* > *Template* > *Parameters* entries in the YAML.
-. Create or edit the *WALKTHROUGH_LOCATIONS* parameter to include:
-+
-* the existing value for the *WALKTHROUGH_LOCATIONS* environment variable
-* a comma separated list of the repositories that you want to add
-+
-For example, if the existing value includes `https://github.com/integr8ly/tutorial-web-app-walkthroughs.git#release-no` and you want to add `https://github.com/integr8ly/example-customisations.git#master`:
+. Enter the URLs of the walkthrough repositories you want to add to your cluster. For example:
 +
 ----
-WALKTHROUGH_LOCATIONS: https://github.com/integr8ly/tutorial-web-app-walkthroughs.git#release-no,https://github.com/integr8ly/example-customisations.git#master
+https://github.com/integr8ly/example-customisations.git#master
 ----
 +
 [NOTE]
 ====
-* Make sure there are no space characters in the value of the *WALKTHROUGH_LOCATIONS* environment variable.
+* Enter one URL per line.
 * To include a specific branch, use the syntax `#<branch-name>`.
+* List URLs in the order you want them to appear on the Home page.
 ====
+
+. Click *Save*.
 +
 Editing the value triggers an automatic redeployment of the Webapp.
 
@@ -117,9 +99,7 @@ You should now see new walkthroughs available from the dashboard.
 If the git repository is updated with new content, the web app is not automatically updated. You must:
 
 . Open the link:{openshift-host}[Openshift Console].
-
 . Find and open the *webapp* project.
-
 . Find and open the *tutorial-web-app* deployment.
 . Click the *Deploy* button.
 

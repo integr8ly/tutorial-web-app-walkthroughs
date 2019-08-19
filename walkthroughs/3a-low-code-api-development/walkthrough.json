@@ -5,6 +5,7 @@
       {
         "name": "fuse"
       }
-    ]
+    ],
+    "serviceInstances": []
   }
 }

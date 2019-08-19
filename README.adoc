@@ -1,6 +1,6 @@
 = Integreatly walkthroughs
 
-This repository contains the walkthroughs automatically included with the [Tutorial Web App](https://github.com/integr8ly/tutorial-web-app). They are curated by the Integreatly team.
+This repository contains the walkthroughs automatically included with the link:https://github.com/integr8ly/tutorial-web-app[Solution Explorer]. They are curated by the Integreatly team.
 Typically, a core walkthrough has the following attributes:
 
 * A clear user story that addresses an integration goal
@@ -10,7 +10,7 @@ Typically, a core walkthrough has the following attributes:
 * Each step has a validation section
 * Each asciidoc attribute resolves to a value
 
-For more information, see https://mojo.redhat.com/docs/DOC-1190932.
+For more information, see link:https://access.redhat.com/documentation/en-us/red_hat_managed_integration/1/html-single/getting_started/index#creating_red_hat_managed_integration_walkthroughs[Creating Walkthroughs].
 
 = Testing walkthroughs
 
