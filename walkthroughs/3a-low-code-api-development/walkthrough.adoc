@@ -239,7 +239,7 @@ Greet with name
 greetname
 ----
 
-. In the *Request Body* click *Add a request body* and choose the *Name* type that you created earlier.
+. In the *Request Body* section, choose the *Name* type that you created earlier.
 
 . In the *Responses* section click *Add response*.
 .. In the window that appears choose *200 OK* as the dropdown option.
@@ -303,7 +303,7 @@ The left hand side of the *Integration Flow Editor* should now list your Slack c
 
 . Click the *name* field under the *body*, then click the *message* element in the *Target* panel. This maps the value of the incoming HTTP request *body* to the outgoing Slack *message* property.
 
-. In the right hand *Mapping Details* panel click the *Arrow Icon* under the *Targets* section to add a transformation.
+. In the right hand *Mapping Details* panel, click the *Arrow Icon* under the *Targets* section to add a transformation.
 
 . Using the dropdown change the transformation type from *Append* to *Prepend*.
 
