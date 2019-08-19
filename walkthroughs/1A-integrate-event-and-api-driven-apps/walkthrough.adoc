@@ -135,7 +135,7 @@ To create a connector for the RESTful API, register the OpenAPI definition as a 
 . When prompted to *Upload OpenAPI Document*, select *Use a URL*:
 .. Enter the following in the URL field:
 +
-[subs="attributes+", id="route-crud-host-url"]
+[subs="attributes+", id="route-crud-host-url-connector"]
 ----
 {route-crud-host}/v2/api-docs
 ----
