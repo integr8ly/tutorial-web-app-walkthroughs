@@ -128,7 +128,7 @@ To create a connector for the RESTful API, register the OpenAPI definition as a 
 
 . Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="{context}-1"] console.
 
-. Select *Customizations > API Connectors* from the left hand menu.
+. Select *Customizations > API Client Connectors* from the left hand menu.
 
 . Select the *Create API Connector* button to start the *API Client Connector* wizard.
 
