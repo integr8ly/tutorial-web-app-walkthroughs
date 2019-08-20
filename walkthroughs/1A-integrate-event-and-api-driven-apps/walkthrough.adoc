@@ -1,7 +1,7 @@
 :walkthrough: Integrating message-oriented middleware with a RESTful API using AMQ Online
-:fuse-version: 7.3
-:fuse-documentation-url: https://access.redhat.com/documentation/en-us/red_hat_fuse/7.3/
-:amq-documentation-url: https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/
+:fuse-version: 7.4
+:fuse-documentation-url: https://access.redhat.com/documentation/en-us/red_hat_fuse/7.4/
+:amq-documentation-url: https://access.redhat.com/documentation/en-us/red_hat_amq/7.4/
 
 [id='integrating-eventdriven-and-apidriven-applications']
 = {walkthrough}
@@ -128,14 +128,14 @@ To create a connector for the RESTful API, register the OpenAPI definition as a 
 
 . Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="{context}-1"] console.
 
-. Select *Customizations* from the left hand menu.
+. Select *Customizations > API Client Connectors* from the left hand menu.
 
 . Select the *Create API Connector* button to start the *API Client Connector* wizard.
 
 . When prompted to *Upload OpenAPI Document*, select *Use a URL*:
 .. Enter the following in the URL field:
 +
-[subs="attributes+", id="route-crud-host-url"]
+[subs="attributes+", id="route-crud-host-url-connector"]
 ----
 {route-crud-host}/v2/api-docs
 ----
@@ -154,7 +154,7 @@ To create a connector for the RESTful API, register the OpenAPI definition as a 
 Walkthrough 1A CRUD Connector
 ----
 
-.. Click *Create API Connector*.
+.. Click *Save*.
 
 [type=verification]
 Is the new connector displayed on the *Customizations* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="{context}-2"] console?
@@ -187,15 +187,22 @@ To enable Fuse Online to send messages from the queue to the Spring Boot CRUD ap
 
 . When prompted with *Select Connector*, select *Walkthrough 1A CRUD Connector*.
 
-. When prompted with *Walkthrough 1A CRUD Connector Configuration*, click *Next*.
+. When prompted with *Configure connection*:
+.. Enter the following in the *Host* field:
++
+[subs="attributes+", id="route-crud-host-url"]
+----
+{route-crud-host}
+----
+.. Accept the default value in the *Base path* field
 
-. When prompted with *Add Connection Details*:
-.. Enter the following in the *Connection Name* field:
+. When prompted with *Name connection*:
+.. Enter the following in the *Name* field:
 +
 ----
 Walkthrough 1A CRUD Connection
 ----
-.. Click *Create*.
+.. Click *Save*.
 
 
 [type=verification]
@@ -258,7 +265,7 @@ amqp://{enmasse-broker-url}:5672?amqp.saslMechanisms=PLAIN
 Walkthrough 1A Messaging App
 ----
 
-. Click *Create*.
+. Click *Save*.
 
 
 [type=verification]
@@ -324,11 +331,13 @@ work-queue-requests
 	}
 }
 ----
-.. Click *Done*.
+.. Click *Next*.
 
 . Choose *Walkthrough 1A CRUD Connection* as the *Finish Connection*.
 
 . When prompted to *Choose an Action*, select *Create a fruit*.
+
+. When prompted with *Configure the action* click *Next*.
 
 . When prompted to *Add to Integration*, click on the blue *+* icon in the left panel.
 
@@ -344,7 +353,7 @@ work-queue-requests
 ----
 Walkthrough 1A
 ----
-. Click *Publish* again.
+. Click *Save and publish*.
 
 . Monitor the *Integration Summary* dashboard until a green check mark is displayed beside the new integration.
 The integration may take some time to complete building.
