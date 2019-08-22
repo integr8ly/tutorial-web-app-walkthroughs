@@ -166,7 +166,7 @@ A *Data Type* represents a data structure that can be passed to your API and can
 
 . Choose *API Provider* on the subsequent *Choose a Start Connection* screen.
 
-. When prompted choose *Create from scratch* and click *Next* to navigate to the *API Designer*.
+. When prompted choose *Create* and click *Next* to navigate to the *API Designer*.
 
 . Rename your API from "Untitled API" to:
 +
