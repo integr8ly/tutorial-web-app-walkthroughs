@@ -266,7 +266,7 @@ Greeting Integration
 my greeting api
 ----
 
-. Click *Save and Continue* to save your API design.
+. Click *Save* to save your API design.
 
 
 [type=verification]
