@@ -142,7 +142,7 @@ Fuse Online
 Greeting Slack Target
 ----
 
-. Click *Create*.
+. Click *Save*.
 
 [type=verification]
 Is a *Greeting Slack Target* entry listed in the Fuse Online *Connections* screen?
