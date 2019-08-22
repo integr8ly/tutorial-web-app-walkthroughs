@@ -362,7 +362,7 @@ This process can take a few minutes.
 
 . Edit the API:
 
-.. From the *Overview* screen, select the *Configure APIcast* button.
+.. From the *Overview* screen, select the *edit APIcast configuration* link.
 
 .. In the *Staging Public Base URL*, enter:
 +
