@@ -285,7 +285,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 . Choose *Edit* from the menu for the *Greeting Integration* entry. The *Operations* page appears.
 
-. Click the *Edit flow* button. The *Add to Integration* page appears displaying the *Provided API* and the *Provided API Return Path*.
+. Click the *Create flow* button. The *Add to Integration* page appears displaying the *Provided API* and the *Provided API Return Path*.
 
 . Click the blue plus icon to add a step.
 The left hand side of the *Choose a connection* page lists the steps in your *Integration*.
