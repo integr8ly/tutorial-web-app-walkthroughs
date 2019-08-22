@@ -252,7 +252,7 @@ Greeting response
 
 . Click *Save* in the top right corner of the UI to save your work and be directed back to the *New Integration* wizard.
 
-. Click *Next* on the *New Integration* wizard screen.
+. Click *Publish* on the *New Integration* wizard screen.
 
 . When prompted to *Give this integration a name*:
 .. Enter the following in the *Integration Name* field:
