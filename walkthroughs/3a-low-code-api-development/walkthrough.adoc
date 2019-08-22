@@ -6,6 +6,7 @@
 :3scale-version: 7.2
 :fuse-url: https://eval.apps.city.openshiftworkshop.com/
 :3scale-url: https://eval.apps.city.openshiftworkshop.com/
+:route: https://wt2-{user-sanitized-username}-3scale.{openshift-app-host}
 
 [id='no-code-container-native-api-development']
 
@@ -434,16 +435,7 @@ test
 
 
 [type=verification]
-****
-Use an HTTP client to invoke the route, for example:
-
-----
-curl -d '{"name":"John"}' -H "Content-Type: application/json" -X POST "{route}/greeting?user_key=test"
-
-----
-
-Did the message "Hello from John" appear in your Slack channel?
-****
+Review the settings in 3scale. Do they match the settings outlined in this task?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
@@ -452,6 +444,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 . Use an HTTP client to invoke the route, for example:
 
+[subs="attributes+"]
 ----
 curl -d '{"name":"John"}' -H "Content-Type: application/json" -X POST "{route}/greeting?user_key=test"
 
