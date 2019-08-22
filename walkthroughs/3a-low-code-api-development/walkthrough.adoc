@@ -294,7 +294,7 @@ The left hand side of the *Choose a connection* page lists the steps in your *In
 
 . When prompted to *Choose an action* select *Channel*. You can use this to send a message to a specific channel in your Slack workspace.
 
-. Use the *Channel* dropdown to select the *low-code-demo* channel and click *Done*.
+. Use the *Channel* dropdown to select the *low-code-demo* channel and click *Next*.
 The left hand side of the *Integration Flow Editor* should now list your Slack connection with a *Data Type Mismatch* warning. 
 
 . Click the *Warning Icon* and choose *Add a data mapping step*.
