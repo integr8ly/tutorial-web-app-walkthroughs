@@ -240,7 +240,10 @@ Greet with name
 greetname
 ----
 
-. In the *Request Body* section, choose the *Name* type that you created earlier.
+. In the *Request Body* section, click *Add a request body*.
+
+. Choose *String* as the type.
+Fuse Online automatically completes the type *String as String*.
 
 . In the *Responses* section click *Add response*.
 .. In the window that appears choose *200 OK* as the dropdown option.
