@@ -63,8 +63,9 @@ You already have an account with link:https://slack.com/[Slack].
 . Navigate to the link:https://slack.com/create[Create a new workspace, window="_blank"] page.
 
 . Enter your email address and click *Next*.
+Complete the Slack log in process.
 
-. When prompted *What's the name of your company or team'* enter::
+. When prompted *What's the name of your company or team?* enter::
 +
 ----
 low-code-workspace
@@ -77,6 +78,8 @@ low-code-demo
 ----
 
 . Click *Skip for now* when prompted to add team members.
+
+. Click *See Your Channel in Slack*
 
 [type=verification]
 Can you access your workspace, and navigate to the *low-code-demo* channel listed on the left of the workspace?
@@ -101,7 +104,6 @@ You are prompted for configuration details.
 
 . Obtain a URL for the *Slack Webhook URL* field:
 .. Navigate to the Slack Apps portal at link:https://api.slack.com/apps[api.slack.com/apps].
-.. Login using the email address associated with your workspace.
 .. Click *Create new App*.
 .. Enter the following in the *App Name* field:
 +
@@ -122,9 +124,8 @@ You are redirected back to the *Incoming Webhooks* page.
 
 . Obtain a value for the *Token for Accessing Slack API* field:
 .. Navigate to the Slack API Token portal at link:https://api.slack.com/custom-integrations/legacy-tokens[api.slack.com/custom-integrations/legacy-tokens, window="_blank"].
-.. Login using the email address associated with your workspace.
 .. Scroll down to the *Legacy token generator* section.
-.. Click *Create token* button next to a workspace you own, or have admin rights for.
+.. Click *Create token* button next to *low-code-workspace*.
 .. Copy the generated token.
 
 . Paste the generated token into the *Token for Accessing Slack API* field in Fuse Online.
@@ -162,6 +163,8 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 In this procedure, you create an integration with an API and include a data type.
 A *Data Type* represents a data structure that can be passed to your API and can then be used as parameters in your API definition and within the Fuse Online *Integration Flow Editor* to transform and map data as part of an *Integration*.
+
+. Choose *Integrations* from the left navigation menu.
 
 . Click the *Create Integration* button to start the *New Integration* wizard.
 
