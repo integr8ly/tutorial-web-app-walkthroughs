@@ -47,6 +47,7 @@ It also allows you to identify important design decisions prior to coding and de
 * link:https://www.3scale.net[3Scale Website, window="_blank"]
 ****
 
+:sectnums:
 
 [time=10]
 == Creating a Slack Connection in Fuse Online
@@ -136,7 +137,10 @@ You are redirected back to the *Incoming Webhooks* page.
 Fuse Online
 ----
 
-. Click *Validate* in Fuse Online and verify that a *Slack has been successfully validated.* message appears. Click *Next*.
+. Click *Validate* in Fuse Online and verify that a *Slack has been successfully validated.* message appears. 
+This validation sends a message to the *low-code-demo* channel.
+
+. Click *Next*.
 
 . Enter the following in the *Connection Name* field on the *Add Connection Details* screen:
 +
@@ -163,6 +167,8 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 In this procedure, you create an integration with an API and include a data type.
 A *Data Type* represents a data structure that can be passed to your API and can then be used as parameters in your API definition and within the Fuse Online *Integration Flow Editor* to transform and map data as part of an *Integration*.
+
+. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
 
 . Choose *Integrations* from the left navigation menu.
 
@@ -229,8 +235,6 @@ A *Path* represents an API endpoint/operation and the associated parameters requ
 
 . Click *Add Operation* under the *POST* icon in the *Operations* section on the right.
 
-. Select *POST* from the Operations heading.
-
 . Enter the following in the *Summary* field:
 +
 ----
@@ -249,7 +253,7 @@ greetname
 Fuse Online automatically completes the type *String as String*.
 
 . In the *Responses* section click *Add response*.
-.. In the window that appears choose *200 OK* as the dropdown option.
+.. In the window that appears choose *200 OK* as the option.
 .. Click *Add*.
 .. Click *No description* beside the *200 OK* response and enter the following in the *Description* field:
 +
@@ -273,7 +277,7 @@ Greeting Integration
 my greeting api
 ----
 
-. Click *Save* to save your API design.
+. Click *Save and Publish* to save your API design.
 
 
 [type=verification]
@@ -301,20 +305,20 @@ The left hand side of the *Choose a connection* page lists the steps in your *In
 
 . When prompted to *Choose an action* select *Channel*. You can use this to send a message to a specific channel in your Slack workspace.
 
-. Use the *Channel* dropdown to select the *low-code-demo* channel and click *Next*.
-The left hand side of the *Integration Flow Editor* should now list your Slack connection with a *Data Type Mismatch* warning. 
+. Use the *Channel* menu to select the *low-code-demo* channel and click *Next*.
+The *Integration Flow Editor* should now list your Slack connection with a *Data Type Mismatch* warning. 
 
 . Click the *Warning Icon* and choose *Add a data mapping step*.
 
-. From the *Configure Mapper* screen click the *body* element in the *Source* panel to expand it.
+. From the *Data Mapper* screen click the *body* element in the *Source* panel to expand it.
 
 . Click the *name* field under the *body*, then click the *message* element in the *Target* panel. This maps the value of the incoming HTTP request *body* to the outgoing Slack *message* property.
 
-. In the right hand *Mapping Details* panel, click the *Arrow Icon* under the *Targets* section to add a transformation.
+. In the right hand *Mapping Details* panel, click the *Add Transformation* under the *Targets* section to add a transformation.
 
-. Using the dropdown change the transformation type from *Append* to *Prepend*.
+. Change the transformation type from *Append* to *Prepend*.
 
-. Enter the following in the *string* field under the dropdown:
+. Enter the following in the *string* field under the menu:
 +
 ----
 Hello from 
@@ -322,7 +326,10 @@ Hello from
 
 . Click *Done*.
 
-. Click *Publish* to trigger an link:https://docs.openshift.com/container-platform/3.11/creating_images/s2i.html[Source to Image (S2I), window="_blank"] build.
+. Click *Publish*.
+
+. Click *Save and Publish* to trigger an link:https://docs.openshift.com/container-platform/3.11/creating_images/s2i.html[Source to Image (S2I), window="_blank"] build.
+
 
 . Wait until Fuse Online reports your deployment was successful.
 
@@ -365,11 +372,11 @@ If this option is not enabled, click *authenticate with OpenShift* to enable the
 +
 This process can take a few minutes.
 
-// The 3scale dashboard is displayed, with notification: `The service will be imported shortly. You will receive a notification when it is done.`
-
 . Edit the API:
 
-.. From the *Overview* screen, select the *edit APIcast configuration* link.
+.. Choose *API: i-greeting-integration* from the top navigation menu to view the *Overview* page.
+
+.. From the *Overview* screen, select the *Configure APIcast* link.
 
 .. In the *Staging Public Base URL*, enter:
 +
@@ -412,14 +419,14 @@ low-code
 ----
 .. Leave the other fields with their default values.
 .. Select *Create Application Plan*. You will be redirected to the *Application Plans* screen.
-.. Select the *Publish* button, beside your plan list item, to publish the Plan.
+.. Click *Publish*, beside your plan list item, to publish the Plan.
 
 . Create a new *Application* for the *Developer* Group, assigned to the Plan:
-.. Select *Audience* from the top navigation bar dropdown.
+.. Select *Audience* from the top navigation menu.
 .. Select the *Developer* Account to open the *Account Summary* page.
 .. Select the *(num) Application* item from the breadcrumb to view Applications.
 .. Select the *Create Application* button in the top right.
-.. Select the *low-code* Plan in the *Application plan* dropdown.
+.. Select the *low-code* Plan in the *Application plan* menu.
 .. Enter the following for *Name* and *Description*:
 +
 [subs="attributes+"]
