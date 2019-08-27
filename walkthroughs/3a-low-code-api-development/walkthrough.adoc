@@ -249,8 +249,7 @@ greetname
 
 . In the *Request Body* section, click *Add a request body*.
 
-. Choose *String* as the type.
-Fuse Online automatically completes the type *String as String*.
+. Choose *Name* as the type.
 
 . In the *Responses* section click *Add response*.
 .. In the window that appears choose *200 OK* as the option.
@@ -260,6 +259,9 @@ Fuse Online automatically completes the type *String as String*.
 ----
 Greeting response
 ----
+.. Choose *String* as the type.
+Fuse Online automatically completes the type *String as String*.
+
 
 . Click *Save* in the top right corner of the UI to save your work and be directed back to the *New Integration* wizard.
 
@@ -324,7 +326,17 @@ The *Integration Flow Editor* should now list your Slack connection with a *Data
 Hello from 
 ----
 
-. Click *Done*.
+. Click *Done* to return to the *Integration Flow Editor.
+
+The *Integration Flow Editor* should now list your *Provided API Return Path* with a *Data Type Mismatch* warning. 
+
+. Click the *Warning Icon* and choose *Add a data mapping step*.
+
+. From the *Data Mapper* screen click the *Request* element in the *Source* panel to expand it.
+
+. Click the *name* field under the *body*, then click the *message* element in the *Target* panel. This maps the value of the incoming HTTP request *body* to the outgoing Slack *message* property.
+
+. Click *Done* to return to the *Integration Flow Editor.
 
 . Click *Publish*.
 
