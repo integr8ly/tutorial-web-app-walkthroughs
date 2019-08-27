@@ -1,9 +1,9 @@
 // tag::master-1[]
 
 :walkthrough: No code API development and SaaS integration
-:fuse-version: 7.2
+:fuse-version: 7.4
 :3scale-name: Red Hat 3scale API Management Platform
-:3scale-version: 7.2
+:3scale-version: 2.6
 :fuse-url: https://eval.apps.city.openshiftworkshop.com/
 :3scale-url: https://eval.apps.city.openshiftworkshop.com/
 :route: https://wt2-{user-sanitized-username}-3scale.{openshift-app-host}
@@ -57,7 +57,7 @@ For example, a Slack *Connection* in Fuse Online requires an *API Token* and *Sl
 === Creating a Slack Workspace
 
 .Prerequisite
-You already have an account with link:https://slack.com/[Slack].
+You already have an account with link:https://slack.com/[Slack, window="_blank"].
 
 .Procedure
 . Navigate to the link:https://slack.com/create[Create a new workspace, window="_blank"] page.
@@ -103,7 +103,7 @@ NOTE: This is your personal Fuse Online instance and not the shared instance ava
 You are prompted for configuration details.
 
 . Obtain a URL for the *Slack Webhook URL* field:
-.. Navigate to the Slack Apps portal at link:https://api.slack.com/apps[api.slack.com/apps].
+.. Navigate to the Slack Apps portal at link:https://api.slack.com/apps[api.slack.com/apps, window="_blank"].
 .. Click *Create new App*.
 .. Enter the following in the *App Name* field:
 +
@@ -386,7 +386,7 @@ If the wildcard proxy is enabled in your cluster, this route points to the wildc
 
 [NOTE]
 ====
-If you have previously used the ```https://wt-{user-sanitized-username}-3scale.{openshift-app-host}``` route, that service is no longer available.
+If you have previously used the ```{route}``` route, that service is no longer available.
 For example, if you have completed the *Managing and protecting APIs using API management* walkthrough, that API is no longer available because you have reused the route.
 ====
 
