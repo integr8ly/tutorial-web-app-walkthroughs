@@ -6,7 +6,7 @@
 :3scale-version: 2.6
 :fuse-url: https://eval.apps.city.openshiftworkshop.com/
 :3scale-url: https://eval.apps.city.openshiftworkshop.com/
-:route: https://wt2-{user-sanitized-username}-3scale.{openshift-app-host}
+:route: https://wt3-{user-sanitized-username}-3scale.{openshift-app-host}
 
 [id='no-code-container-native-api-development']
 
@@ -19,7 +19,7 @@ Applications that are designed to run in a containerised environment.
 
 // This is taken right from https://github.com/OAI/OpenAPI-Specification
 OpenAPI Specification::
-A standard, programming language-agnostic interface description for REST APIs, which allows both humans and computers to discover and understand the capabilities of a service without requiring access to source code, additional documentation, or inspection of network traffic. When properly defined via OpenAPI, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.
+A standard, programming language-agnostic interface description for REST APIs. REST APIs allow both humans and computers to discover and understand the capabilities of a service without requiring access to source code, additional documentation, or inspection of network traffic. When properly defined via OpenAPI, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.
 
 In this walkthrough you follow a design-first approach, based on the OpenAPI specification, to define a RESTful API that accepts a name parameter and echoes it back in the response body. 
 You then use the resulting Open API definition to generate the code for your API and deploy it in a containerised environment.
@@ -49,7 +49,7 @@ It also allows you to identify important design decisions prior to coding and de
 
 :sectnums:
 
-[time=10]
+[time=20]
 == Creating a Slack Connection in Fuse Online
 
 In Fuse Online a *Connection* holds the information required to connect to a service.
@@ -160,7 +160,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
 
-[time=10]
+[time=20]
 == Creating an API Integration in Fuse Online
 
 === Creating an Integration with API details
@@ -263,7 +263,10 @@ Greeting response
 Fuse Online automatically completes the type *String as String*.
 
 
-. Click *Save* in the top right corner of the UI to save your work and be directed back to the *New Integration* wizard.
+. Click *Save* in the top right corner of the page to save your work.
+The *New Integration* wizard is displayed.
+
+. Click *Next*.
 
 . Click *Publish* on the *New Integration* wizard screen.
 
@@ -289,7 +292,7 @@ Is a *Greeting Integration* entry listed in the Fuse Online Home screen?
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
 
 
-[time=10]
+[time=20]
 == Implementing and publishing the API
 
 . Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
@@ -354,7 +357,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 
 
-[time=5]
+[time=10]
 == Exposing and invoking the API
 
 === API Management Login
@@ -394,21 +397,12 @@ This process can take a few minutes.
 +
 [subs="attributes+"]
 ----
-https://wt-{user-sanitized-username}-3scale.{openshift-app-host}
+{route}
 ----
-+
-If the wildcard proxy is enabled in your cluster, this route points to the wildcard APIcast URL. Otherwise, the route points to the shared staging APIcast URL for the *3scale* project in OpenShift
 
 . In the *MAPPING RULES* section, add a *POST* mapping with the pattern `/greeting`.
 
 .. Select *Update & test in Staging Environment*
-
-[NOTE]
-====
-If you have previously used the ```{route}``` route, that service is no longer available.
-For example, if you have completed the *Managing and protecting APIs using API management* walkthrough, that API is no longer available because you have reused the route.
-====
-
 
 [type=verification]
 Is the API service available?
@@ -480,4 +474,3 @@ Did the message "Hello from John appear in your Slack channel?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
-
