@@ -323,7 +323,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 . Click *Active Docs* from the side navigation.
 
-. Click *Create a new spec*
+. Click *Create your first spec*
 
 . Enter the following for *Name* and *System name*:
 +
