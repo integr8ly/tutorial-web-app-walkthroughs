@@ -1,0 +1,476 @@
+// tag::master-1[]
+
+:walkthrough: No code API development and SaaS integration
+:fuse-version: 7.4
+:3scale-name: Red Hat 3scale API Management Platform
+:3scale-version: 2.6
+:fuse-url: https://eval.apps.city.openshiftworkshop.com/
+:3scale-url: https://eval.apps.city.openshiftworkshop.com/
+:route: https://wt3-{user-sanitized-username}-3scale.{openshift-app-host}
+
+[id='no-code-container-native-api-development']
+
+= {walkthrough}
+
+This walkthrough demonstrates how to implement a container-native OpenAPI RESTful API without coding.
+
+Container-native applications::
+Applications that are designed to run in a containerised environment.
+
+// This is taken right from https://github.com/OAI/OpenAPI-Specification
+OpenAPI Specification::
+A standard, programming language-agnostic interface description for REST APIs. REST APIs allow both humans and computers to discover and understand the capabilities of a service without requiring access to source code, additional documentation, or inspection of network traffic. When properly defined via OpenAPI, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.
+
+In this walkthrough you follow a design-first approach, based on the OpenAPI specification, to define a RESTful API that accepts a name parameter and echoes it back in the response body. 
+You then use the resulting Open API definition to generate the code for your API and deploy it in a containerised environment.
+
+Following a design first approach to API development is self-documenting, and provides a clear API definition for partners and end-users of your API.
+It also allows you to identify important design decisions prior to coding and deployment.
+
+[type=walkthroughResource,serviceName=fuse]
+.Fuse Online
+****
+* link:{fuse-url}[Console, window="_blank"]
+****
+
+[type=walkthroughResource,serviceName=openshift]
+.Red Hat OpenShift
+****
+* link:{openshift-host}/console[Console, window="_blank"]
+****
+
+[type=walkthroughResource,serviceName=3scale]
+.3Scale
+****
+* link:{api-management-url}[Console, window="_blank"]
+* link:https://developers.redhat.com/products/3scale/overview/[3Scale Overview, window="_blank"]
+* link:https://www.3scale.net[3Scale Website, window="_blank"]
+****
+
+:sectnums:
+
+[time=20]
+== Creating a Slack Connection in Fuse Online
+
+In Fuse Online a *Connection* holds the information required to connect to a service.
+For example, a Slack *Connection* in Fuse Online requires an *API Token* and *Slack URL* to function. 
+
+=== Creating a Slack Workspace
+
+.Prerequisite
+You already have an account with link:https://slack.com/[Slack, window="_blank"].
+
+.Procedure
+. Navigate to the link:https://slack.com/create[Create a new workspace, window="_blank"] page.
+
+. Enter your email address and click *Next*.
+Complete the Slack log in process.
+
+. When prompted *What's the name of your company or team?* enter::
++
+----
+low-code-workspace
+----
+
+. When prompted *What’s a project your team is working on?* enter:
++
+----
+low-code-demo
+----
+
+. Click *Skip for now* when prompted to add team members.
+
+. Click *See Your Channel in Slack*
+
+[type=verification]
+Can you access your workspace, and navigate to the *low-code-demo* channel listed on the left of the workspace?
+
+
+[type=verificationFail]
+Verify that you followed each step in the procedure above.  If you are still having issues, check your email, there may be information sent to you about accessing your workspace.
+
+
+=== Creating the Slack Connection in Fuse Online
+
+. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
++
+NOTE: This is your personal Fuse Online instance and not the shared instance available from link:/[home page].
+
+. Choose *Connections* from the left navigation menu.
+
+. Click the *Create Connection* button in the top right corner.
+
+. Choose *Slack* from the list of displayed *Connectors*. 
+You are prompted for configuration details.
+
+. Obtain a URL for the *Slack Webhook URL* field:
+.. Navigate to the Slack Apps portal at link:https://api.slack.com/apps[api.slack.com/apps, window="_blank"].
+.. Click *Create new App*.
+.. Enter the following in the *App Name* field:
++
+----
+Fuse Online Demo
+----
+.. Choose *low-code-workspace* from the *Development Slack Workspace* menu.
+.. Click "Create App".
+.. On the following screen under the *Add features and functionality* click *Incoming Webhooks*.
+.. Change the *Activate Incoming Webhooks* switch to the *On* position.
+.. Scroll down and click *Add New Webhook to Workspace*.
+.. In the *Post to* field select *low-code-demo* and click *Allow*.
++
+You are redirected back to the *Incoming Webhooks* page. 
+.. Copy the *Webhook URL* displayed at the bottom of the page using the *Copy* button. 
+
+. Paste the copied *Webhook URL* value into the *Slack Webhook URL* field in Fuse Online.
+
+. Obtain a value for the *Token for Accessing Slack API* field:
+.. Navigate to the Slack API Token portal at link:https://api.slack.com/custom-integrations/legacy-tokens[api.slack.com/custom-integrations/legacy-tokens, window="_blank"].
+.. Scroll down to the *Legacy token generator* section.
+.. Click *Create token* button next to *low-code-workspace*.
+.. Copy the generated token.
+
+. Paste the generated token into the *Token for Accessing Slack API* field in Fuse Online.
+
+. Enter the following in the *Sending User Name for Messages* field:
++
+----
+Fuse Online
+----
+
+. Click *Validate* in Fuse Online and verify that a *Slack has been successfully validated.* message appears. 
+This validation sends a message to the *low-code-demo* channel.
+
+. Click *Next*.
+
+. Enter the following in the *Connection Name* field on the *Add Connection Details* screen:
++
+----
+Greeting Slack Target
+----
+
+. Click *Save*.
+
+[type=verification]
+Is a *Greeting Slack Target* entry listed in the Fuse Online *Connections* screen?
+
+
+[type=verificationFail]
+Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+
+[type=verificationFail]
+Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+
+[time=20]
+== Creating an API Integration in Fuse Online
+
+=== Creating an Integration with API details
+
+In this procedure, you create an integration with an API and include a data type.
+A *Data Type* represents a data structure that can be passed to your API and can then be used as parameters in your API definition and within the Fuse Online *Integration Flow Editor* to transform and map data as part of an *Integration*.
+
+. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
+
+. Choose *Integrations* from the left navigation menu.
+
+. Click the *Create Integration* button to start the *New Integration* wizard.
+
+. Choose *API Provider* on the subsequent *Choose a Start Connection* screen.
+
+. When prompted choose *Create* and click *Next* to navigate to the *API Designer*.
+
+. Rename your API from "Untitled API" to:
++
+----
+Greeting API
+----
+
+. Edit the *Description*:
++
+----
+My greeting API
+----
+
+. Click *Add a data type* under the *Data Types* heading on the left of the *API Designer* screen.
+
+. In the *Enter Basic Information* section enter the following in the *Name* field:
++
+----
+Name
+----
+
+. Enter the following JSON in the *Enter JSON Example* field:
++
+[subs="attributes+"]
+----
+{
+    "name": "shadowman" 
+}
+----
+
+. Scroll down and click *Save*.
+
+[type=verification]
+Is `</> Name` listed under the *Data Types* on the *API Designer* screen?
+
+
+[type=verificationFail]
+Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+
+
+=== Creating a POST Resource Path
+
+A *Path* represents an API endpoint/operation and the associated parameters required to invoke it.
+
+. Click *Add a path* under the *Paths* heading on the left of the *API Designer* screen.
+
+. In the window that appears, enter the following in the *Path* field:
++
+----
+/greeting
+----
+
+. Click *Add* to confirm your entry.
+
+. Click your new */greeting* endpoint under the *Paths* heading.
+
+. Click *Add Operation* under the *POST* icon in the *Operations* section on the right.
+
+. Enter the following in the *Summary* field:
++
+----
+Greet with name
+----
+
+. Enter the following in the *Operation ID* field:
++
+----
+greetname
+----
+
+. In the *Request Body* section, click *Add a request body*.
+
+. Choose *Name* as the type.
+
+. In the *Responses* section click *Add response*.
+.. In the window that appears choose *200 OK* as the option.
+.. Click *Add*.
+.. Click *No description* beside the *200 OK* response and enter the following in the *Description* field:
++
+----
+Greeting response
+----
+.. Choose *String* as the type.
+Fuse Online automatically completes the type *String as String*.
+
+
+. Click *Save* in the top right corner of the page to save your work.
+The *New Integration* wizard is displayed.
+
+. Click *Next*.
+
+. Click *Publish* on the *New Integration* wizard screen.
+
+. When prompted to *Give this integration a name*:
+.. Enter the following in the *Integration Name* field:
++
+----
+Greeting Integration
+----
+.. Enter the following in the *Description* field:
++
+----
+my greeting api
+----
+
+. Click *Save and Publish* to save your API design.
+
+
+[type=verification]
+Is a *Greeting Integration* entry listed in the Fuse Online Home screen?
+
+[type=verificationFail]
+Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+
+
+[time=20]
+== Implementing and publishing the API
+
+. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
+
+. Select *Integrations* from the left hand menu. 
+
+. Choose *Edit* from the menu for the *Greeting Integration* entry. The *Operations* page appears.
+
+. Click the *Create flow* button. The *Add to Integration* page appears displaying the *Provided API* and the *Provided API Return Path*.
+
+. Click the blue plus icon to add a step.
+The left hand side of the *Choose a connection* page lists the steps in your *Integration*.
+
+. Select your *Greeting Slack Target*.
+
+. When prompted to *Choose an action* select *Channel*. You can use this to send a message to a specific channel in your Slack workspace.
+
+. Use the *Channel* menu to select the *low-code-demo* channel and click *Next*.
+The *Integration Flow Editor* should now list your Slack connection with a *Data Type Mismatch* warning. 
+
+. Click the *Warning Icon* and choose *Add a data mapping step*.
+
+. From the *Data Mapper* screen click the *body* element in the *Source* panel to expand it.
+
+. Click the *name* field under the *body*, then click the *message* element in the *Target* panel. This maps the value of the incoming HTTP request *body* to the outgoing Slack *message* property.
+
+. In the right hand *Mapping Details* panel, click the *Add Transformation* under the *Targets* section to add a transformation.
+
+. Change the transformation type from *Append* to *Prepend*.
+
+. Enter the following in the *string* field under the menu:
++
+----
+Hello from 
+----
+
+. Click *Done* to return to the *Integration Flow Editor.
+
+The *Integration Flow Editor* should now list your *Provided API Return Path* with a *Data Type Mismatch* warning. 
+
+. Click the *Warning Icon* and choose *Add a data mapping step*.
+
+. From the *Data Mapper* screen click the *Request* element in the *Source* panel to expand it.
+
+. Click the *name* field under the *body*, then click the *message* element in the *Target* panel. This maps the value of the incoming HTTP request *body* to the outgoing Slack *message* property.
+
+. Click *Done* to return to the *Integration Flow Editor.
+
+. Click *Publish*.
+
+. Click *Save and Publish* to trigger an link:https://docs.openshift.com/container-platform/3.11/creating_images/s2i.html[Source to Image (S2I), window="_blank"] build.
+
+
+. Wait until Fuse Online reports your deployment was successful.
+
+[type=verification]
+Does the Fuse Online *Home* screen list your *greeting api* with a blue box that contains the text *Running*?
+
+
+[type=verificationFail]
+Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+
+
+
+[time=10]
+== Exposing and invoking the API
+
+=== API Management Login
+
+. Open the link:{api-management-url}[{3scale-name} Login screen, window="_blank"].
+
+. Select the *Red Hat Single Sign On* option. This triggers an OAuth Flow and redirects you back to the {3scale-name} Dashboard.
+
+. Dismiss the *How does 3Scale work?* option which is displayed the first time you log in to {3scale-name}. The main Dashboard is displayed.
+
+[type=verification]
+Can you see the {3scale-name} Dashboard and navigate the main menu?
+
+[type=verificationFail]
+Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+
+
+=== Adding the App Endpoint to Red Hat 3scale
+
+. From the *Dashboard*, select the *New API* item.
+. Select the *Import from OpenShift* option.
+If this option is not enabled, click *authenticate with OpenShift* to enable the option.
+
+. Choose the 'fuse' option from the *Namespace* list.
+. Choose 'i-greeting-api' from the *Name* list.
+. Click *Create Service*.
++
+This process can take a few minutes.
+
+. Edit the API:
+
+.. Choose *API: i-greeting-integration* from the top navigation menu to view the *Overview* page.
+
+.. From the *Overview* screen, select the *Configure APIcast* link.
+
+.. In the *Staging Public Base URL*, enter:
++
+[subs="attributes+"]
+----
+{route}
+----
+
+. In the *MAPPING RULES* section, add a *POST* mapping with the pattern `/greeting`.
+
+.. Select *Update & test in Staging Environment*
+
+[type=verification]
+Is the API service available?
+You might encounter a *403: Authentication failed* message. You can ignore this message, the issue is resolved in a later step.
+
+[type=verificationFail]
+Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+
+=== Configuring your API
+
+. Create a new *Application Plan*:
+.. Select *Applications > Application Plans* from the side navigation.
+.. Select *Create Application Plan*.
+.. Enter the following for *Name* and *System name*:
++
+[subs="attributes+"]
+----
+low-code
+
+----
+.. Leave the other fields with their default values.
+.. Select *Create Application Plan*. You will be redirected to the *Application Plans* screen.
+.. Click *Publish*, beside your plan list item, to publish the Plan.
+
+. Create a new *Application* for the *Developer* Group, assigned to the Plan:
+.. Select *Audience* from the top navigation menu.
+.. Select the *Developer* Account to open the *Account Summary* page.
+.. Select the *(num) Application* item from the breadcrumb to view Applications.
+.. Select the *Create Application* button in the top right.
+.. Select the *low-code* Plan in the *Application plan* menu.
+.. Enter the following for *Name* and *Description*:
++
+[subs="attributes+"]
+----
+low-code-app
+----
+.. Select *Create Application*.
+
+. Set a custom *User Key* for the application:
+.. On the *low-code* application screen you were redirected to, scroll to the *API Credentials* section.
+.. Click the green pencil icon beside the *API User Key*
+.. In the *Set Custom User Key* modal dialog, enter:
++
+[subs="attributes+"]
+----
+test
+----
+.. Select *Set Custom Key*.
+
+
+[type=verification]
+Review the settings in 3scale. Do they match the settings outlined in this task?
+
+[type=verificationFail]
+Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+
+=== Invoking the API
+
+. Use an HTTP client to invoke the route, for example:
+
+[subs="attributes+"]
+----
+curl -d '{"name":"John"}' -H "Content-Type: application/json" -X POST "{route}/greeting?user_key=test"
+
+----
+
+[type=verification]
+Did the message "Hello from John appear in your Slack channel?
+
+[type=verificationFail]
+Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
