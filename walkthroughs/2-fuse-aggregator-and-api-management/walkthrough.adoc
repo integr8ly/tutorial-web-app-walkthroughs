@@ -107,7 +107,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 === Checking the Fuse Aggregation App
 
-.Prerequisite 
+.Prerequisite
 The following URL must be available before attempting this procedure:
 [subs="attributes+"]
 ----
@@ -200,8 +200,6 @@ Verify that you followed each step in the procedure above.  If you are still hav
 . Open the link:{api-management-url}[{3Scale-ProductName} Login screen, window="_blank", id="{context}-6"].
 
 . Click the *Red Hat Single Sign On* option. This triggers an OAuth Flow and redirects you back to the {3Scale-ProductName} Dashboard.
-
-. Dismiss the *How does 3Scale work?* option which is displayed the first time you log in to {3Scale-ProductName}. The main Dashboard is displayed.
 
 [type=verification]
 Can you see the {3Scale-ProductName} Dashboard and navigate the main menu?
