@@ -21,7 +21,7 @@ Applications that are designed to run in a containerised environment.
 OpenAPI Specification::
 A standard, programming language-agnostic interface description for REST APIs. REST APIs allow both humans and computers to discover and understand the capabilities of a service without requiring access to source code, additional documentation, or inspection of network traffic. When properly defined via OpenAPI, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.
 
-In this walkthrough you follow a design-first approach, based on the OpenAPI specification, to define a RESTful API that accepts a name parameter and echoes it back in the response body. 
+In this walkthrough you follow a design-first approach, based on the OpenAPI specification, to define a RESTful API that accepts a name parameter and echoes it back in the response body.
 You then use the resulting Open API definition to generate the code for your API and deploy it in a containerised environment.
 
 Following a design first approach to API development is self-documenting, and provides a clear API definition for partners and end-users of your API.
@@ -53,7 +53,7 @@ It also allows you to identify important design decisions prior to coding and de
 == Creating a Slack Connection in Fuse Online
 
 In Fuse Online a *Connection* holds the information required to connect to a service.
-For example, a Slack *Connection* in Fuse Online requires an *API Token* and *Slack URL* to function. 
+For example, a Slack *Connection* in Fuse Online requires an *API Token* and *Slack URL* to function.
 
 === Creating a Slack Workspace
 
@@ -100,7 +100,7 @@ NOTE: This is your personal Fuse Online instance and not the shared instance ava
 
 . Click the *Create Connection* button in the top right corner.
 
-. Choose *Slack* from the list of displayed *Connectors*. 
+. Choose *Slack* from the list of displayed *Connectors*.
 You are prompted for configuration details.
 
 . Obtain a URL for the *Slack Webhook URL* field:
@@ -118,8 +118,8 @@ Fuse Online Demo
 .. Scroll down and click *Add New Webhook to Workspace*.
 .. In the *Post to* field select *low-code-demo* and click *Allow*.
 +
-You are redirected back to the *Incoming Webhooks* page. 
-.. Copy the *Webhook URL* displayed at the bottom of the page using the *Copy* button. 
+You are redirected back to the *Incoming Webhooks* page.
+.. Copy the *Webhook URL* displayed at the bottom of the page using the *Copy* button.
 
 . Paste the copied *Webhook URL* value into the *Slack Webhook URL* field in Fuse Online.
 
@@ -137,7 +137,7 @@ You are redirected back to the *Incoming Webhooks* page.
 Fuse Online
 ----
 
-. Click *Validate* in Fuse Online and verify that a *Slack has been successfully validated.* message appears. 
+. Click *Validate* in Fuse Online and verify that a *Slack has been successfully validated.* message appears.
 This validation sends a message to the *low-code-demo* channel.
 
 . Click *Next*.
@@ -203,7 +203,7 @@ Name
 [subs="attributes+"]
 ----
 {
-    "name": "shadowman" 
+    "name": "shadowman"
 }
 ----
 
@@ -297,7 +297,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 . Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
 
-. Select *Integrations* from the left hand menu. 
+. Select *Integrations* from the left hand menu.
 
 . Choose *Edit* from the menu for the *Greeting Integration* entry. The *Operations* page appears.
 
@@ -311,7 +311,7 @@ The left hand side of the *Choose a connection* page lists the steps in your *In
 . When prompted to *Choose an action* select *Channel*. You can use this to send a message to a specific channel in your Slack workspace.
 
 . Use the *Channel* menu to select the *low-code-demo* channel and click *Next*.
-The *Integration Flow Editor* should now list your Slack connection with a *Data Type Mismatch* warning. 
+The *Integration Flow Editor* should now list your Slack connection with a *Data Type Mismatch* warning.
 
 . Click the *Warning Icon* and choose *Add a data mapping step*.
 
@@ -326,12 +326,12 @@ The *Integration Flow Editor* should now list your Slack connection with a *Data
 . Enter the following in the *string* field under the menu:
 +
 ----
-Hello from 
+Hello from
 ----
 
 . Click *Done* to return to the *Integration Flow Editor.
 
-The *Integration Flow Editor* should now list your *Provided API Return Path* with a *Data Type Mismatch* warning. 
+The *Integration Flow Editor* should now list your *Provided API Return Path* with a *Data Type Mismatch* warning.
 
 . Click the *Warning Icon* and choose *Add a data mapping step*.
 
@@ -406,7 +406,7 @@ This process can take a few minutes.
 
 [type=verification]
 Is the API service available?
-You might encounter a *403: Authentication failed* message. You can ignore this message, the issue is resolved in a later step.
+You might encounter a *403: Authentication failed* or *503 Service Unavailable* message. You can ignore these messages, the issue is resolved in a later step.
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
