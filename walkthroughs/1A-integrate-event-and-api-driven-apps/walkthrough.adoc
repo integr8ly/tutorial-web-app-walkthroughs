@@ -127,6 +127,8 @@ It can be extended with custom connectors, using either OpenAPI definitions (Swa
 To create a connector for the RESTful API, register the OpenAPI definition as a *Customization*.
 
 . Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="{context}-1"] console.
++
+NOTE: This is your personal Fuse Online instance and not the shared instance available from link:/[home page].
 
 . Select *Customizations > API Client Connectors* from the left hand menu.
 
