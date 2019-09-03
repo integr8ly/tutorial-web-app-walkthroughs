@@ -128,7 +128,7 @@ To create a connector for the RESTful API, register the OpenAPI definition as a 
 
 . Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="{context}-1"] console.
 +
-NOTE: This is your personal Fuse Online instance and not the shared instance available from link:/[home page].
+NOTE: You are not logging into the shared Fuse Online instance, available from the link:/[Applications menu] with this step. Starting this Solution Pattern provisioned an instance of Fuse Online which is not shared with other cluster users.
 
 . Select *Customizations > API Client Connectors* from the left hand menu.
 
