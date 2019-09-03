@@ -317,7 +317,7 @@ The *Integration Flow Editor* should now list your Slack connection with a *Data
 
 . From the *Data Mapper* screen click the *body* element in the *Source* panel to expand it.
 
-. Click the *name* field under the *body*, then click the *message* element in the *Target* panel. This maps the value of the incoming HTTP request *body* to the outgoing Slack *message* property.
+. Click the *name* field under the *body*, then click the *body* element in the *Target* panel. This maps the value of the incoming HTTP request *body* to the outgoing Slack *message* property.
 
 . In the right hand *Mapping Details* panel, click the *Add Transformation* under the *Targets* section to add a transformation.
 
@@ -337,7 +337,7 @@ The *Integration Flow Editor* should now list your *Provided API Return Path* wi
 
 . From the *Data Mapper* screen click the *Request* element in the *Source* panel to expand it.
 
-. Click the *name* field under the *body*, then click the *message* element in the *Target* panel. This maps the value of the incoming HTTP request *body* to the outgoing Slack *message* property.
+. Click the *name* field under the *body*, then click the *message* element in the *Target* panel. This maps the *name* value from the incoming HTTP request *body* to the *body* of the outgoing Slack message.
 
 . Click *Done* to return to the *Integration Flow Editor.
 
