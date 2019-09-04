@@ -10,14 +10,14 @@
 
 :context: integrating-api-driven-applications
 
-This walkthrough demonstrates how an API can be protected and rate limited.
+This Solution Pattern demonstrates how an API can be protected and rate limited.
 
 Organizations modernizing their applications typically create many APIs.
 It then becomes paramount to understand the usage of these APIs and to ensure they are protected, for example, from a denial-of-service (DoS) attack.
 It is possible to protect and limit access to APIs as part of an integration.
 
 In this walkthrough, you use the Fuse Aggregation App, which is a demonstration app that provides data using an API.
-The walkthrough shows how to deploy, edit, protect and rate-limit that API, using OpenShift, {launcher-service}, {code-ready-service} and {api-mgmt-service}.
+The Solution Pattern shows how to deploy, edit, protect and rate-limit that API, using OpenShift, {launcher-service}, {code-ready-service} and {api-mgmt-service}.
 
 image::images/arch.png[integration, role="integr8ly-img-responsive"]
 

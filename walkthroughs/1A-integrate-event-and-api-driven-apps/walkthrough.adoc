@@ -7,7 +7,7 @@
 = {walkthrough}
 
 // word count range that fits best is 15-22, with 20 really being the sweet spot. Character count for that space would be 100-125
-This walkthrough demonstrates a fault tolerant integration pattern that integrates a message driven architecture with a RESTful API architecture.
+This Solution Pattern demonstrates a fault tolerant integration pattern that integrates a message driven architecture with a RESTful API architecture.
 
 Message-oriented middleware (MOM)::
 MOM allows you to implement an asynchronous, routable, and transformable message queue.
@@ -18,14 +18,14 @@ Typically, a developer working on a back-end application implements a synchronou
 You may identify business value, as part of an application modernization effort, by integrating a message queue with an API.
 This is not trivial, because of the conflicting underlying timing models. The data may require transformation to be usable.
 
-In this walkthrough, create a simple and intuitive integration with built-in monitoring, to enable communication between two applications:
+In this Solution Pattern, create a simple and intuitive integration with built-in monitoring, to enable communication between two applications:
 
 * A Node.js webapp provides a method to create messages, in this example, a new inventory item.
 * A Spring Boot CRUD app provides a RESTful API, in this example, an inventory API.
 
 To create this integration, use link:{enmasse-url}[AMQ Online, window="_blank", id="wt1a_GS_enmasse-url"] and API connectors in link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="wt1a_GS_fuse-url"].
 
-All of the applications and services used in this walkthrough are running on Red Hat OpenShift.
+All of the applications and services used in this Solution Pattern are running on Red Hat OpenShift.
 
 
 image::images/arch.png[integration, role="integr8ly-img-responsive"]

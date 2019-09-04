@@ -1,20 +1,20 @@
-= Integreatly walkthroughs
+= Integreatly Solution Patterns
 
-This repository contains the walkthroughs automatically included with the link:https://github.com/integr8ly/tutorial-web-app[Solution Explorer]. They are curated by the Integreatly team.
-Typically, a core walkthrough has the following attributes:
+This repository contains the Solution Patterns automatically included with the link:https://github.com/integr8ly/tutorial-web-app[Solution Explorer]. They are curated by the Integreatly team.
+Typically, a core Solution Patterns has the following attributes:
 
 * A clear user story that addresses an integration goal
-* Contains a diagram that represents the user flow and the components used in the walkthrough
+* Contains a diagram that represents the user flow and the components used in the Solution Pattern
 * Each task is timed appropriately
-* Each task starts with the appropriate console (to support users returning to a walkthrough)
+* Each task starts with the appropriate console (to support users returning to a Solution Pattern)
 * Each step has a validation section
 * Each asciidoc attribute resolves to a value
 
 For more information, see link:https://access.redhat.com/documentation/en-us/red_hat_managed_integration/1/html-single/getting_started/index#creating_red_hat_managed_integration_walkthroughs[Creating Walkthroughs].
 
-= Testing walkthroughs
+= Testing Solution Patterns
 
-Before submitting a PR, make sure your walkthrough passes testing.
+Before submitting a PR, make sure your Solution Pattern passes testing.
 
 . Install testing packages
 +
