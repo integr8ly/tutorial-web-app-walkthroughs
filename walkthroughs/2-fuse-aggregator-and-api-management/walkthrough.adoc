@@ -234,8 +234,6 @@ Verify that you followed each step in the procedure above.  If you are still hav
 ----
 https://wt2-{user-sanitized-username}-3scale.{openshift-app-host}
 ----
-+
-If the wildcard proxy is enabled in your cluster, this route points to the wildcard APIcast URL. Otherwise, the route points to the shared staging APIcast URL for the *3scale* project in OpenShift
 
 . Click *Update & test in Staging Environment* to save your work.
 +
