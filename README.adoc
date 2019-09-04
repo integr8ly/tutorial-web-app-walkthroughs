@@ -1,7 +1,7 @@
 = Integreatly Solution Patterns
 
 This repository contains the Solution Patterns automatically included with the link:https://github.com/integr8ly/tutorial-web-app[Solution Explorer]. They are curated by the Integreatly team.
-Typically, a core Solution Patterns has the following attributes:
+Typically, a core Solution Pattern has the following attributes:
 
 * A clear user story that addresses an integration goal
 * Contains a diagram that represents the user flow and the components used in the Solution Pattern
