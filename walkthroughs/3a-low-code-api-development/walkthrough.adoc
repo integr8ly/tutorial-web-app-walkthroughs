@@ -1,6 +1,6 @@
 // tag::master-1[]
 
-:walkthrough: No code API development and SaaS integration
+:walkthrough: Low-code API development and SaaS integration
 :fuse-version: 7.4
 :3scale-name: Red Hat 3scale API Management Platform
 :3scale-version: 2.6
