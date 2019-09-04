@@ -406,7 +406,7 @@ This process can take a few minutes.
 
 [type=verification]
 Is the API service available?
-You might encounter a *low: Authentication failed* or *503 Service Unavailable* message. You can ignore these messages, the issue is resolved in a later step.
+You might encounter a *403: Authentication failed* or *503 Service Unavailable* message. You can ignore these messages, the issue is resolved in a later step.
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
