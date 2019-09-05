@@ -1,4 +1,4 @@
-= Solution Walkthroughs
+= Solution Patterns
 
 * link:index.html?e=walkthroughs/1A-integrate-event-and-api-driven-apps/walkthrough.adoc[Integrating message-oriented middleware with a RESTful API using AMQ Online]
 
