@@ -329,9 +329,7 @@ The *Integration Flow Editor* should now list your Slack connection with a *Data
 Hello from
 ----
 
-. Click *Done* to return to the *Integration Flow Editor.
-
-The *Integration Flow Editor* should now list your *Provided API Return Path* with a *Data Type Mismatch* warning.
+. Click *Done* to return to the *Integration* Flow Editor. The *Integration Flow Editor* should now list your *Provided API Return Path* with a *Data Type Mismatch* warning.
 
 . Click the *Warning Icon* and choose *Add a data mapping step*.
 
@@ -339,7 +337,7 @@ The *Integration Flow Editor* should now list your *Provided API Return Path* wi
 
 . Click the *name* field under the *body*, then click the *message* element in the *Target* panel. This maps the *name* value from the incoming HTTP request *body* to the *body* of the outgoing Slack message.
 
-. Click *Done* to return to the *Integration Flow Editor.
+. Click *Done* to return to the *Integration Flow* Editor.
 
 . Click *Publish*.
 
@@ -381,8 +379,8 @@ Verify that you followed each step in the procedure above.  If you are still hav
 . Select the *Import from OpenShift* option.
 If this option is not enabled, click *authenticate with OpenShift* to enable the option.
 
-. Choose the 'fuse' option from the *Namespace* list.
-. Choose 'i-greeting-api' from the *Name* list.
+. Choose the *fuse* option from the *Namespace* list.
+. Choose *i-greeting-api* from the *Name* list.
 . Click *Create Service*.
 +
 This process can take a few minutes.
@@ -462,7 +460,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 === Invoking the API
 
 . Use an HTTP client to invoke the route, for example:
-
++
 [subs="attributes+"]
 ----
 curl -d '{"name":"John"}' -H "Content-Type: application/json" -X POST "{route}/greeting?user_key=test"
