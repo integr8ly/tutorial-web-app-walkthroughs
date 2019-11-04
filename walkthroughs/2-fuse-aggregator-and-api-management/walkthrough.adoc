@@ -42,7 +42,7 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 ****
 * link:{che-url}[Console, window="_blank"]
 * link:https://developers.redhat.com/products/codeready-workspaces/overview/[{code-ready-service} Overview, window="_blank"]
-* link:https://access.redhat.com/documentation/en-us/red_hat_codeready_workspaces_for_openshift/1.0.0/[{code-ready-service} Documentation, window="_blank"]
+* link:https://access.redhat.com/documentation/en-us/red_hat_codeready_workspaces/1.2/[{code-ready-service} Documentation, window="_blank"]
 ****
 
 [type=walkthroughResource,serviceName=3scale]
