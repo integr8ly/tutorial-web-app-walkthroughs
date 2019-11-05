@@ -12,19 +12,25 @@
     "serviceInstances": [
       {
         "metadata": {
-          "name": "spring-boot-rest-http-crud"
+          "name": "postgresql-persistent"
         },
         "spec": {
-          "clusterServiceClassExternalName": "spring-boot-rest-http-crud",
-          "clusterServicePlanExternalName": "default"
+          "clusterServiceClassExternalName": "postgresql-persistent",
+          "clusterServicePlanExternalName": "default",
+          "parameters": {
+            "DATABASE_SERVICE_NAME": "orders-db",
+            "POSTGRESQL_DATABASE": "orders",
+            "POSTGRESQL_USER": "{{ user-username }}",
+            "POSTGRESQL_PASSWORD": "password"
+          }
         }
       },
       {
         "metadata": {
-          "name": "nodejs-messaging-work-queue-frontend"
+          "name": "rhmi-lab-nodejs-order-ui"
         },
         "spec": {
-          "clusterServiceClassExternalName": "nodejs-messaging-work-queue-frontend",
+          "clusterServiceClassExternalName": "rhmi-lab-nodejs-order-ui",
           "clusterServicePlanExternalName": "default",
           "parameters": {
             "MESSAGING_SERVICE_PASSWORD": "{{ enmasse-credentials-password }}",
@@ -32,51 +38,108 @@
             "MESSAGING_SERVICE_HOST": "{{ enmasse-broker-url }}"
           }
         }
+      },
+      {
+        "metadata": {
+          "name": "rhmi-lab-fuse-internal-orders-api"
+        },
+        "spec": {
+          "clusterServiceClassExternalName": "rhmi-lab-fuse-internal-orders-api",
+          "clusterServicePlanExternalName": "default",
+          "parameters": {
+            "PG_HOSTNAME": "orders-db.{{ walkthrough-namespace }}.svc",
+            "PG_DATABASE": "orders",
+            "PG_USERNAME": "{{ user-username }}",
+            "PG_PASSWORD": "password"
+          }
+        }
+      },
+      {
+        "metadata": {
+          "name": "rhmi-lab-order-management-ui"
+        },
+        "spec": {
+          "clusterServiceClassExternalName": "rhmi-lab-order-management-ui",
+          "clusterServicePlanExternalName": "default",
+          "parameters": {
+            "ORDERS_API_BASE_URL": "http://rhmi-lab-internal-fuse-api.{{ walkthrough-namespace }}.svc:8080"
+          }
+        }
       }
     ],
     "templates": [
       {
-        "apiVersion": "template.openshift.io/v1",
+        "apiVersion": "v1",
         "kind": "Template",
         "metadata": {
-          "name": "fruit-crud-app",
+          "name": "rhmi-lab-nodejs-order-ui",
+          "displayName": "RHMI Lab Node.js Frontend and API",
           "annotations": {
-            "iconClass": "icon-node",
-            "tags": "nodejs, crud",
-            "openshift.io/display-name": "Fruit CRUD Application",
-            "openshift.io/provider-display-name": "Red Hat, Inc.",
-            "openshift.io/documentation-url": "https://github.com/integr8ly/walkthrough-applications.git",
-            "description": "Basic CRUD application for fruit"
+            "openshift.io/display-name": "RHMI Lab Node.js Frontend & API",
+            "description": "The external order UI and API that's used in RHMI Solution Patterns",
+            "iconClass": "icon-nodejs",
+            "tags": "rhmi,nodejs"
           }
         },
         "objects": [
           {
+            "apiVersion": "v1",
             "kind": "DeploymentConfig",
-            "apiVersion": "apps.openshift.io/v1",
             "metadata": {
-              "name": "crud",
               "labels": {
-                "app": "crud"
-              }
+                "app": "rhmi-lab-nodejs-order-frontend"
+              },
+              "name": "rhmi-lab-nodejs-order-frontend"
             },
             "spec": {
               "replicas": 1,
-              "revisionHistoryLimit": 10,
-              "test": false,
               "selector": {
-                "app": "crud"
+                "app": "rhmi-lab-nodejs-order-frontend",
+                "deploymentconfig": "rhmi-lab-nodejs-order-frontend"
+              },
+              "strategy": {
+                "activeDeadlineSeconds": 21600,
+                "resources": {},
+                "rollingParams": {
+                  "intervalSeconds": 1,
+                  "maxSurge": "25%",
+                  "maxUnavailable": "25%",
+                  "timeoutSeconds": 600,
+                  "updatePeriodSeconds": 1
+                },
+                "type": "Rolling"
               },
               "template": {
                 "metadata": {
                   "labels": {
-                    "app": "crud"
+                    "app": "rhmi-lab-nodejs-order-frontend",
+                    "deploymentconfig": "rhmi-lab-nodejs-order-frontend"
                   }
                 },
                 "spec": {
                   "containers": [
                     {
-                      "name": "crud",
-                      "image": "quay.io/integreatly/fruit-crud-app:1.0.2",
+                      "env": [
+                        {
+                          "name": "MESSAGING_SERVICE_HOST",
+                          "value": "${MESSAGING_SERVICE_HOST}"
+                        },
+                        {
+                          "name": "MESSAGING_SERVICE_USER",
+                          "value": "${MESSAGING_SERVICE_USER}"
+                        },
+                        {
+                          "name": "MESSAGING_SERVICE_PASSWORD",
+                          "value": "${MESSAGING_SERVICE_PASSWORD}"
+                        },
+                        {
+                          "name": "MESSAGING_SERVICE_PORT",
+                          "value": "${MESSAGING_SERVICE_PORT}"
+                        }
+                      ],
+                      "image": "quay.io/evanshortiss/rhmi-lab-nodejs-order-frontend",
+                      "imagePullPolicy": "Always",
+                      "name": "rhmi-lab-nodejs-order-frontend",
                       "ports": [
                         {
                           "containerPort": 8080,
@@ -85,171 +148,144 @@
                       ],
                       "resources": {},
                       "terminationMessagePath": "/dev/termination-log",
-                      "terminationMessagePolicy": "File",
-                      "imagePullPolicy": "IfNotPresent"
+                      "terminationMessagePolicy": "File"
                     }
                   ],
-                  "restartPolicy": "Always",
-                  "terminationGracePeriodSeconds": 30,
                   "dnsPolicy": "ClusterFirst",
+                  "restartPolicy": "Always",
+                  "schedulerName": "default-scheduler",
                   "securityContext": {},
-                  "schedulerName": "default-scheduler"
+                  "terminationGracePeriodSeconds": 30
                 }
               }
             }
           },
           {
-            "kind": "Service",
             "apiVersion": "v1",
+            "kind": "Service",
             "metadata": {
-              "name": "crud"
+              "labels": {
+                "app": "rhmi-lab-nodejs-order-frontend"
+              },
+              "name": "rhmi-lab-nodejs-order-frontend"
             },
             "spec": {
               "ports": [
                 {
-                  "protocol": "TCP",
+                  "name": "8080-tcp",
                   "port": 8080,
+                  "protocol": "TCP",
                   "targetPort": 8080
                 }
               ],
               "selector": {
-                "app": "crud"
-              }
+                "deploymentconfig": "rhmi-lab-nodejs-order-frontend"
+              },
+              "sessionAffinity": "None",
+              "type": "ClusterIP"
+            },
+            "status": {
+              "loadBalancer": {}
             }
           },
           {
+            "apiVersion": "v1",
             "kind": "Route",
-            "apiVersion": "route.openshift.io/v1",
             "metadata": {
-              "name": "crud"
+              "labels": {
+                "app": "order-entry-ui"
+              },
+              "name": "order-entry-ui"
             },
             "spec": {
+              "port": {
+                "targetPort": "8080-tcp"
+              },
+              "tls": {
+                "termination": "edge"
+              },
               "to": {
                 "kind": "Service",
-                "name": "crud"
-              },
-              "port": {
-                "targetPort": 8080
+                "name": "rhmi-lab-nodejs-order-frontend",
+                "weight": 100
               },
               "wildcardPolicy": "None"
             }
           }
+        ],
+        "parameters": [
+          {
+            "description": "The hostname of the AMQ Online broker orders are sent to",
+            "displayName": "AMQ Online Broker Hostname",
+            "required": true,
+            "name": "MESSAGING_SERVICE_HOST"
+          },
+          {
+            "description": "The username required to connect to the broker",
+            "displayName": "AMQ Online Broker Username",
+            "required": true,
+            "name": "MESSAGING_SERVICE_USER"
+          },
+          {
+            "description": "The password required to connect to the broker",
+            "displayName": "AMQ Online Broker Password",
+            "required": true,
+            "name": "MESSAGING_SERVICE_PASSWORD"
+          },
+          {
+            "description": "The port to connect to on the broker",
+            "displayName": "AMQ Online Broker Port",
+            "value": "5672",
+            "name": "MESSAGING_SERVICE_PORT"
+          }
         ]
       },
       {
-        "apiVersion": "template.openshift.io/v1",
+        "apiVersion": "v1",
         "kind": "Template",
         "metadata": {
-          "name": "nodejs-messaging-work-queue-frontend",
+          "name": "rhmi-lab-fuse-internal-orders-api",
+          "displayName": "RHMI Lab Fuse Internal API",
           "annotations": {
+            "openshift.io/display-name": "RHMI Lab Fuse Internal API",
+            "description": "The internal Fuse Orders API that's used in RHMI Solution Patterns",
             "iconClass": "icon-jboss",
-            "tags": "nodejs, microservice, messaging",
-            "template.openshift.io/provider-display-name": "Red Hat, Inc.",
-            "description": "The Node.js Work Queue Mission demonstrates scalable task processing using messaging"
+            "tags": "fuse,camel,rhmi"
           }
         },
-        "parameters": [
-          {
-            "name": "MESSAGING_SERVICE_NAME",
-            "description": "Name of the messaging service",
-            "displayName": "Messaging service name",
-            "value": "messaging-service",
-            "required": true
-          },
-          {
-            "name": "MESSAGING_SERVICE_HOST",
-            "description": "Host of messaging service",
-            "displayName": "Messaging service",
-            "value": "{{ enmasse-broker-url }}",
-            "required": true
-          },
-          {
-            "name": "MESSAGING_SERVICE_PORT",
-            "description": "Port used by the messaging service",
-            "displayName": "Messaging service port",
-            "value": "5672",
-            "required": true
-          },
-          {
-            "name": "MESSAGING_SERVICE_USER",
-            "description": "User used to log into the messaging service",
-            "displayName": "Messaging service user",
-            "value": "{{ enmasse-credentials-username }}",
-            "required": true
-          },
-          {
-            "name": "MESSAGING_SERVICE_PASSWORD",
-            "description": "Password used to log into the messaging service",
-            "displayName": "Messaging service password",
-            "value": "{{ enmasse-credentials-password  }}",
-            "required": true
-          }
-        ],
         "objects": [
-          {
-            "apiVersion": "v1",
-            "kind": "ConfigMap",
-            "metadata": {
-              "name": "${MESSAGING_SERVICE_NAME}"
-            },
-            "data": {
-              "MESSAGING_SERVICE_HOST": "${MESSAGING_SERVICE_HOST}",
-              "MESSAGING_SERVICE_PORT": "${MESSAGING_SERVICE_PORT}",
-              "MESSAGING_SERVICE_USER": "${MESSAGING_SERVICE_USER}",
-              "MESSAGING_SERVICE_PASSWORD": "${MESSAGING_SERVICE_PASSWORD}"
-            }
-          },
-          {
-            "apiVersion": "v1",
-            "kind": "ImageStream",
-            "metadata": {
-              "name": "nodejs-messaging-work-queue-frontend"
-            },
-            "spec": {}
-          },
-          {
-            "apiVersion": "v1",
-            "kind": "ImageStream",
-            "metadata": {
-              "name": "runtime-nodejs-messaging-work-queue-frontend"
-            },
-            "spec": {
-              "tags": [
-                {
-                  "name": "latest",
-                  "from": {
-                    "kind": "DockerImage",
-                    "name": "bucharestgold/centos7-s2i-nodejs:10.x"
-                  }
-                }
-              ]
-            }
-          },
           {
             "apiVersion": "v1",
             "kind": "DeploymentConfig",
             "metadata": {
               "labels": {
-                "app": "nodejs-messaging-work-queue-frontend"
+                "app": "rhmi-lab-internal-fuse-api"
               },
-              "name": "nodejs-messaging-work-queue-frontend"
+              "name": "rhmi-lab-internal-fuse-api"
             },
             "spec": {
               "replicas": 1,
-              "revisionHistoryLimit": 2,
               "selector": {
-                "app": "nodejs-messaging-work-queue-frontend"
+                "app": "rhmi-lab-internal-fuse-api",
+                "deploymentconfig": "rhmi-lab-internal-fuse-api"
               },
               "strategy": {
+                "activeDeadlineSeconds": 21600,
+                "resources": {},
                 "rollingParams": {
-                  "timeoutSeconds": 3600
+                  "intervalSeconds": 1,
+                  "maxSurge": "25%",
+                  "maxUnavailable": "25%",
+                  "timeoutSeconds": 600,
+                  "updatePeriodSeconds": 1
                 },
                 "type": "Rolling"
               },
               "template": {
                 "metadata": {
                   "labels": {
-                    "app": "nodejs-messaging-work-queue-frontend"
+                    "app": "rhmi-lab-internal-fuse-api",
+                    "deploymentconfig": "rhmi-lab-internal-fuse-api"
                   }
                 },
                 "spec": {
@@ -257,68 +293,43 @@
                     {
                       "env": [
                         {
-                          "name": "KUBERNETES_NAMESPACE",
-                          "valueFrom": {
-                            "fieldRef": {
-                              "fieldPath": "metadata.namespace"
-                            }
-                          }
-                        }
-                      ],
-                      "envFrom": [
-                        {
-                          "configMapRef": {
-                            "name": "messaging-service"
-                          }
-                        }
-                      ],
-                      "image": "quay.io/integreatly/nodejs-messaging-work-queue:3.0.1",
-                      "imagePullPolicy": "Always",
-                      "livenessProbe": {
-                        "httpGet": {
-                          "path": "/api/health/liveness",
-                          "port": 8080,
-                          "scheme": "HTTP"
+                          "name": "PG_HOSTNAME",
+                          "value": "${PG_HOSTNAME}"
                         },
-                        "initialDelaySeconds": 60
-                      },
-                      "name": "nodejs-messaging-work-queue-frontend",
+                        {
+                          "name": "PG_DATABASE",
+                          "value": "${PG_DATABASE}"
+                        },
+                        {
+                          "name": "PG_USERNAME",
+                          "value": "${PG_USERNAME}"
+                        },
+                        {
+                          "name": "PG_PASSWORD",
+                          "value": "${PG_PASSWORD}"
+                        }
+                      ],
+                      "image": "quay.io/evanshortiss/rhmi-lab-internal-fuse-api",
+                      "imagePullPolicy": "Always",
+                      "name": "rhmi-lab-internal-fuse-api",
                       "ports": [
                         {
                           "containerPort": 8080,
-                          "name": "http",
                           "protocol": "TCP"
                         }
                       ],
-                      "readinessProbe": {
-                        "httpGet": {
-                          "path": "/api/health/readiness",
-                          "port": 8080,
-                          "scheme": "HTTP"
-                        }
-                      },
-                      "securityContext": {
-                        "privileged": false
-                      }
+                      "resources": {},
+                      "terminationMessagePath": "/dev/termination-log",
+                      "terminationMessagePolicy": "File"
                     }
-                  ]
+                  ],
+                  "dnsPolicy": "ClusterFirst",
+                  "restartPolicy": "Always",
+                  "schedulerName": "default-scheduler",
+                  "securityContext": {},
+                  "terminationGracePeriodSeconds": 30
                 }
-              },
-              "triggers": [
-                {
-                  "type": "ConfigChange",
-                  "imageChangeParams": {
-                    "automatic": true,
-                    "containerNames": [
-                      "nodejs-messaging-work-queue-frontend"
-                    ],
-                    "from": {
-                      "kind": "ImageStreamTag",
-                      "name": "nodejs-messaging-work-queue-frontend:latest"
-                    }
-                  }
-                }
-              ]
+              }
             }
           },
           {
@@ -326,20 +337,27 @@
             "kind": "Service",
             "metadata": {
               "labels": {
-                "app": "nodejs-messaging-work-queue-frontend"
+                "app": "rhmi-lab-internal-fuse-api"
               },
-              "name": "nodejs-messaging-work-queue-frontend"
+              "name": "rhmi-lab-internal-fuse-api"
             },
             "spec": {
               "ports": [
                 {
-                  "name": "http",
-                  "port": 8080
+                  "name": "8080-tcp",
+                  "port": 8080,
+                  "protocol": "TCP",
+                  "targetPort": 8080
                 }
               ],
               "selector": {
-                "app": "nodejs-messaging-work-queue-frontend"
-              }
+                "deploymentconfig": "rhmi-lab-internal-fuse-api"
+              },
+              "sessionAffinity": "None",
+              "type": "ClusterIP"
+            },
+            "status": {
+              "loadBalancer": {}
             }
           },
           {
@@ -347,19 +365,193 @@
             "kind": "Route",
             "metadata": {
               "labels": {
-                "app": "nodejs-messaging-work-queue-frontend"
+                "app": "orders-fuse-api"
               },
-              "name": "frontend"
+              "name": "orders-fuse-api"
             },
             "spec": {
               "port": {
-                "targetPort": 8080
+                "targetPort": "8080-tcp"
+              },
+              "tls": {
+                "termination": "edge"
               },
               "to": {
                 "kind": "Service",
-                "name": "nodejs-messaging-work-queue-frontend"
+                "name": "rhmi-lab-internal-fuse-api",
+                "weight": 100
+              },
+              "wildcardPolicy": "None"
+            }
+          }
+        ],
+        "parameters": [
+          {
+            "description": "The hostname of the PostgreSQL instance orders are stored in",
+            "displayName": "PostgreSQL Hostname",
+            "required": true,
+            "name": "PG_HOSTNAME"
+          },
+          {
+            "description": "The name of the database in the PostgreSQL instance orders are stored in",
+            "displayName": "PostgreSQL Database Name",
+            "required": true,
+            "value": "orders",
+            "name": "PG_DATABASE"
+          },
+          {
+            "description": "The username for logging into the PostgreSQL instance",
+            "displayName": "PostgreSQL Username",
+            "required": true,
+            "name": "PG_USERNAME"
+          },
+          {
+            "description": "The password for logging into the PostgreSQL instance",
+            "displayName": "PostgreSQL Password",
+            "required": true,
+            "name": "PG_PASSWORD"
+          }
+        ]
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Template",
+        "metadata": {
+          "name": "rhmi-lab-order-management-ui",
+          "displayName": "RHMI Lab Order Management UI",
+          "annotations": {
+            "openshift.io/display-name": "RHMI Lab Order Management UI",
+            "description": "The internal Order management UI that's used in RHMI Solution Patterns",
+            "iconClass": "icon-nodejs",
+            "tags": "rhmi,nodejs"
+          }
+        },
+        "objects": [
+          {
+            "apiVersion": "v1",
+            "kind": "DeploymentConfig",
+            "metadata": {
+              "labels": {
+                "app": "rhmi-lab-order-management-ui"
+              },
+              "name": "rhmi-lab-order-management-ui"
+            },
+            "spec": {
+              "replicas": 1,
+              "selector": {
+                "app": "rhmi-lab-order-management-ui",
+                "deploymentconfig": "rhmi-lab-order-management-ui"
+              },
+              "strategy": {
+                "activeDeadlineSeconds": 21600,
+                "resources": {},
+                "rollingParams": {
+                  "intervalSeconds": 1,
+                  "maxSurge": "25%",
+                  "maxUnavailable": "25%",
+                  "timeoutSeconds": 600,
+                  "updatePeriodSeconds": 1
+                },
+                "type": "Rolling"
+              },
+              "template": {
+                "metadata": {
+                  "labels": {
+                    "app": "rhmi-lab-order-management-ui",
+                    "deploymentconfig": "rhmi-lab-order-management-ui"
+                  }
+                },
+                "spec": {
+                  "containers": [
+                    {
+                      "env": [
+                        {
+                          "name": "ORDERS_API_BASE_URL",
+                          "value": "${ORDERS_API_BASE_URL}"
+                        }
+                      ],
+                      "image": "quay.io/evanshortiss/rhmi-lab-order-management-ui",
+                      "imagePullPolicy": "Always",
+                      "name": "rhmi-lab-order-management-ui",
+                      "ports": [
+                        {
+                          "containerPort": 8080,
+                          "protocol": "TCP"
+                        }
+                      ],
+                      "resources": {},
+                      "terminationMessagePath": "/dev/termination-log",
+                      "terminationMessagePolicy": "File"
+                    }
+                  ],
+                  "dnsPolicy": "ClusterFirst",
+                  "restartPolicy": "Always",
+                  "schedulerName": "default-scheduler",
+                  "securityContext": {},
+                  "terminationGracePeriodSeconds": 30
+                }
               }
             }
+          },
+          {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+              "labels": {
+                "app": "rhmi-lab-order-management-ui"
+              },
+              "name": "rhmi-lab-order-management-ui"
+            },
+            "spec": {
+              "ports": [
+                {
+                  "name": "8080-tcp",
+                  "port": 8080,
+                  "protocol": "TCP",
+                  "targetPort": 8080
+                }
+              ],
+              "selector": {
+                "deploymentconfig": "rhmi-lab-order-management-ui"
+              },
+              "sessionAffinity": "None",
+              "type": "ClusterIP"
+            },
+            "status": {
+              "loadBalancer": {}
+            }
+          },
+          {
+            "apiVersion": "v1",
+            "kind": "Route",
+            "metadata": {
+              "labels": {
+                "app": "order-management-ui"
+              },
+              "name": "order-management-ui"
+            },
+            "spec": {
+              "port": {
+                "targetPort": "8080-tcp"
+              },
+              "tls": {
+                "termination": "edge"
+              },
+              "to": {
+                "kind": "Service",
+                "name": "rhmi-lab-order-management-ui",
+                "weight": 100
+              },
+              "wildcardPolicy": "None"
+            }
+          }
+        ],
+        "parameters": [
+          {
+            "description": "The URL of the Orders Fuse API, e.g http://orders-fuse-api.myproject.svc:8080",
+            "displayName": "Fuse Order API URL",
+            "required": true,
+            "name": "ORDERS_API_BASE_URL"
           }
         ]
       }
