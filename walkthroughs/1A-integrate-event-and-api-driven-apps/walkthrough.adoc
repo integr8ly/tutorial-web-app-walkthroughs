@@ -1,4 +1,4 @@
-:walkthrough: Integrating message-oriented middleware with a RESTful API using AMQ Online
+:walkthrough: 1A - Integrating message-oriented middleware with a RESTful API using AMQ Online
 :fuse-version: 7.4
 :fuse-documentation-url: https://access.redhat.com/documentation/en-us/red_hat_fuse/7.4/
 :amq-documentation-url: https://access.redhat.com/documentation/en-us/red_hat_amq/7.4/
