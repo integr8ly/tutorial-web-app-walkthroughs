@@ -1,4 +1,4 @@
-sso-realm-url {user-sso-url}/auth/admin/{user-sanitized-username}/console/index.html
+:sso-realm-url: {user-sso-url}/auth/admin/{user-sanitized-username}/console/index.html
 :sso-adapter-docs-url: https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.3/html/securing_applications_and_services_guide/index
 
 = 1B - Protecting Applications using Red Hat Single Sign-On (SSO)
