@@ -107,7 +107,7 @@ Verify that you followed each step in the procedure above. If you are still havi
 [type=taskResource]
 .Task Resources
 ****
-* link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.2/html/using_amq_online_on_openshift_container_platform/assembly-using-console-messaging#create-address-console-messaging[Creating addresses using the AMQ Online Console, window="_blank"]
+* link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.4/html-single/using_amq_online_on_openshift_container_platform/index#create-address-console-messaging[Creating addresses using the AMQ Online Console, window="_blank"]
 ****
 
 [time=5]
