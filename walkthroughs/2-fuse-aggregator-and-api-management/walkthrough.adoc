@@ -309,7 +309,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 [type=taskResource]
 .Task Resources
 ****
-* link:https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.6/html/operating_3scale/index[Operations and Scaling, window="_blank"]
+* https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.6/html-single/admin_portal_guide/index#access_control[Access Control, window="_blank"]
 ****
 
 
