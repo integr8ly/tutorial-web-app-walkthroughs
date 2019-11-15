@@ -1,20 +1,23 @@
 :sso-realm-url: {user-sso-url}/auth/admin/{user-sanitized-username}/console/index.html
 :sso-adapter-docs-url: https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.3/html/securing_applications_and_services_guide/index
 
-= 1B - Protecting Applications using Red Hat Single Sign-On (SSO)
+:rhmi-sso-name: Managed Integration SSO instance
+:customer-sso-name: End user SSO instance
 
-This Solution Pattern demonstrates how Red Hat SSO can be used to protect web applications by providing single sign-on capabilities based on popular standards such as SAML 2.0, OpenID Connect and OAuth 2.0.
+= Protecting Applications using Red Hat Single Sign-On (SSO)
+
+This Solution Pattern demonstrates how SSO can be used to protect web applications by providing single sign-on capabilities based on popular standards such as SAML 2.0, OpenID Connect and OAuth 2.0.
 
 NOTE: You must complete the *Integrating message-oriented middleware with a RESTful API using AMQ Online* Solution Pattern prior to starting this one.
 
-Each Red Hat Managed Integration cluster includes two Red Hat SSO instances.
-One is known as the *Cluster SSO* instance and is used to provide
-authentication to the RHMI cluster and middleware services running on it. The
-second instance is referred to as the *User-Facing SSO* instance and can be
-used by developers to secure applications they deploy on the cluster, or even
-on other infrastructure.
+Each Red Hat Managed Integration cluster includes two SSO instances:
 
-In this Solution Pattern the *User-Facing SSO* is used to enable
+* *{rhmi-sso-name}* provides authenication to the Managed Integration cluster.
+
+* *{customer-sso-name}* can be used by developers to secure applications they deploy on the cluster, or even on other infrastructure.
+
+
+This Solution Pattern shows you how to use the *{customer-sso-name}* to enable
 authentication and authorisation for the *Order Entry System* and the *Order
 Management System* from the *Integrating message-oriented middleware with a
 RESTful API using AMQ Online* Solution Pattern.
@@ -30,18 +33,18 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 ****
 
 [type=walkthroughResource,serviceName=3scale]
-.User-Facing SSO
+.{customer-sso-name}
 ****
 * link:sso-realm-url[SSO Realm Console, window="_blank"]
-* link:https://access.redhat.com/products/red-hat-single-sign-on/[Red Hat SSO Overview, window="_blank"]
+* link:https://access.redhat.com/products/red-hat-single-sign-on/[Red Hat Single Sign-On Overview, window="_blank"]
 ****
 
 :sectnums:
 
 [time=15]
-== Creating a Client and User in Red Hat SSO
+== Creating a Client and User in SSO
 
-Red Hat SSO uses *Realms* to manage *Clients*, *Roles*, *Users* and *Groups*. A
+SSO uses *Realms* to manage *Clients*, *Roles*, *Users* and *Groups*. A
 user belongs to and logs into a realm. Realms are isolated from one another and
 can only manage and authenticate the users that they control.
 
@@ -49,11 +52,11 @@ A realm has already been created for this Solution Pattern and user.
 
 === Create a Client
 
-Securing an application using Red Hat SSO requires a *Client* to be created in
+Securing an application using SSO requires a *Client* to be created in
 a *Realm*. The *Client* represents the application being secured and contains
 important details regarding the security applied to the application.
 
-. Navigate to the link:sso-realm-url[Red Hat SSO Realm, window="_blank"].
+. Navigate to the link:sso-realm-url[SSO Realm, window="_blank"].
 . Enter the username `{user-username}` and password `password` if prompted.
 . Details for realm named {user-username} are displayed upon login success.
 . Select *Clients* from the menu on the left.
@@ -75,16 +78,16 @@ Verify that you followed each step in the procedure above and that the *Enabled*
 
 Red Hat Single Sign-On provides identity brokering functionality. Identity
 brokering facilitates login using a shared identity. For example, it's possible
-to create an *Identity Provider* in a *Realm* in Red Hat SSO to enable login
+to create an *Identity Provider* in a *Realm* in SSO to enable login
 using social identities such as Google, Twitter, or GitHub. When the user
 chooses to login using an *Identity Provider* a *User* is automatically created
-in the Red Hat SSO *Realm* with the details from their chosen
+in the SSO *Realm* with the details from their chosen
 *Identity Provider*.
 
 In this Solution Pattern a *User* will be created manually to keep things
 simple.
 
-. Navigate to the link:sso-realm-url[Red Hat SSO Realm, window="_blank"].
+. Navigate to the link:sso-realm-url[SSO Realm, window="_blank"].
 . Enter the username `{user-username}` and password `password` if prompted.
 . Select the *Users* entry in the side menu.
 . Click *Add user*.
@@ -105,11 +108,11 @@ Select the *Users* item in the side menu. Click the *View all users* button. The
 Verify that you followed each step in the procedure above. If you are still having issues, contact your administrator.
 
 [time=15]
-== Enabling Red Hat SSO in the Order Entry System
+== Enabling SSO in the Order Entry System
 
-=== Obtaining the Red Hat SSO Configuration
+=== Obtaining the SSO Configuration
 
-To secure an application with Red Hat SSO a *Client Adapter* is required.
+To secure an application with SSO a *Client Adapter* is required.
 Various platforms are supported with *Client Adapters*:
 
 . Spring Boot
@@ -124,11 +127,11 @@ The *Order Entry System* is run from a Node.js server, so the Node.js
 demonstrate how to include a configuration and enable the adapter.
 
 NOTE: Enabling the adapter can vary depending on how an application has been
-coded. The Order Entry System has been developed to disable Red Hat SSO
+coded. The Order Entry System has been developed to disable SSO
 protection if a configuration is not found on startup. For a real application
 this may not be advisable.
 
-. Navigate to the link:{sso-realm-url}[Red Hat SSO Realm, window="_blank"].
+. Navigate to the link:{sso-realm-url}[SSO Realm, window="_blank"].
 . Enter the username `{user-username}` and password `password` if prompted. 
 . Select *Clients* from the side menu.
 . Click the `order-entry-system` client that was created earlier.
@@ -136,7 +139,7 @@ this may not be advisable.
 . Select *Keycloak OIDC JSON* for *Format Option*.
 . Click the *Download* button to download this as a _keycloak.json_ file.
 
-=== Creating a Red Hat SSO Config Map Entry
+=== Creating a SSO Config Map Entry
 
 . Login to the link:{openshift-host}/console/[OpenShift Console, window="_blank"].
 . Select the *walkthroughs-1A* project.
@@ -147,7 +150,7 @@ this may not be advisable.
 .. Click the *Browse* button and select the _keycloak.json_ file that was downloaded in the previous section.
 . Click the *Create* button.
 
-=== Applying the Red Hat SSO Config Map
+=== Applying the SSO Config Map
 
 . Login to the link:{openshift-host}/console/[OpenShift Console, window="_blank"].
 . Navigate to the *walkthroughs-1A* project.
@@ -175,5 +178,5 @@ Verify that you followed each step in the procedure above. If you are still havi
 [type=taskResource]
 .Task Resources
 ****
-* link:{sso-adapter-docs-url}[Securing Applications and Services with Red Hat SSO, window="_blank"]
+* link:{sso-adapter-docs-url}[Securing Applications and Services with SSO, window="_blank"]
 ****

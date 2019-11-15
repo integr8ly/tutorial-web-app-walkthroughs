@@ -1,6 +1,6 @@
-:walkthrough: 1A - Integrating message-oriented middleware with a RESTful API using AMQ Online
+:walkthrough: Integrating message-oriented middleware with a RESTful API using AMQ Online
 :fuse-version: 7.4
-:fuse-documentation-url: https://access.redhat.com/documentation/en-us/red_hat_fuse/7.4/
+:fuse-documentation-url: https://access.redhat.com/documentation/en-us/red_hat_fuse/{fuse-version}/
 :amq-documentation-url: https://access.redhat.com/documentation/en-us/red_hat_amq/7.4/
 
 [id='integrating-eventdriven-and-apidriven-applications']
@@ -18,11 +18,11 @@ Typically, a developer working on a back-end application implements a synchronou
 You may identify business value, as part of an application modernization effort, by integrating a message queue with an API.
 This is not trivial, because of the conflicting underlying timing models. The data may require transformation to be usable.
 
-In this Solution Pattern, create a simple and intuitive integration with built-in monitoring, to enable communication between two applications:
+In this Solution Pattern, you create a simple and intuitive integration with built-in monitoring, to enable communication between two applications:
 
-* An Order Entry System, built with Node.js, that provides a RESTful API and UI to create order messages.
-* An Order Management System RESTful API, built with Red Hat Fuse, for querying and creating orders in an underlying PostgreSQL.
-* An Order Management System UI, built with Node.js, for visualising orders in the PostgreSQL via the Fuse RESTful API.
+* An Order Entry System, built with Node.js, that provides a RESTful API and a user interface to create order messages.
+* An Order Management System RESTful API, built with Red Hat Fuse, for querying and creating orders in an underlying PostgreSQL database.
+* An Order Management System user interface, built with Node.js, for visualising orders in the PostgreSQL database using the Fuse RESTful API.
 
 
 To create this integration, use link:{enmasse-url}[AMQ Online, window="_blank", id="wt1a_GS_enmasse-url"] and API connectors in link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="wt1a_GS_fuse-url"].
@@ -104,7 +104,7 @@ Verify that you followed each step in the procedure above. If you are still havi
 [type=taskResource]
 .Task Resources
 ****
-* link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.4/html-single/using_amq_online_on_openshift_container_platform/index#create-address-console-messaging[Creating addresses using the AMQ Online Console, window="_blank"]
+* link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.4/html/using_amq_online_on_openshift_container_platform/managing-address-spaces-messaging#proc-create-address-space-console-messaging[Creating addresses using the AMQ Online Console, window="_blank"]
 ****
 
 [time=5]
@@ -119,7 +119,11 @@ To store Orders a table must be created in the PostgreSQL that was provisioned.
 . Select *Applications > Pods* from the left hand menu.
 . Click the Pod that has the name *orders-db* followed by an ID.
 . On the Pod details screen select the *Terminal* tab.
-. Log in to the *orders* database using the command `psql -U {user-username} -W -d orders`.
+. Log in to the *orders* database using the command:
+[subs="attributes+"]
+----
+psql -U {user-username} -W -d orders`
+----
 . Enter the password `password` when prompted.
 . Paste the following as SQL to create the *received_orders* table:
 +
