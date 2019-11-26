@@ -196,7 +196,7 @@ To enable Fuse Online to send messages from the queue to the Spring Boot CRUD ap
 ----
 {route-crud-host}
 ----
-.. Accept the default value in the *Base path* field
+.. Enter `/` in the *Base path* field
 
 . When prompted with *Name connection*:
 .. Enter the following in the *Name* field:
