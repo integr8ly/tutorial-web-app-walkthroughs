@@ -92,9 +92,9 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 === Creating the Slack Connection in Fuse Online
 
-. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
+. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="{context}-3"] console.
 +
-NOTE: This is your personal Fuse Online instance and not the shared instance available from link:/[home page].
+NOTE: This is your personal Fuse Online instance and not the shared instance available from link:/[home page, id="{context}-4"].
 
 . Choose *Connections* from the left navigation menu.
 
@@ -104,7 +104,7 @@ NOTE: This is your personal Fuse Online instance and not the shared instance ava
 You are prompted for configuration details.
 
 . Obtain a URL for the *Slack Webhook URL* field:
-.. Navigate to the Slack Apps portal at link:https://api.slack.com/apps[api.slack.com/apps, window="_blank"].
+.. Navigate to the Slack Apps portal at link:https://api.slack.com/apps[api.slack.com/apps, window="_blank", id="{context}-5"].
 .. Click *Create new App*.
 .. Enter the following in the *App Name* field:
 +
