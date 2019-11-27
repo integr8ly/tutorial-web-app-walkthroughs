@@ -56,12 +56,12 @@ In Fuse Online a *Connection* holds the information required to connect to a ser
 For example, a Slack *Connection* in Fuse Online requires an *API Token* and *Slack URL* to function.
 
 === Creating a Slack Workspace
-
+:context: creating-slack-connection
 .Prerequisite
-You already have an account with link:https://slack.com/[Slack, window="_blank"].
+You already have an account with link:https://slack.com/[Slack, window="_blank", id="{context}-1"].
 
 .Procedure
-. Navigate to the link:https://slack.com/create[Create a new workspace, window="_blank"] page.
+. Navigate to the link:https://slack.com/create[Create a new workspace, window="_blank", id="{context}-2"] page.
 
 . Enter your email address and click *Next*.
 Complete the Slack log in process.
@@ -164,11 +164,11 @@ Verify that you followed each step in the procedure above.  If you are still hav
 == Creating an API Integration in Fuse Online
 
 === Creating an Integration with API details
-
+:context: creating-api-integration
 In this procedure, you create an integration with an API and include a data type.
 A *Data Type* represents a data structure that can be passed to your API and can then be used as parameters in your API definition and within the Fuse Online *Integration Flow Editor* to transform and map data as part of an *Integration*.
 
-. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
+. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="{context}-1"] console.
 
 . Choose *Integrations* from the left navigation menu.
 
@@ -294,8 +294,8 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 [time=20]
 == Implementing and publishing the API
-
-. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank"] console.
+:context: implementing-api
+. Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="{context}-1"] console.
 
 . Select *Integrations* from the left hand menu.
 
@@ -341,7 +341,7 @@ Hello from
 
 . Click *Publish*.
 
-. Click *Save and Publish* to trigger an link:https://docs.openshift.com/container-platform/3.11/creating_images/s2i.html[Source to Image (S2I), window="_blank"] build.
+. Click *Save and Publish* to trigger an link:https://docs.openshift.com/container-platform/3.11/creating_images/s2i.html[Source to Image (S2I), window="_blank", id="{context}-2"] build.
 
 
 . Wait until Fuse Online reports your deployment was successful.
@@ -357,10 +357,10 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 [time=10]
 == Exposing and invoking the API
-
+:context: exposing-api
 === API Management Login
 
-. Open the link:{api-management-url}[{3scale-name} Login screen, window="_blank"].
+. Open the link:{api-management-url}[{3scale-name} Login screen, window="_blank", id="{context}-1"].
 
 . Select the *Red Hat Single Sign On* option. This triggers an OAuth Flow and redirects you back to the {3scale-name} Dashboard.
 
