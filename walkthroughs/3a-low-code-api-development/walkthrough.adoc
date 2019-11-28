@@ -124,7 +124,7 @@ You are redirected back to the *Incoming Webhooks* page.
 . Paste the copied *Webhook URL* value into the *Slack Webhook URL* field in Fuse Online.
 
 . Obtain a value for the *Token for Accessing Slack API* field:
-.. Navigate to the Slack API Token portal at link:https://api.slack.com/custom-integrations/legacy-tokens[api.slack.com/custom-integrations/legacy-tokens, window="_blank"].
+.. Navigate to the Slack API Token portal at link:https://api.slack.com/custom-integrations/legacy-tokens[api.slack.com/custom-integrations/legacy-tokens, window="_blank", id="{context}-6"].
 .. Scroll down to the *Legacy token generator* section.
 .. Click *Create token* button next to *low-code-workspace*.
 .. Copy the generated token.
