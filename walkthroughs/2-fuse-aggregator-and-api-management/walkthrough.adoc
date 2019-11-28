@@ -227,9 +227,9 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 === Adding a new Product to Red Hat 3scale
 
-. Select *Dashboard* from the top navigation bar dropdown.
-. From the *Dashboard*, in the *API* section, select the *Products* tab.
-. Select the *New Product* item.
+. Select *Dashboard* from the top navigation menu.
+. In the *API* section of the Dashboard, select the *Products* tab.
+. Click *New Product*.
 . Enter the following as the *Name* and *System name*:
 +
 [subs="attributes+"]
@@ -241,7 +241,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 === Configuring Product in Red Hat 3scale
 
-. Click the *Settings* item from the *Integration* dropdown menu in the side navigation.
+. Select *Settings* from the *Integration* menu in the side navigation.
 // The '{fuse-aggregation-app-apicast-route-url}' shoudl be the apicast-staging route url for this specific user. It can be looked up or deterministicly set.
 . In the *Staging Public Base URL*, enter:
 +
