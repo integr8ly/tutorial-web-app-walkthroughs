@@ -251,7 +251,7 @@ greetname
 
 . Choose *Name* as the type.
 
-. In the *Responses* section click *Add response*.
+. In the *Responses* section click *Add a response*.
 .. In the window that appears choose *200 OK* as the option.
 .. Click *Add*.
 .. Click *No description* beside the *200 OK* response and enter the following in the *Description* field:
@@ -317,7 +317,7 @@ The *Integration Flow Editor* should now list your Slack connection with a *Data
 
 . From the *Data Mapper* screen click the *body* field in the *Source* panel to expand it.
 
-. Click the *name* field under the *body*, then click the *message* field in the *Target* panel. This maps the value of the incoming HTTP request *body* to the outgoing Slack *message* property.
+. Click the *name* field under the *body*, then click the *body* field in the *Target* panel. This maps the value of the incoming HTTP request *body* to the outgoing Slack *message* property.
 
 . In the right hand *Mapping Details* panel, click the *Add Transformation* under the *Targets* section to add a transformation.
 
@@ -375,21 +375,21 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 === Adding the App Endpoint to Red Hat 3scale
 
-. From the *Dashboard*, select the *New API* item.
+. From the *APIs* section of the *Dashboard*, select the *New Product* item.
 . Select the *Import from OpenShift* option.
-If this option is not enabled, click *authenticate with OpenShift* to enable the option.
+If this option is not enabled, click *Authenticate to enable this option*
 
 . Choose the *fuse* option from the *Namespace* list.
 . Choose *i-greeting-api* from the *Name* list.
-. Click *Create Service*.
+. Click *Create Product*.
 +
 This process can take a few minutes.
 
 . Edit the API:
 
-.. Choose *API: i-greeting-integration* from the top navigation menu to view the *Overview* page.
+.. Choose *Product: i-greeting-api* from the top navigation menu to view the *Overview* page.
 
-.. From the *Overview* screen, select the *Configure APIcast* link.
+.. Select the *Settings* item in the *Integration* dropdown menu.
 
 .. In the *Staging Public Base URL*, enter:
 +
@@ -398,13 +398,22 @@ This process can take a few minutes.
 {route}
 ----
 
-. In the *MAPPING RULES* section, add a *POST* mapping with the pattern `/greeting`.
+.. Click *Update Product* at the bottom of the page.
 
-.. Select *Update & test in Staging Environment*
+. Create a mapping rule for the `/greeting` endpoint.
+
+.. Select the *Mapping Rules* item in the *Integration* dropdown menu.
+
+.. Click *Add Mapping Rule*
+
+.. Select `POST` in the *Verb* field
+
+.. Enter `/greeting` in the *Pattern* field
+
+.. Click *Create Mapping Rule* at the bottom of the page
 
 [type=verification]
-Is the API service available?
-You might encounter a *403: Authentication failed* or *503 Service Unavailable* message. You can ignore these messages, the issue is resolved in a later step.
+Is the new mapping rule visible from the *Mapping Rules* screen?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
@@ -441,7 +450,7 @@ low-code-app
 
 . Set a custom *User Key* for the application:
 .. On the *low-code* application screen you were redirected to, scroll to the *API Credentials* section.
-.. Click the green pencil icon beside the *API User Key*
+.. Click the green pencil icon beside the *User Key*
 .. In the *Set Custom User Key* modal dialog, enter:
 +
 [subs="attributes+"]
@@ -453,6 +462,18 @@ test
 
 [type=verification]
 Review the settings in 3scale. Do they match the settings outlined in this task?
+
+[type=verificationFail]
+Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+
+=== Staging your API
+
+. Click the *Configuration* menu item in the *Integration* dropdown menu from the side navigation.
+
+. In the *APIcast Configuration* section, click the *Promote to Staging* button
+
+[type=verification]
+Is a new version of the API visible in the *Environments* section of the page?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
