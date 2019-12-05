@@ -35,7 +35,7 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 [type=walkthroughResource,serviceName=3scale]
 .{customer-sso-name}
 ****
-* link:sso-realm-url[SSO Realm Console, window="_blank"]
+* link:{sso-realm-url}[SSO Realm Console, window="_blank"]
 * link:https://access.redhat.com/products/red-hat-single-sign-on/[Red Hat Single Sign-On Overview, window="_blank"]
 ****
 
@@ -56,7 +56,7 @@ Securing an application using SSO requires a *Client* to be created in
 a *Realm*. The *Client* represents the application being secured and contains
 important details regarding the security applied to the application.
 
-. Navigate to the link:sso-realm-url[SSO Realm, window="_blank"].
+. Navigate to the link:{sso-realm-url}[SSO Realm, window="_blank"].
 . Enter the username `{user-username}` and password `password` if prompted.
 . Details for realm named {user-username} are displayed upon login success.
 . Select *Clients* from the menu on the left.
@@ -87,7 +87,7 @@ in the SSO *Realm* with the details from their chosen
 In this Solution Pattern a *User* will be created manually to keep things
 simple.
 
-. Navigate to the link:sso-realm-url[SSO Realm, window="_blank"].
+. Navigate to the link:{sso-realm-url}[SSO Realm, window="_blank"].
 . Enter the username `{user-username}` and password `password` if prompted.
 . Select the *Users* entry in the side menu.
 . Click *Add user*.
