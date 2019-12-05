@@ -79,8 +79,8 @@ low-code-demo
 ----
 
 . Click *Skip for now* when prompted to add team members.
-
-. Click *See Your Channel in Slack*
+. Answer the follow-up questions related to your workspace and choose the *Free* plan.
+. Click *Launch My Workspace* when prompted.
 
 [type=verification]
 Can you access your workspace, and navigate to the *low-code-demo* channel listed on the left of the workspace?
@@ -105,18 +105,18 @@ You are prompted for configuration details.
 
 . Obtain a URL for the *Slack Webhook URL* field:
 .. Navigate to the Slack Apps portal at link:https://api.slack.com/apps[api.slack.com/apps, window="_blank", id="{context}-5"].
-.. Click *Create new App*.
+.. Click *Create an App*.
 .. Enter the following in the *App Name* field:
 +
 ----
 Fuse Online Demo
 ----
-.. Choose *low-code-workspace* from the *Development Slack Workspace* menu.
+.. Choose *low-code-workspace* from the *Development Slack Workspace* dropdown.
 .. Click "Create App".
 .. On the following screen under the *Add features and functionality* click *Incoming Webhooks*.
 .. Change the *Activate Incoming Webhooks* switch to the *On* position.
 .. Scroll down and click *Add New Webhook to Workspace*.
-.. In the *Post to* field select *low-code-demo* and click *Allow*.
+.. In the *Where should Fuse Online Demo post?* field select *low-code-demo* and click *Allow*.
 +
 You are redirected back to the *Incoming Webhooks* page.
 .. Copy the *Webhook URL* displayed at the bottom of the page using the *Copy* button.
@@ -142,7 +142,7 @@ This validation sends a message to the *low-code-demo* channel.
 
 . Click *Next*.
 
-. Enter the following in the *Connection Name* field on the *Add Connection Details* screen:
+. Enter the following in the *Name* field on the *Name connection* screen:
 +
 ----
 Greeting Slack Target
@@ -176,7 +176,7 @@ A *Data Type* represents a data structure that can be passed to your API and can
 
 . Choose *API Provider* on the subsequent *Choose a Start Connection* screen.
 
-. When prompted choose *Create* and click *Next* to navigate to the *API Designer*.
+. When prompted choose *Create* and click *Next* to navigate to the *Provide API Definition* screen.
 
 . Rename your API from "Untitled API" to:
 +
@@ -207,6 +207,7 @@ Name
 }
 ----
 
+. In the *Choose to create a REST Resource with the Data Type* section verify *No Resource* is selected.
 . Scroll down and click *Save*.
 
 [type=verification]
@@ -233,7 +234,7 @@ A *Path* represents an API endpoint/operation and the associated parameters requ
 
 . Click your new */greeting* endpoint under the *Paths* heading.
 
-. Click *Add Operation* under the *POST* icon in the *Operations* section on the right.
+. Select *POST* and click *Add Operation* in the *Operations* section on the right.
 
 . Enter the following in the *Summary* field:
 +
@@ -264,17 +265,17 @@ Fuse Online automatically completes the type *String as String*.
 
 
 . Click *Save* in the top right corner of the page to save your work.
-The *New Integration* wizard is displayed.
+The *Review Actions* screen of the *New Integration* wizard is displayed.
 
 . Click *Next*.
 
-. Click *Publish* on the *New Integration* wizard screen.
+. Click *Save* on the *New Integration* wizard screen.
 
 . When prompted to *Give this integration a name*:
 .. Enter the following in the *Integration Name* field:
 +
 ----
-Greeting Integration
+Greeting Integration {user-sanitized-username}
 ----
 .. Enter the following in the *Description* field:
 +
@@ -282,11 +283,11 @@ Greeting Integration
 my greeting api
 ----
 
-. Click *Save and Publish* to save your API design.
+. Click *Save* to save your API design.
 
 
 [type=verification]
-Is a *Greeting Integration* entry listed in the Fuse Online Home screen?
+Is a *Greet with name* entry listed in the *Operations* screen?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
@@ -304,16 +305,15 @@ Verify that you followed each step in the procedure above.  If you are still hav
 . Click the *Create flow* button. The *Add to Integration* page appears displaying the *Provided API* and the *Provided API Return Path*.
 
 . Click the blue plus icon to add a step.
-The left hand side of the *Choose a connection* page lists the steps in your *Integration*.
 
-. Select your *Greeting Slack Target*.
+. Select your *Greeting Slack Target* on the *Choose a connection* screen. This will add a step between the *Provided API* and the *Provided API Return Path*.
 
 . When prompted to *Choose an action* select *Channel*. You can use this to send a message to a specific channel in your Slack workspace.
 
 . Use the *Channel* menu to select the *low-code-demo* channel and click *Next*.
-The *Integration Flow Editor* should now list your Slack connection with a *Data Type Mismatch* warning.
+The *Add to Integration* screen should now display your Slack connection with a *Data Type Mismatch* warning icon.
 
-. Click the *Warning Icon* and choose *Add a data mapping step*.
+. Click the *Warning Icon* on the Slack *Channel* panel and choose *Add a data mapping step*.
 
 . From the *Data Mapper* screen click the *body* field in the *Source* panel to expand it.
 
@@ -326,29 +326,27 @@ The *Integration Flow Editor* should now list your Slack connection with a *Data
 . Enter the following in the *string* field under the menu:
 +
 ----
-Hello from
+Hello from 
 ----
 
 . Click *Done* to return to the *Integration* Flow Editor. The *Integration Flow Editor* should now list your *Provided API Return Path* with a *Data Type Mismatch* warning.
 
-. Click the *Warning Icon* and choose *Add a data mapping step*.
+. Click the *Warning Icon* on the *Provided API Return Path* panel and choose *Add a data mapping step*.
 
 . From the *Data Mapper* screen click the *Request* field in the *Source* panel to expand it.
 
 . Click the *message* field in the *Source* panel, then click the *body* field in the *Target* panel. This maps the *message* value from the created Slack message to the *body* of the outgoing HTTP response.
 
-. Click *Done* to return to the *Integration Flow* Editor.
+. Click *Done* to return to the *Add to Integration* Editor.
 
 . Click *Publish*.
 
 . Click *Save and Publish* to trigger an link:https://docs.openshift.com/container-platform/3.11/creating_images/s2i.html[Source to Image (S2I), window="_blank", id="{context}-2"] build.
 
-
-. Wait until Fuse Online reports your deployment was successful.
+. Wait until Fuse Online reports your build and deployment was successful.
 
 [type=verification]
-Does the Fuse Online *Home* screen list your *greeting api* with a blue box that contains the text *Running*?
-
+Does the Fuse Online *Home* screen list your *Greeting Integration* with a blue box that contains the text *Running*?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
@@ -376,18 +374,18 @@ Verify that you followed each step in the procedure above.  If you are still hav
 === Adding the App Endpoint to Red Hat 3scale
 
 . From the *APIs* section of the *Dashboard*, select the *New Product* item.
-. Select the *Import from OpenShift* option.
-If this option is not enabled, click *Authenticate to enable this option*
-
+. Select the *Import from OpenShift* option. If this option is not enabled, click the *Authenticate to enable this option* link and choose *Allow selected permissions*.
 . Choose the *fuse* option from the *Namespace* list.
-. Choose *i-greeting-api* from the *Name* list.
+. Choose *i-greeting-api-{user-sanitized-username}* from the *Name* list.
 . Click *Create Product*.
 +
-This process can take a few minutes.
+The import process can take a few minutes to complete.
 
-. Edit the API:
+. Configuring the API:
 
-.. Choose *Product: i-greeting-api* from the top navigation menu to view the *Overview* page.
+.. Open the link:{api-management-url}[{3scale-name} Login screen, window="_blank"].
+
+.. Choose *Product: i-greeting-integration-{user-sanitized-username}* from the top navigation menu to view the {3scale-name} homepage.
 
 .. Select the *Settings* item in the *Integration* dropdown menu.
 
@@ -397,28 +395,34 @@ This process can take a few minutes.
 ----
 {route}
 ----
++
+NOTE: We change the URL because the default one generated is too long and will fail to resolve.
 
-.. Click *Update Product* at the bottom of the page.
+.. Scroll down and click *Update Product*
 
 . Create a mapping rule for the `/greeting` endpoint.
 
-.. Select the *Mapping Rules* item in the *Integration* dropdown menu.
+.. Choose *Integration > Mapping Rules* from the left menu.
 
-.. Click *Add Mapping Rule*
+.. Click *Add Mapping Rule*.
 
-.. Select `POST` in the *Verb* field
+.. Select the *POST* option for *Verb*.
 
-.. Enter `/greeting` in the *Pattern* field
+.. Enter the `/greeting` for the *Pattern*.
 
-.. Click *Create Mapping Rule* at the bottom of the page
+.. Click *Create Mapping Rule*
+
+.. Choose the *Configuration* item in the *Integration* dropdown menu. Note that there is a warning icon beside this link that suggests promoting the Configuration.
+
+.. On the *Configuration* screen click *Promote v.2 to Staging*.
 
 [type=verification]
-Is the new mapping rule visible from the *Mapping Rules* screen?
+Is the staging environment listed in the *Environments* section on the *Integration > Configuration* screen?
 
 [type=verificationFail]
-Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+Verify that you followed each step in the procedure above. If you are still having issues, contact your administrator.
 
-=== Configuring your API
+=== Creating and Application and Application Plan
 
 . Create a new *Application Plan*:
 .. Select *Applications > Application Plans* from the side navigation.
@@ -428,7 +432,6 @@ Verify that you followed each step in the procedure above.  If you are still hav
 [subs="attributes+"]
 ----
 low-code
-
 ----
 .. Leave the other fields with their default values.
 .. Select *Create Application Plan*. You will be redirected to the *Application Plans* screen.
@@ -439,18 +442,18 @@ low-code
 .. Select the *Developer* Account to open the *Account Summary* page.
 .. Select the *(num) Application* item from the breadcrumb to view Applications.
 .. Select the *Create Application* button in the top right.
-.. Select the *low-code* Plan in the *Application plan* menu.
+.. Select the *low-code* Plan in the *Application plan* menu under the *i-greeting-integration-{user-sanitized-username}*.
 .. Enter the following for *Name* and *Description*:
 +
 [subs="attributes+"]
 ----
-low-code-app
+low-code-app-{user-sanitized-username}
 ----
 .. Select *Create Application*.
 
 . Set a custom *User Key* for the application:
-.. On the *low-code* application screen you were redirected to, scroll to the *API Credentials* section.
-.. Click the green pencil icon beside the *User Key*
+.. On the *low-code-app-evals25* Application screen you were redirected to, scroll to the *API Credentials* section.
+.. Click the green pencil icon beside the *API User Key*
 .. In the *Set Custom User Key* modal dialog, enter:
 +
 [subs="attributes+"]
@@ -480,16 +483,17 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 === Invoking the API
 
-. Use an HTTP client to invoke the route, for example:
+. Return to the *Integration > Configuration* screen for your *i-greeting-integration-{user-sanitized-username}* in 3scale.
+. Copy the URL beside *Example curl for testing*
+. Use an HTTP client such as cURL to invoke the `POST /greeting` route, for example:
 +
 [subs="attributes+"]
 ----
 curl -d '{"name":"John"}' -H "Content-Type: application/json" -X POST "{route}/greeting?user_key=test"
-
 ----
 
 [type=verification]
-Did the message "Hello from John appear in your Slack channel?
+Did the message "Hello from John" appear in your Slack channel?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
