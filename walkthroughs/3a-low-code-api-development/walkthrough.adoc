@@ -184,7 +184,7 @@ A *Data Type* represents a data structure that can be passed to your API and can
 Greeting API
 ----
 
-. Edit the *Description*:
+. Edit the *Description* that's found in the *Design* tab on the right in the *INFO* section:
 +
 ----
 My greeting API
@@ -211,7 +211,7 @@ Name
 . Scroll down and click *Save*.
 
 [type=verification]
-Is `</> Name` listed under the *Data Types* on the *API Designer* screen?
+Is `</> Name` listed under the *Data Types* on the *Provide API Definition* screen?
 
 
 [type=verificationFail]
@@ -222,7 +222,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 A *Path* represents an API endpoint/operation and the associated parameters required to invoke it.
 
-. Click *Add a path* under the *Paths* heading on the left of the *API Designer* screen.
+. Click *Add a path* under the *Paths* heading on the left of the *Provide API Definition* screen.
 
 . In the window that appears, enter the following in the *Path* field:
 +
@@ -234,7 +234,7 @@ A *Path* represents an API endpoint/operation and the associated parameters requ
 
 . Click your new */greeting* endpoint under the *Paths* heading.
 
-. Select *POST* and click *Add Operation* in the *Operations* section on the right.
+. In the *Operations* section on the right, select the *POST* tab and click *Add Operation*.
 
 . Enter the following in the *Summary* field:
 +
@@ -271,8 +271,8 @@ The *Review Actions* screen of the *New Integration* wizard is displayed.
 
 . Click *Save* on the *New Integration* wizard screen.
 
-. When prompted to *Give this integration a name*:
-.. Enter the following in the *Integration Name* field:
+. On the *Save the integration* screen:
+.. Enter the following in the *Name* field:
 +
 ----
 Greeting Integration {user-sanitized-username}
@@ -329,7 +329,7 @@ The *Add to Integration* screen should now display your Slack connection with a 
 Hello from 
 ----
 
-. Click *Done* to return to the *Integration* Flow Editor. The *Integration Flow Editor* should now list your *Provided API Return Path* with a *Data Type Mismatch* warning.
+. Click *Done* to return to the *Add to Integration* screen. This screen should now list your *Provided API Return Path* with a *Data Type Mismatch* warning.
 
 . Click the *Warning Icon* on the *Provided API Return Path* panel and choose *Add a data mapping step*.
 
@@ -360,23 +360,23 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 . Open the link:{api-management-url}[{3scale-name} Login screen, window="_blank", id="{context}-1"].
 
-. Select the *Red Hat Single Sign On* option. This triggers an OAuth Flow and redirects you back to the {3scale-name} Dashboard.
+. Select the *Authenticate through Red Hat Single Sign-On* option. This triggers an OAuth Flow and redirects you back to the {3scale-name} Dashboard.
 
 . Dismiss the *How does 3Scale work?* option which is displayed the first time you log in to {3scale-name}. The main Dashboard is displayed.
 
 [type=verification]
-Can you see the {3scale-name} Dashboard and navigate the main menu?
+Can you see the {3scale-name} Dashboard that shows the Audience and APIs panels?
 
 [type=verificationFail]
-Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+Verify that you followed each step in the procedure above. If you are still having issues, contact your administrator.
 
 
 === Adding the App Endpoint to Red Hat 3scale
 
 . From the *APIs* section of the *Dashboard*, select the *New Product* item.
 . Select the *Import from OpenShift* option. If this option is not enabled, click the *Authenticate to enable this option* link and choose *Allow selected permissions*.
-. Choose the *fuse* option from the *Namespace* list.
-. Choose *i-greeting-api-{user-sanitized-username}* from the *Name* list.
+. Verify that the *fuse* option is selected from the *Namespace* list.
+. Verify that the *i-greeting-api-{user-sanitized-username}* is selected from the *Name* list.
 . Click *Create Product*.
 +
 The import process can take a few minutes to complete.
@@ -386,6 +386,8 @@ The import process can take a few minutes to complete.
 .. Open the link:{api-management-url}[{3scale-name} Login screen, window="_blank"].
 
 .. Choose *Product: i-greeting-integration-{user-sanitized-username}* from the top navigation menu to view the {3scale-name} homepage.
++
+NOTE: If the *i-greeting-integration-{user-sanitized-username}* is not listed in the top navigation menu that means it is still being imported. Wait a while, refresh the page, and try again.
 
 .. Select the *Settings* item in the *Integration* dropdown menu.
 
