@@ -18,7 +18,7 @@
           "clusterServiceClassExternalName": "postgresql-persistent",
           "clusterServicePlanExternalName": "default",
           "parameters": {
-            "DATABASE_SERVICE_NAME": "orders-db",
+            "DATABASE_SERVICE_NAME": "rhmi-lab-orders-db",
             "POSTGRESQL_DATABASE": "orders",
             "POSTGRESQL_USER": "{{ user-username }}",
             "POSTGRESQL_PASSWORD": "password"
@@ -47,7 +47,7 @@
           "clusterServiceClassExternalName": "rhmi-lab-fuse-internal-orders-api",
           "clusterServicePlanExternalName": "default",
           "parameters": {
-            "PG_HOSTNAME": "orders-db.{{ walkthrough-namespace }}.svc",
+            "PG_HOSTNAME": "rhmi-lab-orders-db.{{ walkthrough-namespace }}.svc",
             "PG_DATABASE": "orders",
             "PG_USERNAME": "{{ user-username }}",
             "PG_PASSWORD": "password"

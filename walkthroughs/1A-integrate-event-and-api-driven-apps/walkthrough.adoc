@@ -78,7 +78,7 @@ To route messages from the Order Entry System to the Order Management System, cr
 
 . Create a *requests* address:
 .. Select the *Create* button to start the *Create new address* wizard.
-.. Enter the following as the address name:
+.. Enter the following as the name:
 +
 [subs="attributes+"]
 ----
@@ -117,14 +117,17 @@ To store Orders a table must be created in the PostgreSQL that was provisioned.
 
 . Log into link:{openshift-host}/console/project/{walkthrough-namespace}/overview[OpenShift Namespace, window="_blank"] for this walkthrough.
 . Select *Applications > Pods* from the left hand menu.
-. Click the Pod that has the name *orders-db* followed by an ID.
+. Click the Pod that has the name *rhmi-lab-orders-db* followed by an ID.
 . On the Pod details screen select the *Terminal* tab.
 . Log in to the *orders* database using the command:
++
 [subs="attributes+"]
 ----
-psql -U {user-username} -W -d orders`
+psql -U {user-username} -W -d orders
 ----
 . Enter the password `password` when prompted.
++
+NOTE: When entering the password above the input is not shown in the terminal for security reasons. Type or paste the password then press the `Enter` key and it will be accepted.
 . Paste the following as SQL to create the *received_orders* table:
 +
 [subs="attributes+"]
@@ -190,7 +193,7 @@ NOTE: You are not logging into the shared Fuse Online instance, available from t
 +
 [subs="attributes+"]
 ----
-Walkthrough 1A CRUD Connector
+Order System REST API Connector
 ----
 
 .. Click *Save*.
@@ -224,7 +227,7 @@ To enable Fuse Online to send messages from the queue to the Order Management Sy
 
 . Select the *Create Connection* button to start the *Create Connection* wizard.
 
-. When prompted with *Select connector*, select *Walkthrough 1A CRUD Connector*.
+. When prompted with *Select connector*, select *Order System REST API Connector*.
 
 . When prompted with *Configure connection*:
 .. Enter the following in the *Host* field:
@@ -233,13 +236,13 @@ To enable Fuse Online to send messages from the queue to the Order Management Sy
 ----
 {route-orders-fuse-api-host}
 ----
-.. Enter forward slash, i.e `/`, in the *Base path* field
+.. Enter forward slash, i.e `/`, in the *Base path* field and click *Next*
 
 . When prompted with *Name connection*:
 .. Enter the following in the *Name* field:
 +
 ----
-Walkthrough 1A CRUD Connection
+Order System REST API Connection
 ----
 .. Click *Save*.
 
@@ -301,7 +304,7 @@ amqp://{enmasse-broker-url}:5672?amqp.saslMechanisms=PLAIN
 +
 [subs="attributes+"]
 ----
-Walkthrough 1A Messaging App
+Incoming Order Queue Connection
 ----
 
 . Click *Save*.
@@ -341,7 +344,7 @@ To use the Fuse connections, create an integration in Red Hat Fuse Online.
 
 . Select the *Create Integration* button to start the *Create Integration* wizard.
 
-. Choose *Walkthrough 1A Messaging App* as the *Start Connection*.
+. Choose *Incoming Order Queue Connection* as the *Start Connection*.
 
 . When prompted to *Choose an action*, select *Subscribe for messages*.
 
@@ -381,7 +384,7 @@ work-queue-requests
 ----
 .. Click *Next*.
 
-. Choose *Walkthrough 1A CRUD Connection* as the *Finish Connection*.
+. Choose *Order System REST API Connection* as the *Finish Connection*.
 
 . When prompted to *Choose an action*, select *Create an order*.
 
@@ -440,6 +443,7 @@ After setting up the integration between the Order Entry System and Order Manage
 :fuse-url: https://eval.apps.city.openshiftworkshop.com/
 
 . Navigate to the link:{route-order-entry-ui-host}[Order Entry System, window="_blank", id="{context}-1"].
+. Enter any username, e.g `customer` and click *Log In*.
 . Click the *Create an order* button.
 . Enter a value for *Part Name*, e.g `Engine`, and a quantity, e.g `1`.
 . Click *Save*.
