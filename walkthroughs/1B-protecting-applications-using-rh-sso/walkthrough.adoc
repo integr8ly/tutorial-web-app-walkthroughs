@@ -33,7 +33,7 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 ****
 
 [type=walkthroughResource,serviceName=3scale]
-.{customer-sso-name}
+.End user SSO instance
 ****
 * link:{sso-realm-url}[SSO Realm Console, window="_blank"]
 * link:https://access.redhat.com/products/red-hat-single-sign-on/[Red Hat Single Sign-On Overview, window="_blank"]
