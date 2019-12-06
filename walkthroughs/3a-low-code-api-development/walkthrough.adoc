@@ -6,7 +6,7 @@
 :3scale-version: 2.6
 :fuse-url: https://eval.apps.city.openshiftworkshop.com/
 :3scale-url: https://eval.apps.city.openshiftworkshop.com/
-:route: https://wt3-{user-sanitized-username}-3scale.{openshift-app-host}
+:route: https://wt3-{user-username}-3scale.{openshift-app-host}
 
 [id='no-code-container-native-api-development']
 
@@ -275,7 +275,7 @@ The *Review Actions* screen of the *New Integration* wizard is displayed.
 .. Enter the following in the *Name* field:
 +
 ----
-Greeting Integration {user-sanitized-username}
+Greeting Integration {user-username}
 ----
 .. Enter the following in the *Description* field:
 +
@@ -376,7 +376,7 @@ Verify that you followed each step in the procedure above. If you are still havi
 . From the *APIs* section of the *Dashboard*, select the *New Product* item.
 . Select the *Import from OpenShift* option. If this option is not enabled, click the *Authenticate to enable this option* link and choose *Allow selected permissions*.
 . Verify that the *fuse* option is selected from the *Namespace* list.
-. Verify that the *i-greeting-api-{user-sanitized-username}* is selected from the *Name* list.
+. Verify that the *i-greeting-api-{user-username}* is selected from the *Name* list.
 . Click *Create Product*.
 +
 The import process can take a few minutes to complete.
@@ -385,9 +385,9 @@ The import process can take a few minutes to complete.
 
 .. Open the link:{api-management-url}[{3scale-name} Login screen, window="_blank"].
 
-.. Choose *Product: i-greeting-integration-{user-sanitized-username}* from the top navigation menu to view the {3scale-name} homepage.
+.. Choose *Product: i-greeting-integration-{user-username}* from the top navigation menu to view the {3scale-name} homepage.
 +
-NOTE: If the *i-greeting-integration-{user-sanitized-username}* is not listed in the top navigation menu that means it is still being imported. Wait a while, refresh the page, and try again.
+NOTE: If the *i-greeting-integration-{user-username}* is not listed in the top navigation menu that means it is still being imported. Wait a while, refresh the page, and try again.
 
 .. Select the *Settings* item in the *Integration* dropdown menu.
 
@@ -444,12 +444,12 @@ low-code
 .. Select the *Developer* Account to open the *Account Summary* page.
 .. Select the *(num) Application* item from the breadcrumb to view Applications.
 .. Select the *Create Application* button in the top right.
-.. Select the *low-code* Plan in the *Application plan* menu under the *i-greeting-integration-{user-sanitized-username}*.
+.. Select the *low-code* Plan in the *Application plan* menu under the *i-greeting-integration-{user-username}*.
 .. Enter the following for *Name* and *Description*:
 +
 [subs="attributes+"]
 ----
-low-code-app-{user-sanitized-username}
+low-code-app-{user-username}
 ----
 .. Select *Create Application*.
 
@@ -485,7 +485,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 === Invoking the API
 
-. Return to the *Integration > Configuration* screen for your *i-greeting-integration-{user-sanitized-username}* in 3scale.
+. Return to the *Integration > Configuration* screen for your *i-greeting-integration-{user-username}* in 3scale.
 . Copy the URL beside *Example curl for testing*
 . Use an HTTP client such as cURL to invoke the `POST /greeting` route, for example:
 +

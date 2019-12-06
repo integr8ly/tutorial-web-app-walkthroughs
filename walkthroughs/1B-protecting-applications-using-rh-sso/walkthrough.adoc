@@ -1,4 +1,4 @@
-:sso-realm-url: {user-sso-url}/auth/admin/{user-sanitized-username}/console/index.html
+:sso-realm-url: {user-sso-url}/auth/admin/{user-username}/console/index.html
 :sso-adapter-docs-url: https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.3/html/securing_applications_and_services_guide/index
 
 :rhmi-sso-name: Managed Integration SSO instance
@@ -63,7 +63,7 @@ important details regarding the security applied to the application.
 . Click the *Create* button at the top of the list of clients to display the *Add Client* screen:
 .. Enter `order-entry-system` in the *Client ID* field.
 .. Verify *Client Protocol* is set to `openid-connect`.
-.. Paste the URL of the *Order Entry System UI* from the *Integrating message-oriented middleware with a RESTful API using AMQ Online* Solution Pattern in the *Root URL* field. This should look similar to `https://order-entry-ui-{user-sanitized-username}-<NAMESPACE>.{openshift-app-host}`
+.. Paste the URL of the *Order Entry System UI* from the *Integrating message-oriented middleware with a RESTful API using AMQ Online* Solution Pattern in the *Root URL* field. This should look similar to `https://order-entry-ui-{user-username}-<NAMESPACE>.{openshift-app-host}`
 .. Click *Save*.
 . The *Settings* screen for the `order-entry-system` client should be displayed.
 . Verify that the *Access Type* field is set to `public`. This means the client is a frontend application that needs to login via a web browser.
