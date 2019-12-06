@@ -129,8 +129,8 @@ Various platforms are supported with *Client Adapters*:
 The *Order Entry System* is run from a Node.js server, so the Node.js
 `keycloak-connect` adapter is included in the code. The following steps will
 demonstrate how to include a configuration and enable the adapter.
-+
-NOTE: Enabling the adapter can vary depending on how an application has been coded. The Order Entry System has been developed to enable SSO protection if a configuration is found in the environment on startup.
+
+NOTE: Enabling the adapter can vary depending on how an application has been coded. The Order Entry System has been developed to enable SSO protection using the `keycloak-connect` Node.js module if a configuration is found in the environment on startup.
 
 . Navigate to the link:{sso-realm-url}[SSO Realm, window="_blank"].
 . Enter the username `{user-username}` and password `password` if prompted. 
