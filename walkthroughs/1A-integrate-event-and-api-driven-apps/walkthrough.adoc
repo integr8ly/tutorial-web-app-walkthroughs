@@ -22,7 +22,7 @@ In this Solution Pattern, you create a simple and intuitive integration with bui
 
 * An Order Entry System, built with Node.js, that provides a RESTful API and a user interface to create order messages
 * An Order Management System RESTful API, built with Red Hat Fuse, for querying and creating orders in an underlying PostgreSQL database
-* An Order Management System user interface, built with Node.js, for visualising orders in the PostgreSQL database using the Fuse RESTful API.
+* An Order Management System user interface, built with Node.js, for visualising orders in the PostgreSQL database using the Fuse RESTful API
 
 
 To create this integration, use link:{enmasse-url}[AMQ Online, window="_blank", id="wt1a_GS_enmasse-url"] and API connectors in link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="wt1a_GS_fuse-url"].
