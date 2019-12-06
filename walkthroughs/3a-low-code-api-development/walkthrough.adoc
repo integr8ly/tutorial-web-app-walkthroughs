@@ -471,17 +471,6 @@ Review the settings in 3scale. Do they match the settings outlined in this task?
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
 
-=== Staging your API
-
-. Click the *Configuration* menu item in the *Integration* dropdown menu from the side navigation.
-
-. In the *APIcast Configuration* section, click the *Promote to Staging* button
-
-[type=verification]
-Is a new version of the API visible in the *Environments* section of the page?
-
-[type=verificationFail]
-Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
 
 === Invoking the API
 
