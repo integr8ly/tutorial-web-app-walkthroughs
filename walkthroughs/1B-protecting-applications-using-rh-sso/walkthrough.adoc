@@ -165,13 +165,14 @@ NOTE: Enabling the adapter can vary depending on how an application has been cod
 . Scroll down and click *Save*.
 . Select *Overview* on the left and find the *rhmi-lab-nodejs-order-frontend* in the list.
 . If a deployment is still in progress, wait for it to finish.
-. Open the URL listed beside the *rhmi-lab-nodejs-order-frontend* in either a private browser session, or a different browser to view the *Order Entry System* UI. A login screen with the title *{user-username} Realm* is displayed.
+. Open the URL listed beside the *rhmi-lab-nodejs-order-frontend* in either a private browser session, or a different browser to view the *Order Entry System* UI.
 +
 NOTE: We suggest using a private session or different browser to ensure any old sessions that might exist are not being used.
 
-.. Enter `customer` in the *Username or email*.
-.. Enter `customer-password` in the *Password* field.
-.. Click the *Log In* button.
+. A login screen with the title *{user-username} Realm* is displayed.
+. Enter `customer` in the *Username or email*.
+. Enter `customer-password` in the *Password* field.
+. Click the *Log In* button.
 
 [type=verification]
 The login should be successful and the *Order Entry System* web application should be displayed. If a login page is not presented try opening the *Order Entry System* in a private browsing session or different browser.
