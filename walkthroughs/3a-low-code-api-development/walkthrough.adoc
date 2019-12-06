@@ -375,6 +375,7 @@ Verify that you followed each step in the procedure above. If you are still havi
 
 . From the *APIs* section of the *Dashboard*, select the *New Product* item.
 . Select the *Import from OpenShift* option. If this option is not enabled, click the *Authenticate to enable this option* link and choose *Allow selected permissions*.
+. If you have to use the *Authenticate to enable this option* link, verify that you have reselected *Import from OpenShift* after being redirected.
 . Verify that the *fuse* option is selected from the *Namespace* list.
 . Verify that the *i-greeting-api-{user-username}* is selected from the *Name* list.
 . Click *Create Product*.
