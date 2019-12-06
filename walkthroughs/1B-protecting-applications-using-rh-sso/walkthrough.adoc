@@ -63,7 +63,7 @@ important details regarding the security applied to the application.
 . Click the *Create* button at the top of the list of clients to display the *Add Client* screen:
 .. Enter `order-entry-system` in the *Client ID* field.
 .. Verify *Client Protocol* is set to `openid-connect`.
-.. Paste the URL of the *Order Entry System* from the previous Solution Pattern in the *Root URL* field. This should look similar to `https://order-entry-ui-<NAMESPACE>.{openshift-app-host}`
+.. Paste the URL of the *Order Entry System UI* from the *Integrating message-oriented middleware with a RESTful API using AMQ Online* Solution Pattern in the *Root URL* field. This should look similar to `https://order-entry-ui-{user-sanitized-username}-<NAMESPACE>.{openshift-app-host}`
 .. Click *Save*.
 . The *Settings* screen for the `order-entry-system` client should be displayed.
 . Verify that the *Access Type* field is set to `public`. This means the client is a frontend application that needs to login via a web browser.
@@ -98,6 +98,8 @@ simple.
 .. Enter the password `customer-password` in the *New Password* field.
 .. Enter the same password in the *Password Confirmation* field.
 .. Set the *Temporary* toggle to the *OFF* position.
++
+NOTE: If we left *Temporary* in the *ON* position the user would be forced to create a new password when they perform a login.
 .. Click the *Reset Password* button.
 .. When prompted click the *Change password* button in the modal.
 
@@ -122,27 +124,26 @@ Various platforms are supported with *Client Adapters*:
 . JavaScript (client-side)
 . Servlet Filter
 
+{blank}
+
 The *Order Entry System* is run from a Node.js server, so the Node.js
 `keycloak-connect` adapter is included in the code. The following steps will
 demonstrate how to include a configuration and enable the adapter.
-
-NOTE: Enabling the adapter can vary depending on how an application has been
-coded. The Order Entry System has been developed to disable SSO
-protection if a configuration is not found on startup. For a real application
-this may not be advisable.
++
+NOTE: Enabling the adapter can vary depending on how an application has been coded. The Order Entry System has been developed to enable SSO protection if a configuration is found in the environment on startup.
 
 . Navigate to the link:{sso-realm-url}[SSO Realm, window="_blank"].
 . Enter the username `{user-username}` and password `password` if prompted. 
 . Select *Clients* from the side menu.
 . Click the `order-entry-system` client that was created earlier.
-. Open the *Installation* tab.
+. Choose the *Installation* tab.
 . Select *Keycloak OIDC JSON* for *Format Option*.
 . Click the *Download* button to download this as a _keycloak.json_ file.
 
 === Creating a SSO Config Map Entry
 
 . Login to the link:{openshift-host}/console/[OpenShift Console, window="_blank"].
-. Select the *walkthroughs-1A* project.
+. Select the *walkthroughs-1A-integrate-event-and-api-driven-apps* project.
 . Select *Resources > Config Maps*.
 . Click the *Create Config Map*  button.
 .. Enter `order-entry-keycloak-config` in the *Name* field.
@@ -153,7 +154,7 @@ this may not be advisable.
 === Applying the SSO Config Map
 
 . Login to the link:{openshift-host}/console/[OpenShift Console, window="_blank"].
-. Navigate to the *walkthroughs-1A* project.
+. Navigate to the *walkthroughs-1A-integrate-event-and-api-driven-apps* project.
 . Select *Applications > Deployments*.
 . Select the *rhmi-lab-nodejs-order-frontend* item from the *Deployments* list.
 . Select the *Environment* tab.
@@ -163,14 +164,16 @@ this may not be advisable.
 .. Choose the `KEYCLOAK_CONFIG` in the *Select key* dropdown. 
 . Scroll down and click *Save*.
 . Select *Overview* on the left and find the *rhmi-lab-nodejs-order-frontend* in the list.
-. Wait for it to finish deploying.
-. Open the URL listed beside the *rhmi-lab-nodejs-order-frontend* in a private browser session to open the *Order Entry System*. A login screen with the title *{user-username} Realm* is displayed.
+. If a deployment is still in progress, wait for it to finish.
+. Open the URL listed beside the *rhmi-lab-nodejs-order-frontend* in either a private browser session, or a different browser to view the *Order Entry System* UI. A login screen with the title *{user-username} Realm* is displayed.
++
+NOTE: We suggest using a private session or different browser to ensure any old sessions that might exist are not being used.
 .. Enter `customer` in the *Username or email*.
 .. Enter `customer-password` in the *Password* field.
 .. Click the *Log In* button.
 
 [type=verification]
-The login should be successful and the *Order Entry System* web application should be displayed. If a login page is not presented try opening the *Order Entry System* in a private browsing session.
+The login should be successful and the *Order Entry System* web application should be displayed. If a login page is not presented try opening the *Order Entry System* in a private browsing session or different browser.
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above. If you are still having issues, contact your administrator.
