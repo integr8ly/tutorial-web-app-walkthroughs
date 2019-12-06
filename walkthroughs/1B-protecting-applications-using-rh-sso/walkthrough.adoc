@@ -143,7 +143,7 @@ NOTE: Enabling the adapter can vary depending on how an application has been cod
 === Creating a SSO Config Map Entry
 
 . Login to the link:{openshift-host}/console/[OpenShift Console, window="_blank"].
-. Select the *walkthroughs-1A-integrate-event-and-api-driven-apps* project.
+. Select the project that contains *walkthroughs-1A-integrate-event-and-api-driven-apps* in the name.
 . Select *Resources > Config Maps*.
 . Click the *Create Config Map*  button.
 .. Enter `order-entry-keycloak-config` in the *Name* field.
