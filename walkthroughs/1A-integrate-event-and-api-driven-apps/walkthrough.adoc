@@ -113,7 +113,7 @@ Verify that you followed each step in the procedure above. If you are still havi
 
 // tag::task-table-setup[]
 
-To store Orders a table must be created in the PostgreSQL that was provisioned.
+To store orders a table must be created in the PostgreSQL that was provisioned.
 
 . Log into link:{openshift-host}/console/project/{walkthrough-namespace}/overview[OpenShift Namespace, window="_blank"] for this walkthrough.
 . Select *Applications > Pods* from the left hand menu.
