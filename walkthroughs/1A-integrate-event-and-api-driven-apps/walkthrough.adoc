@@ -132,7 +132,8 @@ psql -U {user-username} -W -d orders
 password
 ----
 +
-NOTE: When entering the password above the input is not shown in the terminal for security reasons. Type or paste the password then press the `Enter` key and it will be accepted.
+NOTE: For security reasons, the password is not shown in the terminal.
+Type or paste the password then press the `Enter` key and it will be accepted.
 . Paste the following as SQL to create the *received_orders* table:
 +
 [subs="attributes+"]
