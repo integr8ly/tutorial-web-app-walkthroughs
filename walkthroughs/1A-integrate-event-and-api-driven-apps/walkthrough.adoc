@@ -18,7 +18,7 @@ Typically, a developer working on a back-end application implements a synchronou
 You may identify business value, as part of an application modernization effort, by integrating a message queue with an API.
 This is not trivial, because of the conflicting underlying timing models. The data may require transformation to be usable.
 
-In this Solution Pattern, you create a simple and intuitive integration with built-in monitoring, to enable communication between two applications:
+This Solution Pattern consists of the following components:
 
 * An Order Entry System, built with Node.js, that provides a RESTful API and a user interface to create order messages
 * An Order Management System RESTful API, built with Red Hat Fuse, for querying and creating orders in an underlying PostgreSQL database
