@@ -166,7 +166,7 @@ demonstrate how to include a configuration and enable the adapter.
 . If a deployment is still in progress, wait for it to finish.
 . Open the URL listed beside the *rhmi-lab-nodejs-order-frontend* in either a private browser session, or a different browser to view the *Order Entry System* UI.
 +
-NOTE: We suggest using a private session or different browser to ensure any old sessions that might exist are not being used.
+NOTE: Use a private session or different browser to avoid conflict with old sessions.
 
 . A login screen with the title *{user-username} Realm* is displayed.
 . Enter `customer` in the *Username or email*.
