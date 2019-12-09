@@ -149,6 +149,13 @@ CREATE TABLE received_orders (
 
 [type=verification]
 Is the newly created table listed when you enter the `\d` command from the `psql` client? 
+****
+Enter the following command:
+----
+\d
+----
+Is the `received_orders` table listed?
+****
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above and are issuing the command while connected to the *orders* database. If you are still having issues, contact your administrator.
