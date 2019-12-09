@@ -223,7 +223,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 A *Path* represents an API endpoint/operation and the associated parameters required to invoke it.
 
-. Click *Add a path* under the *Paths* heading on the left of the *Provide API Definition* screen.
+. Click *Add a path* under the *Paths* heading of the *Provide API Definition* screen.
 
 . In the window that appears, enter the following in the *Path* field:
 +
