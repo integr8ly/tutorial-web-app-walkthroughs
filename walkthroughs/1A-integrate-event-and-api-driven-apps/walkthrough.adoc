@@ -125,7 +125,12 @@ Create a table to store orders.
 ----
 psql -U {user-username} -W -d orders
 ----
-. Enter the password `password` when prompted.
+. Enter the following when prompted:
++
+[subs="attributes+"]
+----
+password
+----
 +
 NOTE: When entering the password above the input is not shown in the terminal for security reasons. Type or paste the password then press the `Enter` key and it will be accepted.
 . Paste the following as SQL to create the *received_orders* table:
