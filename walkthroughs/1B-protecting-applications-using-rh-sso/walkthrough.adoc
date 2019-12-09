@@ -53,7 +53,6 @@ A realm has already been created for this Solution Pattern and user.
 === Creating a client
 
 Securing an application requires you to create a client in the {customer-sso-name}:
-a *Realm*. The *Client* represents the application being secured and contains
 
 . Navigate to the link:{sso-realm-url}[SSO Realm, window="_blank"].
 . Enter the username `{user-username}` and password `password` if prompted.
