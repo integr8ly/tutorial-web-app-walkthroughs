@@ -152,7 +152,7 @@ demonstrate how to include a configuration and enable the adapter.
 
 === Applying the SSO Config Map
 
-. Login to the link:{openshift-host}/console/[OpenShift Console, window="_blank"].
+. Log in to the link:{openshift-host}/console/[OpenShift Console, window="_blank"].
 . Navigate to the *walkthroughs-1A-integrate-event-and-api-driven-apps* project.
 . Select *Applications > Deployments*.
 . Select the *rhmi-lab-nodejs-order-frontend* item from the *Deployments* list.
