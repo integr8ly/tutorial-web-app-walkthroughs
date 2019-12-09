@@ -116,7 +116,7 @@ Fuse Online Demo
 .. On the following screen under the *Add features and functionality* click *Incoming Webhooks*.
 .. Change the *Activate Incoming Webhooks* switch to the *On* position.
 .. Scroll down and click *Add New Webhook to Workspace*.
-.. In the *Where should Fuse Online Demo post?* field select *low-code-demo* and click *Allow*.
+.. Select *low-code-demo* in the *Where should Fuse Online Demo post?* field and click *Allow*.
 +
 You are redirected back to the *Incoming Webhooks* page.
 .. Copy the *Webhook URL* displayed at the bottom of the page using the *Copy* button.
