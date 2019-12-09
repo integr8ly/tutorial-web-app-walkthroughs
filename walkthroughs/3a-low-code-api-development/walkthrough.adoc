@@ -417,7 +417,10 @@ NOTE: We change the URL because the default one generated is too long and will f
 
 .. Click *Create Mapping Rule*
 
-.. Choose the *Configuration* item in the *Integration* dropdown menu. Note that there is a warning icon beside this link that suggests promoting the Configuration.
+.. Choose the *Configuration* item in the *Integration* dropdown menu. 
++
+Note: There is a warning icon next to this link that suggests promoting the configuration.
+
 
 .. On the *Configuration* screen click *Promote v.2 to Staging*.
 
