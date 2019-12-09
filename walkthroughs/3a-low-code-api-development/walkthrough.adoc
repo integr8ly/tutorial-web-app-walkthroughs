@@ -207,7 +207,7 @@ Name
 }
 ----
 
-. In the *Choose to create a REST Resource with the Data Type* section verify *No Resource* is selected.
+. Make sure *No Resource* is selected in the *Choose to create a REST Resource with the Data Type* section.
 . Scroll down and click *Save*.
 
 [type=verification]
