@@ -184,7 +184,7 @@ A *Data Type* represents a data structure that can be passed to your API and can
 Greeting API
 ----
 
-. Edit the *Description* that's found in the *Design* tab on the right in the *INFO* section:
+. Edit the *Description* in the *Design* tab on the right in the *INFO* section:
 +
 ----
 My greeting API
