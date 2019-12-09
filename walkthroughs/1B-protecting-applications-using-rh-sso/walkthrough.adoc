@@ -8,13 +8,9 @@
 
 This Solution Pattern demonstrates how to use the end user SSO instance to protect web applications using standards such as SAML 2.0, OpenID Connect and OAuth 2.0.
 
+For more information about the various SSO instances in a Managed Integration cluster, see the link:https://access.redhat.com/documentation/en-us/red_hat_managed_integration/1/html-single/getting_started/index#sso[Managed Integration documentation].
+
 NOTE: You must complete the *Integrating message-oriented middleware with a RESTful API using AMQ Online* Solution Pattern before starting this Solution Pattern.
-
-Each Red Hat Managed Integration cluster includes two SSO instances:
-
-* *{rhmi-sso-name}* provides authenication to the Managed Integration cluster.
-
-* *{customer-sso-name}* can be used by developers to secure applications they deploy on the cluster, or even on other infrastructure.
 
 
 This Solution Pattern shows you how to use the *{customer-sso-name}* to enable
@@ -50,13 +46,15 @@ can only manage and authenticate the users that they control.
 
 A realm has already been created for this Solution Pattern and user.
 
-=== Creating a client
+=== Creating a Client
 
-Securing an application requires you to create a client in the {customer-sso-name}:
+Securing an application using SSO requires a *Client* to be created in
+a *Realm*. The *Client* represents the application being secured and contains
+important details regarding the security applied to the application.
 
 . Navigate to the link:{sso-realm-url}[SSO Realm, window="_blank"].
 . Enter the username `{user-username}` and password `password` if prompted.
-. Details for realm named {user-username} are displayed upon login success.
+. Details for teh `{user-username}` realm are displayed upon login success.
 . Select *Clients* from the menu on the left.
 . Click the *Create* button at the top of the list of clients to display the *Add Client* screen:
 .. Enter `order-entry-system` in the *Client ID* field.
@@ -64,15 +62,16 @@ Securing an application requires you to create a client in the {customer-sso-nam
 .. Paste the URL of the *Order Entry System UI* from the *Integrating message-oriented middleware with a RESTful API using AMQ Online* Solution Pattern in the *Root URL* field. This should look similar to `https://order-entry-ui-{user-username}-<NAMESPACE>.{openshift-app-host}`
 .. Click *Save*.
 . The *Settings* screen for the `order-entry-system` client should be displayed.
-. Make sure that the *Access Type* field is set to `public`. This means the client is a frontend application that needs to login via a web browser.
+. Verify that the *Access Type* field is set to `public`. This means the client is a frontend application that needs to login via a web browser.
 
 [type=verification]
-Select the *Clients* item in the side menu. The `order-entry-system` client should be listed and *Enabled* should be `True`.
+Select the *Clients* item in the side menu. 
+Is the `order-entry-system` client listed and *Enabled* set to `True`?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above and that the *Enabled* toggle in the *Client* is set to *ON*. If you are still having issues, contact your administrator.
 
-=== Create a User
+=== Creating a User
 
 Red Hat Single Sign-On provides identity brokering functionality. Identity
 brokering facilitates login using a shared identity. For example, it's possible
@@ -102,7 +101,7 @@ NOTE: If we left *Temporary* in the *ON* position the user would be forced to cr
 .. When prompted click the *Change password* button in the modal.
 
 [type=verification]
-Select the *Users* item in the side menu. Click the *View all users* button. The `customer` user should be listed.
+Select the *Users* item in the side menu. Click the *View all users* button. Is the `customer` user listed?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above. If you are still having issues, contact your administrator.
@@ -115,12 +114,12 @@ Verify that you followed each step in the procedure above. If you are still havi
 To secure an application with SSO a *Client Adapter* is required.
 Various platforms are supported with *Client Adapters*:
 
-. Spring Boot
-. Node.js
-. JBoss EAP
-. Fuse
-. JavaScript (client-side)
-. Servlet Filter
+* Spring Boot
+* Node.js
+* JBoss EAP
+* Fuse
+* JavaScript (client-side)
+* Servlet Filter
 
 {blank}
 
@@ -172,9 +171,10 @@ NOTE: Use a private session or different browser to avoid conflict with old sess
 . Click the *Log In* button.
 
 [type=verification]
-The login should be successful and the *Order Entry System* web application should be displayed. If a login page is not presented try opening the *Order Entry System* in a private browsing session or different browser.
+The login should be successful. Is the *Order Entry System* web application displayed?
 
 [type=verificationFail]
+If a login page is not presented try opening the *Order Entry System* in a private browsing session or different browser.
 Verify that you followed each step in the procedure above. If you are still having issues, contact your administrator.
 
 [type=taskResource]
