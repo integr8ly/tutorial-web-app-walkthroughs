@@ -52,7 +52,7 @@ A realm has already been created for this Solution Pattern and user.
 
 === Creating a client
 
-Securing an application using SSO requires a *Client* to be created in
+Securing an application requires you to create a client in the {customer-sso-name}:
 a *Realm*. The *Client* represents the application being secured and contains
 important details regarding the security applied to the application.
 
