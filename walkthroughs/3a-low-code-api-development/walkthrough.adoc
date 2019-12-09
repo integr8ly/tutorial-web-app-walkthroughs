@@ -235,7 +235,7 @@ A *Path* represents an API endpoint/operation and the associated parameters requ
 
 . Click your new */greeting* endpoint under the *Paths* heading.
 
-. In the *Operations* section on the right, select the *POST* tab and click *Add Operation*.
+. Select the *POST* tab in the *Operations* section, and click *Add Operation*.
 
 . Enter the following in the *Summary* field:
 +
