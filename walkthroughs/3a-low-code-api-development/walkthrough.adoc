@@ -362,7 +362,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 . Open the link:{api-management-url}[{3scale-name} Login screen, window="_blank", id="{context}-1"].
 
-. Select the *Authenticate through Red Hat Single Sign-On* option. This triggers an OAuth Flow and redirects you back to the {3scale-name} Dashboard.
+. Select the *Authenticate through Red Hat Single Sign-On* option. This triggers an OAuth Flow and redirects you to the {3scale-name} Dashboard.
 
 . Dismiss the *How does 3Scale work?* option which is displayed the first time you log in to {3scale-name}. The main Dashboard is displayed.
 
