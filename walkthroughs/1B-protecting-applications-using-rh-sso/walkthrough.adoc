@@ -6,7 +6,7 @@
 
 = Protecting Applications using Red Hat Single Sign-On (SSO)
 
-This Solution Pattern demonstrates how SSO can be used to protect web applications by providing single sign-on capabilities based on popular standards such as SAML 2.0, OpenID Connect and OAuth 2.0.
+This Solution Pattern demonstrates how to use the end user SSO instance to protect web applications using standards such as SAML 2.0, OpenID Connect and OAuth 2.0.
 
 NOTE: You must complete the *Integrating message-oriented middleware with a RESTful API using AMQ Online* Solution Pattern prior to starting this one.
 
