@@ -66,7 +66,7 @@ important details regarding the security applied to the application.
 .. Paste the URL of the *Order Entry System UI* from the *Integrating message-oriented middleware with a RESTful API using AMQ Online* Solution Pattern in the *Root URL* field. This should look similar to `https://order-entry-ui-{user-username}-<NAMESPACE>.{openshift-app-host}`
 .. Click *Save*.
 . The *Settings* screen for the `order-entry-system` client should be displayed.
-. Verify that the *Access Type* field is set to `public`. This means the client is a frontend application that needs to login via a web browser.
+. Make sure that the *Access Type* field is set to `public`. This means the client is a frontend application that needs to login via a web browser.
 
 [type=verification]
 Select the *Clients* item in the side menu. The `order-entry-system` client should be listed and *Enabled* should be `True`.
