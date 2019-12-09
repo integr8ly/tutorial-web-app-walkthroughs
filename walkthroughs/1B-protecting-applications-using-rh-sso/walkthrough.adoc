@@ -50,7 +50,7 @@ can only manage and authenticate the users that they control.
 
 A realm has already been created for this Solution Pattern and user.
 
-=== Create a Client
+=== Creating a client
 
 Securing an application using SSO requires a *Client* to be created in
 a *Realm*. The *Client* represents the application being secured and contains
