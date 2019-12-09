@@ -42,7 +42,7 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 :sectnums:
 
 [time=15]
-== Creating a Client and User in SSO
+== Creating a client and user in SSO
 
 SSO uses *Realms* to manage *Clients*, *Roles*, *Users* and *Groups*. A
 user belongs to and logs into a realm. Realms are isolated from one another and
