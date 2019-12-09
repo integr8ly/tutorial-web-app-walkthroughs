@@ -158,7 +158,7 @@ Is the `received_orders` table listed?
 ****
 
 [type=verificationFail]
-Verify that you followed each step in the procedure above and are issuing the command while connected to the *orders* database. If you are still having issues, contact your administrator.
+Verify that you followed each step in the procedure above. If you are still having issues, contact your administrator.
 
 // end::task-table-setup[]
 
