@@ -174,7 +174,7 @@ A *Data Type* represents a data structure that can be passed to your API and can
 
 . Click the *Create Integration* button to start the *New Integration* wizard.
 
-. Choose *API Provider* on the subsequent *Choose a Start Connection* screen.
+. Choose *API Provider* on the *Choose a Start Connection* screen.
 
 . When prompted choose *Create* and click *Next* to navigate to the *Provide API Definition* screen.
 
