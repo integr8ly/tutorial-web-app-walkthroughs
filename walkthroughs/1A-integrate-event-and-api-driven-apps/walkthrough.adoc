@@ -449,7 +449,6 @@ After setting up the integration between the Order Entry System and Order Manage
 :fuse-url: https://eval.apps.city.openshiftworkshop.com/
 
 . Navigate to the link:{route-order-entry-ui-host}[Order Entry System, window="_blank", id="{context}-1"].
-. Enter any username, e.g `customer` and click *Log In*.
 . Click the *Create an order* button.
 . Enter a value for *Part Name*, e.g `Engine`, and a quantity, e.g `1`.
 . Click *Save*.
