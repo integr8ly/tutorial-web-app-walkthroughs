@@ -275,6 +275,7 @@ The *Review Actions* screen of the *New Integration* wizard is displayed.
 . On the *Save the integration* screen:
 .. Enter the following in the *Name* field:
 +
+[subs="attributes+"]
 ----
 Greeting Integration {user-username}
 ----
@@ -460,7 +461,7 @@ low-code-app-{user-username}
 .. Select *Create Application*.
 
 . Set a custom *User Key* for the application:
-.. On the *low-code-app-evals25* Application screen you were redirected to, scroll to the *API Credentials* section.
+.. On the *low-code-app-{user-username}* Application screen you were redirected to, scroll to the *API Credentials* section.
 .. Click the green pencil icon beside the *API User Key*
 .. In the *Set Custom User Key* modal dialog, enter:
 +
