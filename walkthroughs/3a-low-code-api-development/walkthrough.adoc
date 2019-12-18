@@ -387,8 +387,6 @@ The import process can take a few minutes to complete.
 
 . Configuring the API:
 
-.. Open the link:{api-management-url}[{3scale-name} Login screen, window="_blank"].
-
 .. Choose *Product: i-greeting-integration-{user-username}* from the top navigation menu to view the {3scale-name} homepage.
 +
 NOTE: If the *i-greeting-integration-{user-username}* is not listed in the top navigation menu that means it is still being imported. Wait a while, refresh the page, and try again.
@@ -481,8 +479,6 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 === Invoking the API
 
-. Return to the *Integration > Configuration* screen for your *i-greeting-integration-{user-username}* in 3scale.
-. Copy the URL beside *Example curl for testing*
 . Use an HTTP client such as cURL to invoke the `POST /greeting` route, for example:
 +
 [subs="attributes+"]
