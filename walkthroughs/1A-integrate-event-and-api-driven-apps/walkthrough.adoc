@@ -117,7 +117,7 @@ Create a table to store orders.
 
 . Log into link:{openshift-host}/console/project/{walkthrough-namespace}/overview[OpenShift Namespace, window="_blank"] for this walkthrough.
 . Select *Applications > Pods* from the left hand menu.
-. Click the Pod that has the name *rhmi-lab-orders-db* followed by an ID.
+. Click the Pod that has the name *rhmi-lab-orders-db* followed by an ID, for example *rhmi-lab-orders-db-1-cfqh2*.
 . Select the *Terminal* tab on the Pod details screen.
 . Log in to the *orders* database using the command:
 +
@@ -132,9 +132,10 @@ psql -U {user-username} -W -d orders
 password
 ----
 +
-NOTE: For security reasons, the password is not shown in the terminal.
-Type or paste the password then press the `Enter` key and it will be accepted.
-. Paste the following as SQL to create the *received_orders* table:
+For security reasons, the password is not shown in the terminal.
+Paste the password then press the *Enter* key.
+
+. Paste the following as SQL to create the `received_orders` table:
 +
 [subs="attributes+"]
 ----
@@ -148,7 +149,7 @@ CREATE TABLE received_orders (
 ----
 
 [type=verification]
-Is the newly created table listed when you enter the `\d` command from the `psql` client? 
+Is the `received_orders` table listed when you enter the `\d` command in the terminal for the PostgreSQL pod? 
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above. If you are still having issues, contact your administrator.
@@ -169,12 +170,13 @@ Verify that you followed each step in the procedure above. If you are still havi
 === Creating an API Connector
 
 Fuse Online is an enterprise integration platform that provides connectors for many services, such as Gmail and IRC.
-It can be extended with custom connectors, using either OpenAPI definitions (Swagger) or JAR files.
-To create a connector for the Fuse RESTful API, register the OpenAPI definition as a *Customization*.
+You can extend Fuse Online with custom connectors, using either OpenAPI definitions (Swagger) or JAR files.
+To create a connector for the Fuse RESTful API, register the OpenAPI definition as a *Customization*:
 
 . Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="{context}-1"] console.
 +
-NOTE: You are not logging into the shared Fuse Online instance, available from the link:/[Applications menu] with this step. Starting this Solution Pattern provisioned an instance of Fuse Online which is not shared with other cluster users.
+NOTE: You are not logging into the shared Fuse Online instance, available from the link:/[All services tab]. 
+Starting this Solution Pattern provisioned an instance of Fuse Online which is not shared with other cluster users.
 
 . Select *Customizations > API Client Connectors* from the left hand menu.
 
@@ -212,11 +214,6 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 // end::creating-api-connector[]
 
-// tag::creating-amqp-connection-in-fuse[]
-
-// Module included in the following assemblies:
-//
-// <List assemblies here, each on a new line>
 
 // tag::creating-http-connection[]
 
@@ -224,7 +221,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 [.integr8ly-docs-header]
 === Creating HTTP connection to CRUD App
 
-To enable Fuse Online to send messages from the queue to the Order Management System, create a connection in Red Hat Fuse Online using the API connector you just created.
+To enable Fuse Online to send messages from the queue to the Order Management System, create a connection in Red Hat Fuse Online using the API connector you created earlier.
 
 
 . Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="{context}-3"] console.
@@ -242,7 +239,7 @@ To enable Fuse Online to send messages from the queue to the Order Management Sy
 ----
 {route-orders-fuse-api-host}
 ----
-.. Enter forward slash, i.e `/`, in the *Base path* field and click *Next*
+.. Enter a forward slash, that is, `/`, in the *Base path* field and click *Next*
 
 . When prompted with *Name connection*:
 .. Enter the following in the *Name* field:
@@ -264,9 +261,9 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 [id='creating-amqp-connection-in-fuse_{context}']
 [.integr8ly-docs-header]
-=== Creating AMQP connection in Red Hat Fuse Online
+=== Creating an AMQP connection in Red Hat Fuse Online
 
-To allow Fuse Online to consume messages placed on the queue by the Order Entry System, create a connection in Red Hat Fuse Online.
+To allow Fuse Online to consume messages placed on the queue by the Order Entry System, create a connection in Red Hat Fuse Online:
 
 
 :fuse-url: https://eval.apps.city.openshiftworkshop.com/
@@ -288,14 +285,14 @@ To allow Fuse Online to consume messages placed on the queue by the Order Entry 
 amqp://{enmasse-broker-url}:5672?amqp.saslMechanisms=PLAIN
 ----
 
-. Enter the username relating to {enmasse}:
+. Enter the username for {enmasse}:
 +
 [subs="attributes+"]
 ----
 {enmasse-credentials-username}
 ----
 
-. Enter the password relating to {enmasse}:
+. Enter the password for {enmasse}:
 +
 [subs="attributes+"]
 ----
@@ -342,7 +339,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 // end::task-creating-fuse-integration[]
 
 
-To use the Fuse connections, create an integration in Red Hat Fuse Online.
+To use the Fuse connections, create an integration in Red Hat Fuse Online:
 
 . Log in to the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="wt1a_2_3_1_fuse-url"] console.
 
