@@ -189,6 +189,7 @@ Starting this Solution Pattern provisioned an instance of Fuse Online which is n
 ----
 {route-orders-fuse-api-host}/openapi.json
 ----
+This OpenAPI (swagger) file defines the API for querying and creating orders in the underlying PostgreSQL database.
 
 .. Click *Next*.
 
