@@ -240,6 +240,8 @@ To enable Fuse Online to send messages from the queue to the Order Management Sy
 ----
 {route-orders-fuse-api-host}
 ----
+This is the location of the *rhmi-lab-internal-fuse-api* application that was created by the API Connector above
+
 .. Enter a forward slash, that is, `/`, in the *Base path* field and click *Next*
 
 . When prompted with *Name connection*:
