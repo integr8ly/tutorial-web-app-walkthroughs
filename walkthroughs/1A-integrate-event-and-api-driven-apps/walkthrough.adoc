@@ -352,7 +352,7 @@ To use the Fuse connections, create an integration in Red Hat Fuse Online:
 
 . Choose *Incoming Order Queue Connection* as the *Start Connection*.
 
-. When prompted to *Choose an action*, select *Subscribe for messages*.
+. When prompted to *Choose an action*, select *Subscribe for messages* and click the *Select* button.
 
 . When prompted for a *Destination name*, enter:
 +
@@ -392,7 +392,7 @@ work-queue-requests
 
 . Choose *Order System REST API Connection* as the *Finish Connection*.
 
-. When prompted to *Choose an action*, select *Create an order*.
+. When prompted to *Choose an action*, select *Create an order* and click the *Select* button.
 
 . When prompted with *Configure the action* click *Next*.
 
