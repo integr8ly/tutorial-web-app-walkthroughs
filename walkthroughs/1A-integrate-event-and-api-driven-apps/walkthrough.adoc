@@ -208,7 +208,7 @@ Order System REST API Connector
 .. Click *Save*.
 
 [type=verification]
-Is the new connector "Order System REST API Connector" displayed on the *Customizations > API Client Connectors* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="{context}-2"] console?
+Is the new connector *Order System REST API Connector* displayed on the *Customizations > API Client Connectors* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="{context}-2"] console?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
