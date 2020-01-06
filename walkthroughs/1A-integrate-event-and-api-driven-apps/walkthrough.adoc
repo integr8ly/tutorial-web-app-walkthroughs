@@ -189,6 +189,7 @@ Starting this Solution Pattern provisioned an instance of Fuse Online which is n
 ----
 {route-orders-fuse-api-host}/openapi.json
 ----
+This OpenAPI (swagger) file defines the API for querying and creating orders in the underlying PostgreSQL database.
 
 .. Click *Next*.
 
@@ -207,7 +208,7 @@ Order System REST API Connector
 .. Click *Save*.
 
 [type=verification]
-Is the new connector displayed on the *Customizations > API Client Connectors* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="{context}-2"] console?
+Is the new connector *Order System REST API Connector* displayed on the *Customizations > API Client Connectors* screen of the link:{fuse-url}[Red Hat Fuse Online, window="_blank", id="{context}-2"] console?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
@@ -239,6 +240,8 @@ To enable Fuse Online to send messages from the queue to the Order Management Sy
 ----
 {route-orders-fuse-api-host}
 ----
+This is the location of the *rhmi-lab-internal-fuse-api* application that was created by the API Connector above
+
 .. Enter a forward slash, that is, `/`, in the *Base path* field and click *Next*
 
 . When prompted with *Name connection*:
@@ -349,7 +352,7 @@ To use the Fuse connections, create an integration in Red Hat Fuse Online:
 
 . Choose *Incoming Order Queue Connection* as the *Start Connection*.
 
-. When prompted to *Choose an action*, select *Subscribe for messages*.
+. When prompted to *Choose an action*, select *Subscribe for messages* and click the *Select* button.
 
 . When prompted for a *Destination name*, enter:
 +
@@ -389,7 +392,7 @@ work-queue-requests
 
 . Choose *Order System REST API Connection* as the *Finish Connection*.
 
-. When prompted to *Choose an action*, select *Create an order*.
+. When prompted to *Choose an action*, select *Create an order* and click the *Select* button.
 
 . When prompted with *Configure the action* click *Next*.
 
