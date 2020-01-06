@@ -79,7 +79,7 @@ The Fuse Aggregation App provides information about flights. You deploy it using
 
 . Click the blue down-arrow icon to continue.
 
-. Authorize your Github Account
+. If you are doing this for the first time, you must authorize your Github Account
 .. Click the *Log In & Authorize Account* button in the *Authorize Git Provider* step.
 .. This opens a Github OAuth page.
 .. Click the *Authorize <organisation/user>* button at the bottom.
@@ -109,11 +109,12 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 .Prerequisite
 The following URL must be available before attempting this procedure:
-[subs="attributes+"]
-----
-{route-fuse-flights-aggregator-host}
-----
-If a valid URL is not displayed, redo the previous procedure.
+
+link:{route-fuse-flights-aggregator-host}[route-fuse-flights-aggregator-host, window="_blank", id="{context}-3"]
+
+If this URL does not resolve to the *Red Hat Fuse Aggregation* app, redo the previous procedure.
+
+Next:
 
 . Navigate to the link:{route-fuse-flights-aggregator-host}/camel/flights[Flights Endpoint, window="_blank", id="{context}-3"].
 . Count the number of flights listed in the JSON output.
