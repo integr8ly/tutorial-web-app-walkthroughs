@@ -149,7 +149,6 @@ Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & De
 .. Select the checkbox beside the git repository named *{walkthrough-namespace}*. You may need to filter by account if you are a member of any Organizations.
 .. Click the *Add* button to add the repository to the workspace.
 .. Click the *Create & Open* button at the bottom.
-.. Click *Open in IDE*.
 +
 . Open the file at *src/main/java/com/redhat/fuse/boosters/rest/http/CamelRouter.java*.
 +
