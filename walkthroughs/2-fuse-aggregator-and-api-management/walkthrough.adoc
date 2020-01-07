@@ -166,10 +166,10 @@ Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & De
 .. Select the *Git* menu, then *Commit*.
 .. Ensure the *CamelRouter.java* file is checked.
 .. Enter a commit message of *Switch to remote services* in the input area.
-.. Check the box for *Push commited changes to* and ensure the branch is set to *master*.
+.. Check the box for *Push committed changes to* and ensure the branch is set to *origin/master*.
 .. Click the *Commit* button.
-.. A green notification *Pushed to Origin* is displayed.
-.. A new build is triggered in OpenShift and the new changes are rolled out to the Fuse Aggregation App.
+.. A green notification *Pushed to Origin* is displayed temporarily on screen.
+.. A new build is triggered in OpenShift and the new changes are rolled out to the Fuse Aggregation App.  You can check the progress of the build by viewing the link:{openshift-host}/console/project/{walkthrough-namespace}[OpenShift Project, window="_blank", id="{context}-2"]
 
 [type=verification]
 // TODO: flights api links to /camel/flights
