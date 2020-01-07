@@ -312,7 +312,7 @@ https://wt2-{user-sanitized-username}-3scale.{openshift-app-host}
 ****
 . Select the *Configuration* menu item from the *Integration* dropdown in the side navigation.
 
-. Click the *Promote to Staging* button.
+. Click the *Promote v. 1 to Staging* button.
 
 . Is the *Staging Environment* item in the *Environments* section now populated with information?
 ****
