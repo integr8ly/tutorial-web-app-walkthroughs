@@ -69,7 +69,7 @@ Select *Clients* in the side menu.
 Is the `order-entry-system` client listed and is the *Enabled* field set to `True`?
 
 [type=verificationFail]
-Verify that you followed each step in the procedure above. In the *Settings* tab on the *Client* page, the *Enabled* toggle should be set to *ON*. If you are still having issues, contact your administrator.
+Verify that you followed each step in the procedure above. In the *Settings* tab on the *Client* page, verify that the *Enabled* toggle is set to *ON*. If you are still having issues, contact your administrator.
 
 === Creating a User
 
