@@ -71,7 +71,7 @@ The Fuse Aggregation App provides information about flights. You deploy it using
 
 . Select the option to *Build and Deploy Online* in the *Target Environment* step.
 
-. Click the *Authorize* button to allow Launcher create resources in the OpenShift cluster. This triggers an OAuth flow and eventually redirects back to the {launcher-service} wizard.
+. If requested, click the *Authorize* button to allow Launcher create resources in the OpenShift cluster. This triggers an OAuth flow and eventually redirects back to the {launcher-service} wizard.
 
 . Click the blue down-arrow icon to continue.
 
@@ -79,7 +79,7 @@ The Fuse Aggregation App provides information about flights. You deploy it using
 
 . Click the blue down-arrow icon to continue.
 
-. Authorize your Github Account
+. If you are doing this for the first time, you must authorize your Github Account
 .. Click the *Log In & Authorize Account* button in the *Authorize Git Provider* step.
 .. This opens a Github OAuth page.
 .. Click the *Authorize <organisation/user>* button at the bottom.
@@ -109,11 +109,11 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 .Prerequisite
 The following URL must be available before attempting this procedure:
-[subs="attributes+"]
-----
-{route-fuse-flights-aggregator-host}
-----
-If a valid URL is not displayed, redo the previous procedure.
+
+link:{route-fuse-flights-aggregator-host}[route-fuse-flights-aggregator-host, window="_blank", id="{context}-3"]
+
+If this URL does not resolve to the *Red Hat Fuse Aggregation* app, redo the previous procedure.
+
 
 . Navigate to the link:{route-fuse-flights-aggregator-host}/camel/flights[Flights Endpoint, window="_blank", id="{context}-3"].
 . Count the number of flights listed in the JSON output.
@@ -148,7 +148,6 @@ Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & De
 .. Select the checkbox beside the git repository named *{walkthrough-namespace}*. You may need to filter by account if you are a member of any Organizations.
 .. Click the *Add* button to add the repository to the workspace.
 .. Click the *Create & Open* button at the bottom.
-.. Click *Open in IDE*.
 +
 . Open the file at *src/main/java/com/redhat/fuse/boosters/rest/http/CamelRouter.java*.
 +
@@ -166,10 +165,10 @@ Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & De
 .. Select the *Git* menu, then *Commit*.
 .. Ensure the *CamelRouter.java* file is checked.
 .. Enter a commit message of *Switch to remote services* in the input area.
-.. Check the box for *Push commited changes to* and ensure the branch is set to *master*.
+.. Check the box for *Push committed changes to* and ensure the branch is set to *origin/master*.
 .. Click the *Commit* button.
-.. A green notification *Pushed to Origin* is displayed.
-.. A new build is triggered in OpenShift and the new changes are rolled out to the Fuse Aggregation App.
+.. A green notification *Pushed to Origin* is displayed temporarily on screen.
+.. A new build is triggered in OpenShift and the new changes are rolled out to the Fuse Aggregation App.  You can check the progress of the build by viewing the link:{openshift-host}/console/project/{walkthrough-namespace}[OpenShift Project, window="_blank", id="{context}-2"]
 
 [type=verification]
 // TODO: flights api links to /camel/flights
@@ -312,7 +311,7 @@ https://wt2-{user-sanitized-username}-3scale.{openshift-app-host}
 ****
 . Select the *Configuration* menu item from the *Integration* dropdown in the side navigation.
 
-. Click the *Promote to Staging* button.
+. Click the *Promote v. 1 to Staging* button.
 
 . Is the *Staging Environment* item in the *Environments* section now populated with information?
 ****
