@@ -59,16 +59,16 @@ important details regarding the security applied to the application.
 . Details for the `walkthroughs` realm are displayed upon login success.
 . Select *Clients* from the menu on the left.
 . Click the *Create* button at the top of the list of clients to display the *Add Client* screen:
-.. Enter `order-entry-system` in the *Client ID* field.
+.. Enter `{user-username}` in the *Client ID* field.
 .. Verify *Client Protocol* is set to `openid-connect`.
 .. Paste the URL of the *Order Entry System UI* from the *Integrating message-oriented middleware with a RESTful API using AMQ Online* Solution Pattern in the *Root URL* field. This should look similar to `https://order-entry-ui-{user-username}-<NAMESPACE>.{openshift-app-host}`
 .. Click *Save*.
-. The *Settings* screen for the `order-entry-system` client should be displayed.
+. The *Settings* screen for the `{user-username}` client should be displayed.
 . Verify that the *Access Type* field is set to `public`. This means the client is a frontend application that needs to log in using a web browser.
 
 [type=verification]
 Select *Clients* in the side menu. 
-Is the `order-entry-system` client listed and is the *Enabled* field set to `True`?
+Is the `{user-username}` client listed and is the *Enabled* field set to `True`?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above. In the *Settings* tab on the *Client* page, verify that the *Enabled* toggle is set to *ON*. If you are still having issues, contact your administrator.
@@ -133,7 +133,7 @@ demonstrate how to include a configuration and enable the adapter.
 . Navigate to the link:{sso-realm-url}[SSO Realm, window="_blank"].
 . Enter the username `{user-username}` and password `password` if prompted. 
 . Select *Clients* from the side menu.
-. Click the `order-entry-system` client that was created earlier.
+. Click the `{user-username}` client that was created earlier.
 . Choose the *Installation* tab.
 . Select *Keycloak OIDC JSON* for *Format Option*.
 . Click the *Download* button to download this as a _keycloak.json_ file.
