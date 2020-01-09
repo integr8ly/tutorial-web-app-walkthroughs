@@ -2,7 +2,8 @@
 :sso-adapter-docs-url: https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.3/html/securing_applications_and_services_guide/index
 
 :rhmi-sso-name: Managed Integration SSO instance
-:customer-sso-name: End user SSO instance
+:customer-sso-name: Customer Application SSO instance
+:sso-realm-url: {user-sso-url}/auth/admin/walkthroughs/console/index.html
 
 = Protecting Applications using Red Hat Single Sign-On (SSO)
 
@@ -31,7 +32,7 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 [type=walkthroughResource,serviceName=3scale]
 .End user SSO instance
 ****
-* link:{sso-realm-url}[SSO Realm Console, window="_blank"]
+* link:{sso-realm-url}[Shared SSO Realm, window="_blank"]
 * link:https://access.redhat.com/products/red-hat-single-sign-on/[Red Hat Single Sign-On Overview, window="_blank"]
 ****
 
@@ -44,7 +45,8 @@ SSO uses *Realms* to manage *Clients*, *Roles*, *Users* and *Groups*. A
 user belongs to and logs into a realm. Realms are isolated from one another and
 can only manage and authenticate the users that they control.
 
-A realm has already been created for this Solution Pattern and user.
+NOTE: The `walkthroughs` realm used in this Solution Pattern is shared with all users on the cluster. Do not use this realm for sensitive applications.
+
 
 === Creating a Client
 
@@ -53,8 +55,8 @@ a *Realm*. The *Client* represents the application being secured and contains
 important details regarding the security applied to the application.
 
 . Navigate to the link:{sso-realm-url}[SSO Realm, window="_blank"].
-. Enter the username `{user-username}` and password `password` if prompted.
-. Details for the `{user-username}` realm are displayed upon login success.
+. Enter the username `walkthroughs` and password `password` if prompted.
+. Details for the `walkthroughs` realm are displayed upon login success.
 . Select *Clients* from the menu on the left.
 . Click the *Create* button at the top of the list of clients to display the *Add Client* screen:
 .. Enter `order-entry-system` in the *Client ID* field.
