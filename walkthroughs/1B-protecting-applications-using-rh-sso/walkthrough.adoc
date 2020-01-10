@@ -2,7 +2,9 @@
 :sso-adapter-docs-url: https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.3/html/securing_applications_and_services_guide/index
 
 :rhmi-sso-name: Managed Integration SSO instance
-:customer-sso-name: End user SSO instance
+:customer-sso-name: Customer Application SSO instance
+:sso-realm-url: {user-sso-url}/auth/admin/walkthroughs/console/index.html
+:client-name: {user-username}-order-entry-system
 
 = Protecting Applications using Red Hat Single Sign-On (SSO)
 
@@ -31,7 +33,7 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 [type=walkthroughResource,serviceName=3scale]
 .End user SSO instance
 ****
-* link:{sso-realm-url}[SSO Realm Console, window="_blank"]
+* link:{sso-realm-url}[Shared SSO Realm, window="_blank"]
 * link:https://access.redhat.com/products/red-hat-single-sign-on/[Red Hat Single Sign-On Overview, window="_blank"]
 ****
 
@@ -44,7 +46,8 @@ SSO uses *Realms* to manage *Clients*, *Roles*, *Users* and *Groups*. A
 user belongs to and logs into a realm. Realms are isolated from one another and
 can only manage and authenticate the users that they control.
 
-A realm has already been created for this Solution Pattern and user.
+NOTE: The `walkthroughs` realm used in this Solution Pattern is shared with all users on the cluster. Do not use this realm for production applications.
+
 
 === Creating a Client
 
@@ -53,20 +56,20 @@ a *Realm*. The *Client* represents the application being secured and contains
 important details regarding the security applied to the application.
 
 . Navigate to the link:{sso-realm-url}[SSO Realm, window="_blank"].
-. Enter the username `{user-username}` and password `password` if prompted.
-. Details for the `{user-username}` realm are displayed upon login success.
+. Enter the username `walkthroughs` and password `password` if prompted.
+. Details for the `walkthroughs` realm are displayed upon login success.
 . Select *Clients* from the menu on the left.
 . Click the *Create* button at the top of the list of clients to display the *Add Client* screen:
-.. Enter `order-entry-system` in the *Client ID* field.
+.. Enter `{client-name}` in the *Client ID* field.
 .. Verify *Client Protocol* is set to `openid-connect`.
 .. Paste the URL of the *Order Entry System UI* from the *Integrating message-oriented middleware with a RESTful API using AMQ Online* Solution Pattern in the *Root URL* field. This should look similar to `https://order-entry-ui-{user-username}-<NAMESPACE>.{openshift-app-host}`
 .. Click *Save*.
-. The *Settings* screen for the `order-entry-system` client should be displayed.
+. The *Settings* screen for the `{client-name}` client should be displayed.
 . Verify that the *Access Type* field is set to `public`. This means the client is a frontend application that needs to log in using a web browser.
 
 [type=verification]
 Select *Clients* in the side menu. 
-Is the `order-entry-system` client listed and is the *Enabled* field set to `True`?
+Is the `{client-name}` client listed and is the *Enabled* field set to `True`?
 
 [type=verificationFail]
 Verify that you followed each step in the procedure above. In the *Settings* tab on the *Client* page, verify that the *Enabled* toggle is set to *ON*. If you are still having issues, contact your administrator.
@@ -131,7 +134,7 @@ demonstrate how to include a configuration and enable the adapter.
 . Navigate to the link:{sso-realm-url}[SSO Realm, window="_blank"].
 . Enter the username `{user-username}` and password `password` if prompted. 
 . Select *Clients* from the side menu.
-. Click the `order-entry-system` client that was created earlier.
+. Click the `{client-name}` client that was created earlier.
 . Choose the *Installation* tab.
 . Select *Keycloak OIDC JSON* for *Format Option*.
 . Click the *Download* button to download this as a _keycloak.json_ file.
@@ -165,7 +168,7 @@ demonstrate how to include a configuration and enable the adapter.
 +
 NOTE: Use a private session or different browser to avoid conflict with old sessions.
 
-. A login screen with the title *{user-username} Realm* is displayed.
+. A login screen with the title *walkthroughs Realm* is displayed.
 . Enter `customer` in the *Username or email*.
 . Enter `customer-password` in the *Password* field.
 . Click the *Log In* button.
