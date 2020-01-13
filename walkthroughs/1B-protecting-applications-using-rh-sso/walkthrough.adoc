@@ -5,6 +5,7 @@
 :customer-sso-name: Customer Application SSO instance
 :sso-realm-url: {user-sso-url}/auth/admin/walkthroughs/console/index.html
 :client-name: {user-username}-order-entry-system
+:shared-realm-username: walkthroughs
 
 = Protecting Applications using Red Hat Single Sign-On (SSO)
 
@@ -88,7 +89,7 @@ In this Solution Pattern a *User* will be created manually to keep things
 simple.
 
 . Navigate to the link:{sso-realm-url}[SSO Realm, window="_blank"].
-. Enter the username `{user-username}` and password `password` if prompted.
+. Enter the username `{shared-realm-username}` and password `password` if prompted.
 . Select the *Users* entry in the side menu.
 . Click *Add user*.
 .. Enter the username `customer`.
@@ -132,7 +133,7 @@ demonstrate how to include a configuration and enable the adapter.
 
 
 . Navigate to the link:{sso-realm-url}[SSO Realm, window="_blank"].
-. Enter the username `{user-username}` and password `password` if prompted. 
+. Enter the username `{shared-realm-username}` and password `password` if prompted. 
 . Select *Clients* from the side menu.
 . Click the `{client-name}` client that was created earlier.
 . Choose the *Installation* tab.
