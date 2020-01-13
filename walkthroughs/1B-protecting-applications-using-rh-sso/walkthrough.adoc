@@ -73,8 +73,7 @@ Verify that you followed each step in the procedure above and that the *Enabled*
 
 === Creating a User
 
-Red Hat Single Sign-On provides identity brokering functionality. Identity
-brokering facilitates login using a shared identity. For example, it's possible
+Red Hat Single Sign-On provides identity brokering functionality, which facilitates login using a shared identity. For example, it is possible
 to create an *Identity Provider* in a *Realm* in SSO to enable login
 using social identities such as Google, Twitter, or GitHub. When the user
 chooses to login using an *Identity Provider* a *User* is automatically created
