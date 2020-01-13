@@ -77,8 +77,7 @@ Verify that you followed each step in the procedure above. In the *Settings* tab
 
 === Creating a User
 
-Red Hat Single Sign-On provides identity brokering functionality. Identity
-brokering facilitates login using a shared identity. For example, it's possible
+Red Hat Single Sign-On provides identity brokering functionality, which facilitates login using a shared identity. For example, it is possible
 to create an *Identity Provider* in a *Realm* in SSO to enable login
 using social identities such as Google, Twitter, or GitHub. When the user
 chooses to login using an *Identity Provider* a *User* is automatically created
@@ -158,10 +157,10 @@ demonstrate how to include a configuration and enable the adapter.
 . Select *Applications > Deployments*.
 . Select the *rhmi-lab-nodejs-order-frontend* item from the *Deployments* list.
 . Select the *Environment* tab.
-.. Click the *Add Value from Config Map or Secret*
+.. Click *Add Value from Config Map or Secret*
 .. Enter `KEYCLOAK_CONFIG` in the *Name* column.
 .. Choose `order-entry-keycloak-config` from the *Select a resource* dropdown.
-.. Choose the `KEYCLOAK_CONFIG` in the *Select key* dropdown. 
+.. Choose *KEYCLOAK_CONFIG* from the *Select key* menu. 
 . Scroll down and click *Save*.
 . Select *Overview* on the left and find the *rhmi-lab-nodejs-order-frontend* in the list.
 . If a deployment is still in progress, wait for it to finish.
