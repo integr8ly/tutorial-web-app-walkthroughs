@@ -156,7 +156,7 @@ demonstrate how to include a configuration and enable the adapter.
 .. Click *Add Value from Config Map or Secret*
 .. Enter `KEYCLOAK_CONFIG` in the *Name* column.
 .. Choose `order-entry-keycloak-config` from the *Select a resource* dropdown.
-.. Choose `KEYCLOAK_CONFIG` in the *Select key* dropdown. 
+.. Choose *KEYCLOAK_CONFIG* from the *Select key* menu. 
 . Scroll down and click *Save*.
 . Select *Overview* on the left and find the *rhmi-lab-nodejs-order-frontend* in the list.
 . If a deployment is still in progress, wait for it to finish.
