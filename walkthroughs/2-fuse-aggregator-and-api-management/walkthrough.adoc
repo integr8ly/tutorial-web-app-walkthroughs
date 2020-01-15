@@ -115,7 +115,7 @@ link:{route-fuse-flights-aggregator-host}[route-fuse-flights-aggregator-host, wi
 If this URL does not resolve to the *Red Hat Fuse Aggregation* app, redo the previous procedure.
 
 
-. Navigate to the link:{route-fuse-flights-aggregator-host}/camel/flights[Flights Endpoint, window="_blank", id="{context}-3"].
+. Navigate to the link:{route-fuse-flights-aggregator-host}/camel/flights[Flights Endpoint, window="_blank", id="{context}-4"].
 . Count the number of flights listed in the JSON output.
 
 [type=verification]
