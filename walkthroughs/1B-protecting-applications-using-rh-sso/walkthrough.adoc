@@ -1,5 +1,6 @@
+:sso-version: 7.3
 :sso-realm-url: {user-sso-url}/auth/admin/{user-username}/console/index.html
-:sso-adapter-docs-url: https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.3/html/securing_applications_and_services_guide/index
+:sso-adapter-docs-url: https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/{sso-version}/html/securing_applications_and_services_guide/index
 
 :rhmi-sso-name: Managed Integration SSO instance
 :customer-sso-name: Customer Application SSO instance
