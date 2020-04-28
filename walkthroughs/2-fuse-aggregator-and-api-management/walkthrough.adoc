@@ -156,12 +156,10 @@ Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & De
 
 . Open the file at *src/main/java/com/redhat/fuse/boosters/rest/http/CamelRouter.java*.
 
-// TODO: explain what the app is doing and why we're modifying it
-
 . Comment out the routing code that talks to local java services.
 .. Navigate to the section of the file with a comment of `// COMMENT OUT THIS`.
 .. Comment out the line of code below this using double slashes *//*.
-+
+
 . Uncomment the routing code that talks to remote services.
 .. Navigate to the section of the file with a comment of `// UNCOMMENT THIS`.
 .. Uncomment the line of code below this by removing the double slashes.
