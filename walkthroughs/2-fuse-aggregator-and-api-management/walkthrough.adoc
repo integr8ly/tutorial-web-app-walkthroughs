@@ -185,6 +185,13 @@ The `CamelRouter.java` file should be listed in the *SOURCE CONTROL* pane.
 
 .. Choose *Push* from the *More Actions* (...) menu to push the commit to the GitHub repository.
 
+.. If prompted with a locale warning, click *close*. This warning can be safely ignored.
+
+.. When prompted, enter your GitHub username and password.
++
+If you use two factor authenication, you must use a personal access token for your password.
+See the link:https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line[GitHub documentation] for more information about personal access tokens.
+
 .. A new build is triggered in OpenShift and the new changes are rolled out to the Fuse Aggregation App.  You can check the progress of the build by viewing the link:{openshift-host}/console/project/{walkthrough-namespace}[OpenShift Project, window="_blank", id="{context}-2"]
 
 [type=verification]
