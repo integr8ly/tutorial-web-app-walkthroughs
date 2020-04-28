@@ -42,7 +42,7 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 ****
 * link:{che-url}[Console, window="_blank"]
 * link:https://developers.redhat.com/products/codeready-workspaces/overview/[{code-ready-service} Overview, window="_blank"]
-* link:https://access.redhat.com/documentation/en-us/red_hat_codeready_workspaces/1.2/[{code-ready-service} Documentation, window="_blank"]
+* link:https://access.redhat.com/documentation/en-us/red_hat_codeready_workspaces/2.0/[{code-ready-service} Documentation, window="_blank"]
 ****
 
 [type=walkthroughResource,serviceName=3scale]
@@ -141,18 +141,23 @@ Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & De
 . Log in to the link:{che-url}[{code-ready-service}, window="_blank", id="{context}-4"] Dashboard
 
 . The *New Workspace* page is displayed. Create a new Workspace:
-.. Use the *Java 1.8* stack.
+.. Use the *Java EAP Maven* stack.
+.. Click *Remove* to remove the default *kitchensink-example*.
 .. Click the *Add or Import Project* button.
 .. Click the *Github* tab.
 .. Click the *Connect your Github Account* button.
 .. Select the checkbox beside the git repository named *{walkthrough-namespace}*. You may need to filter by account if you are a member of any Organizations.
 .. Click the *Add* button to add the repository to the workspace.
 .. Click the *Create & Open* button at the bottom.
-+
+
+. Click the *Explorer* icon in the top of the left pane to display the file explorer.
+
+. Expand the Fuse flights aggregator project.
+
 . Open the file at *src/main/java/com/redhat/fuse/boosters/rest/http/CamelRouter.java*.
-+
+
 // TODO: explain what the app is doing and why we're modifying it
-+
+
 . Comment out the routing code that talks to local java services.
 .. Navigate to the section of the file with a comment of `// COMMENT OUT THIS`.
 .. Comment out the line of code below this using double slashes *//*.
@@ -166,8 +171,20 @@ Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & De
 .. Ensure the *CamelRouter.java* file is checked.
 .. Enter a commit message of *Switch to remote services* in the input area.
 .. Check the box for *Push committed changes to* and ensure the branch is set to *origin/master*.
-.. Click the *Commit* button.
-.. A green notification *Pushed to Origin* is displayed temporarily on screen.
+
+. Commit and push the changes back to the repository:
+.. Select *SCM* from the *View* menu.
++
+The `CamelRouter.java` file should be listed in the *SOURCE CONTROL* pane.
+
+.. Click the plus icon (+) beside the filename to stage the changed file.
+
+.. Enter `Switch to remote services` in the *Message* field.
+
+.. Choose *Commit Staged* from the *More Actions* (...) menu to commit.
+
+.. Choose *Push* from the *More Actions* (...) menu to push the commit to the GitHub repository.
+
 .. A new build is triggered in OpenShift and the new changes are rolled out to the Fuse Aggregation App.  You can check the progress of the build by viewing the link:{openshift-host}/console/project/{walkthrough-namespace}[OpenShift Project, window="_blank", id="{context}-2"]
 
 [type=verification]
