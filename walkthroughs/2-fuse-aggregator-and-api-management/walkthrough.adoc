@@ -217,10 +217,11 @@ Verify that you followed each step in the procedure above.  If you are still hav
 . Click the *Red Hat Single Sign On* option. This triggers an OAuth Flow and redirects you back to the {3Scale-ProductName} Dashboard.
 
 [type=verification]
-Can you see the {3Scale-ProductName} Dashboard and navigate the main menu?
+Can you see the {3Scale-ProductName} Dashboard and see the *NEW PRODUCT* button?
 
 [type=verificationFail]
-Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+Verify that you followed each step in the procedure above.  
+If you see the dashboard but not the *NEW PRODUCT* button, contact your administrator asking for Admin rights in 3scale as described in the link:https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.8/html-single/admin_portal_guide/index#inviting-users-managing-rights[3scale documentation].
 
 === Adding the Fuse Aggregation App Backend to Red Hat 3scale
 
@@ -347,7 +348,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 [type=taskResource]
 .Task Resources
 ****
-* https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.6/html-single/admin_portal_guide/index#access_control[Access Control, window="_blank"]
+* https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.8/html-single/admin_portal_guide/index#inviting-users-managing-rights[Managing rights, window="_blank"]
 ****
 
 
