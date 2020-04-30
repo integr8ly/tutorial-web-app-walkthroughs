@@ -335,7 +335,7 @@ https://wt2-{user-sanitized-username}-3scale.{openshift-app-host}
 
 . Click the *Promote v. 1 to Staging* button.
 
-. Is the *Staging Environment* item in the *Environments* section now populated with information?
+. Is the *Staging API Cast* section updated?
 ****
 
 [type=verificationFail]
