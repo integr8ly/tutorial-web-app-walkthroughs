@@ -156,21 +156,14 @@ Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & De
 
 . Open the file at *src/main/java/com/redhat/fuse/boosters/rest/http/CamelRouter.java*.
 
-// TODO: explain what the app is doing and why we're modifying it
-
 . Comment out the routing code that talks to local java services.
 .. Navigate to the section of the file with a comment of `// COMMENT OUT THIS`.
 .. Comment out the line of code below this using double slashes *//*.
-+
+
 . Uncomment the routing code that talks to remote services.
 .. Navigate to the section of the file with a comment of `// UNCOMMENT THIS`.
 .. Uncomment the line of code below this by removing the double slashes.
 
-. Commit and push the changes back to the repository:
-.. Select the *Git* menu, then *Commit*.
-.. Ensure the *CamelRouter.java* file is checked.
-.. Enter a commit message of *Switch to remote services* in the input area.
-.. Check the box for *Push committed changes to* and ensure the branch is set to *origin/master*.
 
 . Commit and push the changes back to the repository:
 .. Select *SCM* from the *View* menu.
@@ -184,6 +177,13 @@ The `CamelRouter.java` file should be listed in the *SOURCE CONTROL* pane.
 .. Choose *Commit Staged* from the *More Actions* (...) menu to commit.
 
 .. Choose *Push* from the *More Actions* (...) menu to push the commit to the GitHub repository.
+
+.. If prompted with a locale warning, click *close*. This warning can be safely ignored.
+
+.. When prompted, enter your GitHub username and password.
++
+If you use two factor authenication, you must use a personal access token for your password.
+See the link:https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line[GitHub documentation] for more information about personal access tokens.
 
 .. A new build is triggered in OpenShift and the new changes are rolled out to the Fuse Aggregation App.  You can check the progress of the build by viewing the link:{openshift-host}/console/project/{walkthrough-namespace}[OpenShift Project, window="_blank", id="{context}-2"]
 
@@ -212,10 +212,14 @@ Verify that you followed each step in the procedure above.  If you are still hav
 . Click the *Red Hat Single Sign On* option. This triggers an OAuth Flow and redirects you back to the {3Scale-ProductName} Dashboard.
 
 [type=verification]
-Can you see the {3Scale-ProductName} Dashboard and navigate the main menu?
+Can you see the {3Scale-ProductName} Dashboard and see the *NEW PRODUCT* button?
 
 [type=verificationFail]
-Verify that you followed each step in the procedure above.  If you are still having issues, contact your administrator.
+****
+Verify that you followed each step in the procedure above.  
+If you see the dashboard but not the *NEW PRODUCT* button, contact your administrator asking for Admin rights in 3scale as described in the link:https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.8/html-single/admin_portal_guide/index#inviting-users-managing-rights[3scale documentation].
+****
+
 
 === Adding the Fuse Aggregation App Backend to Red Hat 3scale
 
@@ -287,17 +291,18 @@ https://wt2-{user-sanitized-username}-3scale.{openshift-app-host}
 {fuse-flights-aggregator-app-name}
 ----
 .. Leave the other fields with their default values.
-.. Select *Create Application Plan*. You will be redirected to the *Application Plans* screen.
-.. Select the *Publish* button, beside your plan list item, to publish the Plan.
+.. Click *Create Application Plan*. You will be redirected to the *Application Plans* screen.
+.. Click *Publish*, beside your plan list item, to publish the Plan.
 
 . Select the *{fuse-flights-aggregator-app-name}* plan in the list to return to the edit screen.
 
 . Set a limit of 5 calls per hour:
-.. From the *Metrics, Methods, Limits & Pricing Rules* section, click the *Limits (0)* button.
-.. Click the *New usage limit* button.
+.. From the *Metrics, Methods, Limits & Pricing Rules* section, click *Limits (0)*.
+.. Click *New usage limit*.
 .. Set the *Period* to *hour*.
 .. Set the *Max. value* to *5*.
 .. Click *Create usage limit*.
+.. Click *Update Application Plan*.
 
 . Create a new *Application* for the *Developer* Group, assigned to the Plan:
 .. Select *Audience* from the top navigation bar dropdown.
@@ -330,7 +335,7 @@ https://wt2-{user-sanitized-username}-3scale.{openshift-app-host}
 
 . Click the *Promote v. 1 to Staging* button.
 
-. Is the *Staging Environment* item in the *Environments* section now populated with information?
+. Is the *Staging API Cast* section updated?
 ****
 
 [type=verificationFail]
@@ -342,7 +347,7 @@ Verify that you followed each step in the procedure above.  If you are still hav
 [type=taskResource]
 .Task Resources
 ****
-* https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.6/html-single/admin_portal_guide/index#access_control[Access Control, window="_blank"]
+* https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.8/html-single/admin_portal_guide/index#inviting-users-managing-rights[Managing rights, window="_blank"]
 ****
 
 
