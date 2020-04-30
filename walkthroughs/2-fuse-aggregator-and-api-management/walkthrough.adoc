@@ -164,11 +164,6 @@ Modify the Fuse Aggregation App to aggregate flights data from the Arrivals & De
 .. Navigate to the section of the file with a comment of `// UNCOMMENT THIS`.
 .. Uncomment the line of code below this by removing the double slashes.
 
-. Commit and push the changes back to the repository:
-.. Select the *Git* menu, then *Commit*.
-.. Ensure the *CamelRouter.java* file is checked.
-.. Enter a commit message of *Switch to remote services* in the input area.
-.. Check the box for *Push committed changes to* and ensure the branch is set to *origin/master*.
 
 . Commit and push the changes back to the repository:
 .. Select *SCM* from the *View* menu.
@@ -220,8 +215,11 @@ Verify that you followed each step in the procedure above.  If you are still hav
 Can you see the {3Scale-ProductName} Dashboard and see the *NEW PRODUCT* button?
 
 [type=verificationFail]
+****
 Verify that you followed each step in the procedure above.  
 If you see the dashboard but not the *NEW PRODUCT* button, contact your administrator asking for Admin rights in 3scale as described in the link:https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.8/html-single/admin_portal_guide/index#inviting-users-managing-rights[3scale documentation].
+****
+
 
 === Adding the Fuse Aggregation App Backend to Red Hat 3scale
 
@@ -293,17 +291,18 @@ https://wt2-{user-sanitized-username}-3scale.{openshift-app-host}
 {fuse-flights-aggregator-app-name}
 ----
 .. Leave the other fields with their default values.
-.. Select *Create Application Plan*. You will be redirected to the *Application Plans* screen.
-.. Select the *Publish* button, beside your plan list item, to publish the Plan.
+.. Click *Create Application Plan*. You will be redirected to the *Application Plans* screen.
+.. Click *Publish*, beside your plan list item, to publish the Plan.
 
 . Select the *{fuse-flights-aggregator-app-name}* plan in the list to return to the edit screen.
 
 . Set a limit of 5 calls per hour:
-.. From the *Metrics, Methods, Limits & Pricing Rules* section, click the *Limits (0)* button.
-.. Click the *New usage limit* button.
+.. From the *Metrics, Methods, Limits & Pricing Rules* section, click *Limits (0)*.
+.. Click *New usage limit*.
 .. Set the *Period* to *hour*.
 .. Set the *Max. value* to *5*.
 .. Click *Create usage limit*.
+.. Click *Update Application Plan*.
 
 . Create a new *Application* for the *Developer* Group, assigned to the Plan:
 .. Select *Audience* from the top navigation bar dropdown.
