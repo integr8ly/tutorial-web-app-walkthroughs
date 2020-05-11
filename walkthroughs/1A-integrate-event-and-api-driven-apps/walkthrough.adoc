@@ -74,19 +74,23 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 To route messages from the Order Entry System to the Order Management System, create an address in AMQ Online.
 
 . Log into link:{enmasse-url}[AMQ Online, window="_blank", id="{context}-1"].
-. Select *Addresses* from the left hand menu.
+
+. Navigate to the *{project-namespace}* address space
+
+
 
 . Create a *requests* address:
-.. Select the *Create* button to start the *Create new address* wizard.
+.. Select the *Addresses* tab.
+.. Click the  *Create Address* button to start the *Create new address* wizard.
 .. Enter the following as the name:
 +
 [subs="attributes+"]
 ----
 work-queue-requests
 ----
-.. Select *queue* as the type and click *Next*.
+.. Select *queue* as the type.
 .. Select *Small Queue* as the address plan and click *Next*.
-.. Select *Create* to complete the wizard.
+.. Select *Finish* to complete the wizard.
 
 . Monitor the AMQ Online console until a green check mark is displayed beside the new address.
 Creating an address may take some time.
