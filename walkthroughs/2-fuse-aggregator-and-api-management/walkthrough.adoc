@@ -34,7 +34,7 @@ image::images/arch.png[integration, role="integr8ly-img-responsive"]
 ****
 * link:{launcher-url}[Console, window="_blank"]
 * link:https://developers.redhat.com/products/openshiftio/overview/[Launcher Overview, window="_blank"]
-* link:https://launcher.fabric8.io/docs/[Launcher Documentation, window="_blank"]
+* link:https://appdev.openshift.io/docs/[Launcher Documentation, window="_blank"]
 ****
 
 [type=walkthroughResource,serviceName=codeready]
