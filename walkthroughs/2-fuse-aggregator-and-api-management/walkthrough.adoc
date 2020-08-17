@@ -307,7 +307,7 @@ https://wt2-{user-sanitized-username}-3scale.{openshift-app-host}
 . Create a new *Application* for the *Developer* Group, assigned to the Plan:
 .. Select *Audience* from the top navigation bar dropdown.
 .. Select the *Developer* Account to open the *Account Summary* page.
-.. Select the *(num) Application* item from the breadcrumb to view Applications.
+.. Select the *(1) Application* item from the breadcrumb to view Applications.
 .. Click the *Create Application* button in the top right.
 .. Select the *{fuse-flights-aggregator-app-name}* Plan in the *Application plan* dropdown.
 .. Enter the following for *Name* and *Description*:
@@ -577,7 +577,8 @@ Verify that you followed each step in the procedure above.  If you are still hav
 
 === Monitoring the API Service
 
-. Select the *Analytics > Usage* from the sidemenu
+. Select the *Analytics > Traffic* from the side menu
+. Make sure the *Hits (hits)* metric is selected in the dropdown
 
 [type=verification]
 Do the analytics charts show the service requests?
