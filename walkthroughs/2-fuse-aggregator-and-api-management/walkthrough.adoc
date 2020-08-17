@@ -4,7 +4,7 @@
 :launcher-service: Launcher
 :api-mgmt-service: 3Scale
 :3Scale-ProductName: Red Hat 3scale
-:fuse-flights-aggregator-app-name: fuse-flights-aggregator-{user-sanitized-username}
+:fuse-flights-aggregator-app-name: flights-{user-sanitized-username}
 
 = Managing and protecting APIs using API management
 
