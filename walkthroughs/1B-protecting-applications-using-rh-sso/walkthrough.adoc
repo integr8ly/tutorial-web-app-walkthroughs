@@ -96,13 +96,13 @@ simple.
 .. Leave other fields with their default values and click *Save*.
 . The `customer` user details should now be displayed with tabs along the top of the UI.
 . Select the *Credentials* tab.
-.. Enter the password `customer-password` in the *New Password* field.
+.. Enter the password `customer-password` in the *Password* field.
 .. Enter the same password in the *Password Confirmation* field.
 .. Set the *Temporary* toggle to the *OFF* position.
 +
 NOTE: If we left *Temporary* in the *ON* position the user would be forced to create a new password when they perform a login.
-.. Click the *Reset Password* button.
-.. When prompted click the *Change password* button in the modal.
+.. Click the *Set Password* button.
+.. When prompted click the *Set password* button in the modal.
 
 [type=verification]
 Select the *Users* item in the side menu. Click the *View all users* button. Is the `customer` user listed?
