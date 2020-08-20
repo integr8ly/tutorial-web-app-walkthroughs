@@ -237,7 +237,7 @@ If you see the dashboard but not the *NEW PRODUCT* button, contact your administ
 
 . Leave the *Description* field empty.
 // The 'fuse-aggregation-app-url' should be the url of the Fuse Aggregation App e.g. https://fuse-flights-aggregator-ak49.cluster-lfa3xlh.opentry.me/
-. In the *Private endpoint* field, enter:
+. In the *Private Base URL* field, enter:
 +
 [subs="attributes+"]
 ----
@@ -333,7 +333,7 @@ https://wt2-{user-sanitized-username}-3scale.{openshift-app-host}
 ****
 . Select the *Configuration* menu item from the *Integration* dropdown in the side navigation.
 
-. Click the *Promote v. 1 to Staging* button.
+. Click the *Promote v. 1 to Staging APIcast* button.
 
 . Is the *Staging API Cast* section updated?
 ****
